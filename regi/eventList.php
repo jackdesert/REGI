@@ -7,8 +7,8 @@
 <meta name="Generator" content="Microsoft FrontPage 5.0" />
 <meta name="robots" content="index, follow" />
 <base href="." />
-	<link rel="shortcut icon" href="http://www.hbbostonamc.org/images/favicon.ico" />
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="shortcut icon" href="http://www.hbbostonamc.org/images/favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link href="http://www.hbbostonamc.org/templates/amctemplate/template_css/template_css.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -80,6 +80,6 @@
 <hr/></div>
 
 
-		</div>
-	</body>
+        </div>
+    </body>
 </html>
