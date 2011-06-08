@@ -238,7 +238,10 @@
 -->
 
 <h2>Program Info</h2>
-
+<?php  //Set one button to be checked by default
+    if ($event_is_programN + $event_is_programY + $event_is_programP == "")
+        $event_is_programN = "checked";
+?>
 
 <input type="radio" name="event_is_program" value="N" <?php print $event_is_programN; ?> >This is a STANDALONE EVENT<br>
 
