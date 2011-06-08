@@ -220,11 +220,22 @@
 <span style="font-weight: bold">Participant Info:</span> (Visible only for APPROVED participants, Directions to trailhead, etc).
 <textarea name='trip_info' rows=8 cols=100><?php print $trip_info; ?></textarea><br><br>
 
-<span style="font-weight: bold">Trip Question 1:</span> (additional question for registrants)<br>
-<input type='text' name='question1' value='<?php print $question1; ?>' size=80><br><br>
+<p>Two questions are automatically asked of participants upon registering. They are: </p>
 
-<span style="font-weight: bold">Trip Question 2:</span> (additional question for registrants)<br>
+<span style="font-weight: bold"><?php print "\"$SET_QUESTION_1;\"" ?></span>
+<p>and</p>
+<span style="font-weight: bold"><?php print "\"$SET_QUESTION_2\""; ?></span>
+
+
+
+<p>If you would like to ask additional questions, list them here:</p>
+
+<span style="font-weight: bold">Additional Trip Question </span>(Optional)<br>
+<input type='text' name='question1' value='<?php print $question1; ?>' size=80><br><br>
+<!-- Do Not Display Second Question
+<span style="font-weight: bold">Additional Trip Question 2 (Optional)</span><br>
 <input type='text' name='question2' value='<?php print $question2; ?>' size=80><br><br>
+-->
 
 <h2>Program Info</h2>
 
