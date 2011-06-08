@@ -240,15 +240,14 @@
 <h2>Program Info</h2>
 
 
+<input type="radio" name="event_is_program" value="N" <?php print $event_is_programN; ?> >This is a STANDALONE EVENT<br>
 
-<input type="radio" name="event_is_program" value="Y" <?php print $event_is_programY; ?> >This event is a program<br>
+<input type="radio" name="event_is_program" value="Y" <?php print $event_is_programY; ?> >This is a PROGRAM<br>
 
-<input type="radio" name="event_is_program" value="P" <?php print $event_is_programP; ?> >This event is part of a program. The Program ID is
+<input type="radio" name="event_is_program" value="P" <?php print $event_is_programP; ?> >This event is PART OF A PROGRAM. The Program ID is
 <input type='text' name='program_id' value='<?php print $program_id; ?>' size=10><?php print $program_name; ?><br>
 <i style="color: #096">Note: Please contact the program leader for the Event ID of the program. If this event is not part of a program, leave blank or enter '0'</i>
 <br>
-
-<input type="radio" name="event_is_program" value="N" <?php print $event_is_programN; ?> >This event is not a program or part of a program
 
 
 <!--
