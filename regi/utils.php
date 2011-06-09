@@ -70,7 +70,7 @@
             exit();
         }
         mysql_select_db("$SET_DB_NAME", $dbconn);
-        $query = "set sql_mode = '';";
+        $query = "set sql_mode = 'traditional';";
         $result = mysql_query($query);
         //Complain about any errors that just happened.
         //We REALLY want that query to go through, otherwise we have no way of enforcing proper date format.
