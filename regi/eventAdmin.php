@@ -79,7 +79,7 @@
     $description='';
     $gear_list='';
     $trip_info='';
-    $confirmation_page='Thank you for registering. A trip leader will contact you within a week';
+    $confirmation_page='Thank you for registering. A trip leader will be in contact with you soon regarding your participation in this event.';
     $question1='';
     $question2='';
 
@@ -213,8 +213,8 @@
 <span style="font-weight: bold">Gear List</span> (if no gear necessary, please type: "No gear necessary"):
 <textarea name='gear_list' rows=8 cols=100><?php print $gear_list; ?></textarea><br><br>
 
-<span style="font-weight: bold">Confirmation Page:</span> (Displayed following user registration, Include payment instructions or PayPal link if using PayPal.
-<?php if ($event_id <> '') print " <a href='./confirmationPage.php?event_id=$event_id'>Preview Page</a>"; ?>
+<span style="font-weight: bold">Confirmation Page:</span> (This information will be displayed once a user registers for this event.)
+<?php if ($event_id <> '') print "<br>Click here to <a href='./confirmationPage.php?event_id=$event_id'><big>Preview</big></a> the confirmation page."; ?>
 <textarea name='confirmation_page' rows=8 cols=100><?php print $confirmation_page; ?></textarea><br><br>
 
 <span style="font-weight: bold">Participant Info:</span> (Visible only for APPROVED participants, Directions to trailhead, etc).
