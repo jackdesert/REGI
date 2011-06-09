@@ -222,10 +222,10 @@
 
 <p>Two questions are automatically asked of participants upon registering. They are: </p>
 
-<span style="font-weight: bold"><?php print "\"$SET_QUESTION_1;\"" ?></span>
-<p>and</p>
-<span style="font-weight: bold"><?php print "\"$SET_QUESTION_2\""; ?></span>
-
+<ol>
+<li><span style="font-weight: bold"><?php print "\"$SET_QUESTION_1\""; ?></span></li>
+<li><span style="font-weight: bold"><?php print "\"$SET_QUESTION_2\""; ?></span></li>
+</ol>
 
 
 <p>If you would like to ask additional questions, list them here:</p>
