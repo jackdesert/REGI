@@ -75,7 +75,7 @@
                 FROM events, user_events
                 WHERE events.event_id=user_events.event_id
                 AND user_events.user_id=$my_user_id
-                ORDER BY register_date DESC
+                ORDER BY register_status ASC
                 LIMIT 30;";
 
         $result = mysql_query($query);
