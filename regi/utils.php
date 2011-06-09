@@ -70,6 +70,10 @@
             exit();
         }
         mysql_select_db("$SET_DB_NAME", $dbconn);
+        $query = "set sql_mode = '';";
+        $result = mysql_query($query);
+        if (mysql_error($dbconn))
+            UTILdberror($query);
         return 1;
     }
 
