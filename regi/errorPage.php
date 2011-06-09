@@ -58,7 +58,8 @@
 
     <br><br>
     <br><br>
-    Please return to <a href="http://www.hbbostonamc.org/trips.php">Trip Listings</a> or <a href="./login.php">Login page</a>.
+    If any of the above makes sense to you, click the back button in your browser and try again. <br><br>
+    Otherwise, please return to <a href="http://www.hbbostonamc.org/trips.php">Trip Listings</a> or <a href="./login.php">Login page</a>.
     <br><br>
 
 </div>   <!-- outerframe -->
