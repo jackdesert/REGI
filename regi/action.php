@@ -540,6 +540,8 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $question1= UTILclean($_POST["question1"], 200, '');
             $question2= UTILclean($_POST["question2"], 200, '');
             $payment_method=$_POST["payment_method"];
+            $start_date=$_POST["start_date"];
+            $end_date=$_POST["end_date"];
 
             //$start_date= UTILclean($_POST["start_date"], 20, '');
             //$end_date= UTILclean($_POST["end_date"], 20, '');
@@ -549,10 +551,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $query = "insert into events (event_name, event_status, event_is_program,
                 program_id, description, gear_list, trip_info, confirmation_page,
-                question1, question2, payment_method) values
+                question1, question2, payment_method, start_date, end_date) values
                 ('$event_name', '$event_status', '$event_is_program', $program_id, '$description',
                 '$gear_list', '$trip_info', '$confirmation_page', '$question1', '$question2',
-                '$payment_method');";
+                '$payment_method', '$start_date', '$end_date' );";
 
             $result = mysql_query($query);
 
@@ -595,6 +597,8 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $question1= UTILclean($_POST["question1"], 200, '');
             $question2= UTILclean($_POST["question2"], 200, '');
             $payment_method=$_POST["payment_method"];
+            $start_date=$_POST["start_date"];
+            $end_date=$_POST["end_date"];
 
             if ($program_id=='')
                 $program_id='-1';
@@ -602,7 +606,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $query = "update events set event_name='$event_name', event_status='$event_status', event_is_program='$event_is_program',
                 program_id=$program_id, description='$description', gear_list='$gear_list',
                 trip_info='$trip_info', confirmation_page='$confirmation_page', question1='$question1', question2='$question2',
-                payment_method='$payment_method'
+                payment_method='$payment_method', start_date='$start_date', end_date='$end_date'
                 WHERE event_id=$event_id;";
 
             $result = mysql_query($query);

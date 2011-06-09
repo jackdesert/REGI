@@ -111,7 +111,7 @@
         // Get event summary info
         //
 
-        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, question2
+        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, question2, start_date, end_date
                 FROM events
                 WHERE event_id=$event_id;";
 
@@ -134,6 +134,8 @@
             $confirmation_page=$row['confirmation_page'];
             $question1=$row['question1'];
             $question2=$row['question2'];
+            $start_date=$row['start_date'];
+            $end_date=$row['end_date'];
 
             $submitValue='Update Event';
 
@@ -180,8 +182,16 @@
 
 <form name='info' action='action.php' method='post'>
 
-* <span style="font-weight: bold">Event Name:</span> (include location, rating, dates)<br>
+* <span style="font-weight: bold">Event Name:</span> (include location, rating)<br>
 <input type='text' name='event_name' value='<?php print $event_name; ?>' size=80><br><br>
+
+* <span style="font-weight: bold">Event (Start) Date:</span> (format: YYYY-MM-DD)<br>
+<input type='text' name='start_date' value='<?php print $start_date; ?>' size=80><br><br>
+
+<span style="font-weight: bold">Event End Date:</span> (Optional. Only fill this out if event is more than one day.)<br>
+<input type='text' name='end_date' value='<?php print $end_date; ?>' size=80><br><br>
+
+
 
 <?php
 
