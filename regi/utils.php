@@ -72,6 +72,8 @@
         mysql_select_db("$SET_DB_NAME", $dbconn);
         $query = "set sql_mode = '';";
         $result = mysql_query($query);
+        //Complain about any errors that just happened.
+        //We REALLY want that query to go through, otherwise we have no way of enforcing proper date format.
         if (mysql_error($dbconn))
             UTILdberror($query);
         return 1;
@@ -182,8 +184,9 @@
     //
 
     function UTILdberror($query) {
+        $errmess = mysql_error();
 
-        UTILlog("QUERY:".$query."\r\nERROR CODE:".mysql_errno()."\r\nERROR:".mysql_error());
+        UTILlog("QUERY:".$query."\r\nERROR CODE:".mysql_errno()."\r\nERROR:".$errmess);
 
         // ROLLBACK TRANSACTION
         //  - if there is a transaction
@@ -191,7 +194,6 @@
         $result_trans = mysql_query('ROLLBACK;');
         if (!$result_trans) UTILlog('DB ERROR : Unable to Rollback Transaction');
 
-        $errmess = mysql_error();
         header("Location: ./errorPage.php?errTitle=Database Error&errMsg=".$errmess);
         exit();
     }
