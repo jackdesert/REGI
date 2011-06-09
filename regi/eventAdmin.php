@@ -437,14 +437,13 @@ OR, is this event <i>part</i> of a program? If so, please enter the Program ID:
 <input type='submit' name='action' value='Update Signup Sheet' onclick=''>
 </form>
 <p>&nbsp;</p>
-<h1>Export Info Sheet</h1>
-<p><i style="color: #096">Export Info Sheet as Excel or other spreadsheet (tab delimited text file).</i>
+<h1>Export Signup Sheet</h1>
+<p><i style="color: #096">Export Signup Sheet as Excel spreadsheet (tab delimited).</i>
   <br>
-  <span style="color: #096">You may need to add &quot;.xls&quot; to the end of the filename to open it in Excel.</span>
 </p>
 <form name='info' action='action.php' method='post'>
   <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
-<input type='submit' name='action' value='Export Info Sheet' onclick=''>
+<input type='submit' name='action' value='Export Signup Sheet' onclick=''>
 </form>
 
 </div>
