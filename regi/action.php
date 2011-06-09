@@ -335,6 +335,13 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         case "Export Signup Sheet":
 
             $event_id = $_POST["event_id"];
+            $event_name= $_POST["event_name"];
+            //Remove non-alphanumeric chars from what we will use as the filename
+            //Note those must be single quotes for it to work.
+            $alphanum_trip_name = preg_replace('/[^a-zA-Z0-9\s]/', '', $event_name);
+            //Shorten the trip name
+            $alphanum_trip_name = substr($alphanum_trip_name,0,25);
+            $alphanum_trip_name = trim($alphanum_trip_name);
 
             $query = "select users.user_id, first_name, last_name,
             register_date, register_status,
@@ -354,7 +361,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             } else {
 
                 header("Content-type: text/plain");
-                header("Content-Disposition: attachment; filename=\"trip_{$event_id}_Signup.xls\"");
+                header("Content-Disposition: attachment; filename=\"Signup__{$alphanum_trip_name}.xls\"");
 
                 //header("Content-type: application/csv");
                 //header("Content-Disposition: attachment; filename=tripInfoSheet.csv \"");
