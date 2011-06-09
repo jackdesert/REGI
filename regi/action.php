@@ -354,7 +354,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             } else {
 
                 header("Content-type: text/plain");
-                header("Content-Disposition: attachment; filename=\"tripInfoSheet.xls\"");
+                header("Content-Disposition: attachment; filename=\"tripInfoSheet$event_id.xls\"");
 
                 //header("Content-type: application/csv");
                 //header("Content-Disposition: attachment; filename=tripInfoSheet.csv \"");
