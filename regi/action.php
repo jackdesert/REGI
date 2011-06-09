@@ -343,7 +343,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             FROM users, user_events
             WHERE users.user_id=user_events.user_id
             AND event_id=$event_id
-            ORDER BY register_date;";
+            ORDER BY register_status DESC;";
 
             $result = mysql_query($query);
             if (!$result) UTILdberror($query);
@@ -354,7 +354,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             } else {
 
                 header("Content-type: text/plain");
-                header("Content-Disposition: attachment; filename=\"tripInfoSheet\"");
+                header("Content-Disposition: attachment; filename=\"tripInfoSheet.xls\"");
 
                 //header("Content-type: application/csv");
                 //header("Content-Disposition: attachment; filename=tripInfoSheet.csv \"");
