@@ -34,6 +34,11 @@
     $_SESSION['Smessage'] = '';
 
     $action = $_POST['action'];
+
+    //Allow end_date to be NULL
+    if ($_POST[end_date] == '')
+        $_POST[end_date] = "NULL";  //Recognized by SQL as long as you don't put two sets of quotes around it
+
     switch($action) {
 
         // Login validation -----------------------------------------------------------
@@ -548,13 +553,13 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             if ($program_id=='')
                 $program_id='-1';
-
+            //Notice no extra quotes around $end_date so it can be NULL
             $query = "insert into events (event_name, event_status, event_is_program,
                 program_id, description, gear_list, trip_info, confirmation_page,
                 question1, question2, payment_method, start_date, end_date) values
                 ('$event_name', '$event_status', '$event_is_program', $program_id, '$description',
                 '$gear_list', '$trip_info', '$confirmation_page', '$question1', '$question2',
-                '$payment_method', '$start_date', '$end_date' );";
+                '$payment_method', '$start_date', $end_date );";
 
             $result = mysql_query($query);
 
@@ -602,11 +607,11 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             if ($program_id=='')
                 $program_id='-1';
-
+            //Note no second set of quotes around $end_date. This way the NULL passes through to Mysql
             $query = "update events set event_name='$event_name', event_status='$event_status', event_is_program='$event_is_program',
                 program_id=$program_id, description='$description', gear_list='$gear_list',
                 trip_info='$trip_info', confirmation_page='$confirmation_page', question1='$question1', question2='$question2',
-                payment_method='$payment_method', start_date='$start_date', end_date='$end_date'
+                payment_method='$payment_method', start_date='$start_date', end_date=$end_date
                 WHERE event_id=$event_id;";
 
             $result = mysql_query($query);

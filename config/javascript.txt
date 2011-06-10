@@ -1,0 +1,9 @@
+regex
+
+^   beginning of string
+$   end of string
+
+^201\d-\d\d-\d\d$
+
+var pattern=/php/i
+pattern.test("PHP is your friend") //returns true
