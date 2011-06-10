@@ -19,7 +19,7 @@ end
 
 
 class Standard
-    attr_reader :b
+    attr_reader :b, :start_date, :end_date, :event_name, :description
     def initialize
         @start_date = "2011-01-01"
         @end_date = "2011-01-01"
@@ -48,9 +48,6 @@ class Standard
         @b   # return value
     end
     def create
-        start_date = "2011-12-24"
-        event_name = "test_event"
-        description= "description " * 24
         # ADD NEW EVENT
         puts "Clicking Create New Event"
         @b.link(:text, "Create New Event").click
@@ -60,41 +57,35 @@ class Standard
         @b.text_field(:name, "description").value = description
         @b.button(:value, "New Event").click
     end
-    def close
-        @b.close
-    end
-
 end
 
 class AMC < Test::Unit::TestCase
     def setup
         @truck = Standard.new
+        @truck.login
     end
     def test_00_login
-        @truck.login
         assert(@truck.b.text.include?( "you are now logged in!" ), "Not Logged In")
         puts "Success!"
         relax
-        @truck.close
+        @truck.b.close
         relax
     end
-    #~ def test_01_create_event_valid_start_no_end
-        #~ f = login
-        #~ start_date = "2011-12-24"
-        #~ event_name = "test_event"
-        #~ description= "description " * 24
-        #~ # ADD NEW EVENT
-        #~ puts "Clicking Create New Event"
-        #~ f.link(:text, "Create New Event").click
-        #~ puts "Entering Information"
-        #~ f.text_field(:name, "start_date").value = start_date
-        #~ f.text_field(:name, "event_name").value = event_name
-        #~ f.text_field(:name, "description").value = description
-        #~ f.button(:value, "New Event").click
-        #~ assert(f.text.include?( "This event has been inserted into the database"), "Event not inserted")
-        #~ relax
-        #~ f.close
-        #~ relax
-    #~ end
+    def test_01_create_event_valid_start_no_end
+        puts "Clicking Create New Event"
+        @truck.b.link(:text, "Create New Event").click
+        puts "Entering Information"
+        @truck.b.text_field(:name, "start_date").value = @truck.start_date
+        @truck.b.text_field(:name, "event_name").value = @truck.event_name
+        @truck.b.text_field(:name, "description").value = @truck.description
+        @truck.b.button(:value, "New Event").click
+        assert(@truck.b.text.include?( "This event has been inserted into the database"), "Event not inserted")
+        relax
+        @truck.b.close
+        relax
+    end
 end
 
+        #~ truck.start_date = "2011-12-24"
+        #~ event_name = "test_event"
+        #~ description= "description " * 24
