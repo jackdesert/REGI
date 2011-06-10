@@ -38,6 +38,38 @@ function checkProfile() {
     return false;
 }
 
+function checkDate(date_string){
+    var pattern=/^[\d]{4}-\d\d-\d\d$/;
+    var err = '';
+    if (pattern.test(date_string)){  //first pass makes sure it's the correct number of numbers and dashes
+        //First pass
+        var groups = date_string.split('-');
+        var year = groups[0];
+        if ('1999' < year && year < '2020');
+        else
+            err += "   * Bad Year: " + year + "\r\n";
+        var month = groups[1];
+        if ('00' < month && month < '13');
+        else
+            err += "   * Bad Month: " + month + "\r\n";
+        var day = groups[2];
+        if ('00' < day && day < '31');
+        else
+            err += "   * Bad Day of the Month: " + day + "\r\n";
+
+    }else
+        err += "   * Start Date Format Invalid. (Should look something like 2012-07-24)\r\n";
+
+    //For some reason Javascript uses 0-based counting for month
+    var myDate = new Date(year,month-1,day);
+    if (year == myDate.getFullYear() && month == myDate.getMonth() + 1 && day == myDate.getDate());
+    else
+        err += "   * Invalid Combination. (You're not scheduling for the 30th of February, are you?)\r\n";
+    return err;
+}
+
+
+
 function checkAdmin() {
     requiredFields = "";
 
@@ -46,33 +78,9 @@ function checkAdmin() {
     if (document.info[0].description.value.length < 10)
         requiredFields += "   * General Description (minimum 10 characters)\r\n";
 
-    var pattern=/^[\d]{4}-\d\d-\d\d$/;
     var start_date = document.info[0].start_date.value;
-    if (pattern.test(start_date)){  //first pass makes sure it's the correct number of numbers and dashes
-        //First pass
-        var groups = start_date.split('-');
-        var year = groups[0];
-        if ('1999' < year && year < '2020');
-        else
-            requiredFields += "   * Bad Year in Date\r\n";
-        var month = groups[1];
-        if ('00' < month && month < '13');
-        else
-            requiredFields += "   * Bad Month in Date\r\n";
-        var day = groups[2];
-        if ('00' < day && day < '31');
-        else
-            requiredFields += "   * Bad Day in Date\r\n";
-
-    }else
-        requiredFields += "   * Start Date Format Invalid. (Should look something like 2012-07-24)\r\n";
-
-    //For some reason Javascript uses 0-based counting for month
-    var myDate = new Date(year,month-1,day);
-    if (year == myDate.getFullYear() && month == myDate.getMonth() + 1 && day == myDate.getDate());
-    else
-        requiredFields += "   * Start Date Invalid. (You're not scheduling for the 30th of February, are you?)\r\n";
-
+    var myString =  checkDate(start_date);
+    requiredFields += myString;
 
     if (requiredFields != ''){
         alert("Please correct the following issues so we may process your request:\n\r"+requiredFields);
