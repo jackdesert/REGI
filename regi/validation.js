@@ -46,12 +46,34 @@ function checkAdmin() {
     if (document.info.description.value.length < 10)
         requiredFields += "   * General Description (minimum 10 characters)\r\n";
 
-    if (requiredFields != '')
-        alert("The following are required fields:\n\r"+requiredFields);
-        return false;
-    else
-        return true;
+    var pattern=/^[\d]{4}-\d\d-\d\d$/;
+    var start_date = document.info.start_date.value;
+    if (pattern.test(start_date)){  //first pass makes sure it's the correct number of numbers and dashes
+        //First pass
+        var groups = start_date.split('-');
+        var year = groups[0];
+        if ('1999' < year && year < '2020');
+        else
+            requiredFields += "   * Bad Year in Date\r\n";
+        var month = groups[1];
+        if ('00' < month && month < '13');
+        else
+            requiredFields += "   * Bad Month in Date\r\n";
+        var day = groups[2];
+        if ('00' < day && day < '31');
+        else
+            requiredFields += "   * Bad Day in Date\r\n";
 
+    }else
+        requiredFields += "   * Start Date Invalid. (Should look something like 2012-07-24)\r\n";
+
+
+    if (requiredFields != ''){
+        alert("Please correct the following issues so we may process your request:\n\r"+requiredFields);
+        return false;
+    }else{
+        return true;
+    }
 }
 
 function checkSendPassword() {
