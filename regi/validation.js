@@ -48,10 +48,10 @@ function checkAdmin() {
 
     if (requiredFields != '')
         alert("The following are required fields:\n\r"+requiredFields);
+        return false;
     else
         return true;
 
-    return false;
 }
 
 function checkSendPassword() {
