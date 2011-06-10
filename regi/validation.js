@@ -57,14 +57,15 @@ function checkDate(date_string){
         else
             err += "   * Bad Day of the Month: " + day + "\r\n";
 
+        //For some reason Javascript uses 0-based counting for month
+        var myDate = new Date(year,month-1,day);
+        if (year == myDate.getFullYear() && month == myDate.getMonth() + 1 && day == myDate.getDate());
+        else
+            err += "   * Invalid Combination. (You're not scheduling for the 30th of February, are you?)\r\n";
     }else
         err += "   * Start Date Format Invalid. (Should look something like 2012-07-24)\r\n";
 
-    //For some reason Javascript uses 0-based counting for month
-    var myDate = new Date(year,month-1,day);
-    if (year == myDate.getFullYear() && month == myDate.getMonth() + 1 && day == myDate.getDate());
-    else
-        err += "   * Invalid Combination. (You're not scheduling for the 30th of February, are you?)\r\n";
+
     return err;
 }
 
