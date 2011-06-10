@@ -37,6 +37,7 @@
     function UTILbuildmenu() {
 
         print "<a href=\"http://www.hbbostonamc.org/trips.php\" >Back to HB Trip Listings</a> | ";
+        print "<a href=\"mailto:jackdesert556@gmail.com?subject=Help With REGI Site\" >Support</a> | ";
 
         if (isset($_SESSION['Suser_id'])) {
 
