@@ -1,0 +1,21 @@
+# These are the commands I ran to put new field into the database:
+
+# Add start_date and end_date
+ALTER TABLE `events` ADD `start_date` DATE NOT NULL AFTER `question2` ,
+ADD `end_date` DATE NULL DEFAULT NULL AFTER `start_date`
+
+# Do this every time the webpage runs
+    //$query = "set sql_mode = 'traditional,no_zero_date';";
+    $query = "set sql_mode = '';";
+    $result = mysql_query($query);
+    if (mysql_error($dbconn))
+        UTILdberror($query);
+
+
+# Make sure the log file (./log/errorlog.log) is writable by ANYONE, or else php can't write it
+
+# Note that if you change to 'traditional,no_zero_date' in the mysql console,
+# it's changing that for EVERYBODY!!
+# On the contrary, setting it from php doesn't do anything yet.
+
+mysql_error() is a FUNCTION

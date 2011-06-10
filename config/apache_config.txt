@@ -1,0 +1,26 @@
+Apache Help
+
+www files are in
+    /var/www
+conf file is in
+    /etc/apache2
+
+STARTING APACHE
+must start as root
+    sudo apache2ctl start
+
+DUMPTING SQL
+mysqldump -u hbboston_admin -p"admin" hbboston_amcreg > $HOME/db_arch/hbboston_amcreg-`date +\%Y\%m\%d`.sql
+
+
+# Import the database
+mysql -u root -p < localhost.sql
+
+# Grant privileges
+grant all privileges on hbboston_amcreg.* to "hbboston_admin"@"localhost" identified by "admin";
+
+# Install the php5-mysql module
+   sudo apt-get install php5-mysql
+
+# Running Javascript files
+Change ScriptAlias to Alias, and then javascript
