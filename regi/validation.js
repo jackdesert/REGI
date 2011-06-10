@@ -41,13 +41,13 @@ function checkProfile() {
 function checkAdmin() {
     requiredFields = "";
 
-    if (document.info.event_name.value.length < 10)
-        requiredFields += "   * Event Name (minimum 10 characters)\r\n";
-    if (document.info.description.value.length < 10)
+    if (document.info[0].event_name.value.length < 10){
+        requiredFields += "   * Event Name (minimum 10 characters)\r\n";}
+    if (document.info[0].description.value.length < 10)
         requiredFields += "   * General Description (minimum 10 characters)\r\n";
 
     var pattern=/^[\d]{4}-\d\d-\d\d$/;
-    var start_date = document.info.start_date.value;
+    var start_date = document.info[0].start_date.value;
     if (pattern.test(start_date)){  //first pass makes sure it's the correct number of numbers and dashes
         //First pass
         var groups = start_date.split('-');
