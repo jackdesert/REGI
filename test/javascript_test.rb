@@ -1,3 +1,6 @@
+#! /usr/bin/ruby
+
+require 'test/unit'
 
 class JavaScript < Test::Unit::TestCase
 
