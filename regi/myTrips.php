@@ -105,8 +105,8 @@
 
 
                 print "<td>".UTILtime($row['start_date'])."</td>";
-                print "<td>".$row[register_status]."</td>";
-                print "<td>".$row[event_status]."</td>";
+                print "<td>".ucfirst(strtolower($row[register_status]))."</td>";
+                print "<td>".ucfirst(strtolower($row[event_status]))."</td>";
                 if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER'
                     || $row['register_status']=='REGISTRAR') {
                     print " <td><a href=\"eventAdmin.php?event_id=$row[event_id]\" >Manage</a></td>";
