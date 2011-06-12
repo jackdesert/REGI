@@ -100,19 +100,18 @@
             print"<table><tr><td>Event</td><td>Date</td><td>Role</td><td>Status</td></tr>";
             while($row = mysql_fetch_assoc($result)) {
 
-                print "<tr><td><strong>$row[event_name]</strong><br>";
-                print "<a href=\"eventRegistration.php?event_id=$row[event_id]\" >";
-                print "Info</a>";
+                print "<tr><td><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
 
-                if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER'
-                    || $row['register_status']=='REGISTRAR') {
-                    print " <a href=\"eventAdmin.php?event_id=$row[event_id]\" > Admin</font></a>";
-                }
+
 
                 print "<td>".UTILtime($row['start_date'])."</td>";
                 print "<td>".$row[register_status]."</td>";
-                print "<td>".$row[event_status]."</td></tr>";
-
+                print "<td>".$row[event_status]."</td>";
+                if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER'
+                    || $row['register_status']=='REGISTRAR') {
+                    print " <td><a href=\"eventAdmin.php?event_id=$row[event_id]\" >Manage</a></td>";
+                }
+                print "</tr>";
             }
             print "</table>";
         }
