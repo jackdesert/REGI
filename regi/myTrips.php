@@ -71,11 +71,11 @@
         //
 
         $query = "select events.event_id, event_name, event_status, register_date,
-                register_status, program_id
+                register_status, program_id, start_date
                 FROM events, user_events
                 WHERE events.event_id=user_events.event_id
                 AND user_events.user_id=$my_user_id
-                ORDER BY register_status ASC
+                ORDER BY start_date DESC
                 LIMIT 30;";
 
         $result = mysql_query($query);
@@ -97,20 +97,21 @@
         else
         {
 
-            print"<table border=2><tr><td>Event</td><td>Registration Submitted</td><td>My Registration Status</td></tr>";
+            print"<table><tr><td>Event</td><td>Date</td><td>Role</td><td>Status</td></tr>";
             while($row = mysql_fetch_assoc($result)) {
 
-                print "<tr><td>$row[event_name]  [event status: $row[event_status] ]<br>";
+                print "<tr><td><strong>$row[event_name]</strong><br>";
                 print "<a href=\"eventRegistration.php?event_id=$row[event_id]\" >";
-                print "[REGISTRATION PAGE]</a>";
+                print "Info</a>";
 
                 if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER'
                     || $row['register_status']=='REGISTRAR') {
-                    print " <a href=\"eventAdmin.php?event_id=$row[event_id]\" ><font color='red'> [ADMINISTRATION PAGE]</font></a>";
+                    print " <a href=\"eventAdmin.php?event_id=$row[event_id]\" > Admin</font></a>";
                 }
 
-                print "<td>".UTILtime($row['register_date'])."</td>";
-                print "<td>$row[register_status]</td></tr>";
+                print "<td>".UTILtime($row['start_date'])."</td>";
+                print "<td>".$row[register_status]."</td>";
+                print "<td>".$row[event_status]."</td></tr>";
 
             }
             print "</table>";

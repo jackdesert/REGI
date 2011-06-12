@@ -30,7 +30,7 @@
 
     //return date+time format
     function UTILtime($timestr) {
-        return date('M j, Y h:m', strtotime($timestr));
+        return date('j M Y', strtotime($timestr));
     }
 
     // Build top menu
