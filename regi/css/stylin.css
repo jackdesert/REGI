@@ -1,1 +1,155 @@
+body {
 
+    color: #000000;
+
+    font-size: 13px;
+
+    font-family: arial, Verdana, Tahoma;
+
+    background-color: #2d5c56;
+
+    text-align: center;
+
+    margin: 10px 0;
+
+    padding: 0;
+
+    width: 100%;
+
+    border-style: none
+
+}
+
+#pagewrap {
+
+    background-image: url("../images/amctemplate_02.jpg");
+
+    background-repeat: repeat-y;
+
+    text-align: left;
+
+    margin-right: auto;
+
+    margin-left: auto;
+
+    width: 864px;
+
+    overflow: hidden
+
+}
+
+#layer10  { background-image: url("../images/amctemplate_regi.jpg"); background-repeat: no-repeat; margin: 0; width: 864px; height: 80px; clear: both }
+
+#searchbox {
+
+    padding-top: 20px;
+
+    padding-right: 20px;
+
+    float: right
+
+}
+
+h1 {
+
+    color: #2a7168;
+
+    font-size: 16px;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-weight: bold
+
+}
+
+h2 {
+
+    color: #2a7168;
+
+    font-size: 14px;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-weight: bold
+
+}
+
+h3 {
+
+    color: #2a7168;
+
+    font-size: 13px;
+
+    font-family: "Times New Roman", Times, serif;
+
+    font-weight: bold
+
+}
+
+td, tr, p  { color: #000; font-size: 13px; font-family: arial, Verdana, Tahoma }
+
+input.inputbox {
+
+    color: #444;
+
+    font-size: 11px;
+
+    font-family: arial;
+
+    background-color: #fff;
+
+    margin: -1px 0 0;
+
+    border: solid 1px #cccccc
+
+}
+
+input.inputbox#mod_search_searchword {
+
+    color: #444;
+
+    font-size: 11px;
+
+    background: #fff;
+
+    width: 160px;
+
+    border: solid 1px #c0c1c3
+
+}
+
+textarea.inputbox {
+
+    color: #444;
+
+    font-size: 11px;
+
+    font-family: arial;
+
+    background-color: white;
+
+    border: solid 1px #cccccc
+
+}
+
+a:link {
+
+    color: #0066CC;
+
+    text-decoration: none
+
+}
+
+a:visited {
+
+    color: #0066CC
+
+}
+
+a:hover {
+
+    color: #5e9edf;
+
+    text-decoration: none
+
+}

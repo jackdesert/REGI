@@ -46,7 +46,6 @@ function CHUNKgivehead(){
     <meta http-equiv='Content-Type' content='text/html; charset='UTF-8' />
     <link rel='stylesheet' type='text/css' href='css/stylin.css'/>
     <SCRIPT type='text/javascript' src='validation.js'></SCRIPT>
-    <link href='http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css' type='text/css' rel='stylesheet' />
 </head>
 ";
 
