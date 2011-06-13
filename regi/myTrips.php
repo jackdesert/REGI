@@ -17,26 +17,16 @@
 
 -->
 
-<html>
-<head>
-    <title>AMC Event Registration</title>
-    <meta http-equiv="Content-Type" content="text/html; charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <SCRIPT type="text/javascript" src="validation.js"></SCRIPT>
 
-<link href="http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
-<div id="pagewrap">
-  <div id="layer10" onClick="location.href='http://www.hbbostonamc.org/index.php';" style="cursor:pointer;">
-    <div id="searchbox">
 
 <?php
+
 
     include 'utils.php';
     session_start();
     UTILdbconnect();
-
+    CHUNKgivehead();
+    CHUNKstartbody();
     UTILbuildmenu();
     if (isset($_SESSION['Smessage']))
         print "<b><font color='red'>$_SESSION[Smessage]</font></b>";
@@ -99,19 +89,19 @@
 
             print"<table><tr><td>Event</td><td>Date</td><td>Role</td><td>Status</td></tr>";
             while($row = mysql_fetch_assoc($result)) {
+                print IN1()."<tr>";
+                print IN2()."<td><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
 
-                print "<tr><td><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
 
 
-
-                print "<td>".UTILtime($row['start_date'])."</td>";
-                print "<td>".ucfirst(strtolower($row[register_status]))."</td>";
-                print "<td>".ucfirst(strtolower($row[event_status]))."</td>";
+                print IN2()."<td>".UTILtime($row['start_date'])."</td>";
+                print IN2()."<td>".ucfirst(strtolower($row[register_status]))."</td>";
+                print IN2()."<td>".ucfirst(strtolower($row[event_status]))."</td>";
                 if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER'
                     || $row['register_status']=='REGISTRAR') {
-                    print " <td><a href=\"eventAdmin.php?event_id=$row[event_id]\" >Manage</a></td>";
+                    print IN2()."<td><a href=\"eventAdmin.php?event_id=$row[event_id]\" >Manage</a></td>";
                 }
-                print "</tr>";
+                print IN1()."</tr>";
             }
             print "</table>";
         }

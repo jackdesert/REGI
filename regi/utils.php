@@ -22,6 +22,7 @@
 
     // include global settings (applied whereever 'utils.php' included)
     include 'settings.php';
+    include 'chunks.php';
 
     //return date format
     function UTILdate($datestr) {
@@ -36,22 +37,22 @@
     // Build top menu
     function UTILbuildmenu() {
 
-        print "<a href=\"http://www.hbbostonamc.org/trips.php\" >Back to HB Trip Listings</a> | ";
-        print "<a href=\"mailto:jackdesert556@gmail.com?subject=Help With REGI Site\" >Support</a> | ";
+        print IN3()."<a href=\"http://www.hbbostonamc.org/trips.php\" >Back to HB Trip Listings</a> | ";
+        print IN3()."<a href=\"mailto:jackdesert556@gmail.com?subject=Help With REGI Site\" >Support</a> | ";
 
         if (isset($_SESSION['Suser_id'])) {
 
             if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
-                print "<a href=\"eventAdmin.php\" >Create New Event</a> | ";
+                print IN3()."<a href=\"eventAdmin.php\" >Create New Event</a> | ";
 
-            print "<a href=\"myTrips.php\" >My Trips</a> | ";
-            print "<a href=\"myProfile.php\" >My Profile</a> | ";
+            print IN3()."<a href=\"myTrips.php\" >My Trips</a> | ";
+            print IN3()."\n<a href=\"myProfile.php\" >My Profile</a> | ";
 
-            print "<a href=\"logout.php\" >Logout</a>";
+            print IN3()."\n<a href=\"logout.php\" >Logout</a>";
         }
         else
         {
-            print "<a href=\"login.php\" >Login</a>";
+            print IN3()."<a href=\"login.php\" >Login</a>";
         }
 
         print "</font><br>";
