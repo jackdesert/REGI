@@ -87,21 +87,25 @@
         else
         {
 
-            print"<table><tr><td>Event</td><td>Date</td><td>Role</td><td>Status</td></tr>";
+            print"<table><tr><td class='hcolor'>Event</td><td class='hcolor'>Date</td><td class='hcolor'>Role</td><td class='hcolor'>Status</td></tr>";
+            print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
+            $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {
-                print IN1()."<div class='listing'><tr>";
-                print IN2()."<td><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
+                $even_or_odd = $rowcount % 2;
+                print IN1()."<tr class='row{$even_or_odd}'>";
+                print IN2()."<td class='en'><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
 
 
 
-                print IN2()."<td>".UTILtime($row['start_date'])."</td>";
+                print IN2()."<td class='nowrap'>".UTILtime($row['start_date'])."</td>";
                 print IN2()."<td>".ucfirst(strtolower($row[register_status]))."</td>";
                 print IN2()."<td>".ucfirst(strtolower($row[event_status]))."</td>";
                 if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER'
                     || $row['register_status']=='REGISTRAR') {
                     print IN2()."<td><a href=\"eventAdmin.php?event_id=$row[event_id]\" >Manage</a></td>";
                 }
-                print IN1()."</tr></div>";
+                print IN1()."</tr>";
+                $rowcount += 1;
             }
             print "</table>";
         }

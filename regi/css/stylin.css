@@ -1,26 +1,4 @@
-/*############## Custom Stuff First             ##########################*/
-
-.listing {
-border: 5px solid black;
-border-style: dashed;
-margin: 20px;
-padding: 20px;
-#width:1300px;
-#height:100px;
-background-color:yellow;
--moz-box-shadow: 10px 10px 5px #888888; /* Firefox 3.6 and earlier */
--webkit-box-shadow: 10px 10px 5px #888888; /* Safari */
-box-shadow: 10px 10px 5px #888888;
-}
-
-/*######################################################################
- Everything below this line was included in the old style sheet
-*/
-
-
-
-
-
+/*  This first stuff is from the templated style sheet */
 body {
 
     color: #000000;
@@ -179,3 +157,53 @@ a:hover {
 
 
 
+/*######################################################################
+ Everything below this line was included in the old style sheet
+*/
+
+.listing {
+border: 5px solid black;
+border-style: dashed;
+margin: 20px;
+padding: 20px;
+#width:1300px;
+#height:100px;
+background-color:yellow;
+-moz-box-shadow: 10px 10px 5px #888888; /* Firefox 3.6 and earlier */
+-webkit-box-shadow: 10px 10px 5px #888888; /* Safari */
+box-shadow: 10px 10px 5px #888888;
+}
+table, th, tr, td {
+    border-spacing: 0; /* This is important for multiple cells to appear as one */
+}
+td {
+    padding: 1ex 2ex;
+}
+.row0 {background-color: white;}
+.row1 {background-color: #bbccdd;}
+.en {width: 60%;}
+.nowrap{white-space: nowrap;}
+.hcolor{color: #2a7168;}
+
+a{text-decoration: none;}
+a:link {
+
+    color: #80178e;
+
+    text-decoration: none
+
+}
+
+a:visited {
+
+    color: #572d5c;
+
+}
+
+a:hover {
+
+    color: #5e9edf;
+
+    text-decoration: none
+
+}
