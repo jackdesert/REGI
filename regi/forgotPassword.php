@@ -40,12 +40,13 @@
 If you have forgotten your password, enter your user name below and you will be sent an email with your current password.
 We recommend changing your password when you login again by editing your profile.<br><br>
 
-<form name='pass_reset' action='action.php' method='post'>
+<form name='send_pass' action='action.php' method='post'>
     <table><tr>
     <td><b>Enter User Name:</b></td>
     <td><input type='text' name='user_name' value='' MAXLENGTH=50></td>
     </tr></table>
     <input type='submit' name='action' value='Send My Password' onclick='return checkSendPassword()'>
+</form>
 <br>
 
 <h2>Send My Account Info</h2>
@@ -53,11 +54,12 @@ We recommend changing your password when you login again by editing your profile
 If you have forgotten your user name, please enter the email address of your account below and you will be sent an email with your current login information.
 We recommend changing your password when you log in again by editing your profile.<br><br>
 
+<form name='send_account' action='action.php' method='post'>
     <table><tr>
     <td><b>Enter  Account Email:</b></td>
     <td><input type='text' name='email' value='' MAXLENGTH=40></td>
     </tr></table>
-    <input type='submit' name='action' value='Send My Account Info' onclick='return checkSendPassword()'>
+    <input type='submit' name='action' value='Send My Account Info' onclick=""'>
 </form>
 <p><br>
 
