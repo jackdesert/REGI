@@ -38,7 +38,7 @@ function checkProfile() {
     return false;
 }
 
-function checkDate(date_string){
+function checkDate(date_string, label){
     var pattern=/^[\d]{4}-\d\d-\d\d$/;
     var err = '';
     if (pattern.test(date_string)){  //first pass makes sure it's the correct number of numbers and dashes
@@ -47,23 +47,23 @@ function checkDate(date_string){
         var year = groups[0];
         if ('1999' < year && year < '2020');
         else
-            err += "   * Bad Year: " + year + "\r\n";
+            err += label + "Bad Year: " + year + "\r\n";
         var month = groups[1];
         if ('00' < month && month < '13');
         else
-            err += "   * Bad Month: " + month + "\r\n";
+            err += label + "Bad Month: " + month + "\r\n";
         var day = groups[2];
         if ('00' < day && day < '31');
         else
-            err += "   * Bad Day of the Month: " + day + "\r\n";
+            err += label + "Bad Day of the Month: " + day + "\r\n";
 
         //For some reason Javascript uses 0-based counting for month
         var myDate = new Date(year,month-1,day);
         if (year == myDate.getFullYear() && month == myDate.getMonth() + 1 && day == myDate.getDate());
         else
-            err += "   * Invalid Combination. (You're not scheduling for the 30th of February, are you?)\r\n";
+            err += label + "Invalid Combination. (You're not scheduling for the 30th of February, are you?)\r\n";
     }else
-        err += "   * Start Date Format Invalid. (Should look something like 2012-07-24)\r\n";
+        err += label + "Date Format Invalid. (Should look something like 2012-07-24)\r\n";
 
 
     return err;
@@ -80,8 +80,13 @@ function checkAdmin() {
         requiredFields += "   * General Description (minimum 10 characters)\r\n";
 
     var start_date = document.forms.trip_essence.start_date.value;
-    var myString =  checkDate(start_date);
+    var end_date = document.forms.trip_essence.end_date.value;
+    var myString =  checkDate(start_date, "* Start Date: ");
     requiredFields += myString;
+    if (end_date != ''){
+        myString =  checkDate(end_date, "* End Date: ");
+        requiredFields += myString;
+    }
 
     if (requiredFields != ''){
         alert("Please correct the following issues so we may process your request:\n\r"+requiredFields);
