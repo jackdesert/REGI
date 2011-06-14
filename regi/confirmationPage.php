@@ -29,7 +29,6 @@
 <body>
 <div id="pagewrap">
   <div id="layer10" onClick="location.href='http://www.hbbostonamc.org/index.php';" style="cursor:pointer;">
-    <div id="searchbox">
 
 
 <?php

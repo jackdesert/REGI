@@ -89,7 +89,7 @@
 
             print"<table><tr><td>Event</td><td>Date</td><td>Role</td><td>Status</td></tr>";
             while($row = mysql_fetch_assoc($result)) {
-                print IN1()."<tr>";
+                print IN1()."<div class='listing'><tr>";
                 print IN2()."<td><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
 
 
@@ -101,7 +101,7 @@
                     || $row['register_status']=='REGISTRAR') {
                     print IN2()."<td><a href=\"eventAdmin.php?event_id=$row[event_id]\" >Manage</a></td>";
                 }
-                print IN1()."</tr>";
+                print IN1()."</tr></div>";
             }
             print "</table>";
         }
