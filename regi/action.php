@@ -38,6 +38,8 @@
     //Allow end_date to be NULL
     if ($_POST[end_date] == '')
         $_POST[end_date] = "NULL";  //Recognized by SQL as long as you don't put two sets of quotes around it
+    else
+        $_POST[end_date] = "'".$_POST[end_date]."'";    //Add an extra quote around it so non-null values enter sql properly
 
     switch($action) {
 
@@ -545,11 +547,8 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $question1= UTILclean($_POST["question1"], 200, '');
             $question2= UTILclean($_POST["question2"], 200, '');
             $payment_method=$_POST["payment_method"];
-            $start_date=$_POST["start_date"];
-            $end_date=$_POST["end_date"];
-
-            //$start_date= UTILclean($_POST["start_date"], 20, '');
-            //$end_date= UTILclean($_POST["end_date"], 20, '');
+            $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
+            $end_date= UTILclean($_POST["end_date"], 20, '');
 
             if ($program_id=='')
                 $program_id='-1';
@@ -602,8 +601,8 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $question1= UTILclean($_POST["question1"], 200, '');
             $question2= UTILclean($_POST["question2"], 200, '');
             $payment_method=$_POST["payment_method"];
-            $start_date=$_POST["start_date"];
-            $end_date=$_POST["end_date"];
+            $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
+            $end_date= UTILclean($_POST["end_date"], 20, '');
 
             if ($program_id=='')
                 $program_id='-1';
