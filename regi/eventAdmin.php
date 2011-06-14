@@ -167,7 +167,7 @@
 <h2>Event Administration Page
 <a href="#signUpSheet">[Jump to Sign-up Sheet]</a></h2>
 
-<form name='info' action='action.php' method='post'>
+<form name='trip_essence' action='action.php' method='post'>
 
 * <span style="font-weight: bold">Event Name:</span> (include location, rating)<br>
 <input type='text' name='event_name' value='<?php print $event_name; ?>' size=80><br><br>
@@ -284,7 +284,7 @@ OR, is this event <i>part</i> of a program? If so, please enter the Program ID:
 <hr>
 <h1>Sign-up Sheet</h1>
 <i style="color: #096">Don't forget to hit 'Update Signup Sheet' at bottom to save changes.</i>
-<form name='info' action='action.php' method='post'>
+<form name='signup' action='action.php' method='post'>
 <table border=1><tr>
 <td></td><td>NAME / CONTACT</td><td>PROFILE & TRIP INFO</td><td>STATUS / ADMIN NOTES</td>
 
@@ -438,7 +438,7 @@ OR, is this event <i>part</i> of a program? If so, please enter the Program ID:
 <p><i style="color: #096">Export Signup Sheet as Excel spreadsheet (tab delimited).</i>
   <br>
 </p>
-<form name='info' action='action.php' method='post'>
+<form name='export' action='action.php' method='post'>
   <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
   <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
 <input type='submit' name='action' value='Export Signup Sheet' onclick=''>

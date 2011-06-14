@@ -316,7 +316,7 @@
 
     <h1>My Registration Information</h1>
 
-    <form name='info' action='action.php' method='post'>
+    <form name='signup' action='action.php' method='post'>
 
     <table><tr>
 

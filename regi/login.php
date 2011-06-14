@@ -64,7 +64,7 @@
 </ul> <br>
 <h2>To register, please login below:</h2>
 
-<form name='info' action='action.php' method='post'>
+<form name='login' action='action.php' method='post'>
     <table>
     <tr>
     <td><b>User Name</b></td>

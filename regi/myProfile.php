@@ -162,7 +162,7 @@
 
 <p>Note: When registering for a trip, your profile will be shared with the leaders of that trip.</p>
 
-<form name='info' action='action.php' method='post'>
+<form name='profile' action='action.php' method='post'>
     <table><tr>
 
     <td><b>* User Name/Email</b></td>
