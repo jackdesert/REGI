@@ -174,10 +174,10 @@
 <form name='trip_essence' action='action.php' method='post'>
 
 * <span style="font-weight: bold">Event Name:</span> (include location, rating)<br>
-<input type='text' required='required' maxlength='60' name='event_name' value='<?php print $event_name; ?>' size=60><br><br>
+<input type='text' required=required maxlength='60' name='event_name' value='<?php print $event_name; ?>' size=60><br><br>
 
 * <span style="font-weight: bold">Event (Start) Date:</span> (format: YYYY-MM-DD)<br>
-<input type='date' required='required' maxlength='10' name='start_date' value='<?php print $start_date; ?>' size=10><br><br>
+<input type='date' required=required maxlength='10' name='start_date' value='<?php print $start_date; ?>' size=10><br><br>
 
 <span style="font-weight: bold">Event End Date:</span> (Optional. Only fill this out if event is more than one day.)<br>
 <input type='date' maxlength='10' name='end_date' value='<?php print $end_date; ?>' size=10><br><br>

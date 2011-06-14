@@ -547,7 +547,8 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $payment_method=$_POST["payment_method"];
             $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
             $end_date= UTILclean($_POST["end_date"], 20, '');
-            $end_date = "'{$end_date}'";   //Add an extra quote around it so non-null values enter sql properly
+            if ($end_date != "NULL")
+                $end_date = "'{$end_date}'";   //Add an extra quote around it so non-null values enter sql properly
 
 
             if ($program_id=='')
@@ -603,7 +604,8 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $payment_method=$_POST["payment_method"];
             $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
             $end_date= UTILclean($_POST["end_date"], 20, '');
-            $end_date = "'{$end_date}'";   //Add an extra quote around it so non-null values enter sql properly
+            if ($end_date != "NULL")
+                $end_date = "'{$end_date}'";   //Add an extra quote around it so non-null values enter sql properly
 
             if ($program_id=='')
                 $program_id='-1';
