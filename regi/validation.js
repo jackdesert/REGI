@@ -3,9 +3,9 @@
 function checkLogin() {
     requiredFields = "";
 
-    if (document.info.user_name.value.length < 6)
+    if (document.forms.login.user_name.value.length < 6)
         requiredFields += "   * User Name (minimum 6 characters)\r\n";
-    if (document.info.user_password.value.length < 6)
+    if (document.forms.login.user_password.value.length < 6)
         requiredFields += "   * Password (minimum 6 characters)\r\n";
 
     if (requiredFields != '')
@@ -19,15 +19,15 @@ function checkLogin() {
 function checkProfile() {
     requiredFields = "";
 
-    if (document.info.user_name.value.length < 6)
+    if (document.forms.profile.user_name.value.length < 6)
         requiredFields += "   * User Name (minimum 6 characters)\r\n";
-    if (document.info.user_password.value.length < 6)
+    if (document.forms.profile.user_password.value.length < 6)
         requiredFields += "   * Password (minimum 6 characters)\r\n";
-    if (document.info.first_name.value == '')
+    if (document.forms.profile.first_name.value == '')
         requiredFields += "   * First Name\r\n";
-    if (document.info.last_name.value == '')
+    if (document.forms.profile.last_name.value == '')
         requiredFields += "   * Last Name\r\n";
-    if (document.info.email.value == '')
+    if (document.forms.profile.email.value == '')
         requiredFields += "   * Email\r\n";
 
     if (requiredFields != '')
@@ -74,12 +74,12 @@ function checkDate(date_string){
 function checkAdmin() {
     requiredFields = "";
 
-    if (document.info[0].event_name.value.length < 10){
+    if (document.forms.trip_essence.event_name.value.length < 10){
         requiredFields += "   * Event Name (minimum 10 characters)\r\n";}
-    if (document.info[0].description.value.length < 10)
+    if (document.forms.trip_essence.description.value.length < 10)
         requiredFields += "   * General Description (minimum 10 characters)\r\n";
 
-    var start_date = document.info[0].start_date.value;
+    var start_date = document.forms.trip_essence.start_date.value;
     var myString =  checkDate(start_date);
     requiredFields += myString;
 
@@ -94,7 +94,7 @@ function checkAdmin() {
 function checkSendPassword() {
     requiredFields = "";
 
-    if (document.info.user_name.value.length < 6)
+    if (document.forms.send_pass.user_name.value.length < 6)
         requiredFields += "   * User Name (minimum 6 characters)\r\n";
 
     if (requiredFields != '')
