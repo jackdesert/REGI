@@ -174,13 +174,13 @@
 <form name='trip_essence' action='action.php' method='post'>
 
 * <span style="font-weight: bold">Event Name:</span> (include location, rating)<br>
-<input type='text' name='event_name' value='<?php print $event_name; ?>' size=80><br><br>
+<input type='text' required='required' maxlength='60' name='event_name' value='<?php print $event_name; ?>' size=60><br><br>
 
 * <span style="font-weight: bold">Event (Start) Date:</span> (format: YYYY-MM-DD)<br>
-<input type='text' name='start_date' value='<?php print $start_date; ?>' size=80><br><br>
+<input type='date' required='required' maxlength='10' name='start_date' value='<?php print $start_date; ?>' size=10><br><br>
 
 <span style="font-weight: bold">Event End Date:</span> (Optional. Only fill this out if event is more than one day.)<br>
-<input type='text' name='end_date' value='<?php print $end_date; ?>' size=80><br><br>
+<input type='date' maxlength='10' name='end_date' value='<?php print $end_date; ?>' size=10><br><br>
 
 
 
@@ -208,18 +208,18 @@
 <i style="color: #096">Note: Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.  All other status do NOT allow new registrations.</i>
 <br><br>
 
-* General Description:
-<textarea name='description' rows=8 cols=100><?php print $description; ?></textarea><br><br>
+<span style="font-weight: bold">* General Description:</span><br>
+<textarea name='description' rows=8 cols=60><?php print $description; ?></textarea><br><br>
 
 <span style="font-weight: bold">Gear List</span> (if no gear necessary, please type: "No gear necessary"):
-<textarea name='gear_list' rows=8 cols=100><?php print $gear_list; ?></textarea><br><br>
+<textarea name='gear_list' rows=8 cols=60><?php print $gear_list; ?></textarea><br><br>
 
 <span style="font-weight: bold">Confirmation Page:</span> (This information will be displayed once a user registers for this event.)
 <?php if ($event_id <> '') print "<br>Click here to <a href='./confirmationPage.php?event_id=$event_id'><big>Preview</big></a> the confirmation page."; ?>
-<textarea name='confirmation_page' rows=8 cols=100><?php print $confirmation_page; ?></textarea><br><br>
+<textarea name='confirmation_page' rows=8 cols=60><?php print $confirmation_page; ?></textarea><br><br>
 
 <span style="font-weight: bold">Participant Info:</span> (Visible only for APPROVED participants, Directions to trailhead, etc).
-<textarea name='trip_info' rows=8 cols=100><?php print $trip_info; ?></textarea><br><br>
+<textarea name='trip_info' rows=8 cols=60><?php print $trip_info; ?></textarea><br><br>
 
 <p>Two questions are automatically asked of participants upon registering. They are: </p>
 

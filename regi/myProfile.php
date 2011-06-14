@@ -179,7 +179,7 @@
     <td><input type='text' name='last_name' value='<?php echo $last_name; ?>' MAXLENGTH=20></td>
     </tr><tr>
     <td><b>* Email</b></td>
-    <td><input type='text' name='email' value='<?php echo $email; ?>' MAXLENGTH=40></td>
+    <td><input type='email' name='email' value='<?php echo $email; ?>' MAXLENGTH=40></td>
     </tr><tr>
     <td><b>Phone (evening)</b></td>
     <td><input type='text' name='phone_evening' value='<?php echo $phone_evening; ?>' MAXLENGTH=20></td>

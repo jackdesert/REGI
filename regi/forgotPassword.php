@@ -57,7 +57,7 @@ We recommend changing your password when you log in again by editing your profil
 <form name='send_account' action='action.php' method='post'>
     <table><tr>
     <td><b>Enter  Account Email:</b></td>
-    <td><input type='text' name='email' value='' MAXLENGTH=40></td>
+    <td><input type='email' name='email' value='' MAXLENGTH=40></td>
     </tr></table>
     <input type='submit' name='action' value='Send My Account Info' onclick=""'>
 </form>
