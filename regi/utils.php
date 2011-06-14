@@ -31,7 +31,10 @@
 
     //return date+time format
     function UTILtime($timestr) {
-        return date('j M Y', strtotime($timestr));
+        if ($timestr == '0000-00-00')
+            return 'not specified';
+        else
+            return date('j M Y', strtotime($timestr));
     }
 
     // Build top menu

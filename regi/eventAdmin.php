@@ -124,6 +124,10 @@
             $start_date=$row['start_date'];
             $end_date=$row['end_date'];
 
+            if ($start_date == "0000-00-00") //This accounts for the events that were created with this date when
+                $start_date = '';           //the start_date field was added to the database.
+
+
             $submitValue='Update Event';
 
             if ($event_is_program == 'Y')
