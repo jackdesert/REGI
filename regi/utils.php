@@ -26,14 +26,14 @@
 
     //return date format
     function UTILdate($datestr) {
-        return date('M j, Y', strtotime($datestr));
+        if ($datestr == '0000-00-00')
+            return 'not specified';
+        else
+            return date('M j, Y', strtotime($datestr));
     }
 
     //return date+time format
     function UTILtime($timestr) {
-        if ($timestr == '0000-00-00')
-            return 'not specified';
-        else
             return date('j M Y', strtotime($timestr));
     }
 

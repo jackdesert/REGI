@@ -47,7 +47,7 @@
     //
 
     $query = "select event_name, event_status, event_is_program, program_id, description,
-            gear_list, trip_info, question1, question2, payment_method
+            gear_list, trip_info, question1, question2, payment_method, start_date, end_date
             FROM events
             WHERE event_id=$event_id;";
 
@@ -70,6 +70,8 @@
         $question1=$row['question1'];
         $question2=$row['question2'];
         $payment_method=$row['payment_method'];
+        $start_date=$row['start_date'];
+        $end_date=$row['end_date'];
     }
 
 
@@ -105,7 +107,13 @@
 <h1>Event Registration<h1>
 
 <h1><?php print $event_name.'  [event status: '.$event_status.']'; ?></h1>
-
+<?php
+    if ($end_date == '' || $end_date == '0000-00-00')
+        $date_stri = UTILdate($start_date);
+    else
+        $date_stri = UTILdate($start_date)." - ".UTILdate($end_date);
+    print "<p>Date(s): {$date_stri}</p>";
+?>
 <p>Leaders: <?php print htmlspecialchars($leader_list) ?></p>
 
 <?php

@@ -96,7 +96,7 @@
 
 
 
-                print IN2()."<td class='nowrap'>".UTILtime($row['start_date'])."</td>";
+                print IN2()."<td class='nowrap'>".UTILdate($row['start_date'])."</td>";
                 print IN2()."<td>".ucfirst(strtolower($row[register_status]))."</td>";
                 print IN2()."<td>".ucfirst(strtolower($row[event_status]))."</td>";
                 if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER'
