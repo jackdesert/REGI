@@ -44,6 +44,7 @@ function CHUNKgivehead(){
 <head>
     <title>AMC Event Registration</title>
     <meta http-equiv='Content-Type' content='text/html; charset='UTF-8' />
+    <link href='http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css' type='text/css' rel='stylesheet' />
     <link rel='stylesheet' type='text/css' href='css/stylin.css'/>
     <SCRIPT type='text/javascript' src='validation.js'></SCRIPT>
 </head>
@@ -59,6 +60,10 @@ function CHUNKstartbody(){
     <div id='layer10' onClick='location.href=\"http://www.hbbostonamc.org/index.php\";' style='cursor:pointer;'>
 ";
     return 1;
+}
+
+function CHUNKstylemessage($msg){
+    print "<b><p id='bright_msg'>{$msg}</p></b>";
 }
 
 

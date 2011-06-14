@@ -17,20 +17,6 @@
 
 -->
 
-<html>
-<head>
-<link rel="shortcut icon" href="favicon.ico">
-<link rel="icon" type="image/gif"
-    <title>AMC Event Registration</title>
-    <meta http-equiv="Content-Type" content="text/html; charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <SCRIPT type="text/javascript" src="validation.js"></SCRIPT>
-
-<link href="http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
-<div id="pagewrap">
-  <div id="layer10" onClick="location.href='http://www.hbbostonamc.org/index.php';" style="cursor:pointer;">
 
 <?php
 
@@ -57,10 +43,11 @@
         header("Location: ./eventAdmin.php?event_id=".$admin_event_id);
         exit(0);
     }
-
+    CHUNKgivehead();
+    CHUNKstartbody();
     UTILbuildmenu();
     if (isset($_SESSION['Smessage']))
-        print "<font color='red'>".$_SESSION['Smessage']."</font>";
+        CHUNKstylemessage($_SESSION['Smessage']);
 
 ?>
 

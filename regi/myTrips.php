@@ -29,13 +29,12 @@
     CHUNKstartbody();
     UTILbuildmenu();
     if (isset($_SESSION['Smessage']))
-        print "<b><font color='red'>$_SESSION[Smessage]</font></b>";
-
+        CHUNKstylemessage($_SESSION['Smessage']);
 ?>
 
     </div>
    </div>
-   <div style="padding-left:20px; width:90%;">
+   <div style="padding-left:20px; padding-right: 20px;">
 
 <h1>My Trips</h1>
 
@@ -87,7 +86,7 @@
         else
         {
 
-            print"<table><tr><td class='hcolor'>Event</td><td class='hcolor'>Date</td><td class='hcolor'>Role</td><td class='hcolor'>Status</td></tr>";
+            print"<table class='center'><tr><td class='hcolor'>Event</td><td class='hcolor'>Date</td><td class='hcolor'>Role</td><td class='hcolor'>Status</td><td class='hcolor'>Admin</td></tr>";
             print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
             $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {
@@ -102,7 +101,7 @@
                 print IN2()."<td>".ucfirst(strtolower($row[event_status]))."</td>";
                 if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER'
                     || $row['register_status']=='REGISTRAR') {
-                    print IN2()."<td><a href=\"eventAdmin.php?event_id=$row[event_id]\" >Manage</a></td>";
+                    print IN2()."<td><a href=\"eventAdmin.php?event_id=$row[event_id]\" >Edit</a></td>";
                 }
                 print IN1()."</tr>";
                 $rowcount += 1;

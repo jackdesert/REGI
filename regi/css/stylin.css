@@ -1,4 +1,7 @@
-/*  This first stuff is from the templated style sheet */
+/*  This first stuff is from the templated style sheet, which is located at
+ * <link href="http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css" type="text/css"
+ */
+
 body {
 
     color: #000000;
@@ -20,6 +23,8 @@ body {
     border-style: none
 
 }
+
+
 
 #pagewrap {
 
@@ -161,6 +166,8 @@ a:hover {
  Everything below this line was included in the old style sheet
 */
 
+
+
 .listing {
 border: 5px solid black;
 border-style: dashed;
@@ -175,35 +182,40 @@ box-shadow: 10px 10px 5px #888888;
 }
 table, th, tr, td {
     border-spacing: 0; /* This is important for multiple cells to appear as one */
+
 }
 td {
     padding: 1ex 2ex;
 }
-.row0 {background-color: white;}
-.row1 {background-color: #bbccdd;}
+
 .en {width: 60%;}
 .nowrap{white-space: nowrap;}
 .hcolor{color: #2a7168;}
 
+
+/********   C O L O R     S C H E M E   *******************************/
+/* All colors are based off a color in the heading image, #2d5c56     */
+body,table,tr,td {color: #021613;}
+.row0 {background-color: white;}
+.row1 {background-color: #dfeedf;} /*added green to base color to get here*/
+
 a{text-decoration: none;}
 a:link {
-
     color: #80178e;
-
     text-decoration: none
-
 }
 
 a:visited {
-
     color: #572d5c;
-
 }
 
 a:hover {
-
-    color: #5e9edf;
-
-    text-decoration: none
-
+    color: #8c273f;
+    text-decoration: bold;
+    font-size: 110%;
+    line-height: 80%;
+    padding: 0;
 }
+
+table.center {margin-left:auto; margin-right:auto;}
+#bright_msg {color: #80178e;}
