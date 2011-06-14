@@ -1,3 +1,26 @@
+/*############## Custom Stuff First             ##########################*/
+
+.listing {
+border: 5px solid black;
+border-style: dashed;
+margin: 20px;
+padding: 20px;
+#width:1300px;
+#height:100px;
+background-color:yellow;
+-moz-box-shadow: 10px 10px 5px #888888; /* Firefox 3.6 and earlier */
+-webkit-box-shadow: 10px 10px 5px #888888; /* Safari */
+box-shadow: 10px 10px 5px #888888;
+}
+
+/*######################################################################
+ Everything below this line was included in the old style sheet
+*/
+
+
+
+
+
 body {
 
     color: #000000;
@@ -153,3 +176,6 @@ a:hover {
     text-decoration: none
 
 }
+
+
+
