@@ -32,6 +32,14 @@
             return date('D, M j, Y', strtotime($datestr));
     }
 
+    function UTILshortdate($datestr) {
+        if ($datestr == '0000-00-00')   //start_dates of old events will be this
+            return 'not specified';
+        elseif ($datestr == '')         //end_dates that have no end date will be this
+            return '';
+        else
+            return date('D m/j/y', strtotime($datestr));
+    }
     //return date+time format
     function UTILtime($timestr) {
             return date('j M Y', strtotime($timestr));

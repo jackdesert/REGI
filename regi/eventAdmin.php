@@ -201,7 +201,7 @@
 <textarea name='gear_list' rows=8 cols=60><?php print $gear_list; ?></textarea><br><br>
 
 <span style="font-weight: bold">Confirmation Page:</span> (This information will be displayed once a user registers for this event.)
-<?php if ($event_id <> '') print "<br>Click here to <a href='./confirmationPage.php?event_id=$event_id'><big>Preview</big></a> the confirmation page."; ?>
+<?php if ($event_id <> '') print "<br>Click here to <a href='./confirmationPage.php?event_id=$event_id'><big>Preview</big></a> the confirmation page.<br>"; ?>
 <textarea name='confirmation_page' rows=8 cols=60><?php print $confirmation_page; ?></textarea><br><br>
 
 <span style="font-weight: bold">Participant Info:</span> (Visible only for APPROVED participants, Directions to trailhead, etc).

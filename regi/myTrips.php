@@ -58,7 +58,7 @@
         //
 
         $query = "select events.event_id, event_name, event_status, register_date,
-                register_status, program_id, start_date
+                register_status, program_id, start_date, end_date
                 FROM events, user_events
                 WHERE events.event_id=user_events.event_id
                 AND user_events.user_id=$my_user_id
@@ -84,20 +84,17 @@
         else
         {
 
-            print"<table class='center'><tr><td class='hcolor'>Date</td><td class='hcolor'>Event</td><td class='hcolor'>Role</td><td class='hcolor'>Event Status</td><td class='hcolor'>Admin</td></tr>";
+            print"<table class='center'><tr><td class='hcolor'>Start</td><td class='hcolor'>End</td><td class='hcolor'>Event</td><td class='hcolor'>Role</td><td class='hcolor'>Event Status</td>";
             print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
             $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {
                 $even_or_odd = $rowcount % 2;
                 print IN1()."<tr class='row{$even_or_odd}'>";
-                print IN2()."<td class='nowrap'>".UTILdate($row['start_date'])."</td>";
+                print IN2()."<td class='nowrap'>".UTILshortdate($row['start_date'])."</td>";
+                print IN2()."<td class='nowrap'>".UTILshortdate($row['end_date'])."</td>";
                 print IN2()."<td class='en'><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
                 print IN2()."<td>".ucfirst(strtolower($row[register_status]))."</td>";
                 print IN2()."<td>".ucfirst(strtolower($row[event_status]))."</td>";
-                if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER'
-                    || $row['register_status']=='REGISTRAR') {
-                    print IN2()."<td><a href=\"eventAdmin.php?event_id=$row[event_id]\" >Edit</a></td>";
-                }
                 print IN1()."</tr>";
                 $rowcount += 1;
             }

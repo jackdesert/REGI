@@ -247,3 +247,15 @@ table.center {margin-left:auto; margin-right:auto;}
     padding-right: 0.5ex;
 
 }
+
+
+input,textarea{
+    background-color: #c9c9c9;
+}
+
+input:focus,textarea:focus{
+    background-color:   #99d0c4;
+}
+
+
+
