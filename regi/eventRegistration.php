@@ -78,25 +78,7 @@
     // Print list of co/leaders
     //
 
-    $query = "select users.user_id, users.first_name, users.last_name, users.email
-            FROM users, user_events
-            WHERE users.user_id = user_events.user_id
-            AND (register_status='LEADER' or register_status='CO-LEADER')
-            AND event_id=$event_id;";
 
-    $result = mysql_query($query);
-    if (!$result) UTILdberror($query);
-
-    $leader_list='';
-    $numrows = mysql_num_rows($result);
-    if ($numrows < 1) {
-        $leader_list="No leaders or co-leaders are assigned to this event.";
-    }
-    else
-    {
-        while($row = mysql_fetch_assoc($result))
-            $leader_list=$leader_list."\"$row[first_name] $row[last_name]\" <$row[email]>, ";
-    }
 
 
     CHUNKstartcontent($my_user_id, $event_id, 'my');
@@ -219,8 +201,33 @@
 
     print "My Trip Registration Status: $my_register_status</p>";
 
+    //Display co/leaders
+    $query = "select users.user_id, users.first_name, users.last_name, users.email
+            FROM users, user_events
+            WHERE users.user_id = user_events.user_id
+            AND (register_status='LEADER' or register_status='CO-LEADER')
+            AND event_id=$event_id;";
+
+    $result = mysql_query($query);
+    if (!$result) UTILdberror($query);
+    print "<h1>Leaders</h1>";
+    $leader_list='';
+    $numrows = mysql_num_rows($result);
+    if ($numrows < 1) {
+        $leader_list="No leaders or co-leaders are assigned to this event.";
+    }
+    else
+    {
+        while($row = mysql_fetch_assoc($result)){
+            $leader_list=$leader_list."\"$row[first_name] $row[last_name]\" <$row[email]>, ";
+            print "<a href=mailto:{$row[email]}>$row[first_name] $row[last_name]</a><br>";
+        }
+    }
+
+
+
+
 ?>
-<p>Leaders: <?php print htmlspecialchars($leader_list) ?></p>
 
 <h1>Trip Information</h1>
 
