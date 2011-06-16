@@ -105,18 +105,17 @@
 
 <h1>Event Registration<h1>
 
-<h1><?php print $event_name.'  [event status: '.$event_status.']'; ?></h1>
+<h1>Event: <?php print $event_name; ?></h1>
 <?php
     if ($end_date == '' || $end_date == '0000-00-00')
         $date_stri = UTILdate($start_date);
     else
         $date_stri = UTILdate($start_date)." - ".UTILdate($end_date);
-    print "<p>Date(s): {$date_stri}</p>";
+    print "<p>When: {$date_stri}</p>";
+    print "<p>Event Status: ".$event_status."  |  ";
 ?>
-<p>Leaders: <?php print htmlspecialchars($leader_list) ?></p>
 
 <?php
-    print "<h1>My Status</h1>";
 
     // If this event is part of a program, show program sign up status
     //
@@ -178,7 +177,7 @@
     $returning_to='';
     $my_register_status="New Registrant";
 
-    $submitValue='Register and Continue';
+    $submitValue='Sign Up For This Event';
 
     $query = "select registration_id, register_status, payment_status,
         need_ride, can_take, leaving_from, returning_to,
@@ -218,9 +217,10 @@
             $need_rideD='checked';
     }
 
-    print "Your Trip Registration Status: $my_register_status<br>";
+    print "My Trip Registration Status: $my_register_status</p>";
 
 ?>
+<p>Leaders: <?php print htmlspecialchars($leader_list) ?></p>
 
 <h1>Trip Information</h1>
 
@@ -266,7 +266,7 @@
     // If trip is not OPEN, and user has not already signed up, do not show registration form
     //
 
-    if ($submitValue=='Register and Continue' && $event_status != 'OPEN' && $event_status != 'WAIT LIST')
+    if ($submitValue=='Sign Up For This Event' && $event_status != 'OPEN' && $event_status != 'WAIT LIST')
     {
         print "<br><br></div></body></html>";
         exit(0);

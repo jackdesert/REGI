@@ -271,13 +271,6 @@ OR, is this event <i>part</i> of a program? If so, please enter the Program ID:
 
 <br>
 
-
-<form name='export' action='action.php' method='post'>
-  <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
-  <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
-<input type='submit' name='action' value='Export Signup Sheet' onclick=''>
-</form>
-
 </div>
 </body>
 </html>

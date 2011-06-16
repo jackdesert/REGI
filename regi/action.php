@@ -115,7 +115,7 @@
         // Register -----------------------------------------------------------
         //
 
-        case "Register and Continue":
+        case "Sign Up For This Event":
 
             $user_id= $_SESSION["Suser_id"];
             $event_id= $_POST["event_id"];
@@ -229,7 +229,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id
             else
                 $_SESSION['Smessage'] = "Registration info updated.";
 
-            header("Location: ./myTrips.php?event_id=$event_id");
+            header("Location: ./eventRegistration.php?event_id=$event_id");
             exit();
 
         break;
