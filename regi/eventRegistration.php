@@ -93,8 +93,8 @@
         $date_stri = UTILdate($start_date);
     else
         $date_stri = UTILdate($start_date)." - ".UTILdate($end_date);
-    print "<p>When: {$date_stri}</p>";
-    print "<p>Event Status: ".$event_status."  |  ";
+    print "<p class='indented'>When: <b>{$date_stri}</b></p>";
+    print "<p class='indented'>Event Status: <b>".$event_status."</b></p> ";
 ?>
 
 <?php
@@ -199,7 +199,7 @@
             $need_rideD='checked';
     }
 
-    print "My Trip Registration Status: $my_register_status</p>";
+    print "<p class='indented'></b>My Trip Registration Status: <b>$my_register_status</b></p>";
 
     //Display co/leaders
     $query = "select users.user_id, users.first_name, users.last_name, users.email
@@ -218,7 +218,7 @@
     }
     else
     {
-        print "<div id='leader_list'>";
+        print "<div class='indented'>";
         while($row = mysql_fetch_assoc($result)){
             $leader_list=$leader_list."\"$row[first_name] $row[last_name]\" <$row[email]>, ";
             print "<a href=mailto:{$row[email]}>$row[first_name] $row[last_name]</a><br>";
