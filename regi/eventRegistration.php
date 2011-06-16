@@ -99,7 +99,7 @@
     }
 
 
-    CHUNKstartcontent($event_id, 'my');
+    CHUNKstartcontent($my_user_id, $event_id, 'my');
 ?>
 
 

@@ -151,7 +151,7 @@
 
     }  // end: $event_id<>''
 
-    CHUNKstartcontent($event_id, 'roster');
+    CHUNKstartcontent($my_user_id, $event_id, 'roster');
 
     if ($event_id == '')
         exit(0);

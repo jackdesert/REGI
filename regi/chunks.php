@@ -69,10 +69,11 @@ function CHUNKstylemessage($msg){
    ";
 }
 
-function CHUNKstartcontent($event, $tab = false){
+function CHUNKstartcontent($user, $event, $tab){
     print "<div id='glue'>";
     if ($tab)
-        CHUNKlefttabs($event, $tab);
+        if (UTILdb_proceed($user, $event))      //Display tabs if this user has auth.
+            CHUNKlefttabs($user, $event, $tab);
     print "<div id='content'>
     ";
 
@@ -82,7 +83,7 @@ function CHUNKfinishcontent(){
     print "</div></div>";
 }
 
-function CHUNKlefttabs($event, $tab){
+function CHUNKlefttabs($user, $event, $tab){
     $st1 = '';
     $st2 = '';
     $st3 = '';

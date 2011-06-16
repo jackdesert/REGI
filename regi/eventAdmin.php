@@ -150,7 +150,7 @@
 
     }  // end: $event_id<>''
 
-    CHUNKstartcontent($event_id, 'admin');
+    CHUNKstartcontent($my_user_id, $event_id, 'admin');
 ?>
 
 
