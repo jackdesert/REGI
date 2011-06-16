@@ -71,7 +71,7 @@ function CHUNKstylemessage($msg){
 
 function CHUNKstartcontent($user, $event, $tab){
     print "<div id='glue'>";
-    if ($tab)
+    if ($tab and $event)
         if (UTILdb_proceed($user, $event))      //Display tabs if this user has auth.
             CHUNKlefttabs($user, $event, $tab);
     print "<div id='content'>
