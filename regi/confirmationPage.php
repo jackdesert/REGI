@@ -62,11 +62,9 @@
         $confirmation_page=$row['confirmation_page'];
     }
 
+    CHUNKstartcontent($my_user_id, $event_id, 'my');
 ?>
 
-    </div>
-   </div>
-   <div style="padding-left:20px; width:90%;">
 
 <h1>Event Registration Confirmation<h1>
 
