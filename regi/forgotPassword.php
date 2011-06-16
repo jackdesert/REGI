@@ -26,14 +26,14 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu();
-    if (isset($_SESSION['Smessage']))
-        CHUNKstylemessage($_SESSION['Smessage']);
+    //if (isset($_SESSION['Smessage']))
+    //    CHUNKstylemessage($_SESSION['Smessage']);
+
+    CHUNKstylemessage($msg);
+
+    CHUNKstartcontent($my_user_id, $event_id, 'my');
 ?>
 
-    </div>
-   </div>
-
-   <div style="padding-left:20px; width:90%;">
 
 <h2>Send My Password</h2>
 
@@ -59,10 +59,10 @@ We recommend changing your password when you log in again by editing your profil
     <td><b>Enter  Account Email:</b></td>
     <td><input type='email' name='email' value='' MAXLENGTH=40></td>
     </tr></table>
-    <input type='submit' name='action' value='Send My Account Info' onclick=""'>
+    <input type='submit' name='action' value='Send My Account Info' onclick="">
 </form>
 <p><br>
 
-</div>
+
 </body>
 </html>
