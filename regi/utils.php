@@ -29,7 +29,7 @@
         if ($datestr == '0000-00-00')
             return 'not specified';
         else
-            return date('M j, Y', strtotime($datestr));
+            return date('D, M j, Y', strtotime($datestr));
     }
 
     //return date+time format
