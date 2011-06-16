@@ -31,7 +31,7 @@
 
     CHUNKstylemessage($msg);
 
-    CHUNKstartcontent($my_user_id, $event_id, 'my');
+    CHUNKstartcontent();
 ?>
 
 

@@ -26,8 +26,12 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu();
-    if (isset($_SESSION['Smessage']))
-        CHUNKstylemessage($_SESSION['Smessage']);
+    //if (isset($_SESSION['Smessage']))
+    //    CHUNKstylemessage($_SESSION['Smessage']);
+    CHUNKstylemessage($_SESSION['Smessage']);
+    CHUNKstartcontent();
+
+
     // If Suser_id defined, populate screen with user profile + set to Update mode
     //  otherwise, set to New mode
 
@@ -201,27 +205,27 @@
 
 <p>What is your previous hiking experience? (If applicable, please name mountains and include approximate distances.)<br />
 
-<textarea name="experience" rows="3" cols="100">
+<textarea name="experience" rows="10" cols="60">
 <?php echo $experience; ?>
 </textarea></p>
 
 <p>What is your weekly exercise routine? Please be honest.<br />
-<textarea name="exercise" rows="3" cols="100">
+<textarea name="exercise" rows="6" cols="60">
 <?php echo $exercise; ?>
 </textarea></p>
 
 <p>Do you have any allergies, are taking any medications, or have other medical conditions that may be important? (Your answer will remain confidential.)<br />
-<textarea name="medical" rows="3" cols="100">
+<textarea name="medical" rows="3" cols="60">
 <?php echo $medical; ?>
 </textarea></p>
 
 <p>In case of emergency, please enter a person to contact, including name and phone number.<br />
-<textarea name="emergency_contact" rows="3" cols="100">
+<textarea name="emergency_contact" rows="3" cols="60">
 <?php echo $emergency_contact; ?>
 </textarea></p>
 
 <p>Do you have any dietary preferences or restrictions (vegetarian, food allergies, etc.)?<br />
-<textarea name="diet" rows="3" cols="100">
+<textarea name="diet" rows="3" cols="60">
 <?php echo $diet; ?>
 </textarea></p>
 
