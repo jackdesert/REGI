@@ -162,7 +162,7 @@
 
     }  // end: $event_id<>''
 
-    CHUNKstartcontent('tabs');
+    CHUNKstartcontent($event_id, 'roster');
 
     if ($event_id == '')
         exit(0);

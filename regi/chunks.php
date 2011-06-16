@@ -69,10 +69,10 @@ function CHUNKstylemessage($msg){
    ";
 }
 
-function CHUNKstartcontent($tab = false){
+function CHUNKstartcontent($event, $tab = false){
     print "<div id='glue'>";
     if ($tab)
-        CHUNKlefttabs($tab);
+        CHUNKlefttabs($event, $tab);
     print "<div id='content'>
     ";
 
@@ -82,7 +82,7 @@ function CHUNKfinishcontent(){
     print "</div></div>";
 }
 
-function CHUNKlefttabs($tab = 'my'){
+function CHUNKlefttabs($event, $tab){
     $st1 = '';
     $st2 = '';
     $st3 = '';
@@ -96,13 +96,13 @@ function CHUNKlefttabs($tab = 'my'){
         $st3 = $id_string;
     else
         $err = "<div>Tab\n Not \nSelected</div>";
-
     print "
 <div id='tabs'>
 
-<div{$st1}>top</div>
-<div{$st2}>middle</div>
-<div{$st3}>bottom</div>
+<div{$st1}><a href='eventRegistration.php?event_id={$event}'>My</a></div>
+<div{$st2}><a href='eventAdmin.php?event_id={$event}'>Admin</a></div>
+<div{$st3}><a href='eventRoster.php?event_id={$event}'>Roster</a></div>
+{$err}
 </div>";
 }
 ?>

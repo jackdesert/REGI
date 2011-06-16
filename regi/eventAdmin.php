@@ -162,7 +162,7 @@
 
     }  // end: $event_id<>''
 
-    CHUNKstartcontent('admin');
+    CHUNKstartcontent($event_id, 'admin');
 ?>
 
 

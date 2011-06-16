@@ -98,7 +98,8 @@
             $leader_list=$leader_list."\"$row[first_name] $row[last_name]\" <$row[email]>, ";
     }
 
-    CHUNKstartcontent('tabs');
+
+    CHUNKstartcontent($event_id, 'my');
 ?>
 
 
