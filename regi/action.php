@@ -153,7 +153,7 @@
                 UTILdberror($query);
             else
             {
-                $_SESSION['Smessage'] = "Your registration has been submitted.<br>Please check back in a few days for updates.";
+                $_SESSION['Smessage'] = "Your registration has been submitted.<br>This trip will now show up in your MyTrips section.";
 
                 // Send email to leaders - TBD
                 //
