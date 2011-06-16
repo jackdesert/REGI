@@ -78,18 +78,7 @@
         // Check if current user is a leader, co-leader, or registrar of this trip
         //
 
-        $query = "select users.user_id
-            FROM users, user_events
-            WHERE users.user_id = user_events.user_id
-            AND (register_status='LEADER' or register_status='CO-LEADER' or register_status='REGISTRAR')
-            AND event_id=$event_id
-            AND users.user_id=$my_user_id;";
-
-        $result = mysql_query($query);
-        if (!$result) UTILdberror($query);
-
-        $numrows = mysql_num_rows($result);
-        if ($numrows <> 1 && $_SESSION['Suser_type'] <> 'ADMIN')
+        if ( ! UTILdb_proceed($my_user_id, $event_id))
         {
             header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be a designated trip leader, co-leader, or registrar to view this page. Please contact the trip leader.");
             exit(0);
