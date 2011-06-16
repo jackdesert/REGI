@@ -332,19 +332,19 @@
     if ($question1 <> '')
     {
         print $question1;
-        print "<br><textarea name='answer1' rows=3 cols=100>$answer1</textarea><br><br>";
+        print "<br><textarea name='answer1' rows=3 cols=60>$answer1</textarea><br><br>";
     }
 
     if ($question2 <> '')
     {
         print $question2;
-        print "<br><textarea name='answer2' rows=3 cols=100>$answer2</textarea><br><br>";
+        print "<br><textarea name='answer2' rows=3 cols=60>$answer2</textarea><br><br>";
     }
 
     if ($event_is_program <> 'Y')
     {
         print "$SET_QUESTION_1<br>
-    <textarea name='gear' rows=3 cols=100>$gear</textarea></br><br>";
+    <textarea name='gear' rows=3 cols=60>$gear</textarea></br><br>";
 
     }
 
@@ -352,7 +352,7 @@
 ?>
 
     <br>
-    <textarea name='questions' rows=3 cols=100><?php print $questions; ?></textarea></br>
+    <textarea name='questions' rows=3 cols=60><?php print $questions; ?></textarea></br>
 
 <?php
 
