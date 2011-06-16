@@ -167,7 +167,6 @@ a:hover {
 */
 
 
-
 .listing {
 border: 5px solid black;
 border-style: dashed;
@@ -190,32 +189,37 @@ td {
 
 .en {width: 60%;}
 .nowrap{white-space: nowrap;}
-.hcolor{color: #2a7168;}
+.hcolor{
+    color: #25605A;
+    font-weight: bold;}
 
 
 /********   C O L O R     S C H E M E   *******************************/
 /* All colors are based off a color in the heading image, #2d5c56     */
-body,table,tr,td {color: #021613;}
+body,table,tr,td {color: #000000;
+    font-family: Roman;}
 .row0 {background-color: white;}
-.row1 {background-color: #dfeedf;} /*added green to base color to get here*/
+.row1 {background-color: #E9E9E9;} /*added green to base color to get here*/
 
 a{text-decoration: none;}
 a:link {
-    color: #80178e;
-    text-decoration: none
+    color: #0349A8;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 a:visited {
-    color: #572d5c;
+    color: #6E943B;
 }
 
 a:hover {
-    color: #8c273f;
-    text-decoration: bold;
-    font-size: 110%;
-    line-height: 80%;
-    padding: 0;
+    color: #0349A8;
+    #text-decoration: bold;
+    #font-size: 110%;
+    #line-height: 80%;
+    #padding: 0;
+    text-decoration: underline;
 }
 
 table.center {margin-left:auto; margin-right:auto;}
-#bright_msg {color: #80178e;}
+#bright_msg {color: #00A480;}
