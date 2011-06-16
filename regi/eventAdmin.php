@@ -162,11 +162,9 @@
 
     }  // end: $event_id<>''
 
+    CHUNKstartcontent('admin');
 ?>
 
-    </div>
-   </div>
-   <div style="padding-left:20px; width:90%;">
 
 <h2>Event Administration Page
 <a href="#signUpSheet">[Jump to Sign-up Sheet]</a></h2>

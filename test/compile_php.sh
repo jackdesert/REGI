@@ -9,9 +9,9 @@ done
 
 echo
 echo "******************************************************************"
-echo "          ANY ERRORS WILL BE BELOW THIS LINE"
+echo "          ANY ERRORS WILL BE LISTED HERE"
 echo
 echo
 echo
 cat results.txt | grep "PHP Parse error"
-
+echo "******************************************************************"

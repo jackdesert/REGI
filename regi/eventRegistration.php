@@ -98,11 +98,9 @@
             $leader_list=$leader_list."\"$row[first_name] $row[last_name]\" <$row[email]>, ";
     }
 
+    CHUNKstartcontent('tabs');
 ?>
 
-    </div>
-   </div>
-   <div style="padding-left:20px; width:90%;">
 
 <h1>Event Registration<h1>
 

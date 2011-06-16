@@ -234,3 +234,6 @@ table.center {margin-left:auto; margin-right:auto;}
     width:90%;
     float: left;
 }
+#selected_tab{
+    background: brown;
+}

@@ -30,11 +30,9 @@
     UTILbuildmenu();
     if (isset($_SESSION['Smessage']))
         CHUNKstylemessage($_SESSION['Smessage']);
-?>
 
-    </div>
-   </div>
-   <div style="padding-left:20px; padding-right: 20px;">
+    CHUNKstartcontent();
+?>
 
 <h1>My Trips</h1>
 

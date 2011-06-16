@@ -162,7 +162,7 @@
 
     }  // end: $event_id<>''
 
-    CHUNKstartcontent();
+    CHUNKstartcontent('tabs');
 
     if ($event_id == '')
         exit(0);
