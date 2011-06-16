@@ -63,8 +63,31 @@ function CHUNKstartbody(){
 }
 
 function CHUNKstylemessage($msg){
-    print "<b><p id='bright_msg'>{$msg}</p></b>";
+    print "<b><p id='bright_msg'>{$msg}</p></b>
+        </div>
+   </div>
+   ";
 }
 
+function CHUNKstartcontent(){
+    print "<div id='glue'>";
+    CHUNKlefttabs();
+    print "<div style='padding-left:20px; width:90%;'>
+    ";
 
+}
+
+function CHUNKfinishcontent(){
+    print "</div></div>";
+}
+
+function CHUNKlefttabs(){
+    print "
+<div id='tabs' style='float: left;'>
+
+<p>top</p>
+<p>middle</p>
+<p>bottom</p>
+</div>";
+}
 ?>
