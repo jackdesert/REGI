@@ -311,7 +311,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             }
 
             $_SESSION['Smessage'] = "Sign-up Sheet Updated.";
-            header("Location: ./eventAdmin.php?event_id=$event_id");
+            header("Location: ./eventSignup.php?event_id=$event_id");
             exit();
 
         break;
