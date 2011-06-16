@@ -218,10 +218,12 @@
     }
     else
     {
+        print "<div id='leader_list'>";
         while($row = mysql_fetch_assoc($result)){
             $leader_list=$leader_list."\"$row[first_name] $row[last_name]\" <$row[email]>, ";
             print "<a href=mailto:{$row[email]}>$row[first_name] $row[last_name]</a><br>";
         }
+        print "</div>";
     }
 
 

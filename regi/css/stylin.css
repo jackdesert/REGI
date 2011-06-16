@@ -257,5 +257,8 @@ input:focus,textarea:focus{
     background-color:   #99d0c4;
 }
 
+#leader_list{
+    padding-left: 5ex;
+}
 
 
