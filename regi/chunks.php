@@ -89,6 +89,7 @@ function CHUNKlefttabs($user, $event, $tab){
     $st3 = '';
     $err = '';
     $id_string = " id='selected_tab'";
+    $class_string = " class='tab'";
     if ($tab == 'my')
         $st1 = $id_string;
     elseif ($tab == 'admin')
@@ -100,9 +101,9 @@ function CHUNKlefttabs($user, $event, $tab){
     print "
 <div id='tabs'>
 
-<div{$st1}><a href='eventRegistration.php?event_id={$event}'>Me</a></div>
-<div{$st2}><a href='eventAdmin.php?event_id={$event}'>Trip</a></div>
-<div{$st3}><a href='eventRoster.php?event_id={$event}'>Roster</a></div>
+<div{$st1}{$class_string}><a href='eventRegistration.php?event_id={$event}'>Me</a></div>
+<div{$st2}{$class_string}><a href='eventAdmin.php?event_id={$event}'>Trip</a></div>
+<div{$st3}{$class_string}><a href='eventRoster.php?event_id={$event}'>Roster</a></div>
 {$err}
 </div>";
 }

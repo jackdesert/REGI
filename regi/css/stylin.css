@@ -236,4 +236,14 @@ table.center {margin-left:auto; margin-right:auto;}
 }
 #selected_tab{
     background: #99d0c4;
+
+}
+
+.tab{
+    border-radius:  0.5ex;
+    -moz-border-radius:0.5ex; /* Firefox 3.6 and earlier */
+    #border:2px solid;
+    padding-left: 0.5ex;
+    padding-right: 0.5ex;
+
 }
