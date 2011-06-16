@@ -72,7 +72,7 @@ function CHUNKstylemessage($msg){
 function CHUNKstartcontent(){
     print "<div id='glue'>";
     CHUNKlefttabs();
-    print "<div style='padding-left:20px; width:90%;'>
+    print "<div id='content'>
     ";
 
 }
@@ -83,7 +83,7 @@ function CHUNKfinishcontent(){
 
 function CHUNKlefttabs(){
     print "
-<div id='tabs' style='float: left;'>
+<div id='tabs'>
 
 <p>top</p>
 <p>middle</p>
