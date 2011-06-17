@@ -202,7 +202,7 @@
 &nbsp;
 <input type="radio" name="member" value="N" <?php print $member_no ?> >NO
 
-
+<div id='myprofile_narrow'>
 <p>What is your previous hiking experience? (If applicable, please name mountains and include approximate distances.)<br />
 
 <textarea name="experience" rows="10" cols="60">
@@ -234,6 +234,7 @@
 <input type='submit' name='action' value='<?php print $formAction; ?>' onclick='return checkProfile()'>
 </form>
 
+</div>
 </div>
 </body>
 </html>

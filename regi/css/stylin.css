@@ -266,4 +266,7 @@ input:focus,textarea:focus{
     padding-left: 5ex;
 }
 
-
+#myprofile_narrow{
+    width: 55ex;
+    text-align: justify;
+}
