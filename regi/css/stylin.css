@@ -192,7 +192,7 @@ table, th, tr, td {
 .hcolor{
     color: #25605A;
     font-weight: bold;
-    font-family: Times New Roman;
+    font-family: "Times New Roman", Times, serif;
     padding: 1ex 2ex;
 }
 
@@ -209,8 +209,8 @@ links (hover): Blue, Bold, HEX#0349A8(same color and text size as regular link -
 * Note: I'm changing all links to the light greenish blue 6e943b
 *      */
 body,table,tr,td,p,input.inputbox,textarea.inputbox {color: #000000;
-    font-family: Times New Roman, Times, Century, Arial;
-    font-size: 12pt;
+    font-family: Arial;
+    font-size: 10.5pt;
 }
 .row0 {background-color: white;}
 .row1 {background-color: #E9E9E9;} /*added green to base color to get here*/
@@ -269,7 +269,7 @@ table.center {margin-left:auto; margin-right:auto;}
     padding-top: 0.1ex;
     padding-bottom: 0.1ex;
     font-size: 130%;
-    font-family: Times New Roman;
+    font-family: "Times New Roman", Times, serif;
     color: #6E943B;
 }
 .tab:hover{
