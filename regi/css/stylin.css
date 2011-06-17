@@ -220,6 +220,18 @@ a{
     color: #6e943b;
 }
 
+a:link, a.menu:visited {
+    color: #0349A8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0349A8;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 a.menu:link, a.menu:visited {
     color: #6e943b;
     font-weight: bold;
