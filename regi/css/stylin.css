@@ -197,8 +197,17 @@ table, th, tr, td {
 }
 
 
-/********   C O L O R     S C H E M E   *******************************/
-/* All colors are based off a color in the heading image, #2d5c56     */
+/********   C O L O R     S C H E M E   *******************************
+Table banding: Light Grey, HEX#E9E9E9
+Alert message (Welcome): Light Green, HEX#00A480
+table headings: Dark Green, Bold, HEX#25605A
+normal text: Black HEX#000000
+links: Blue, Bold, HEX#0349A8
+links (followed): Light (greenish) Blue, Bold, HEX# 6E943B
+links (hover): Blue, Bold, HEX#0349A8(same color and text size as regular link -
+* also, can you make the underline appear on hover?)
+*
+*      */
 body,table,tr,td,p,input.inputbox,textarea.inputbox {color: #000000;
     font-family: Times New Roman, Times, Century, Arial;
     font-size: 12pt;
@@ -241,9 +250,10 @@ table.center {margin-left:auto; margin-right:auto;}
 }
 #selected_tab{
     background: #99d0c4;
-
 }
-
+#selected_tab:hover{
+    background: #ccc;
+}
 .tab{
     border-radius:  0.5ex;
     -moz-border-radius:0.5ex; /* Firefox 3.6 and earlier */
@@ -254,6 +264,10 @@ table.center {margin-left:auto; margin-right:auto;}
     padding-bottom: 0.1ex;
     font-size: 130%;
     font-family: Times New Roman;
+    color: #6E943B;
+}
+.tab:hover{
+    background: #ccc;
 }
 
 
