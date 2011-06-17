@@ -154,8 +154,7 @@
 ?>
 
 
-<h2>Event Administration Page
-<a href="#signUpSheet">[Jump to Sign-up Sheet]</a></h2>
+<h2>Event Administration Page</h2>
 
 <form name='trip_essence' action='action.php' method='post'>
 
