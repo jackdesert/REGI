@@ -206,7 +206,7 @@ links: Blue, Bold, HEX#0349A8
 links (followed): Light (greenish) Blue, Bold, HEX# 6E943B
 links (hover): Blue, Bold, HEX#0349A8(same color and text size as regular link -
 * also, can you make the underline appear on hover?)
-*
+* Note: I'm changing all links to the light greenish blue 6e943b
 *      */
 body,table,tr,td,p,input.inputbox,textarea.inputbox {color: #000000;
     font-family: Times New Roman, Times, Century, Arial;
@@ -215,19 +215,25 @@ body,table,tr,td,p,input.inputbox,textarea.inputbox {color: #000000;
 .row0 {background-color: white;}
 .row1 {background-color: #E9E9E9;} /*added green to base color to get here*/
 
-a{text-decoration: none;}
+a{
+    text-decoration: none;
+    color: #6e943b;
+}
+
 a:link {
-    color: #0349A8;
+    color: #6e943b;
     font-weight: bold;
     text-decoration: none;
 }
 
-a:visited {
-    color: #6E943B;
+a:visited{
+    color: #6e943b;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 a:hover {
-    color: #0349A8;
+    color: #6e943b;
     #text-decoration: bold;
     #font-size: 110%;
     #line-height: 80%;
