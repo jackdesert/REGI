@@ -191,7 +191,10 @@ table, th, tr, td {
 .mytrips_nowrap{white-space: nowrap;}
 .hcolor{
     color: #25605A;
-    font-weight: bold;}
+    font-weight: bold;
+    font-family: Times New Roman;
+    padding: 1ex 2ex;
+}
 
 
 /********   C O L O R     S C H E M E   *******************************/
@@ -250,7 +253,7 @@ table.center {margin-left:auto; margin-right:auto;}
     padding-top: 0.1ex;
     padding-bottom: 0.1ex;
     font-size: 130%;
-
+    font-family: Times New Roman;
 }
 
 
