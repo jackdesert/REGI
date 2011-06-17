@@ -196,7 +196,7 @@ table, th, tr, td {
 
 /********   C O L O R     S C H E M E   *******************************/
 /* All colors are based off a color in the heading image, #2d5c56     */
-body,table,tr,td,p {color: #000000;
+body,table,tr,td,p,input.inputbox,textarea.inputbox {color: #000000;
     font-family: Times New Roman, Times, Century, Arial;
     font-size: 12pt;
 }
