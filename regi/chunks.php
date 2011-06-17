@@ -57,7 +57,7 @@ function CHUNKstartbody(){
     print "
 <body>
     <div id='pagewrap'>
-    <div id='layer10' onClick='location.href=\"http://www.hbbostonamc.org/index.php\";' style='cursor:pointer;'>
+    <div id='layer10'>
 ";
     return 1;
 }
@@ -65,6 +65,7 @@ function CHUNKstartbody(){
 function CHUNKstylemessage($msg){
     print "<b><p id='bright_msg'>{$msg}</p></b>
         </div>
+   <div id='linked_background' onClick='location.href=\"http://www.hbbostonamc.org/index.php\";' style='cursor: pointer; width: 31%; height: 90%;'></div>
    </div>
    ";
 }
@@ -80,7 +81,7 @@ function CHUNKstartcontent($user='', $event='', $tab=''){
 }
 
 function CHUNKfinishcontent(){
-    print "</div></div>";
+    print "</div></div></div>";
 }
 
 function CHUNKlefttabs($user, $event, $tab){

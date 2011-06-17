@@ -47,7 +47,7 @@
 
     // Build top menu
     function UTILbuildmenu() {
-        print IN2()."<div id='searchbox'>";
+        print IN2()."<div id='searchbox' onclick='location.href=\'http://hi.com\''>";
 
         print IN3()."<a href=\"http://www.hbbostonamc.org/trips.php\" >HB Trip Listings</a> | ";
         print IN3()."<a href=\"mailto:amcbostonhbs@gmail.com?subject=Help With REGI Site\" >Support</a> | ";
