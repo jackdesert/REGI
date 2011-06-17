@@ -240,21 +240,7 @@
 <br>
 
 
-<!--
 
-Is this event a program? (ie. Winter Program, Spring Program, etc.)
-<select name='event_is_program'>
-        <option value='<?php print $event_is_program; ?>'><?php print $event_is_program; ?>
-        <option disabled>---
-        <option value='Y'>Y
-        <option value='N'>N
-</select><br><br>
-
-OR, is this event <i>part</i> of a program? If so, please enter the Program ID:
-<input type='text' name='program_id' value='<?php print $program_id; ?>' size=10><?php print $program_name; ?><br>
-<i>Note: Please contact the program leader for the Event ID of the program. If this event is not part of a program, leave blank or enter '0'</i>
-
--->
 
 
 <br><br>
