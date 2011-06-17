@@ -90,11 +90,11 @@
             while($row = mysql_fetch_assoc($result)) {
                 $even_or_odd = $rowcount % 2;
                 print IN1()."<tr class='row{$even_or_odd}'>";
-                print IN2()."<td class='nowrap'>".UTILshortdate($row['start_date'])."</td>";
-                print IN2()."<td class='nowrap'>".UTILshortdate($row['end_date'])."</td>";
-                print IN2()."<td class='en'><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
-                print IN2()."<td>".ucfirst(strtolower($row[register_status]))."</td>";
-                print IN2()."<td>".ucfirst(strtolower($row[event_status]))."</td>";
+                print IN2()."<td class='mytrips_nowrap'>".UTILshortdate($row['start_date'])."</td>";
+                print IN2()."<td class='mytrips_nowrap'>".UTILshortdate($row['end_date'])."</td>";
+                print IN2()."<td class='mytrips_en'><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
+                print IN2()."<td class='mytrips'>".ucfirst(strtolower($row[register_status]))."</td>";
+                print IN2()."<td class='mytrips'>".ucfirst(strtolower($row[event_status]))."</td>";
                 print IN1()."</tr>";
                 $rowcount += 1;
             }

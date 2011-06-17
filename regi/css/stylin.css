@@ -183,12 +183,12 @@ table, th, tr, td {
     border-spacing: 0; /* This is important for multiple cells to appear as one */
 
 }
-td {
+
+.mytrips, .mytrips_en, .mytrips_nowrap{
     padding: 1ex 2ex;
 }
-
-.en {width: 60%;}
-.nowrap{white-space: nowrap;}
+.mytrips_en {width: 60%;}
+.mytrips_nowrap{white-space: nowrap;}
 .hcolor{
     color: #25605A;
     font-weight: bold;}
