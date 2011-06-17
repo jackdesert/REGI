@@ -8,7 +8,7 @@ body {
 
     font-size: 13px;
 
-    font-family: Arial, Verdana, Tahoma;
+    font-family: Arial, Verdana, Tahoma, "sans-serif";
 
     background-color: #2d5c56;
 
@@ -92,7 +92,7 @@ h3 {
 
 }
 
-td, tr, p  { color: #000; font-size: 13px; font-family: Arial, Verdana, Tahoma }
+td, tr, p  { color: #000; font-size: 13px; font-family: Arial, Verdana, Tahoma, "sans-serif" }
 
 input.inputbox {
 
@@ -100,7 +100,7 @@ input.inputbox {
 
     font-size: 11px;
 
-    font-family: Arial, Verdana, Tahoma;
+    font-family: Arial, Verdana, Tahoma, "sans-serif";
 
     background-color: #fff;
 
@@ -130,7 +130,7 @@ textarea.inputbox {
 
     font-size: 11px;
 
-    font-family: Arial, Verdana, Tahoma;
+    font-family: Arial, Verdana, Tahoma, "sans-serif";
 
     background-color: white;
 
@@ -209,7 +209,7 @@ links (hover): Blue, Bold, HEX#0349A8(same color and text size as regular link -
 * Note: I'm changing all links to the light greenish blue 6e943b
 *      */
 body,table,tr,td,p,input.inputbox,textarea.inputbox {color: #000000;
-    font-family: Arial, Verdana, Tahoma;
+    font-family: Arial, Verdana, Tahoma, "sans-serif";
     font-size: 10.5pt;
 }
 .row0 {background-color: white;}
@@ -220,24 +220,15 @@ a{
     color: #6e943b;
 }
 
-a:link {
+a.menu:link, a.menu:visited {
     color: #6e943b;
     font-weight: bold;
     text-decoration: none;
 }
 
-a:visited{
+a.menu:hover {
     color: #6e943b;
     font-weight: bold;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #6e943b;
-    #text-decoration: bold;
-    #font-size: 110%;
-    #line-height: 80%;
-    #padding: 0;
     text-decoration: underline;
 }
 
