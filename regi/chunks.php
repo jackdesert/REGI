@@ -101,8 +101,8 @@ function CHUNKlefttabs($user, $event, $tab){
     print "
 <div id='tabs'>
 
-<div{$st1}{$class_string}><a href='eventRegistration.php?event_id={$event}'>Me</a></div>
-<div{$st2}{$class_string}><a href='eventAdmin.php?event_id={$event}'>Trip</a></div>
+<div{$st1}{$class_string}><a href='eventRegistration.php?event_id={$event}'>Trip Info</a></div>
+<div{$st2}{$class_string}><a href='eventAdmin.php?event_id={$event}'>Admin</a></div>
 <div{$st3}{$class_string}><a href='eventRoster.php?event_id={$event}'>Roster</a></div>
 {$err}
 </div>";

@@ -163,7 +163,7 @@ a:hover {
 
 
 /*######################################################################
- Everything below this line was included in the old style sheet
+ Everything above this line was included in the old style sheet
 */
 
 
@@ -196,8 +196,10 @@ td {
 
 /********   C O L O R     S C H E M E   *******************************/
 /* All colors are based off a color in the heading image, #2d5c56     */
-body,table,tr,td {color: #000000;
-    font-family: Roman;}
+body,table,tr,td,p {color: #000000;
+    font-family: Times New Roman, Times, Century, Arial;
+    font-size: 12pt;
+}
 .row0 {background-color: white;}
 .row1 {background-color: #E9E9E9;} /*added green to base color to get here*/
 
