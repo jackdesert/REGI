@@ -264,15 +264,17 @@ table.center {margin-left:auto; margin-right:auto;}
     background: #ccc;
 }
 .tab{
-    border-radius:  0.5ex;
-    -moz-border-radius:0.5ex; /* Firefox 3.6 and earlier */
-    #border:2px solid;
-    padding-left: 0.5ex;
-    padding-right: 0.5ex;
-    padding-top: 0.1ex;
-    padding-bottom: 0.1ex;
+    border-radius:  1.2ex;
+    -moz-border-radius:1.2ex; /* Firefox 3.6 and earlier */
+    text-align: center;
+    border: 1px solid;
+    padding: 0.5ex;
+    margin: 0.5ex 0;
     font-size: 130%;
     font-family: "Times New Roman", Times, serif;
+    -moz-box-shadow: 0.2ex 0.3ex 0.6ex #888888; /* Firefox 3.6 and earlier */
+    -webkit-box-shadow: 0.2ex 0.1ex 0.6ex #888888; /* Safari */
+    box-shadow: 0.2ex 0.1ex 0.6ex #888888;
     color: #6E943B;
 }
 .tab:hover{
