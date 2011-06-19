@@ -76,7 +76,7 @@ function CHUNKstartcontent($user='', $event='', $tab=''){
         if (UTILdb_proceed($user, $event))      //Display tabs if this user has auth.
             CHUNKlefttabs($user, $event, $tab);
     print "<div id='content'>
-    ";
+    <br><hr>";
 
 }
 

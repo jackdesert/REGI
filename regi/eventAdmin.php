@@ -153,8 +153,7 @@
     CHUNKstartcontent($my_user_id, $event_id, 'admin');
 ?>
 
-
-<h2>Event Administration Page</h2>
+<h1>Event Administration</h1>
 
 <form name='trip_essence' action='action.php' method='post'>
 
