@@ -86,7 +86,7 @@
         // Get event summary info
         //
 
-        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, question2, start_date, end_date
+        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, question2, start_date, end_date, rating
                 FROM events
                 WHERE event_id=$event_id;";
 
@@ -111,6 +111,7 @@
             $question2=$row['question2'];
             $start_date=$row['start_date'];
             $end_date=$row['end_date'];
+            $rating=$row['rating'];
 
             if ($start_date == "0000-00-00") //This accounts for the events that were created with this date when
                 $start_date = '';           //the start_date field was added to the database.
@@ -177,8 +178,9 @@
   }
 
 ?>
-
-* <span style="font-weight: bold">Event Status</span>:
+<table>
+    <tr>
+        <td>* <span style="font-weight: bold">Event Status</span>:
 <select name='event_status'>
         <option value='<?php print $event_status; ?>'><?php print $event_status; ?>
         <option disabled>----------
@@ -190,7 +192,13 @@
         <option value='CANCELED'>CANCELED
 </select><br>
 <i style="color: #096">Note: Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.  All other status do NOT allow new registrations.</i>
-<br><br>
+<br><br></td>
+    <td><span style="font-weight: bold">Event Rating:</span> (Optional).<br>
+<input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
+    </td>
+    </tr>
+</table>
+
 
 <span style="font-weight: bold">* General Description:</span><br>
 <textarea name='description' rows=8 cols=60><?php print $description; ?></textarea><br><br>
