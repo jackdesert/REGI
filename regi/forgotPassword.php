@@ -30,6 +30,7 @@
     //    CHUNKstylemessage($_SESSION['Smessage']);
 
     CHUNKstylemessage($msg);
+    unset($_SESSION['Smessage']);
 
     CHUNKstartcontent();
 ?>

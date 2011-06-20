@@ -27,6 +27,7 @@
     CHUNKstartbody();
     UTILbuildmenu();
     CHUNKstylemessage($_SESSION['Smessage']);
+    unset($_SESSION['Smessage']);
     // SECURITY
     // - User must be logged in
 
