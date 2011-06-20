@@ -161,25 +161,23 @@
 * <span style="font-weight: bold">Event Name:</span> (include location, rating)<br>
 <input type='text' required=required maxlength='60' name='event_name' value='<?php print $event_name; ?>' size=60><br><br>
 
-* <span style="font-weight: bold">Event (Start) Date:</span> (format: YYYY-MM-DD)<br>
-<input type='date' required=required maxlength='10' name='start_date' value='<?php print $start_date; ?>' size=10><br><br>
-
-<span style="font-weight: bold">Event End Date:</span> (Optional. Only fill this out if event is more than one day.)<br>
-<input type='date' maxlength='10' name='end_date' value='<?php print $end_date; ?>' size=10><br><br>
-
-
-
 <?php
 
   if ($submitValue == 'Update Event')
   {
-    print "<b>* Registration URL: http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id</b><br>";
+    print "<b>Registration URL:&nbsp&nbsp http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id</b><br>";
     print "<i>Note: Copy and paste this URL into your AMC trip posting to direct registrants to the Registration page.</i><br><br>";
   }
 
 ?>
+
+
 <table>
     <tr>
+        <td>
+            * <span style="font-weight: bold">Event (Start) Date:</span> (format: YYYY-MM-DD)<br>
+            <input type='date' required=required maxlength='10' name='start_date' value='<?php print $start_date; ?>' size=10><br><br>
+        </td>
         <td>* <span style="font-weight: bold">Event Status</span>:
 <select name='event_status'>
         <option value='<?php print $event_status; ?>'><?php print $event_status; ?>
@@ -190,9 +188,15 @@
         <option value='FULL'>FULL
         <option value='CLOSED'>CLOSED
         <option value='CANCELED'>CANCELED
-</select><br>
-<i style="color: #096">Note: Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.  All other status do NOT allow new registrations.</i>
-<br><br></td>
+        </select><br>
+        <i style="color: #096">Note: Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.  All other status do NOT allow new registrations.</i>
+        <br><br></td>
+
+    </tr><tr>
+        <td>
+            <span style="font-weight: bold">Event End Date:</span> (Optional. Only fill this out if event is more than one day.)<br>
+            <input type='date' maxlength='10' name='end_date' value='<?php print $end_date; ?>' size=10><br><br>
+        </td>
     <td><span style="font-weight: bold">Event Rating:</span> (Optional).<br>
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
     </td>
