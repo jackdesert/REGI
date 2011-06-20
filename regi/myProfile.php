@@ -151,10 +151,6 @@
     }
 ?>
 
-    </div>
-   </div>
-   <div style="padding-left:20px; width:90%;">
-
 <h1>My Profile</h1>
 
 <?php
