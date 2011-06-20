@@ -637,44 +637,45 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         // Email Password -----------------------------------------------------------
         //
 
-        case "Send My Password":
+        case "Send Username":
             // Get POST vars from home.php
-            //
-
-            $user_name = UTILclean($_POST["user_name"], 50, "User Name");
+            $email= UTILclean($_POST["email"], 40, 'Email');
             if (!UTILrequiredfields()) {
                 header( 'Location: ./login.php');
                 exit();
             }
 
-            $query = "select user_id, user_passhash, first_name, last_name, email
+            $query = "select user_id, user_name, first_name, last_name
             FROM users
-            WHERE user_name='$user_name';";
+            WHERE email='$email';";
 
             $result = mysql_query($query);
             if (!$result) UTILdberror($query);
 
             $numrows = mysql_num_rows($result);
-            if ($numrows <> 1) {
-                $_SESSION['Smessage'] = "Not a valid username.";
+            if ($numrows < 1) {
+                $_SESSION['Smessage'] = "No account found with this email.";
+                header("Location: ./forgotPassword.php");
+                exit();
+            }
+            if ($numrows > 1) {
+                $_SESSION['Smessage'] = "Warning: more than 1 account shares this email address.\n\nPlease contact the administrator.";
                 header("Location: ./forgotPassword.php");
                 exit();
             }
 
             $row = mysql_fetch_assoc($result);
+            $user_name=$row['user_name'];
             $first_name=$row['first_name'];
-            $passhash=$row['user_passhash'];
-            $email=$row['email'];
 
             $title="AMC Boston Chapter Registration System";
 
-            $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system passhash.\n\n
-            Your username is: $user_name\n
-            Your passhash is: $passhash\n\nThank you!";
+            $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system login information.\n\n
+            Your username is: $user_name\n\nThank you!";
 
             UTILsendEmail($email, $title, $message);
 
-            $_SESSION['Smessage'] = "An email will be sent to you shortly.";
+            $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
 
             header( 'Location: ./login.php');
             exit();
@@ -685,7 +686,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         // Email Account Info -----------------------------------------------------------
         //
 
-        case "Send My Account Info":
+        case "Reset Password":
             // Get POST vars from home.php
             //
 
