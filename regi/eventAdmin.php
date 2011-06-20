@@ -164,12 +164,12 @@
   {
     $event_url = 'http://www.hbbostonamc.org/registrationSystem/login.php?event_id=' . $event_id;
     print "<b>Registration URL:&nbsp&nbsp <a href='$event_url'>$event_url</a></b><br>";
-    print "<i>Note: Copy and paste this URL into your AMC trip posting to direct registrants to the Registration page.</i><br><br>";
+    print "<i>Copy and paste this URL into your AMC trip posting to direct registrants to the Registration page.</i><br><br>";
   }
 
 ?>
 
-* <span style="font-weight: bold">Event Name:</span> (include location, rating)<br>
+* <span style="font-weight: bold">Event Name:</span> (Include location)<br>
 <input type='text' required=required maxlength='60' name='event_name' value='<?php print $event_name; ?>' size=60><br><br>
 
 <table style='border-collapse:separate;border-spacing:4ex 1ex;'>
@@ -246,7 +246,7 @@
 
 <input type="radio" name="event_is_program" value="P" <?php print $event_is_programP; ?> >This event is PART OF A PROGRAM. The Program ID is
 <input type='text' name='program_id' value='<?php print $program_id; ?>' size=10><?php print $program_name; ?><br>
-<i style="color: #096">Note: Please contact the program leader for the Event ID of the program. If this event is not part of a program, leave blank or enter '0'</i>
+<i style="color: #096">Please contact the program leader for the Event ID of the program. If this event is not part of a program, leave blank or enter '0'</i>
 <br>
 
 
