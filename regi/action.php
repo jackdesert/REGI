@@ -696,7 +696,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 exit();
             }
 
-            $query = "select user_id, user_name, user_passhash, first_name, last_name
+            $query = "select user_id, user_name, first_name, last_name
             FROM users
             WHERE email='$email';";
 
@@ -710,7 +710,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 exit();
             }
             if ($numrows > 1) {
-                $_SESSION['Smessage'] = "Warning: more than 1 account shares this email address.\n\nPlease enter your user name.";
+                $_SESSION['Smessage'] = "Warning: more than 1 account shares this email address.\n\nPlease contact the administrator.";
                 header("Location: ./forgotPassword.php");
                 exit();
             }
@@ -718,13 +718,23 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $row = mysql_fetch_assoc($result);
             $user_name=$row['user_name'];
             $first_name=$row['first_name'];
-            $passhash=$row['user_passhash'];
+            $random_string = md5(uniqid(rand(), true));
+            $pass_reset_code = UTILgenhash($random_string);
+            //put pass_reset_code into database with a timestamp: pass_reset_expiry
+            $query = "UPDATE users SET pass_reset_code='$pass_reset_code' WHERE email='$email';";
+
+            $result = mysql_query($query);
+            if (!$result) UTILdberror($query);
+
+
 
             $title="AMC Boston Chapter Registration System";
-
-            $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system login information.\n\n
+            $validation_url=
+            $message="Hello $first_name,\n\nThis email is being sent due to a recent request to reset your AMC Boston Chapter registration system password.\n\n
             Your username is: $user_name\n
-            Your passhash is: $passhash\n\nThank you!";
+            Please click the following link or paste it into your browser to complete this request.\n\n
+            $validation_url\n\n
+            If you did not request to have your password changed, please disregard this message\n\nThank you!";
 
             UTILsendEmail($email, $title, $message);
 

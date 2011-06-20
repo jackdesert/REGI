@@ -42,7 +42,7 @@ If you have forgotten your username or password, enter your email address below 
 to be emailed your username, or "Reset Password" to receive and email link for resetting your password.
 <br><br>
     <table><tr>
-    <td><b>Enter Account Email:</b></td>
+    <td><b>Email:</b></td>
     <td><input type='email' name='email' value='' MAXLENGTH=40></td>
     </tr>
     <tr>
