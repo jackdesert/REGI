@@ -634,7 +634,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         break;
 
 
-        // Email Password -----------------------------------------------------------
+        // Send Username -----------------------------------------------------------
         //
 
         case "Send Username":
@@ -654,12 +654,12 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $numrows = mysql_num_rows($result);
             if ($numrows < 1) {
-                $_SESSION['Smessage'] = "No account found with this email.";
+                $_SESSION['Smessage'] = "No account found with this email: $email.";
                 header("Location: ./forgotPassword.php");
                 exit();
             }
             if ($numrows > 1) {
-                $_SESSION['Smessage'] = "Warning: more than 1 account shares this email address.\n\nPlease contact the administrator.";
+                $_SESSION['Smessage'] = "Warning: more than 1 account shares this email address: $email.<br>Please contact the administrator.";
                 header("Location: ./forgotPassword.php");
                 exit();
             }
@@ -705,12 +705,12 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $numrows = mysql_num_rows($result);
             if ($numrows < 1) {
-                $_SESSION['Smessage'] = "No account found with this email.";
+                $_SESSION['Smessage'] = "No account found with this email: $email.";
                 header("Location: ./forgotPassword.php");
                 exit();
             }
             if ($numrows > 1) {
-                $_SESSION['Smessage'] = "Warning: more than 1 account shares this email address.\n\nPlease contact the administrator.";
+                $_SESSION['Smessage'] = "Warning: more than 1 account shares this email address: $email.<br>Please contact the administrator.";
                 header("Location: ./forgotPassword.php");
                 exit();
             }
