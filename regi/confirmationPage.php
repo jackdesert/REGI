@@ -25,6 +25,8 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu();
+    CHUNKstylemessage($_SESSION['Smessage']);
+
     if (isset($_SESSION['Smessage']))
         CHUNKstylemessage($_SESSION['Smessage']);
     if (isset($_SESSION['Suser_id'])) {
