@@ -112,7 +112,7 @@
         // Get user profile
         //
 
-        $query = "select user_name, user_password, first_name, last_name,
+        $query = "select user_name, first_name, last_name,
             user_type, email, phone_evening, phone_day, phone_cell,
             emergency_contact, member, experience, exercise, medical, diet
             FROM users
@@ -127,7 +127,6 @@
         } else {
             $row = mysql_fetch_assoc($result);
             $user_name=$row['user_name'];
-            $user_password=$row['user_password'];
             $first_name=$row['first_name'];
             $last_name=$row['last_name'];
             $user_type=$row['user_type'];
@@ -173,7 +172,7 @@
     <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?> >  (6-40 chars.) Please don't use the following characters: ' " < > &</td>
     </tr><tr>
     <td><b>* Password</b></td>
-    <td><input type='password' name='user_password' value='<?php echo $user_password; ?>' MAXLENGTH=20> (6-20 chars.) Please don't use the following characters: ' " < > &</td>
+    <td><input type='password' name='user_password' value='' MAXLENGTH=50> (minimum 6 characters)</td>
     </tr><tr>
 
     <td><b>* First Name</b></td>

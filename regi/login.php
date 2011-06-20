@@ -60,7 +60,7 @@
 <li>View up-to-date trip information online</li>
 <li>View carpool &amp; contact information of other participants</li>
 </ul> <br>
-<h2>To register, please login below:</h2>
+<h2>Please login here:</h2>
 
 <form name='login' action='action.php' method='post'>
     <table>
