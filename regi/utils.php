@@ -319,4 +319,18 @@ function UTILgenhash($plainText)
     $salt = substr(md5(uniqid(rand(), true)), 0, SALT_LENGTH);
     return $salt . sha1($salt . $plainText);
 }
+
+function UTIL_gen_all_passhashes(){
+    $first_query = "select user_password FROM users;";
+    $result = mysql_query($first_query);
+
+    while($row = mysql_fetch_assoc($result)) {
+        $plain = $row['user_password'];
+        $hashed = UTILgenhash($plain);
+        $second_query = "update users set user_passhash='$hashed' where user_password='$plain';";
+        $iter_result = mysql_query($second_query);
+    }
+
+
+}
 ?>
