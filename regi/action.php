@@ -530,10 +530,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
         break;
 
-        // New Event -----------------------------------------------------------
+        // Create New Event -----------------------------------------------------------
         //
 
-        case "New Event":
+        case "Create Event":
 
             $user_id= $_SESSION["Suser_id"];
             $event_name= UTILclean($_POST["event_name"], 100, 'Event name');
