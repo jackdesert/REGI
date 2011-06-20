@@ -46,13 +46,11 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu();
-    if (isset($_SESSION['Smessage']))
-        CHUNKstylemessage($_SESSION['Smessage']);
+    CHUNKstylemessage($_SESSION['Smessage']);
 
 ?>
 
-    </div>
-   </div>
+
    <div style="padding-left:20px; width:90%;">
 <ul>
 <h4>Now it's much easier to register for H/B trips: </h4>
