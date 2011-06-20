@@ -295,4 +295,28 @@
     }
 
 
+
+define('SALT_LENGTH', 10);
+
+function UTILcheckhash($plainText, $stored)
+{
+    print "   stored:   " . $stored;
+    $hash_40 = substr($stored, SALT_LENGTH);
+    print "   hash_40:   " . $hash_40;
+    $salt = substr($stored, 0, SALT_LENGTH);
+    print "    salt:   " . $salt;
+    $new_hash = sha1($salt . $plainText);
+    print "   new_hash:   " . $new_hash;
+
+    if ($hash_40 == $new_hash)
+        return true;
+    else
+        return false;
+}
+
+function UTILgenhash($plainText)
+{
+    $salt = substr(md5(uniqid(rand(), true)), 0, SALT_LENGTH);
+    return $salt . sha1($salt . $plainText);
+}
 ?>
