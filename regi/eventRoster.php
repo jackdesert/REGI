@@ -26,8 +26,7 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu();
-    if (isset($_SESSION['Smessage']))
-        CHUNKstylemessage($_SESSION['Smessage']);
+    CHUNKstylemessage($_SESSION['Smessage']);
     // SECURITY
     // - User must be logged in
 

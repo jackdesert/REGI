@@ -28,8 +28,7 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu();
-    if (isset($_SESSION['Smessage']))
-        CHUNKstylemessage($_SESSION['Smessage']);
+    CHUNKstylemessage($_SESSION['Smessage']);
 
     CHUNKstartcontent();
 ?>
