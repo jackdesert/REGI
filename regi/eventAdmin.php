@@ -158,9 +158,6 @@
 
 <form name='trip_essence' action='action.php' method='post'>
 
-* <span style="font-weight: bold">Event Name:</span> (include location, rating)<br>
-<input type='text' required=required maxlength='60' name='event_name' value='<?php print $event_name; ?>' size=60><br><br>
-
 <?php
 
   if ($submitValue == 'Update Event')
@@ -171,11 +168,13 @@
 
 ?>
 
+* <span style="font-weight: bold">Event Name:</span> (include location, rating)<br>
+<input type='text' required=required maxlength='60' name='event_name' value='<?php print $event_name; ?>' size=60><br><br>
 
-<table>
+<table style='border-collapse:separate;border-spacing:4ex 1ex;'>
     <tr>
         <td>
-            * <span style="font-weight: bold">Event (Start) Date:</span> (format: YYYY-MM-DD)<br>
+            * <span style="font-weight: bold">Event (Start) Date:</span> <br>(format: YYYY-MM-DD)<br>
             <input type='date' required=required maxlength='10' name='start_date' value='<?php print $start_date; ?>' size=10><br><br>
         </td>
         <td>* <span style="font-weight: bold">Event Status</span>:
@@ -189,12 +188,12 @@
         <option value='CLOSED'>CLOSED
         <option value='CANCELED'>CANCELED
         </select><br>
-        <i style="color: #096">Note: Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.  All other status do NOT allow new registrations.</i>
+        <i style="color: #096">Note: Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.  All other statuses do NOT allow new registrations.</i>
         <br><br></td>
 
     </tr><tr>
         <td>
-            <span style="font-weight: bold">Event End Date:</span> (Optional. Only fill this out if event is more than one day.)<br>
+            <span style="font-weight: bold">Event End Date:</span> <br>(Leave blank if event is only one day.<br>format: YYYY-MM-DD)<br>
             <input type='date' maxlength='10' name='end_date' value='<?php print $end_date; ?>' size=10><br><br>
         </td>
     <td><span style="font-weight: bold">Event Rating:</span> (Optional).<br>
