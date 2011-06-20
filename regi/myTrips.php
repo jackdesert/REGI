@@ -71,15 +71,15 @@
         $numrows = mysql_num_rows($result);
         if ($numrows < 1 && $my_user_type == 'USER')
         {
-            print " <h3>Welcome!</h3>
-                <h3>You have not yet signed up for any events.</h3>
-                <h3>Please view trip listings and click the 'Register Online' link for the trip you are interested in.</h3>";
+            print " <h1>Welcome!</h1>
+                <h2>You have not yet signed up for any events.</h2>
+                <h2>Please view trip listings and click the 'Register Online' link for the trip you are interested in.</h2>";
         }
         else if ($numrows < 1 && $my_user_type == 'LEADER')
         {
-            print " <h3>Welcome AMC Leader!</h3>
-                <h3>You have not created any trips on this registration system yet.</h3>
-                <h3>Please click the 'New Event' menu option above to enter in your first trip.</h3>";
+            print " <h2>Welcome AMC Leader!</h3>
+                <h2>You have not created any trips on this registration system yet.</h3>
+                <h2>Please click the 'New Event' menu option above to enter in your first trip.</h3>";
         }
         else
         {
