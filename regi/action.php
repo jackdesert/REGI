@@ -36,8 +36,8 @@
     $action = $_POST['action'];
 
     //Allow end_date to be NULL
-    if ($_POST[end_date] == '')
-        $_POST[end_date] = "NULL";  //Recognized by SQL as long as you don't put two sets of quotes around it
+    if ($_POST['end_date'] == '')
+        $_POST['end_date'] = "NULL";  //Recognized by SQL as long as you don't put two sets of quotes around it
 
     switch($action) {
 
@@ -61,7 +61,7 @@
             // SELECT USER FROM DB
             //
 
-            $query = "select user_id, user_password, first_name, last_name, user_type
+            $query = "select user_id, user_passhash, first_name, last_name, user_type
                 from users where user_name = '$Pusername';";
 
             $result = mysql_query($query);
@@ -77,7 +77,7 @@
                 if ($row['user_type'] == 'Inactive') {
                     $_SESSION['Smessage'] = "This user account is not activated.";
                 }
-                elseif ($Ppassword != $row['user_password']) {
+                elseif (UTILcheckhash($Ppassword, $row['user_passhash']) == false) {
                     $_SESSION['Smessage'] = "Invalid Password, please try again.";
                 } else {
                     $_SESSION['Smessage'] = "Welcome: $row[first_name] $row[last_name], you are now logged in!";
@@ -402,6 +402,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $user_name= UTILclean($_POST["user_name"], 40, 'User name');
             $user_password= UTILclean($_POST["user_password"], 20, 'Password');
+            $user_passhash = UTILgenhash($user_password);
             $first_name= UTILclean($_POST["first_name"], 20, 'First name');
             $last_name= UTILclean($_POST["last_name"], 20, 'Last name');
             $email= UTILclean($_POST["email"], 40, 'Email');
@@ -453,11 +454,11 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             //
 
             $query = "insert into users (
-                user_name, user_password, first_name, last_name, user_type,
+                user_name, user_passhash, first_name, last_name, user_type,
                 email, phone_day, phone_evening, phone_cell, member,
                 emergency_contact, experience, exercise, medical, diet,
                 create_date) values (
-                '$user_name', '$user_password', '$first_name', '$last_name', 'USER',
+                '$user_name', '$user_passhash', '$first_name', '$last_name', 'USER',
                 '$email', '$phone_day', '$phone_evening', '$phone_cell', '$member',
                 '$emergency_contact', '$experience', '$exercise',
                 '$medical', '$diet', now());";
@@ -491,6 +492,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $user_id= $_POST["user_id"];
             $user_name= UTILclean($_POST["user_name"], 40, 'User name');
             $user_password= UTILclean($_POST["user_password"], 20, 'Password');
+            $user_passhash = UTILgenhash($user_password);
             $first_name= UTILclean($_POST["first_name"], 20, 'First name');
             $last_name= UTILclean($_POST["last_name"], 20, 'Last name');
             $email= UTILclean($_POST["email"], 40, 'Email');
@@ -510,7 +512,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             }
 
             $query = "update users set user_name='$user_name',
-            user_password='$user_password', first_name='$first_name', last_name='$last_name', email='$email',
+            user_passhash='$user_passhash', first_name='$first_name', last_name='$last_name', email='$email',
             phone_day='$phone_day', phone_evening='$phone_evening', phone_cell='$phone_cell',
             emergency_contact='$emergency_contact', member='$member', experience='$experience',
             exercise='$exercise', medical='$medical', diet='$diet'
@@ -645,7 +647,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 exit();
             }
 
-            $query = "select user_id, user_password, first_name, last_name, email
+            $query = "select user_id, user_passhash, first_name, last_name, email
             FROM users
             WHERE user_name='$user_name';";
 
@@ -661,14 +663,14 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $row = mysql_fetch_assoc($result);
             $first_name=$row['first_name'];
-            $password=$row['user_password'];
+            $passhash=$row['user_passhash'];
             $email=$row['email'];
 
             $title="AMC Boston Chapter Registration System";
 
-            $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system password.\n\n
+            $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system passhash.\n\n
             Your username is: $user_name\n
-            Your password is: $password\n\nThank you!";
+            Your passhash is: $passhash\n\nThank you!";
 
             UTILsendEmail($email, $title, $message);
 
@@ -693,7 +695,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 exit();
             }
 
-            $query = "select user_id, user_name, user_password, first_name, last_name
+            $query = "select user_id, user_name, user_passhash, first_name, last_name
             FROM users
             WHERE email='$email';";
 
@@ -715,13 +717,13 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $row = mysql_fetch_assoc($result);
             $user_name=$row['user_name'];
             $first_name=$row['first_name'];
-            $password=$row['user_password'];
+            $passhash=$row['user_passhash'];
 
             $title="AMC Boston Chapter Registration System";
 
             $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system login information.\n\n
             Your username is: $user_name\n
-            Your password is: $password\n\nThank you!";
+            Your passhash is: $passhash\n\nThank you!";
 
             UTILsendEmail($email, $title, $message);
 
