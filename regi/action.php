@@ -718,6 +718,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $row = mysql_fetch_assoc($result);
             $user_name=$row['user_name'];
             $first_name=$row['first_name'];
+            $user_id=$row['user_id'];
             $random_string = md5(uniqid(rand(), true));
             $pass_reset_code = UTILgenhash($random_string);
             //put pass_reset_code into database with a timestamp: pass_reset_expiry
@@ -729,7 +730,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
 
             $title="AMC Boston Chapter Registration System";
-            $validation_url=
+            $validation_url="http://www.hbbostonamc.org/registrationSystem/myProfile.php?user_id=$user_id&pass_reset_code=$pass_reset_code";
             $message="Hello $first_name,\n\nThis email is being sent due to a recent request to reset your AMC Boston Chapter registration system password.\n\n
             Your username is: $user_name\n
             Please click the following link or paste it into your browser to complete this request.\n\n
@@ -738,7 +739,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             UTILsendEmail($email, $title, $message);
 
-            $_SESSION['Smessage'] = "An email will be sent to you shortly.";
+            $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
 
             header( 'Location: ./login.php');
             exit();
