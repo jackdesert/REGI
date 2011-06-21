@@ -31,6 +31,7 @@
         $my_user_id = $_SESSION['Suser_id'];
         $user_type = $_SESSION['Suser_type'];
     } else {
+        CHUNKstartcontent();
         print "<p>You must be logged in to register for an event.</p><p>If you do not have an account, you may create a new account <a href='myProfile.php' >here</a>.<br>";
         exit();
     }
