@@ -199,7 +199,7 @@
             $need_rideD='checked';
     }
 
-    print "<p class='indented'></b>My Trip Registration Status: <b>$my_register_status</b></p>";
+    print "<p class='indented'></b>My Registration Status: <b>$my_register_status</b></p>";
 
     //Display co/leaders
     $query = "select users.user_id, users.first_name, users.last_name, users.email
@@ -314,7 +314,7 @@
         if ($numrows > 0)
         {
             print "<h1>Confirmed Participants</h1>";
-            print "<table border=1><tr><td>Name</td><td>Email</td><td>Need Ride</td><td>Can Take</td><td>Leaving From</td><td>Returning To</td></tr>";
+            print "<table border=1><tr><td>Name</td><td>Email</td><td>Need Ride</td><td>Can Take</td><td>Leaving From:</td><td>Returning To:</td></tr>";
             while($row = mysql_fetch_assoc($result)) {
                 print "<tr><td>$row[first_name] $row[last_name]</td>";
                 print "<td>$row[email]</td>";
