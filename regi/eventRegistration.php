@@ -190,7 +190,7 @@
         $gear=$row['gear'];
         $questions=$row['questions'];
 
-        $submitValue='Update Register Info';
+        $submitValue='Update Registration Page';
         if ($need_ride == 'Y')
             $need_rideY='checked';
         if ($need_ride == 'N')
@@ -368,7 +368,7 @@
     if ($event_is_program <> 'Y')
     {
 
-    print "<h2>Carpool Info</h2>
+    print "<h1>Carpool Info</h1>
     <table><tr>
     <td>Do you need a ride?</td>
 

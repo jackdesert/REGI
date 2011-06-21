@@ -200,10 +200,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id
         break;
 
 
-        // Update Register Info --------------------------------------------------
+        // Update Registration Page --------------------------------------------------
         //
 
-        case "Update Register Info":
+        case "Update Registration Page":
 
             $registration_id= $_POST["registration_id"];
             $event_id= $_POST["event_id"];
