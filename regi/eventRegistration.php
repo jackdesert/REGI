@@ -314,13 +314,18 @@
         if ($numrows > 0)
         {
             print "<h1>Confirmed Participants</h1>";
-            print "<table border=1><tr><td>Name</td><td>Email</td><td>Need Ride</td><td>Can Take</td><td>Leaving From:</td><td>Returning To:</td></tr>";
+            print "<table><tr style='background-color: #a3d6cb;'><th>Name</th><th>Email</th><th>Need Ride</th><th>Can Take</th><th>Leaving From:</th><th>Returning To:</th></tr>";
+            $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {
-                print "<tr><td>$row[first_name] $row[last_name]</td>";
+                $even_or_odd = $rowcount % 2;
+                print "<tr class='row{$even_or_odd}'>";
+                print "<td>$row[first_name] $row[last_name]</td>";
                 print "<td>$row[email]</td>";
                 print "<td>$row[need_ride]</td><td>$row[can_take]</td>";
                 print "<td>$row[leaving_from]</td><td>$row[returning_to]</td>";
                 print "</tr>";
+                $rowcount += 1;
+
             }
             print "</table>";
         }
