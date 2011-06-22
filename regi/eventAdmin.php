@@ -152,10 +152,12 @@
     }  // end: $event_id<>''
 
     CHUNKstartcontent($my_user_id, $event_id, 'admin');
+
+    if ($event_id == '')
+        print "<h1 id='page_title'>Create New Event</h1>";
+    else
+        print "<h1 id='page_title'>Event Administration Page</h1>";
 ?>
-
-
-<h1 id='page_title'>Event Administration Page</h1>
 
 <form name='trip_essence' action='action.php' method='post'>
 
