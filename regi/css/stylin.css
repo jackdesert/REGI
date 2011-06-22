@@ -210,8 +210,9 @@ links (hover): Blue, Bold, HEX#0349A8(same color and text size as regular link -
 *      */
 body,table,tr,td,p,input.inputbox,textarea.inputbox {color: #000000;
     font-family: Arial, Verdana, Tahoma, "sans-serif";
-    font-size: 10.5pt;
+    font-size: 10pt;
 }
+h1 {font-size: 120%;}
 .row0 {background-color: white;}
 .row1 {background-color: #E9E9E9;} /*added green to base color to get here*/
 

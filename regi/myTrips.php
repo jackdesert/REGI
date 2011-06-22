@@ -84,7 +84,7 @@
         else
         {
 
-            print"<table class='center'><tr><td class='hcolor'>Start</td><td class='hcolor'>End</td><td class='hcolor'>Event</td><td class='hcolor'>Role</td><td class='hcolor'>Event Status</td>";
+            print"<table class='center'><tr style='background-color: #a3d6cb;'><th class='hcolor'>Start</th><th class='hcolor'>End</th><th class='hcolor'>Event</th><th class='hcolor'>Role</th><th class='hcolor'>Event Status</th></tr>";
             print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
             $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {
