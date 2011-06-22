@@ -26,8 +26,6 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu();
-    //if (isset($_SESSION['Smessage']))
-    //    CHUNKstylemessage($_SESSION['Smessage']);
     CHUNKstylemessage($_SESSION['Smessage']);
     CHUNKstartcontent();
 
@@ -233,8 +231,7 @@
 <input type='hidden' name='user_id' value='<?php print $my_user_id ?>'>
 <input type='submit' name='action' value='<?php print $formAction; ?>' onclick='return checkProfile()'>
 </form>
-
-</div>
-</div>
+</div><!-- closing div for #myprofile_narrow, only in this page -->
+<?php CHUNKfinishcontent(); ?>
 </body>
 </html>

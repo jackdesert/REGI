@@ -409,7 +409,7 @@
     <input type='hidden' name='leader_list' value='<?php print $leader_list; ?>'>
     <input type='submit' name='action' value='<?php print $submitValue; ?>' onclick='return checkLogin()'>
     </form>
-
+<?php CHUNKfinishcontent(); ?>
 </div>
 </body>
 </html>

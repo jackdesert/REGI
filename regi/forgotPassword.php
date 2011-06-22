@@ -63,6 +63,7 @@ We recommend changing your password when you log in again by editing your profil
 </form>
 <p><br>
 
+<?php CHUNKfinishcontent(); ?>
 
 </body>
 </html>
