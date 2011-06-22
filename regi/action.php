@@ -235,10 +235,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id
         break;
 
 
-        // Update Signup Sheet -------------------------------------------------------
+        // Update Roster -------------------------------------------------------
         //
 
-        case "Update Signup Sheet":
+        case "Update Roster":
 
             $set_reg_status_AR = $_POST["set_reg_status"];
             $set_pay_status_AR = $_POST["set_pay_status"];
@@ -337,7 +337,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         // Export Info Sheet -----------------------------------------------------------
         //
 
-        case "Export Signup Sheet":
+        case "Export Roster":
 
             $event_id = $_POST["event_id"];
             $event_name= $_POST["event_name"];

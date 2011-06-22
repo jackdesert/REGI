@@ -161,7 +161,7 @@
 <a name="signUpSheet"></a>
 <hr>
 <h1 id='page_title'>Roster of Participants</h1>
-<i style="color: #096">Don't forget to hit 'Update Signup Sheet' at bottom to save changes.</i>
+<i style="color: #096">Don't forget to hit 'Update Roster' at bottom to save changes.</i>
 <form name='signup' action='action.php' method='post'>
 <table border=1><tr>
 <td></td><td>NAME / CONTACT</td><td>PROFILE & TRIP INFO</td><td>STATUS / ADMIN NOTES</td>
@@ -309,7 +309,7 @@
 </tr></table><br>
 <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
 <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
-<input type='submit' name='action' value='Update Signup Sheet' onclick=''>
+<input type='submit' name='action' value='Update Roster' onclick=''>
 </form>
 <p>&nbsp;</p>
 <h1>Export Signup Sheet</h1>
@@ -319,7 +319,7 @@
 <form name='export' action='action.php' method='post'>
   <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
   <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
-<input type='submit' name='action' value='Export Signup Sheet' onclick=''>
+<input type='submit' name='action' value='Export Roster' onclick=''>
 </form>
 
 <?php CHUNKfinishcontent(); ?>
