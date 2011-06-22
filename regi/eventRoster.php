@@ -157,8 +157,7 @@
         exit(0);
 ?>
 
-<br>
-<hr>
+
 <h1 id='page_title'>Roster of Participants</h1>
 <i style="color: #096">Don't forget to hit 'Update Roster' at bottom to save changes.</i>
 <form name='signup' action='action.php' method='post'>
