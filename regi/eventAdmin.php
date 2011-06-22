@@ -56,7 +56,7 @@
     else
         $event_id = '';
 
-    $submitValue='New Event';
+    $submitValue='Create New Event';
     $event_name='';
     $event_status='OPEN';
     $event_is_program='N';
