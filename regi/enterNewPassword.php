@@ -59,7 +59,7 @@
         $_SESSION['Smessage'] = "Please Enter a new password and save your profile.";
         unset($_SESSION['Semail']); //this makes it look like the session is empty later on
     }else{
-        header( 'Location: ./forgotPassword.php');
+        header( 'Location: ./login.php');
         exit();
     }
 

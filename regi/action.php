@@ -513,8 +513,6 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             $user_id= $_POST["user_id"];
             $user_name= UTILclean($_POST["user_name"], 40, 'User name');
-            $user_password= UTILclean($_POST["user_password"], 20, 'Password');
-            $user_passhash = UTILgenhash($user_password);
             $first_name= UTILclean($_POST["first_name"], 20, 'First name');
             $last_name= UTILclean($_POST["last_name"], 20, 'Last name');
             $email= UTILclean($_POST["email"], 40, 'Email');
@@ -534,7 +532,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             }
 
             $query = "update users set user_name='$user_name',
-            user_passhash='$user_passhash', first_name='$first_name', last_name='$last_name', email='$email',
+            first_name='$first_name', last_name='$last_name', email='$email',
             phone_day='$phone_day', phone_evening='$phone_evening', phone_cell='$phone_cell',
             emergency_contact='$emergency_contact', member='$member', experience='$experience',
             exercise='$exercise', medical='$medical', diet='$diet'

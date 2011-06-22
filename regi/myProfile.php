@@ -27,33 +27,6 @@
     CHUNKstartbody();
     UTILbuildmenu();
 
-
-
-    if (isset($_GET['pass_reset_code']) && isset($_GET['user_id'])){
-        $submitted_pass_reset_code = $_GET['pass_reset_code'];
-        $submitted_user_id = $_GET['user_id'];
-        $checkquery = "SELECT pass_reset_code FROM users WHERE user_id='$submitted_user_id';";
-        $result = mysql_query($checkquery);
-        if (!$result) UTILdberror($query);
-        $row = mysql_fetch_assoc($result);
-        $saved_pass_reset_code=$row['pass_reset_code'];
-
-
-        if ($submitted_pass_reset_code == $saved_pass_reset_code){
-            $_SESSION['Suser_id'] = $submitted_user_id; //this essentially logs in the user
-            $_SESSION['Smessage'] = "Please Enter a new password and save your profile.";
-            unset($_SESSION['Semail']); //this makes it look like the session is empty later on
-        }else{
-            print $saved_pass_reset_code;
-            $_SESSION['Smessage'] = "There is something wrong with your password reset link. Please try again.";
-            header( 'Location: ./forgotPassword.php');
-            exit();
-        }
-
-    }
-
-
-
     CHUNKstylemessage($_SESSION['Smessage']);
     unset($_SESSION['Smessage']);
     CHUNKstartcontent();
@@ -196,9 +169,13 @@
     <td><b>* User Name</b></td>
     <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?> >  (6-40 chars.) Please don't use the following characters: ' " < > &</td>
     </tr><tr>
+    <?php
+    if ($formAction='New Profile')
+        print "
     <td><b>* Password</b></td>
     <td><input type='password' name='user_password' value='' MAXLENGTH=50> (minimum 6 characters)</td>
-    </tr><tr>
+    </tr><tr>";
+    ?>
 
     <td><b>* First Name</b></td>
     <td><input type='text' name='first_name' value='<?php echo $first_name; ?>' MAXLENGTH=20>   </td>
