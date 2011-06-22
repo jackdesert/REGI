@@ -170,11 +170,14 @@
     <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?> >  (6-40 chars.) Please don't use the following characters: ' " < > &</td>
     </tr><tr>
     <?php
-    if ($formAction='New Profile')
+    if ($formAction='New Profile'){
         print "
     <td><b>* Password</b></td>
     <td><input type='password' name='user_password' value='' MAXLENGTH=50> (minimum 6 characters)</td>
     </tr><tr>";
+    }else{
+            print "Click <a href='enterNewPassword.php' target='_blank'>Here</a> to reset your password.";
+    }
     ?>
 
     <td><b>* First Name</b></td>
