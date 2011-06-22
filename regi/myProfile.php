@@ -63,47 +63,7 @@
         $event_id='';
 
 
-
-    if (isset($_SESSION['Semail']))
-    {
-
-        // If Form fields have been cached: if so: repopulate
-
-        //$user_name=$_SESSION['user_name'];
-        //$user_password=$_SESSION['user_password'];
-        $first_name=$_SESSION['Sfirst_name'];
-        //unset($_SESSION['Sfirst_name']);
-        $last_name=$_SESSION['Slast_name'];
-        unset($_SESSION['Slast_name']);
-        $user_type=$_SESSION['Suser_type'];
-        unset($_SESSION['Suser_type']);
-        $email=$_SESSION['Semail'];
-        unset($_SESSION['Semail']);
-        $phone_evening=$_SESSION['Sphone_evening'];
-        unset($_SESSION['Sphone_evening']);
-        $phone_day=$_SESSION['Sphone_day'];
-        unset($_SESSION['Sphone_day']);
-        $phone_cell=$_SESSION['Sphone_cell'];
-        unset($_SESSION['Sphone_cell']);
-        $member=$_SESSION['Smember'];
-        unset($_SESSION['Smember']);
-        $emergency_contact=$_SESSION['Semergency_contact'];
-        unset($_SESSION['Semergency_contact']);
-        $experience=$_SESSION['Sexperience'];
-        unset($_SESSION['Sexperience']);
-        $medical=$_SESSION['Smedical'];
-        unset($_SESSION['Smedical']);
-        $exercise=$_SESSION['Sexercise'];
-        unset($_SESSION['Sexercise']);
-        $diet=$_SESSION['Sdiet'];
-        unset($_SESSION['Sdiet']);
-
-        if ($member=='Y')
-            $member_yes='checked';
-        else
-            $member_no='checked';
-    }
-    else if (isset($_SESSION['Suser_id']))
+    if (isset($_SESSION['Suser_id']))
     {
         // if User is already logged in, pull profile from DB
 
@@ -150,7 +110,45 @@
 
             $readonly='readonly';
         }
+    }elseif (isset($_SESSION['Semail'])){
+
+        // If Form fields have been cached: if so: repopulate
+
+        //$user_name=$_SESSION['user_name'];
+        //$user_password=$_SESSION['user_password'];
+        $first_name=$_SESSION['Sfirst_name'];
+        //unset($_SESSION['Sfirst_name']);
+        $last_name=$_SESSION['Slast_name'];
+        unset($_SESSION['Slast_name']);
+        $user_type=$_SESSION['Suser_type'];
+        unset($_SESSION['Suser_type']);
+        $email=$_SESSION['Semail'];
+        unset($_SESSION['Semail']);
+        $phone_evening=$_SESSION['Sphone_evening'];
+        unset($_SESSION['Sphone_evening']);
+        $phone_day=$_SESSION['Sphone_day'];
+        unset($_SESSION['Sphone_day']);
+        $phone_cell=$_SESSION['Sphone_cell'];
+        unset($_SESSION['Sphone_cell']);
+        $member=$_SESSION['Smember'];
+        unset($_SESSION['Smember']);
+        $emergency_contact=$_SESSION['Semergency_contact'];
+        unset($_SESSION['Semergency_contact']);
+        $experience=$_SESSION['Sexperience'];
+        unset($_SESSION['Sexperience']);
+        $medical=$_SESSION['Smedical'];
+        unset($_SESSION['Smedical']);
+        $exercise=$_SESSION['Sexercise'];
+        unset($_SESSION['Sexercise']);
+        $diet=$_SESSION['Sdiet'];
+        unset($_SESSION['Sdiet']);
+
+        if ($member=='Y')
+            $member_yes='checked';
+        else
+            $member_no='checked';
     }
+
 ?>
 
 <h1>My Profile</h1>
