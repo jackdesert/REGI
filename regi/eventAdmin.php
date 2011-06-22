@@ -56,7 +56,7 @@
     else
         $event_id = '';
 
-    $submitValue='Create Event';
+    $submitValue='Create New Event';
     $event_name='';
     $event_status='OPEN';
     $event_is_program='N';
@@ -154,7 +154,8 @@
     CHUNKstartcontent($my_user_id, $event_id, 'admin');
 ?>
 
-<h1>Event Administration</h1>
+
+<h1 id='page_title'>Event Administration Page</h1>
 
 <form name='trip_essence' action='action.php' method='post'>
 

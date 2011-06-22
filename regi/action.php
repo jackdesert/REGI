@@ -200,10 +200,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id
         break;
 
 
-        // Update Register Info --------------------------------------------------
+        // Update Registration Page --------------------------------------------------
         //
 
-        case "Update Register Info":
+        case "Update Registration Page":
 
             $registration_id= $_POST["registration_id"];
             $event_id= $_POST["event_id"];
@@ -235,10 +235,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id
         break;
 
 
-        // Update Signup Sheet -------------------------------------------------------
+        // Update Roster -------------------------------------------------------
         //
 
-        case "Update Signup Sheet":
+        case "Update Roster":
 
             $set_reg_status_AR = $_POST["set_reg_status"];
             $set_pay_status_AR = $_POST["set_pay_status"];
@@ -337,7 +337,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         // Export Info Sheet -----------------------------------------------------------
         //
 
-        case "Export Signup Sheet":
+        case "Export Roster":
 
             $event_id = $_POST["event_id"];
             $event_name= $_POST["event_name"];
@@ -350,7 +350,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $query = "select users.user_id, first_name, last_name,
             register_date, register_status,
-            email, phone_cell, emergency_contact, medical, diet, gear,
+            email, phone_cell, phone_day, phone_evening, emergency_contact, medical, diet, gear,
             need_ride, can_take, leaving_from, returning_to, admin_notes
             FROM users, user_events
             WHERE users.user_id=user_events.user_id
@@ -374,7 +374,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 // header("Cache-control: private");
                 // header('Pragma: private');
 
-                echo "NAME\tREGISTER DATE\tREGISTER STATUS\tEMAIL\tCELL\tEMERGENCY CONTACT\tMEDICAL\tDIET\tGEAR\tNOTES\n";
+                echo "NAME\tREGISTER DATE\tREGISTER STATUS\tEMAIL\tCELL\tDAY\tEVENING\tEMERGENCY CONTACT\tMEDICAL\tDIET\tGEAR\tNEED RIDE\tCAN TAKE\tLEAVING FROM\tRETURNING TO\tNOTES\n";
 
                 $x=0;
                 while($row = mysql_fetch_assoc($result)) {
@@ -383,10 +383,16 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     print "\t$row[register_status]";
                     print "\t$row[email]";
                     print "\t$row[phone_cell]";
+                    print "\t$row[phone_day]";
+                    print "\t$row[phone_evening]";
                     print "\t".preg_replace("/\r\n/", " || ", $row[emergency_contact] );
                     print "\t".preg_replace("/\r\n/", " || ", $row[medical] );
                     print "\t".preg_replace("/\r\n/", " || ", $row[diet] );
                     print "\t".preg_replace("/\r\n/", " || ", $row[gear] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[need_ride] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[can_take] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[leaving_from] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[returning_to] );
                     print "\t".preg_replace("/\r\n/", " || ", $row[admin_notes] );
                     print "\n";
                 }
@@ -484,10 +490,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         break;
 
 
-        // Update Profile -----------------------------------------------------------
+        // Update My Profile -----------------------------------------------------------
         //
 
-        case "Update Profile":
+        case "Update My Profile":
 
             $user_id= $_POST["user_id"];
             $user_name= UTILclean($_POST["user_name"], 40, 'User name');
@@ -533,7 +539,8 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         // Create New Event -----------------------------------------------------------
         //
 
-        case "Create Event":
+
+        case "Create New Event":
 
             $user_id= $_SESSION["Suser_id"];
             $event_name= UTILclean($_POST["event_name"], 100, 'Event name');

@@ -136,7 +136,7 @@
 
         $my_user_id=$_SESSION['Suser_id'];
         $my_user_type=$_SESSION['Suser_type'];
-        $formAction='Update Profile';
+        $formAction='Update My Profile';
 
         // Get user profile
         //

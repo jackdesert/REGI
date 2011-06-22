@@ -51,6 +51,7 @@ to be emailed your username, or "Reset Password" to receive and email link for r
     </tr></table>
 </form>
 
+<?php CHUNKfinishcontent(); ?>
 
 <?php CHUNKfinishcontent(); ?>
 

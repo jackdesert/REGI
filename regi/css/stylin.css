@@ -210,8 +210,9 @@ links (hover): Blue, Bold, HEX#0349A8(same color and text size as regular link -
 *      */
 body,table,tr,td,p,input.inputbox,textarea.inputbox {color: #000000;
     font-family: Arial, Verdana, Tahoma, "sans-serif";
-    font-size: 10.5pt;
+    font-size: 10pt;
 }
+h1 {font-size: 120%;}
 .row0 {background-color: white;}
 .row1 {background-color: #E9E9E9;} /*added green to base color to get here*/
 
@@ -233,13 +234,13 @@ a:hover {
 }
 
 a.menu:link, a.menu:visited {
-    color: #6e943b;
+    color: #0349A8;
     font-weight: bold;
     text-decoration: none;
 }
 
 a.menu:hover {
-    color: #6e943b;
+    color: #0349A8;
     font-weight: bold;
     text-decoration: underline;
 }
@@ -276,7 +277,7 @@ table.center {margin-left:auto; margin-right:auto;}
     -moz-box-shadow: 0.2ex 0.3ex 0.6ex #888888; /* Firefox 3.6 and earlier */
     -webkit-box-shadow: 0.2ex 0.1ex 0.6ex #888888; /* Safari */
     box-shadow: 0.2ex 0.1ex 0.6ex #888888;
-    color: #6E943B;
+    color: #0349A8;
 }
 .tab:hover{
     background: #ccc;
@@ -304,4 +305,14 @@ input:focus,textarea:focus{
     width: 55%;
     margin: 2ex auto;
     color: #ccc;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin-top:     1.5EM;
+    margin-bottom: 0.2EM;
+}
+
+h1#page_title{
+    font-size: 150%;
+    #margin-bottom: -0.5EM;
 }
