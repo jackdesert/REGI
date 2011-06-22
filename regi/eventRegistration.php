@@ -85,7 +85,7 @@
 ?>
 
 
-<h1>Event Registration<h1>
+<h1 id='page_title'>Event Registration<h1>
 
 <h1>Event: <?php print $event_name; ?></h1>
 <?php

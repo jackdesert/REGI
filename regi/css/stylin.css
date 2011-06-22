@@ -302,3 +302,13 @@ input:focus,textarea:focus{
     margin: 2ex auto;
     color: #ccc;
 }
+
+h1,h2,h3,h4,h5,h6{
+    margin-top:     1.5EM;
+    margin-bottom: 0.2EM;
+}
+
+h1#page_title{
+    font-size: 150%;
+    #margin-bottom: -0.5EM;
+}
