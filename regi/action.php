@@ -750,10 +750,16 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $result = mysql_query($query);
             if (!$result) UTILdberror($query);
 
-
-
             $title="AMC Boston Chapter Registration System";
-            $validation_url="http://www.hbbostonamc.org/registrationSystem/myProfile.php?user_id=$user_id&pass_reset_code=$pass_reset_code";
+
+            //calculate path to come back to same directory
+            $script_path = $_SERVER['SCRIPT_NAME'];
+            $pattern = '/\/.*\//';
+            preg_match($pattern, $script_path, $match_array);
+            $script_dir = $match_array[0];
+            $validation_base = "http://" . $_SERVER['HTTP_HOST'] . $script_dir . 'myProfile.php';
+            //send validation_url
+            $validation_url=$validation_base."?user_id=$user_id&pass_reset_code=$pass_reset_code";
             $message="Hello $first_name,\n\nThis email is being sent due to a recent request to reset your AMC Boston Chapter registration system password.\n\n
             Your username is: $user_name\n
             Please click the following link or paste it into your browser to complete this request.\n\n
