@@ -483,10 +483,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         break;
 
 
-        // Update Profile -----------------------------------------------------------
+        // Update My Profile -----------------------------------------------------------
         //
 
-        case "Update Profile":
+        case "Update My Profile":
 
             $user_id= $_POST["user_id"];
             $user_name= UTILclean($_POST["user_name"], 40, 'User name');
