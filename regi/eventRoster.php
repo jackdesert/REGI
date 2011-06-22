@@ -312,8 +312,10 @@
 <input type='submit' name='action' value='Update Roster' onclick=''>
 </form>
 <p>&nbsp;</p>
-<h1>Export Signup Sheet</h1>
-<p><i style="color: #096">Export Signup Sheet as Excel spreadsheet (tab delimited).</i>
+<h1>Export Roster</h1>
+<p>Export Roster as Excel Spreadsheet.
+<p><i style="color: #096">Note: When you open the roster in Excel, it's normal for Excel to warn you
+that the format is unknown. Just click OK and allow Excel to import the file as Tab-Delimited text.</i>
   <br>
 </p>
 <form name='export' action='action.php' method='post'>

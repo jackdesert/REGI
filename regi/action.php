@@ -350,7 +350,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $query = "select users.user_id, first_name, last_name,
             register_date, register_status,
-            email, phone_cell, emergency_contact, medical, diet, gear,
+            email, phone_cell, phone_day, phone_evening, emergency_contact, medical, diet, gear,
             need_ride, can_take, leaving_from, returning_to, admin_notes
             FROM users, user_events
             WHERE users.user_id=user_events.user_id
@@ -374,7 +374,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 // header("Cache-control: private");
                 // header('Pragma: private');
 
-                echo "NAME\tREGISTER DATE\tREGISTER STATUS\tEMAIL\tCELL\tEMERGENCY CONTACT\tMEDICAL\tDIET\tGEAR\tNOTES\n";
+                echo "NAME\tREGISTER DATE\tREGISTER STATUS\tEMAIL\tCELL\tDAY\tEVENING\tEMERGENCY CONTACT\tMEDICAL\tDIET\tGEAR\tNOTES\n";
 
                 $x=0;
                 while($row = mysql_fetch_assoc($result)) {
@@ -383,6 +383,8 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     print "\t$row[register_status]";
                     print "\t$row[email]";
                     print "\t$row[phone_cell]";
+                    print "\t$row[phone_day]";
+                    print "\t$row[phone_evening]";
                     print "\t".preg_replace("/\r\n/", " || ", $row[emergency_contact] );
                     print "\t".preg_replace("/\r\n/", " || ", $row[medical] );
                     print "\t".preg_replace("/\r\n/", " || ", $row[diet] );
