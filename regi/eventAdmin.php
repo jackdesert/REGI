@@ -1,6 +1,6 @@
 <!--
 
-    AMC Trip Registration System
+    AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
 
     This program is free software: you can redistribute it and/or modify
@@ -42,7 +42,7 @@
         exit(0);
     }
 
-    // NOTE: Currently: ALL users can admin a trip IF their register_status is set to CO/LEADER or REGISTRAR
+    // NOTE: Currently: ALL users can admin an event IF their register_status is set to CO/LEADER or REGISTRAR
     //       They do NOT need to be AMC LEADERS.
 
     //if ($_SESSION['Suser_type'] <> 'LEADER' && $_SESSION['Suser_type'] <> 'ADMIN')
@@ -66,7 +66,7 @@
     $description='';
     $gear_list='';
     $trip_info='';
-    $confirmation_page='Thank you for registering. A trip leader will be in contact with you soon regarding your participation in this event.';
+    $confirmation_page='Thank you for registering. An event leader will be in contact with you soon regarding your participation in this event.';
     $question1='';
     $question2='';
 
@@ -75,11 +75,11 @@
 
     if ($event_id <> '')
     {
-        // Check if current user is a leader, co-leader, or registrar of this trip
+        // Check if current user is a leader, co-leader, or registrar of this event
         //
         if ( ! UTILdb_proceed($my_user_id, $event_id))
         {
-            header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be a designated trip leader, co-leader, or registrar to view this page. Please contact the trip leader.");
+            header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be a designated event leader, co-leader, or registrar to view this page. Please contact the event leader.");
             exit(0);
         }
 
@@ -165,7 +165,7 @@
   {
     $event_url = 'http://www.hbbostonamc.org/registrationSystem/login.php?event_id=' . $event_id;
     print "<b>Registration URL:&nbsp&nbsp <a href='$event_url'>$event_url</a></b><br>";
-    print "<i>Copy and paste this URL into your AMC trip posting to direct registrants to the Registration page.</i><br><br>";
+    print "<i>Copy and paste this URL into your AMC event posting to direct registrants to the Registration page.</i><br><br>";
   }
 
 ?>
@@ -228,10 +228,10 @@
 
 <p>If you would like to ask additional questions, list them here:</p>
 
-<span style="font-weight: bold">Additional Trip Question </span>(Optional)<br>
+<span style="font-weight: bold">Additional Event Question </span>(Optional)<br>
 <input type='text' name='question1' value='<?php print $question1; ?>' size=80><br><br>
 <!-- Do Not Display Second Question
-<span style="font-weight: bold">Additional Trip Question 2 (Optional)</span><br>
+<span style="font-weight: bold">Additional Event Question 2 (Optional)</span><br>
 <input type='text' name='question2' value='<?php print $question2; ?>' size=80><br><br>
 -->
 

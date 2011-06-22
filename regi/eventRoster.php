@@ -1,6 +1,6 @@
 <!--
 
-    AMC Trip Registration System
+    AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
 
     This program is free software: you can redistribute it and/or modify
@@ -42,7 +42,7 @@
         exit(0);
     }
 
-    // NOTE: Currently: ALL users can admin a trip IF their register_status is set to CO/LEADER or REGISTRAR
+    // NOTE: Currently: ALL users can admin an event IF their register_status is set to CO/LEADER or REGISTRAR
     //       They do NOT need to be AMC LEADERS.
 
     //if ($_SESSION['Suser_type'] <> 'LEADER' && $_SESSION['Suser_type'] <> 'ADMIN')
@@ -66,7 +66,7 @@
     $description='';
     $gear_list='';
     $trip_info='';
-    $confirmation_page='Thank you for registering. A trip leader will be in contact with you soon regarding your participation in this event.';
+    $confirmation_page='Thank you for registering. An event leader will be in contact with you soon regarding your participation in this event.';
     $question1='';
     $question2='';
 
@@ -75,12 +75,12 @@
 
     if ($event_id <> '')
     {
-        // Check if current user is a leader, co-leader, or registrar of this trip
+        // Check if current user is a leader, co-leader, or registrar of this event
         //
 
         if ( ! UTILdb_proceed($my_user_id, $event_id))
         {
-            header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be a designated trip leader, co-leader, or registrar to view this page. Please contact the trip leader.");
+            header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be a designated event leader, co-leader, or registrar to view this page. Please contact the event leader.");
             exit(0);
         }
 
@@ -162,12 +162,12 @@
 <i style="color: #096">Don't forget to hit 'Update Roster' at bottom to save changes.</i>
 <form name='signup' action='action.php' method='post'>
 <table border=1><tr>
-<td></td><td>NAME / CONTACT</td><td>PROFILE & TRIP INFO</td><td>STATUS / ADMIN NOTES</td>
+<td></td><td>NAME / CONTACT</td><td>PROFILE & EVENT INFO</td><td>STATUS / ADMIN NOTES</td>
 
 <?php
 
     // Display Sign-up Sheet to:
-    //  - Administrators and trip co/leaders, registrar
+    //  - Administrators and event co/leaders, registrar
     //  - TO DO: selected participants to view others who are selected??
     //
 

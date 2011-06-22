@@ -1,6 +1,6 @@
 <!--
 
-    AMC Trip Registration System
+    AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
 
     This program is free software: you can redistribute it and/or modify
@@ -188,7 +188,7 @@
     }
 ?>
 
-<p>Note: When registering for a trip, your profile will be shared with the leaders of that trip.</p>
+<p>Note: When registering for a event, your profile will be shared with the leaders of that event.</p>
 
 <form name='profile' action='action.php' method='post'>
     <table><tr>

@@ -1,6 +1,6 @@
 <!--
 
-    AMC Trip Registration System
+    AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
 
     This program is free software: you can redistribute it and/or modify
@@ -96,7 +96,7 @@
         $date_stri = UTILdate($start_date)." - ".UTILdate($end_date);
     print "<p class='indented'>When: <b>{$date_stri}</b></p>";
     print "<p class='indented'>Event Status: <b>".$event_status."</b></p> ";
-    print "<p class='indented'>Trip Rating: <b>".$rating."</b></p> ";
+    print "<p class='indented'>Hike Rating: <b>".$rating."</b></p> ";
 ?>
 
 <?php
@@ -146,7 +146,7 @@
     // Show Registration Fields (populate if already registered)
     //
 
-    // Trip specific fields
+    // Event specific fields
     $registration_id='';
     $answer1='';
     $answer2='';
@@ -233,7 +233,7 @@
 
 ?>
 
-<h1>Trip Information</h1>
+<h1>Event Information</h1>
 
 <p><?php print htmlspecialchars_decode(str_replace("\n", "<br>", $description)); ?></p>
 
@@ -274,7 +274,7 @@
     }
 
 
-    // If trip is not OPEN, and user has not already signed up, do not show registration form
+    // If event is not OPEN, and user has not already signed up, do not show registration form
     //
 
     if ($submitValue=='Sign Up For This Event' && $event_status != 'OPEN' && $event_status != 'WAIT LIST')
@@ -284,7 +284,7 @@
     }
 
 
-    // Check: Is current user confirmed for this trip?
+    // Check: Is current user confirmed for this event?
     //
 
     if ($my_register_status=='APPROVED' || $my_register_status=='LEADER' || $my_register_status=='CO-LEADER' || $my_register_status=='ENROLLED')

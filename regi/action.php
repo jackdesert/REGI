@@ -153,7 +153,7 @@
                 UTILdberror($query);
             else
             {
-                $_SESSION['Smessage'] = "Your registration has been submitted.<br>This trip will now show up in your MyTrips section.";
+                $_SESSION['Smessage'] = "Your registration has been submitted.<br>This event will now show up in your MyTrips section.";
 
                 // Send email to leaders - TBD
                 //
@@ -187,8 +187,8 @@
                 }
 
 
-                $title="AMC Boston Chapter Trip Registration - New Registrant";
-                $message="Notice to trip leaders:\n\n$first_name $last_name has just registered for the following trip: $event_name.\n\nClick here for the admin page:
+                $title="AMC Boston Chapter Event Registration - New Registrant";
+                $message="Notice to event leaders:\n\n$first_name $last_name has just registered for the following event: $event_name.\n\nClick here for the admin page:
 http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id\n\nThank you!";
 
                 UTILsendEmail($leader_list, $title, $message);
@@ -271,10 +271,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id
                     $email=$email_AR[$inc];
                     $reg_status=$set_reg_status_AR[$inc];
 
-                    $title="AMC Boston Chapter - Trip Registration Status";
-                    $message="Hello $first_name,\n\nYour trip registration status has been updated to $reg_status for the following trip: $event_name.\n\nClick here to log in and view this trip:
+                    $title="AMC Boston Chapter - Event Registration Status";
+                    $message="Hello $first_name,\n\nYour event registration status has been updated to $reg_status for the following event: $event_name.\n\nClick here to log in and view this event:
 http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
-\n\nPlease contact the trip leader if there are any questions.\n\nThank you!";
+\n\nPlease contact the event leader if there are any questions.\n\nThank you!";
 
                     UTILsendEmail($email, $title, $message);
 
@@ -343,10 +343,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $event_name= $_POST["event_name"];
             //Remove non-alphanumeric chars from what we will use as the filename
             //Note those must be single quotes for it to work.
-            $alphanum_trip_name = preg_replace('/[^a-zA-Z0-9\s]/', '', $event_name);
-            //Shorten the trip name
-            $alphanum_trip_name = substr($alphanum_trip_name,0,25);
-            $alphanum_trip_name = trim($alphanum_trip_name);
+            $alphanum_event_name = preg_replace('/[^a-zA-Z0-9\s]/', '', $event_name);
+            //Shorten the event name
+            $alphanum_event_name = substr($alphanum_event_name,0,25);
+            $alphanum_event_name = trim($alphanum_event_name);
 
             $query = "select users.user_id, first_name, last_name,
             register_date, register_status,
@@ -366,10 +366,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             } else {
 
                 header("Content-type: text/plain");
-                header("Content-Disposition: attachment; filename=\"Signup__{$alphanum_trip_name}.xls\"");
+                header("Content-Disposition: attachment; filename=\"Signup__{$alphanum_event_name}.xls\"");
 
                 //header("Content-type: application/csv");
-                //header("Content-Disposition: attachment; filename=tripInfoSheet.csv \"");
+                //header("Content-Disposition: attachment; filename=eventInfoSheet.csv \"");
 
                 // header("Cache-control: private");
                 // header('Pragma: private');
@@ -578,7 +578,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             if (!$result)
                 UTILdberror($query);
 
-            // Insert current leader as LEADER of the trip
+            // Insert current leader as LEADER of the event
             $query = "insert into user_events (user_id, event_id,
                 register_date, register_status) values
                 ('$user_id', '$event_id', now(), 'LEADER');";

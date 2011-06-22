@@ -1,7 +1,7 @@
 <?php
 
 /*
-    AMC Trip Registration System
+    AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
 
     This program is free software: you can redistribute it and/or modify

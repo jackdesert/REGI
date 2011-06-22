@@ -1,6 +1,6 @@
 <!--
 
-    AMC Trip Registration System
+    AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
 
     This program is free software: you can redistribute it and/or modify
@@ -34,7 +34,7 @@
     CHUNKstartcontent();
 ?>
 
-<h1>My Trips</h1>
+<h1>My Events</h1>
 
 <?php
 
@@ -73,13 +73,13 @@
         {
             print " <h1>Welcome!</h1>
                 <h2>You have not yet signed up for any events.</h2>
-                <h2>Please view trip listings and click the 'Register Online' link for the trip you are interested in.</h2>";
+                <h2>Please view event listings and click the 'Register Online' link for the event you are interested in.</h2>";
         }
         else if ($numrows < 1 && $my_user_type == 'LEADER')
         {
             print " <h2>Welcome AMC Leader!</h3>
-                <h2>You have not created any trips on this registration system yet.</h3>
-                <h2>Please click the 'New Event' menu option above to enter in your first trip.</h3>";
+                <h2>You have not created any events on this registration system yet.</h3>
+                <h2>Please click the 'New Event' menu option above to enter in your first event.</h3>";
         }
         else
         {

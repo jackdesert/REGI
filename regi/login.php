@@ -1,6 +1,6 @@
 <!--
 
-    AMC Trip Registration System
+    AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
 
     This program is free software: you can redistribute it and/or modify
@@ -53,11 +53,11 @@
 
    <div style="padding-left:20px; width:90%;">
 <ul>
-<h4>Now it's much easier to register for H/B trips: </h4>
+<h4>Now it's much easier to register for H/B events: </h4>
 <li>Enter your profile and contact information only once</li>
-<li>Manage your trip registration information and status online</li>
-<h4>Once approved for a trip:</h4>
-<li>View up-to-date trip information online</li>
+<li>Manage your event registration information and status online</li>
+<h4>Once approved for an event:</h4>
+<li>View up-to-date event information online</li>
 <li>View carpool &amp; contact information of other participants</li>
 </ul> <br>
 <h2>Please login here:</h2>

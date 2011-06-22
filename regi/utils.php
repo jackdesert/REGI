@@ -1,7 +1,7 @@
 <?php
 
 /*
-    AMC Trip Registration System
+    AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
 
     This program is free software: you can redistribute it and/or modify
@@ -57,7 +57,7 @@
             if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
                 print IN3()."<a class='menu' href=\"eventAdmin.php\" >Create New Event</a> | ";
 
-            print IN3()."<a class='menu' href=\"myTrips.php\" >My Trips</a> | ";
+            print IN3()."<a class='menu' href=\"myTrips.php\" >My Events</a> | ";
             print IN3()."\n<a class='menu' href=\"myProfile.php\" >My Profile</a> | ";
 
             print IN3()."\n<a class='menu' href=\"logout.php\" >Logout</a>";
@@ -281,10 +281,10 @@
         //define the headers we want passed. Note that they are separated with \r\n
 
         $headers = "Content-Type: text/plain; charset=\"utf-8\"\r\n";
-        $headers.= "From: AMC.Trip.Registration\r\nReply-To: Please.do.not.reply\r\nBcc: ".$bcc;
+        $headers.= "From: AMC.Event.Registration\r\nReply-To: Please.do.not.reply\r\nBcc: ".$bcc;
 
         $footer = "\n\n-----------------------------------------------------------------------\n";
-        $footer.= "This email was sent to you by the AMC Boston Chapter trip registration system.\n";
+        $footer.= "This email was sent to you by the AMC Boston Chapter event registration system.\n";
         $footer.= "All email addresses are kept confidential.";
 
         //send the email
