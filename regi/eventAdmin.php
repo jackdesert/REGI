@@ -259,6 +259,8 @@
 <input type='submit' name='action' value='<?php print $submitValue; ?>' onclick='return checkAdmin()'>
 </form>
 
+<?php CHUNKfinishcontent(); ?>
+
 <?php
 
     if ($event_id == '')

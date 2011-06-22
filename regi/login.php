@@ -89,9 +89,7 @@ Forgot your password? <a href="forgotPassword.php">Click here &gt;</a>
 <a href="mailto:amcbostonhbs@gmail.com"><strong>Need more support? Contact us &gt; </strong></a>
 <p></p>
 
-
-</div>
-</div>
+<?php CHUNKfinishcontent(); ?>
 
 </body>
 </html>

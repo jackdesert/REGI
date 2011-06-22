@@ -320,7 +320,7 @@
 <input type='submit' name='action' value='Export Signup Sheet' onclick=''>
 </form>
 
-</div>
+<?php CHUNKfinishcontent(); ?>
 </body>
 </html>
 

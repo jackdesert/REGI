@@ -16,28 +16,16 @@
     <http://www.gnu.org/licenses/>.
 
 -->
-
-<html>
-<head>
-    <title>AMC Trip Registration</title>
-    <meta http-equiv="Content-Type" content="text/html; charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <SCRIPT type="text/javascript" src="validation.js"></SCRIPT>
-
-<link href="http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css" type="text/css" rel="stylesheet" />
-</head>
-<body>
-<div id="pagewrap">
-   <div id="layer10" onClick="location.href='http://www.hbbostonamc.org/index.php';" style="cursor:pointer;">
-
-        <?php
-            include 'utils.php';
-            session_start();
-            //echo UTILbuildMenu('');
-        ?>
-
-   </div>
-   <div style="padding-left:20px; width:90%;">
+<?php
+    include 'utils.php';
+    session_start();
+    UTILdbconnect();
+    CHUNKgivehead();
+    CHUNKstartbody();
+    UTILbuildmenu();
+    CHUNKstylemessage($_SESSION['Smessage']);
+    CHUNKstartcontent();
+?>
 
     <?php
 
@@ -61,7 +49,7 @@
     If any of the above makes sense to you, click the back button in your browser and try again. <br><br>
     Otherwise, please return to <a href="http://www.hbbostonamc.org/trips.php">Trip Listings</a> or <a href="./login.php">Login page</a>.
     <br><br>
-
+<?php CHUNKfinishcontent(); ?>
 </div>   <!-- outerframe -->
 
 </body>

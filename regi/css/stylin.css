@@ -299,3 +299,9 @@ input:focus,textarea:focus{
     width: 55ex;
     text-align: justify;
 }
+#footer{
+    background-color: #2d5c56;  /* same as page background*/
+    width: 55%;
+    margin: 2ex auto;
+    color: #ccc;
+}
