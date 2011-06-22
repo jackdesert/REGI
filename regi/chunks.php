@@ -37,7 +37,32 @@ function IN3(){
     return "\n            ";
 }
 
-function CHUNKgivehead(){
+function CHUNKdatepicker(){
+            $date_stuff ="
+            <link rel='stylesheet' type='text/css' media='all' href='jsdatepicker/jsDatePick_ltr.min.css' />
+            <script type='text/javascript' src='jsdatepicker/jsDatePick.min.1.3.js'></script>
+    <script type='text/javascript'>
+        window.onload = function(){
+            new JsDatePick({
+                useMode:2,
+                target:'start_date',
+                dateFormat:'%Y-%m-%d'
+            });
+            new JsDatePick({
+                useMode:2,
+                target:'end_date',
+                dateFormat:'%Y-%m-%d'
+            });
+        };
+    </script>";
+    return $date_stuff;
+
+}
+
+
+function CHUNKgivehead($dates=''){
+    if ($dates)
+        $date_includes = CHUNKdatepicker();
     print "
 <!DOCTYPE HTML>
 <html>
@@ -47,6 +72,7 @@ function CHUNKgivehead(){
     <link href='http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css' type='text/css' rel='stylesheet' />
     <link rel='stylesheet' type='text/css' href='css/stylin.css'/>
     <SCRIPT type='text/javascript' src='validation.js'></SCRIPT>
+    $date_includes
 </head>
 ";
 

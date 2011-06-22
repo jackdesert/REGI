@@ -23,7 +23,7 @@
     include 'utils.php';
     session_start();
     UTILdbconnect();
-    CHUNKgivehead();
+    CHUNKgivehead($dates=true);
     CHUNKstartbody();
     UTILbuildmenu();
     CHUNKstylemessage($_SESSION['Smessage']);
@@ -179,7 +179,7 @@
     <tr>
         <td>
             * <span style="font-weight: bold">Event (Start) Date:</span> <br>(format: YYYY-MM-DD)<br>
-            <input type='date' required=required maxlength='10' name='start_date' value='<?php print $start_date; ?>' size=10><br><br>
+            <input type='text' required=required maxlength='10' name='start_date' id='start_date' value='<?php print $start_date; ?>' size=10><br><br>
         </td>
         <td>* <span style="font-weight: bold">Event Status</span>:
 <select name='event_status'>
@@ -198,7 +198,7 @@
     </tr><tr>
         <td>
             <span style="font-weight: bold">Event End Date:</span> <br>(Leave blank if event is only one day.<br>format: YYYY-MM-DD)<br>
-            <input type='date' maxlength='10' name='end_date' value='<?php print $end_date; ?>' size=10><br><br>
+            <input type='text' maxlength='10' name='end_date' id='end_date' value='<?php print $end_date; ?>' size=10><br><br>
         </td>
     <td><span style="font-weight: bold">Event Rating:</span> (Optional).<br>
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
