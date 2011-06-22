@@ -72,7 +72,7 @@
     $phone_cell='';
     $member='';
     $member_yes='';
-    $member_no='';
+    $member_no='checked';
     $emergency_contact='';
     $experience='';
     $medical='';
@@ -225,6 +225,17 @@
 <input type="radio" name="member" value="Y" <?php print $member_yes ?> >YES
 &nbsp;
 <input type="radio" name="member" value="N" <?php print $member_no ?> >NO
+
+<?php
+    if ($formAction=='New Profile') {
+    print "<p>Are you an AMC HB Leader?
+<input type='radio' name='leader_request' value='Y'>YES
+&nbsp;
+<input type='radio' name='leader_request' value='N' checked>NO
+<font color='red'><br>Please note: selecting yes will send an email to the administrator to verify your AMC HB Leader status.</p></font>";
+
+    }
+?>
 
 <div id='myprofile_narrow'>
 <p>What is your previous hiking experience? (If applicable, please name mountains and include approximate distances.)<br />
