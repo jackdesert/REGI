@@ -374,7 +374,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 // header("Cache-control: private");
                 // header('Pragma: private');
 
-                echo "NAME\tREGISTER DATE\tREGISTER STATUS\tEMAIL\tCELL\tDAY\tEVENING\tEMERGENCY CONTACT\tMEDICAL\tDIET\tGEAR\tNOTES\n";
+                echo "NAME\tREGISTER DATE\tREGISTER STATUS\tEMAIL\tCELL\tDAY\tEVENING\tEMERGENCY CONTACT\tMEDICAL\tDIET\tGEAR\tNEED RIDE\tCAN TAKE\tLEAVING FROM\tRETURNING TO\tNOTES\n";
 
                 $x=0;
                 while($row = mysql_fetch_assoc($result)) {
@@ -389,6 +389,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     print "\t".preg_replace("/\r\n/", " || ", $row[medical] );
                     print "\t".preg_replace("/\r\n/", " || ", $row[diet] );
                     print "\t".preg_replace("/\r\n/", " || ", $row[gear] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[need_ride] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[can_take] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[leaving_from] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[returning_to] );
                     print "\t".preg_replace("/\r\n/", " || ", $row[admin_notes] );
                     print "\n";
                 }
