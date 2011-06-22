@@ -55,7 +55,6 @@
 
     $my_user_id='';  // default values, assuming new user
     $my_user_type='';
-    $formAction='New Profile';
 
     if (isset($_GET['event_id']))
         $event_id=$_GET['event_id'];
@@ -111,6 +110,7 @@
             $readonly='readonly';
         }
     }elseif (isset($_SESSION['Semail'])){
+        $formAction='New Profile';
 
         // If Form fields have been cached: if so: repopulate
 
@@ -168,13 +168,14 @@
     <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?> >  (6-40 chars.) Please don't use the following characters: ' " < > &</td>
     </tr><tr>
     <?php
-    if ($formAction='New Profile'){
+    print "form action" . $formAction;
+    if ($formAction == 'New Profile'){
         print "
     <td><b>* Password</b></td>
     <td><input type='password' name='user_password' value='' MAXLENGTH=50> (minimum 6 characters)</td>
     </tr><tr>";
     }else{
-            print "Click <a href='enterNewPassword.php' target='_blank'>Here</a> to reset your password.";
+            print "<tr><td colspan='2'>Click <a href='enterNewPassword.php' target='_blank'>Here</a> to reset your password.</td></tr>";
     }
     ?>
 
