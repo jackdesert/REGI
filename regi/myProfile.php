@@ -228,12 +228,11 @@
 
 <?php
     if ($formAction=='New Profile') {
-    print "<p>Are you an AMC HB Leader?
-<input type='radio' name='leader_request' value='Y'>YES
-&nbsp;
-<input type='radio' name='leader_request' value='N' checked>NO
-<font color='red'><br>Please note: selecting yes will send an email to the administrator to verify your AMC HB Leader status.</p></font>";
-
+        print "<p>Are you a current AMC H/B Leader or Coleader?
+        <input type='radio' name='leader_request' value='Y'>YES
+        &nbsp;
+        <input type='radio' name='leader_request' value='N' checked>NO
+        <font color='red'><br>Please note: selecting yes will send an email to the administrator to verify your AMC H/B Leader/Coleader status.</p></font>";
     }
 ?>
 

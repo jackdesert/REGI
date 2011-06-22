@@ -416,6 +416,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $phone_day= UTILclean($_POST["phone_day"], 15, '');
             $phone_cell= UTILclean($_POST["phone_cell"], 15, '');
             $member= UTILclean($_POST["member"], 1, '');
+            $leader_request= UTILclean($_POST["leader_request"], 1, '');
             $emergency_contact= UTILclean($_POST["emergency_contact"], 80, '');
             $experience= UTILclean($_POST["experience"], 500, '');
             $exercise= UTILclean($_POST["exercise"], 500, '');
@@ -479,6 +480,21 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $_SESSION['Sfirst_name']=$first_name;
             $_SESSION['Suser_type']='USER';
             $_SESSION['Smessage'] = "Your profile has been created.";
+
+            if ($leader_request == 'Y'){
+                $link_to_db_site = "http://hbbostonamc.org:2082/?login_theme=cpanel";
+                $leader_request_message = "Someone has just requested to be an AMC HB Trip Leader.\n
+    First Name: $first_name\n
+    Last Name:  $last_name\n
+    Email:  $email\n
+    Username: $user_name\n
+    Userid: $SUID\n
+Please login at $link_to_db_site to grant them LEADER status if they are indeed a leader.";
+
+
+                UTILsendEmail($SET_ADMIN_EMAIL, 'HB Leader Request', $leader_request_message);
+                $_SESSION['Smessage'] .= "<br>You have requested to be a LEADER on this site.<br>You will be notified by email when your LEADER status is active.";
+            }
 
             if ($event_id == '')
                 header("Location: ./myProfile.php?user_id=$SUID");
