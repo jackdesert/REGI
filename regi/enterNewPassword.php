@@ -56,6 +56,7 @@
 
 
     if ($reset){
+        $my_user_id = $_SESSION['Suser_id'];
         $_SESSION['Smessage'] = "Please Enter a new password and save your profile.";
         unset($_SESSION['Semail']); //this makes it look like the session is empty later on
     }else{
@@ -70,7 +71,6 @@
     CHUNKstartcontent();
 
 
-    $formAction='Reset Password';
 
 ?>
 
@@ -86,7 +86,7 @@
 </tr></table>
 
 <input type='hidden' name='user_id' value='<?php print $my_user_id ?>'>
-<input type='submit' name='action' value='<?php print $formAction; ?>' onclick=''>
+<input type='submit' name='action' value='Save New Password' onclick=''>
 </form>
 </div><!-- closing div for #myprofile_narrow, only in this page -->
 <?php CHUNKfinishcontent(); ?>
