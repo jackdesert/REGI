@@ -147,6 +147,8 @@
             $member_yes='checked';
         else
             $member_no='checked';
+    }else{
+        $formAction='New Profile';
     }
 
 ?>
@@ -168,7 +170,6 @@
     <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?> >  (6-40 chars.) Please don't use the following characters: ' " < > &</td>
     </tr><tr>
     <?php
-    print "form action" . $formAction;
     if ($formAction == 'New Profile'){
         print "
     <td><b>* Password</b></td>
