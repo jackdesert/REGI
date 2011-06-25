@@ -81,7 +81,7 @@
     <table><tr>
 
     <td><b>* New Password</b></td>
-    <td><input type='password' name='user_password' value='' MAXLENGTH=50> (minimum 6 characters)</td>
+    <td><input type='password' name='user_password' value='' MAXLENGTH=50 autofocus='autofocus'> (minimum 6 characters)</td>
     </tr><tr>
 </tr></table>
 

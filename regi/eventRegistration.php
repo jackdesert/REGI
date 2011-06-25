@@ -348,7 +348,7 @@
     if ($question1 <> '')
     {
         print $question1;
-        print "<br><textarea name='answer1' rows=3 cols=60>$answer1</textarea><br><br>";
+        print "<br><textarea name='answer1' rows=3 cols=60 autofocus='autofocus'>$answer1</textarea><br><br>";
     }
 
     if ($question2 <> '')

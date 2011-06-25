@@ -43,7 +43,7 @@ to be emailed your username, or "Reset Password" to receive and email link for r
 <br><br>
     <table><tr>
     <td><b>Email:</b></td>
-    <td><input type='email' name='email' value='' MAXLENGTH=40></td>
+    <td><input type='email' name='email' value='' MAXLENGTH=40 autofocus='autofocus'></td>
     </tr>
     <tr>
     <td><input type='submit' name='action' value='Send Username' onclick=""></td>

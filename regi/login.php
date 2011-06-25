@@ -66,7 +66,7 @@
     <table>
     <tr>
     <td><b>User Name</b></td>
-    <td><input type='text' name='user_name' value='' MAXLENGTH=50></td>
+    <td><input type='text' name='user_name' value='' MAXLENGTH=50 autofocus='autofocus'></td>
     </tr><tr>
     <td><b>Password</b></td>
     <td><input type='password' name='user_password' value='' MAXLENGTH=20></td>
