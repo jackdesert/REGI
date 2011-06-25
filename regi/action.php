@@ -334,7 +334,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
         break;
 
-        // Export Info Sheet -----------------------------------------------------------
+        // Export Roster -----------------------------------------------------------
         //
 
         case "Export Roster":
@@ -506,40 +506,6 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             exit();
 
         break;
-
-
-
-
-
-      // Save New Password -----------------------------------------------------------
-        //
-
-        case "Save New Password":
-
-            $user_id= $_POST["user_id"];
-            $user_name= UTILclean($_POST["user_name"], 40, 'User name');
-            $user_password= UTILclean($_POST["user_password"], 20, 'Password');
-            $user_passhash = UTILgenhash($user_password);
-            $first_name= UTILclean($_POST["first_name"], 20, 'First name');
-            $last_name= UTILclean($_POST["last_name"], 20, 'Last name');
-
-            $query = "update users set user_passhash='$user_passhash'
-            WHERE user_id=$user_id;";
-
-            $result = mysql_query($query);
-
-            if (!$result)
-                UTILdberror($query);
-
-            $_SESSION['Smessage'] = "Your password has been updated updated.";
-            header("Location: ./myProfile.php?user_id=$user_id");
-            exit();
-
-        break;
-
-
-
-
 
 
         // Update My Profile -----------------------------------------------------------
@@ -740,7 +706,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
         break;
 
 
-        // Email Account Info -----------------------------------------------------------
+        // Reset Password -----------------------------------------------------------
         //
 
         case "Reset Password":
@@ -791,7 +757,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $pattern = '/\/.*\//';
             preg_match($pattern, $script_path, $match_array);
             $script_dir = $match_array[0];
-            $validation_base = "http://" . $_SERVER['HTTP_HOST'] . $script_dir . 'myProfile.php';
+            $validation_base = "http://" . $_SERVER['HTTP_HOST'] . $script_dir . 'enterNewPassword.php';
             //send validation_url
             $validation_url=$validation_base."?user_id=$user_id&pass_reset_code=$pass_reset_code";
             $message="Hello $first_name,\n\nThis email is being sent due to a recent request to reset your AMC Boston Chapter registration system password.\n\n
@@ -803,8 +769,35 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             UTILsendEmail($email, $title, $message);
 
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
+            $_SESSION['Smessage'] .= " sent to: " . $email . " subject: " . $title;
 
             header( 'Location: ./login.php');
+            exit();
+
+        break;
+
+        // Save New Password -----------------------------------------------------------
+        //
+
+        case "Save New Password":
+
+            $user_id= $_POST["user_id"];
+            $user_name= UTILclean($_POST["user_name"], 40, 'User name');
+            $user_password= UTILclean($_POST["user_password"], 20, 'Password');
+            $user_passhash = UTILgenhash($user_password);
+            $first_name= UTILclean($_POST["first_name"], 20, 'First name');
+            $last_name= UTILclean($_POST["last_name"], 20, 'Last name');
+
+            $query = "update users set user_passhash='$user_passhash'
+            WHERE user_id=$user_id;";
+
+            $result = mysql_query($query);
+
+            if (!$result)
+                UTILdberror($query);
+
+            $_SESSION['Smessage'] = "Your password has been updated updated.";
+            header("Location: ./myProfile.php?user_id=$user_id");
             exit();
 
         break;
