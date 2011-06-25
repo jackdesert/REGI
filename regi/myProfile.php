@@ -175,13 +175,13 @@
     <table><tr>
 
     <td><b>* User Name</b></td>
-    <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?> >  (6-40 chars.) Please don't use the following characters: ' " < > &</td>
+    <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?>  required='required'>  (6-40 chars.) Please don't use the following characters: ' " < > &</td>
     </tr><tr>
     <?php
     if ($formAction == 'New Profile'){
         print "
     <td><b>* Password</b></td>
-    <td><input type='password' name='user_password' value='' MAXLENGTH=50> (minimum 6 characters)</td>
+    <td><input type='password' name='user_password' value='' MAXLENGTH=50  required='required'> (minimum 6 characters)</td>
     </tr><tr>";
     }else{
             print "<tr><td colspan='2'>Click <a href='enterNewPassword.php' target='_blank'>Here</a> to reset your password.</td></tr>";
@@ -189,13 +189,13 @@
     ?>
 
     <td><b>* First Name</b></td>
-    <td><input type='text' name='first_name' value='<?php echo $first_name; ?>' MAXLENGTH=20>   </td>
+    <td><input type='text' name='first_name' value='<?php echo $first_name; ?>' MAXLENGTH=20 required='required'>   </td>
     </tr><tr>
     <td><b>* Last Name</b></td>
-    <td><input type='text' name='last_name' value='<?php echo $last_name; ?>' MAXLENGTH=20></td>
+    <td><input type='text' name='last_name' value='<?php echo $last_name; ?>' MAXLENGTH=20 required='required'></td>
     </tr><tr>
     <td><b>* Email</b></td>
-    <td><input type='email' name='email' value='<?php echo $email; ?>' MAXLENGTH=40></td>
+    <td><input type='email' name='email' value='<?php echo $email; ?>' MAXLENGTH=40 required='required'></td>
     </tr><tr>
     <td><b>Phone (evening)</b></td>
     <td><input type='text' name='phone_evening' value='<?php echo $phone_evening; ?>' MAXLENGTH=20></td>
