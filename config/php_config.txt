@@ -1,0 +1,12 @@
+# To get mail() to work in php, make sure this line is set
+# in /etc/php5/apache2/php.ini:
+
+sendmail_path = "/usr/sbin/sendmail -t -i "
+
+# NOte that the -t is necessary
+# not sure if the -i is necessary
+
+# Also note that you can specify whether to show errors or not
+
+display_errors = On
+
