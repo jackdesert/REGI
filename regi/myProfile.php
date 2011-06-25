@@ -45,7 +45,9 @@
     $phone_cell='';
     $member='';
     $member_yes='';
-    $member_no='checked';
+    $member_no='';
+    $leader_request_yes='';
+    $leader_request_no='';
     $emergency_contact='';
     $experience='';
     $medical='';
@@ -132,6 +134,8 @@
         unset($_SESSION['Sphone_cell']);
         $member=$_SESSION['Smember'];
         unset($_SESSION['Smember']);
+        $leader_request=$_SESSION['Sleader_request'];
+        unset($_SESSION['Sleader_request']);
         $emergency_contact=$_SESSION['Semergency_contact'];
         unset($_SESSION['Semergency_contact']);
         $experience=$_SESSION['Sexperience'];
@@ -143,6 +147,10 @@
         $diet=$_SESSION['Sdiet'];
         unset($_SESSION['Sdiet']);
 
+        if ($leader_request=='Y')
+            $leader_request_yes='checked';
+        elseif ($leader_request=='N')
+            $leader_request_no='checked';
         if ($member=='Y')
             $member_yes='checked';
         else
@@ -209,9 +217,9 @@
 <?php
     if ($formAction=='New Profile') {
         print "<p>Are you a current AMC H/B Leader or Coleader?
-        <input type='radio' name='leader_request' value='Y'>YES
+        <input type='radio' name='leader_request' value='Y' $leader_request_yes >YES
         &nbsp;
-        <input type='radio' name='leader_request' value='N' checked>NO
+        <input type='radio' name='leader_request' value='N' $leader_request_no >NO
         <font color='red'><br>Please note: selecting yes will send an email to the administrator to verify your AMC H/B Leader/Coleader status.</p></font>";
     }
 ?>
