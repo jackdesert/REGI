@@ -52,7 +52,7 @@ h5{font-size: 80%}
 
 function getDirectory( $path = '.', $level = 0 ){
 
-    $ignore = array( 'cgi-bin', '.', '..','.git','index.php','resources_links.html','resources_templates.html','run.rb' );
+    $ignore = array( 'cgi-bin', '.', '..','.git','index.php','resources_links.html','resources_templates.html','run.rb','backups' );
     // Directories to ignore when listing output. Many hosts
     // will deny PHP access to the cgi-bin.
     $myDirs = array();
