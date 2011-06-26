@@ -86,7 +86,7 @@
 </tr></table>
 
 <input type='hidden' name='user_id' value='<?php print $my_user_id ?>'>
-<input type='submit' name='action' value='Save New Password' onclick=''>
+<input type='submit' name='action' value='Save New Password' onclick='return checkNewPassword();'>
 </form>
 </div><!-- closing div for #myprofile_narrow, only in this page -->
 <?php CHUNKfinishcontent(); ?>

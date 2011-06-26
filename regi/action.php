@@ -529,7 +529,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $diet= UTILclean($_POST["diet"], 500, '');
 
             if (!UTILrequiredfields()) {
-                header( 'Location: ./userMaint.php');
+                header( 'Location: ./myProfile.php');
                 exit();
             }
 

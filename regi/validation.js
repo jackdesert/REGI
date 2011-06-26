@@ -16,13 +16,27 @@ function checkLogin() {
     return false;
 }
 
+
+function verifyPasswordLength(){
+    if (document.forms.profile.user_password.value.length < 6)
+        return ("   * Password (minimum 6 characters)\r\n");
+    else
+        return ('');
+}
+function checkNewPassword(){
+    requiredFields = verifyPasswordLength();
+    if (requiredFields != '')
+        alert("The following are required fields:\n\r"+requiredFields);
+    else
+        return true;
+    return false;
+}
 function checkProfile() {
     requiredFields = "";
-
+    if (document.forms.profile.user_password)
+        requiredFields += verifyPasswordLength();
     if (document.forms.profile.user_name.value.length < 6)
         requiredFields += "   * User Name (minimum 6 characters)\r\n";
-    if (document.forms.profile.user_password.value.length < 6)
-        requiredFields += "   * Password (minimum 6 characters)\r\n";
     if (document.forms.profile.first_name.value == '')
         requiredFields += "   * First Name\r\n";
     if (document.forms.profile.last_name.value == '')
