@@ -53,9 +53,9 @@
         print IN3()."<a class='menu' href=\"mailto:amcbostonhbs@gmail.com?subject=Help With REGI Site\" >Support</a> | ";
 
         if (isset($_SESSION['Suser_id'])) {
-
-            if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
-                print IN3()."<a class='menu' href=\"eventAdmin.php\" >Create New Event</a> | ";
+            if (isset($_SESSION['Suser_type']))
+                if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
+                    print IN3()."<a class='menu' href=\"eventAdmin.php\" >Create New Event</a> | ";
 
             print IN3()."<a class='menu' href=\"myTrips.php\" >My Events</a> | ";
             print IN3()."\n<a class='menu' href=\"myProfile.php\" >My Profile</a> | ";

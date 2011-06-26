@@ -63,6 +63,8 @@ function CHUNKdatepicker(){
 function CHUNKgivehead($dates=''){
     if ($dates)
         $date_includes = CHUNKdatepicker();
+    else
+        $date_includes = '';
     print "
 <!DOCTYPE HTML>
 <html>
