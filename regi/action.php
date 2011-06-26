@@ -796,7 +796,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             if (!$result)
                 UTILdberror($query);
 
-            $_SESSION['Smessage'] = "Your password has been updated updated.";
+            $_SESSION['Smessage'] = "Your password has been updated.";
             header("Location: ./myProfile.php?user_id=$user_id");
             exit();
 

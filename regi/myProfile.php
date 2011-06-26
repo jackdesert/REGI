@@ -184,7 +184,7 @@
     <td><input type='password' name='user_password' value='' MAXLENGTH=50  required='required'> (minimum 6 characters)</td>
     </tr><tr>";
     }else{
-            print "<tr><td colspan='2'>Click <a href='enterNewPassword.php' target='_blank'>Here</a> to reset your password.</td></tr>";
+        print "    <td><b>&nbsp;&nbsp;Password</b></td><td>Save changes to your profile, then you may <a href='enterNewPassword.php' target='_blank'> change your password</a>.</td></tr>";
     }
     ?>
 
