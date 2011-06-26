@@ -26,8 +26,8 @@
     CHUNKgivehead($dates=true);
     CHUNKstartbody();
     UTILbuildmenu();
-    CHUNKstylemessage($_SESSION['Smessage']);
-    unset($_SESSION['Smessage']);
+    CHUNKstylemessage($_SESSION);
+
     // SECURITY
     // - User must be logged in
 

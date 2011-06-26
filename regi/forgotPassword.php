@@ -29,8 +29,8 @@
     //if (isset($_SESSION['Smessage']))
     //    CHUNKstylemessage($_SESSION['Smessage']);
 
-    CHUNKstylemessage($_SESSION['Smessage']);
-    unset($_SESSION['Smessage']);
+    CHUNKstylemessage($_SESSION);
+
 
     CHUNKstartcontent();
 ?>

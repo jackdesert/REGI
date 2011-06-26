@@ -90,7 +90,14 @@ function CHUNKstartbody(){
     return 1;
 }
 
-function CHUNKstylemessage($msg){
+// Note this is passing by reference. It WILL change $_SESSION that you pass in
+function CHUNKstylemessage(&$session){
+    $msg = '';
+    if (isset($session['Smessage'])){
+        $msg = $session['Smessage'];
+        unset($session['Smessage']);
+    }
+
     print "<b><p id='bright_msg'>{$msg}</p></b>
         </div>
    <div id='linked_background' onClick='location.href=\"http://www.hbbostonamc.org/index.php\";' style='cursor: pointer; width: 31%; height: 90%;'></div>

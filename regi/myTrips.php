@@ -28,8 +28,8 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu();
-    CHUNKstylemessage($_SESSION['Smessage']);
-    unset($_SESSION['Smessage']);
+
+    CHUNKstylemessage($_SESSION);
 
     CHUNKstartcontent();
 ?>
@@ -93,8 +93,8 @@
                 print IN2()."<td class='mytrips_nowrap'>".UTILshortdate($row['start_date'])."</td>";
                 print IN2()."<td class='mytrips_nowrap'>".UTILshortdate($row['end_date'])."</td>";
                 print IN2()."<td class='mytrips_en'><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
-                print IN2()."<td class='mytrips'>".ucfirst(strtolower($row[register_status]))."</td>";
-                print IN2()."<td class='mytrips'>".ucfirst(strtolower($row[event_status]))."</td>";
+                print IN2()."<td class='mytrips'>".ucfirst(strtolower($row['register_status']))."</td>";
+                print IN2()."<td class='mytrips'>".ucfirst(strtolower($row['event_status']))."</td>";
                 print IN1()."</tr>";
                 $rowcount += 1;
             }

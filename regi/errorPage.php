@@ -23,7 +23,7 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu();
-    CHUNKstylemessage($_SESSION['Smessage']);
+    CHUNKstylemessage($_SESSION);
     CHUNKstartcontent();
 ?>
 
