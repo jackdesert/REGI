@@ -48,29 +48,30 @@
     // Build top menu
     function UTILbuildmenu($num_tab) {
     $id_string = " id='selected_top_tab' ";
-    $myArray = array('','','','','','','');
-    $myArray[$num_tab] = $id_string;
+    $idArray = array('','','','','','','');
+    $idArray[$num_tab] = $id_string;
         print IN2()."<div id='searchbox' onclick='location.href=\'http://hi.com\''>";
+//<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRegistration.php?event_id={$event}\"'>Event Info</a></div>
 
-        print IN3()."<a class='menu' $myArray[0] href=\"http://www.hbbostonamc.org/trips.php\" >HB Trip Listings</a> | ";
-        print IN3()."<a class='menu' $myArray[1] href=\"support.php\" >Support</a> | ";
+        print IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"http://www.hbbostonamc.org/trips.php\"' >HB Trip Listings</div>";
+        print IN3()."<div class='top_tab' $idArray[1] style='cursor: pointer;' onClick='location.href=\"support.php\"' >Support</div>";
 
         if (isset($_SESSION['Suser_id'])) {
             if (isset($_SESSION['Suser_type']))
                 if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
-                    print IN3()."<a class='menu' $myArray[2] href=\"eventAdmin.php\" >Create New Event</a> | ";
+                    print IN3()."<div class='top_tab' $idArray[2] style='cursor: pointer;' onClick='location.href=\"eventAdmin.php\"' >Create New Event</div>";
 
-            print IN3()."<a class='menu' $myArray[3] href=\"myTrips.php\" >My Events</a> | ";
-            print IN3()."\n<a class='menu' $myArray[4] href=\"myProfile.php\" >My Profile</a> | ";
+            print IN3()."<div class='top_tab' $idArray[3] style='cursor: pointer;' onClick='location.href=\"myTrips.php\"' >My Events</div>";
+            print IN3()."\n<div class='top_tab' $idArray[4] style='cursor: pointer;' onClick='location.href=\"myProfile.php\"' >My Profile</div>";
 
-            print IN3()."\n<a class='menu' href=\"logout.php\" >Logout</a>";
+            print IN3()."\n<div class='top_tab' style='cursor: pointer;' onClick='location.href=\"logout.php\"' >Logout</div>";
         }
         else
         {
-            print IN3()."<a class='menu' $myArray[5] href=\"login.php\" >Login</a>";
+            print IN3()."<div class='top_tab' $idArray[5] style='cursor: pointer;' onClick='location.href=\"login.php\"' >Login</a></div>";
         }
 
-        print "</font><br>";
+        print "<br>";
     }
 
 

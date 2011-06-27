@@ -266,7 +266,7 @@ table.center {margin-left:auto; margin-right:auto;}
 #selected_tab:hover,#selected_top_tab:hover{
     background: #ccc;
 }
-.tab{
+.tab, .top_tab{
     border-radius:  1.2ex;
     -moz-border-radius:1.2ex; /* Firefox 3.6 and earlier */
     text-align: center;
@@ -280,7 +280,12 @@ table.center {margin-left:auto; margin-right:auto;}
     box-shadow: 0.2ex 0.1ex 0.6ex #888888;
     color: #0349A8;
 }
-.tab:hover{
+
+.top_tab{
+    font-size: 100%;
+    float: left;
+}
+.tab:hover, .top_tab:hover{
     background: #ccc;
 }
 
