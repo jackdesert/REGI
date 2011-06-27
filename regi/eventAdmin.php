@@ -25,8 +25,6 @@
     UTILdbconnect();
     CHUNKgivehead($dates=true);
     CHUNKstartbody();
-    UTILbuildmenu(2);
-    CHUNKstylemessage($_SESSION);
 
     // SECURITY
     // - User must be logged in
@@ -150,6 +148,12 @@
         }
 
     }  // end: $event_id<>''
+
+    if ($event_id == '')
+        UTILbuildmenu(2);
+    else
+        UTILbuildmenu(3);
+    CHUNKstylemessage($_SESSION);
 
     CHUNKstartcontent($my_user_id, $event_id, 'admin');
 

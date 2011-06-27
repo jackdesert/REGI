@@ -25,7 +25,7 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
-    UTILbuildmenu(2);
+    UTILbuildmenu(3);
     CHUNKstylemessage($_SESSION);
 
     // SECURITY

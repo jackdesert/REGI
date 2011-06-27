@@ -282,8 +282,15 @@ table.center {margin-left:auto; margin-right:auto;}
 }
 
 .top_tab{
-    font-size: 100%;
+    border-radius:  1.2ex 1.2ex 0 0;
+    -moz-border-radius:1.2ex; /* Firefox 3.6 and earlier */
+    font-size: 90%;
     float: left;
+    border-color: #bbb;
+    box-shadow: none;
+    border-bottom: none;
+    font-family: Arial, Verdana, Tahoma, "sans-serif";
+    font-weight: bold;
 }
 .tab:hover, .top_tab:hover{
     background: #ccc;
