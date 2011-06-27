@@ -45,7 +45,7 @@
     }
     CHUNKgivehead();
     CHUNKstartbody();
-    UTILbuildmenu();
+    UTILbuildmenu(5);
     CHUNKstylemessage($_SESSION);
 
 ?>

@@ -259,10 +259,11 @@ table.center {margin-left:auto; margin-right:auto;}
     width:80%;
     float: left;
 }
-#selected_tab{
+#selected_tab,#selected_top_tab{
     background: #99d0c4;
+    color: black;
 }
-#selected_tab:hover{
+#selected_tab:hover,#selected_top_tab:hover{
     background: #ccc;
 }
 .tab{

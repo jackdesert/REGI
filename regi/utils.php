@@ -46,29 +46,34 @@
     }
 
     // Build top menu
-    function UTILbuildmenu() {
+    function UTILbuildmenu($num_tab) {
+    $id_string = " id='selected_top_tab' ";
+    $myArray = array('','','','','','','');
+    $myArray[$num_tab] = $id_string;
         print IN2()."<div id='searchbox' onclick='location.href=\'http://hi.com\''>";
 
-        print IN3()."<a class='menu' href=\"http://www.hbbostonamc.org/trips.php\" >HB Trip Listings</a> | ";
-        print IN3()."<a class='menu' href=\"mailto:amcbostonhbs@gmail.com?subject=Help With REGI Site\" >Support</a> | ";
+        print IN3()."<a class='menu' $myArray[0] href=\"http://www.hbbostonamc.org/trips.php\" >HB Trip Listings</a> | ";
+        print IN3()."<a class='menu' $myArray[1] href=\"support.php\" >Support</a> | ";
 
         if (isset($_SESSION['Suser_id'])) {
             if (isset($_SESSION['Suser_type']))
                 if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
-                    print IN3()."<a class='menu' href=\"eventAdmin.php\" >Create New Event</a> | ";
+                    print IN3()."<a class='menu' $myArray[2] href=\"eventAdmin.php\" >Create New Event</a> | ";
 
-            print IN3()."<a class='menu' href=\"myTrips.php\" >My Events</a> | ";
-            print IN3()."\n<a class='menu' href=\"myProfile.php\" >My Profile</a> | ";
+            print IN3()."<a class='menu' $myArray[3] href=\"myTrips.php\" >My Events</a> | ";
+            print IN3()."\n<a class='menu' $myArray[4] href=\"myProfile.php\" >My Profile</a> | ";
 
             print IN3()."\n<a class='menu' href=\"logout.php\" >Logout</a>";
         }
         else
         {
-            print IN3()."<a class='menu' href=\"login.php\" >Login</a>";
+            print IN3()."<a class='menu' $myArray[5] href=\"login.php\" >Login</a>";
         }
 
         print "</font><br>";
     }
+
+
 
     // DB Connect
     //

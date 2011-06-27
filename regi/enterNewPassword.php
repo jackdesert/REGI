@@ -25,7 +25,7 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
-    UTILbuildmenu();
+    UTILbuildmenu(5);
 
     $reset = false;
 
