@@ -25,7 +25,7 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
-    UTILbuildmenu(5);
+    UTILbuildmenu(4);
 
     $reset = false;
 
@@ -57,7 +57,6 @@
 
     if ($reset){
         $my_user_id = $_SESSION['Suser_id'];
-        $_SESSION['Smessage'] = "Please Enter a new password and save your profile.";
         unset($_SESSION['Semail']); //this makes it look like the session is empty later on
     }else{
         header( 'Location: ./login.php');
@@ -83,10 +82,11 @@
     <td><input type='password' name='user_password' value='' MAXLENGTH=50 autofocus='autofocus'> (minimum 6 characters)</td>
     </tr><tr>
 </tr></table>
-
+<br>
 <input type='hidden' name='user_id' value='<?php print $my_user_id ?>'>
 <input type='submit' name='action' value='Save New Password' onclick='return checkNewPassword();'>
 </form>
+<br>
 </div><!-- closing div for #myprofile_narrow, only in this page -->
 <?php CHUNKfinishcontent(); ?>
 </body>
