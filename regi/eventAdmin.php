@@ -76,7 +76,7 @@
         //
         if ( ! UTILdb_proceed($my_user_id, $event_id))
         {
-            header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be a designated event leader, co-leader, or registrar to view this page. Please contact the event leader.");
+            header("Location: ./errorPage.php?errTitle=Error&errMsg=To view this page, you must be designated as the leader, co-leader, or registrar of this event. Please contact the leader of this event.");
             exit(0);
         }
 
