@@ -43,11 +43,10 @@
     // NOTE: Currently: ALL users can admin an event IF their register_status is set to CO/LEADER or REGISTRAR
     //       They do NOT need to be AMC LEADERS.
 
-    //if ($_SESSION['Suser_type'] <> 'LEADER' && $_SESSION['Suser_type'] <> 'ADMIN')
-    //{
-    //  header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be an AMC Leader or Administrator to view this page.");
-    //  exit(0);
-    //}
+    if ($_SESSION['Suser_type'] <> 'LEADER' && $_SESSION['Suser_type'] <> 'COLEADER' && $_SESSION['Suser_type'] <> 'ADMIN'){
+        header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be an AMC Leader or Administrator to view this page.");
+        exit(0);
+    }
 
     if (isset($_GET['event_id']))
         $event_id = $_GET['event_id'];
