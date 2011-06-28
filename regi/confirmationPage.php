@@ -24,7 +24,7 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
-    UTILbuildmenu();
+    UTILbuildmenu(3);
 
     CHUNKstylemessage($_SESSION);
     if (isset($_SESSION['Suser_id'])) {
@@ -63,7 +63,7 @@
         $confirmation_page=$row['confirmation_page'];
     }
 
-    CHUNKstartcontent($my_user_id, $event_id, 'my');
+    CHUNKstartcontent($my_user_id, $event_id, 'admin');
 ?>
 
 
