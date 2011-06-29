@@ -419,15 +419,29 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             // Check if user_name is unique
             //
-
+            $unique = true;
             $query = "select user_id from users where user_name='$user_name';";
 
             $result = mysql_query($query);
             if (!$result) UTILdberror($query);
 
             $numrows = mysql_num_rows($result);
-            if ($numrows > 0) {
+            if ($numrows > 0){
                 $_SESSION['Smessage'] = "This user name already exists, please choose another one.";
+                $unique = false;
+            }
+
+            $query = "select email from users where email='$email';";
+
+            $result = mysql_query($query);
+            if (!$result) UTILdberror($query);
+
+            $numrows = mysql_num_rows($result);
+            if ($numrows > 0){
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here</a>to retrieve your password.";
+                $unique = false;
+            }
+            if (! $unique) {
                 $_SESSION['Sfirst_name']=$first_name;
                 $_SESSION['Slast_name']=$last_name;
                 $_SESSION['Semail']=$email;
