@@ -348,6 +348,6 @@ h1#page_title{
 
 }
 
-td{
-    padding: 1ex;
+td, th{
+    padding: 1ex 2ex;
 }

@@ -208,8 +208,11 @@
         $stat_count_waitlist=0;
         $stat_count_approved=0;
 
+        $rowcount = 0;
         while($row = mysql_fetch_assoc($result)) {
-            echo "</tr><tr>";
+            $even_or_odd = $rowcount % 2;
+            echo "</tr><tr class='row{$even_or_odd}'>";
+            $rowcount += 1; // can increment here because it's not referenced again later
             echo "<td><input type='hidden' name='registration_id[]' value=$row[registration_id]>
 <input type='hidden' name='first_name[]' value=$row[first_name]>
 <input type='hidden' name='email[]' value=$row[email]>";
