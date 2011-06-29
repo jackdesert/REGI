@@ -83,7 +83,7 @@
 
 <br><b>Don't have an account? </b><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an account here</a>
 <br><br>
-<b>Forgot your password? </b><a href="forgotPassword.php">Click here</a>
+<b>Forgot your user name or password? </b><a href="forgotPassword.php">Click here</a>
 
 <br><br><b>Need more support?</b>
 <a href="support.php"> View our Support Page</a>
