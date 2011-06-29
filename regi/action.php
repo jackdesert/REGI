@@ -644,7 +644,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             if (!$result)
                 UTILdberror($query);
 
-            $_SESSION['Smessage'] = "This event has been inserted into the database (eventID = $event_id).<br>You can view and administer this event from 'My Trips'.<br>The registration URL for participants is listed below.";
+            $_SESSION['Smessage'] = "This event has been inserted into the database (eventID = $event_id).<br>You can view and administer this event from 'My Events'.<br>The registration URL for participants is listed below.";
             header("Location: ./eventAdmin.php?event_id=$event_id");
             exit();
 
