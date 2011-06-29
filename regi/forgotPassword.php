@@ -37,7 +37,7 @@
 
 <form name='account_help' action='action.php' method='post'>
 
-<h1>Help with Forgotten User Names or Passwords</h1>
+<h1>I Forgot my User Name or my Password</h1>
 Enter your email address below. Then select either "Send Username"
 to be emailed your username, or "Reset Password" to receive an email link for resetting your password.
 <br><br>

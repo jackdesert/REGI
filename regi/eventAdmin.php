@@ -42,6 +42,8 @@
 
     // NOTE: Currently: ALL users can admin an event IF their register_status is set to CO/LEADER or REGISTRAR
     //       They do NOT need to be AMC LEADERS.
+    // NOTE: Jack has revised this so that your user_type (not just your register_status) must be
+    // co/leader or admin to admin a trip
 
     if ($_SESSION['Suser_type'] <> 'LEADER' && $_SESSION['Suser_type'] <> 'COLEADER' && $_SESSION['Suser_type'] <> 'ADMIN'){
         header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be an AMC Leader or Administrator to view this page.");
@@ -148,8 +150,12 @@
 
     }  // end: $event_id<>''
 
-    if ($event_id == '')
+    if ($event_id == ''){
         UTILbuildmenu(2);
+        $start_date = '';   //define start_date for new events so PHP doesn't complain that it's undefined
+        $end_date = '';
+        $rating = '';
+    }
     else
         UTILbuildmenu(3);
     CHUNKstylemessage($_SESSION);
@@ -203,7 +209,7 @@
             <span style="font-weight: bold">Event End Date:</span> <br>(Leave blank if event is only one day.<br>format: YYYY-MM-DD)<br>
             <input type='text' maxlength='10' name='end_date' id='end_date' value='<?php print $end_date; ?>' size=10><br><br>
         </td>
-    <td><span style="font-weight: bold">Event Rating:</span> (Optional).<br>
+    <td><span style="font-weight: bold">Hike Rating:</span> (Optional. Example: B3B. Also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/'>Hike Rating Key</a>)<br>
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
     </td>
     </tr>

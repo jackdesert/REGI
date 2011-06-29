@@ -739,6 +739,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             UTILsendEmail($email, $title, $message);
 
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
+            $_SESSION['Smessage'] .= "<br>Sent to: " . $email;
 
             header( 'Location: ./login.php');
             exit();
@@ -809,7 +810,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             UTILsendEmail($email, $title, $message);
 
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
-            $_SESSION['Smessage'] .= " sent to: " . $email . " subject: " . $title;
+            $_SESSION['Smessage'] .= "<br>Sent to: " . $email;
 
             header( 'Location: ./login.php');
             exit();
