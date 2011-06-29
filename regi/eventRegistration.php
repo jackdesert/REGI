@@ -316,7 +316,7 @@
         if ($numrows > 0)
         {
             print "<h1>Confirmed Participants</h1>";
-            print "<table><tr style='background-color: #a3d6cb;'><th>Name</th><th>Email</th><th>Need Ride</th><th>Can Take</th><th>Leaving From:</th><th>Returning To:</th></tr>";
+            print "<table><tr class='table_header'><th>Name</th><th>Email</th><th>Need Ride</th><th>Can Take</th><th>Leaving From:</th><th>Returning To:</th></tr>";
             $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {
                 $even_or_odd = $rowcount % 2;

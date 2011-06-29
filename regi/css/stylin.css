@@ -342,3 +342,12 @@ h1#page_title{
 .button:hover{
     background: #99d0c4;
 }
+
+.table_header{
+    background: #a3d6cb;
+
+}
+
+td{
+    padding: 1ex;
+}

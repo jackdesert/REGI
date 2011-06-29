@@ -160,8 +160,8 @@
 <h1 id='page_title'>Roster of Participants</h1>
 <i style="color: #096">Don't forget to hit 'Update Roster' at bottom to save changes.</i>
 <form name='signup' action='action.php' method='post'>
-<table border=1><tr>
-<td></td><td>NAME / CONTACT</td><td>PROFILE & EVENT INFO</td><td>STATUS / ADMIN NOTES</td>
+<table><tr class='table_header'>
+<th></th><th>NAME / CONTACT</th><th>PROFILE & EVENT INFO</th><th>STATUS / ADMIN NOTES</th>
 
 <?php
 
@@ -214,16 +214,16 @@
 <input type='hidden' name='first_name[]' value=$row[first_name]>
 <input type='hidden' name='email[]' value=$row[email]>";
 
-            if ($row[register_status]=='LEADER' || $row[register_status]=='CO-LEADER') {
+            if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER') {
                 echo 'L'.++$stat_count_leader;
             }
-            else if ($row[register_status]=='SUBMITTED') {
+            else if ($row['register_status']=='SUBMITTED') {
                 echo 'S'.++$stat_count_submitted;
             }
-            else if ($row[register_status]=='WAIT LIST') {
+            else if ($row['register_status']=='WAIT LIST') {
                 echo 'W'.++$stat_count_waitlist;
             }
-            else if ($row[register_status]=='APPROVED' || $row[register_status]=='ENROLLED') {
+            else if ($row['register_status']=='APPROVED' || $row['register_status']=='ENROLLED') {
                 echo 'A'.++$stat_count_approved;
             }
             echo "</td>";
