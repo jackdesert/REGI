@@ -409,7 +409,7 @@
     <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
     <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
     <input type='hidden' name='leader_list' value='<?php print $leader_list; ?>'>
-    <input type='submit' name='action' value='<?php print $submitValue; ?>' onclick='return checkLogin()'>
+    <input type='submit' class='button' name='action' value='<?php print $submitValue; ?>' onclick='return checkLogin()'>
     </form>
 <?php CHUNKfinishcontent(); ?>
 </div>

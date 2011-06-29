@@ -78,7 +78,7 @@
     </tr></table>
     <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
     <input type='hidden' name='admin_event_id' value='<?php print $admin_event_id; ?>'>
-    <input type='submit' name='action' value='login' onclick='return checkLogin()'>
+    <input type='submit' class='button' name='action' value='login' onclick='return checkLogin()'>
 </form>
 
 <br><b>Don't have an account? </b><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an account here</a>

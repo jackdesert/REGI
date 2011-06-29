@@ -268,7 +268,7 @@
 <br><br>
 
 <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
-<input type='submit' name='action' value='<?php print $submitValue; ?>' onclick='return checkAdmin()'>
+<input type='submit' class='button' class='button' name='action' value='<?php print $submitValue; ?>' onclick='return checkAdmin()'>
 </form>
 
 <?php CHUNKfinishcontent(); ?>
