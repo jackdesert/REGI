@@ -33,34 +33,12 @@
 
 <?php CHUNKstartcontent(); ?>
 <h1>Support</h1>
-Here is where a lot of Question and Answer goes on.
-But until then, you email for help <a class='menu' href='mailto:amcbostonhbs@gmail.com?subject=Help With REGI Site' >here</a>.
+This is a placeholder for Question and Answer as well as a REGI user guide (coming soon).
+<h2>Email Support</h2>
+You can <a class='menu' href='mailto:amcbostonhbs@gmail.com?subject=Help With REGI Site' >email the webmaster</a> for help.
 
-<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
-Q:<br>
-A:<br>
+<h2>Q &amp; A</h2>
+
 Q:<br>
 A:<br>
 

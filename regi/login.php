@@ -81,12 +81,12 @@
     <input type='submit' name='action' value='login' onclick='return checkLogin()'>
 </form>
 
-Don't have an account? <a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an account here &gt;</a>
-<br>
-Forgot your password? <a href="forgotPassword.php">Click here &gt;</a>
-
+<br><b>Don't have an account? </b><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an account here</a>
 <br><br>
-<a href="mailto:amcbostonhbs@gmail.com"><strong>Need more support? Contact us &gt; </strong></a>
+<b>Forgot your password? </b><a href="forgotPassword.php">Click here</a>
+
+<br><br><b>Need more support?</b>
+<a href="support.php"> View our Support Page</a>
 <p></p>
 
 <?php CHUNKfinishcontent(); ?>
