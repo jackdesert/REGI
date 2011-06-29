@@ -704,7 +704,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             // Get POST vars from home.php
             $email= UTILclean($_POST["email"], 40, 'Email');
             if (!UTILrequiredfields()) {
-                header( 'Location: ./login.php');
+                header( 'Location: ./forgotPassword.php');
                 exit();
             }
 
@@ -755,7 +755,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             $email= UTILclean($_POST["email"], 40, 'Email');
             if (!UTILrequiredfields()) {
-                header( 'Location: ./login.php');
+                header( 'Location: ./forgotPassword.php');
                 exit();
             }
 

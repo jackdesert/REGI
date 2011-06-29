@@ -38,16 +38,17 @@
 <form name='account_help' action='action.php' method='post'>
 
 <h1>Help with Forgotten User Names or Passwords</h1>
-If you have forgotten your username or password, enter your email address below and select either "Username Reminder"
-to be emailed your username, or "Reset Password" to receive and email link for resetting your password.
+Enter your email address below. Then select either "Send Username"
+to be emailed your username, or "Reset Password" to receive an email link for resetting your password.
 <br><br>
-    <table><tr>
-    <td><b>Email:</b></td>
-    <td><input type='email' name='email' value='' MAXLENGTH=40 autofocus='autofocus'></td>
+    <table align='center'><tr><td></td>
+    <td><b>Your Email Address:<br><input type='email' name='email' value='' MAXLENGTH=40 autofocus='autofocus' required='required'></b></td>
+    <td></td>
     </tr>
     <tr>
-    <td><input type='submit' name='action' value='Send Username' onclick=""></td>
-    <td><input type='submit' name='action' value='Reset Password' onclick=""></td>
+    <td><input type='submit' name='action' value='Send Username' title='Remind me what my user name is.' onclick=""></td>
+    <td></td>
+    <td><input type='submit' name='action' value='Reset Password' title='Email me a link to reset my password.' onclick=""></td>
     </tr></table>
 </form>
 
