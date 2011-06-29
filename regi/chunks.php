@@ -116,7 +116,7 @@ function CHUNKstartcontent($user='', $event='', $tab='none'){
 }
 
 function CHUNKfinishcontent(){
-    print "<br><br></div></div></div><div id='footer'>Copyright 2011 &nbsp;&nbsp;Powered by REGI-0.52</div>";
+    print "<br><br></div></div></div><div id='footer'>Copyright 2011 &nbsp;&nbsp;Powered by REGI-Trunk</div>";
 }
 
 function CHUNKlefttabs($user, $event, $tab){
