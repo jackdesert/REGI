@@ -1,6 +1,17 @@
 <?php
 
+
+// From PHP 4.3.0 onward, you can use the following,
+// which especially useful on shared hosts:
+//   /home/hbboston/pear/pear/php/Spreadsheet/Excel
+
+set_include_path('/home/hbboston/pear/pear/php' . PATH_SEPARATOR
+                 . get_include_path());
+
+
+
 // include package
+//include 'Spreadsheet/Excel/Writer.php';
 include 'Spreadsheet/Excel/Writer.php';
 
 // spreadsheet data
