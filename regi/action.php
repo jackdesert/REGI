@@ -386,15 +386,15 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     print "\t$row[phone_cell]";
                     print "\t$row[phone_day]";
                     print "\t$row[phone_evening]";
-                    print "\t".preg_replace("/\r\n/", " || ", $row['emergency_contact'] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row['medical'] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row['diet'] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row['gear'] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row['need_ride'] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row['can_take'] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row['leaving_from'] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row['returning_to'] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row['admin_notes'] );
+                    print "\t".UTIL_disp_excel($row['emergency_contact'] );
+                    print "\t".UTIL_disp_excel($row['medical'] );
+                    print "\t".UTIL_disp_excel($row['diet'] );
+                    print "\t".UTIL_disp_excel($row['gear'] );
+                    print "\t".UTIL_disp_excel($row['need_ride'] );
+                    print "\t".UTIL_disp_excel($row['can_take'] );
+                    print "\t".UTIL_disp_excel($row['leaving_from'] );
+                    print "\t".UTIL_disp_excel($row['returning_to'] );
+                    print "\t".UTIL_disp_excel($row['admin_notes'] );
                     print "\n";
                 }
             }
@@ -465,15 +465,15 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     $worksheet->write($rowCount, 4, $row['phone_cell']);
                     $worksheet->write($rowCount, 5, $row['phone_day']);
                     $worksheet->write($rowCount, 6, $row['phone_evening']);
-                    $worksheet->write($rowCount, 7, preg_replace("/\r\n/", " || ", $row['emergency_contact'] ));
-                    $worksheet->write($rowCount, 8, preg_replace("/\r\n/", " || ", $row['medical'] ));
-                    $worksheet->write($rowCount, 9, preg_replace("/\r\n/", " || ", $row['diet'] ));
-                    $worksheet->write($rowCount, 10, preg_replace("/\r\n/", " || ", $row['gear'] ));
-                    $worksheet->write($rowCount, 11, preg_replace("/\r\n/", " || ", $row['need_ride'] ));
-                    $worksheet->write($rowCount, 12, preg_replace("/\r\n/", " || ", $row['can_take'] ));
-                    $worksheet->write($rowCount, 13, preg_replace("/\r\n/", " || ", $row['leaving_from'] ));
-                    $worksheet->write($rowCount, 14, preg_replace("/\r\n/", " || ", $row['returning_to'] ));
-                    $worksheet->write($rowCount, 15, preg_replace("/\r\n/", " || ", $row['admin_notes'] ));
+                    $worksheet->write($rowCount, 7, UTIL_disp_excel($row['emergency_contact']) );
+                    $worksheet->write($rowCount, 8, UTIL_disp_excel($row['medical'] ));
+                    $worksheet->write($rowCount, 9, UTIL_disp_excel($row['diet'] ));
+                    $worksheet->write($rowCount, 10, UTIL_disp_excel($row['gear'] ));
+                    $worksheet->write($rowCount, 11, UTIL_disp_excel($row['need_ride'] ));
+                    $worksheet->write($rowCount, 12, UTIL_disp_excel($row['can_take'] ));
+                    $worksheet->write($rowCount, 13, UTIL_disp_excel($row['leaving_from'] ));
+                    $worksheet->write($rowCount, 14, UTIL_disp_excel($row['returning_to'] ));
+                    $worksheet->write($rowCount, 15, UTIL_disp_excel($row['admin_notes'] ));
                     $rowCount++;
                 }
                 $workbook->close();
