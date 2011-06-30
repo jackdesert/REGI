@@ -283,7 +283,7 @@ table.center {margin-left:auto; margin-right:auto;}
 
 .top_tab{
     border-radius:  1.2ex 1.2ex 0 0;
-    -moz-border-radius:1.2ex; /* Firefox 3.6 and earlier */
+    -moz-border-radius:1.2ex 1.2ex 0 0; /* Firefox 3.6 and earlier */
     font-size: 90%;
     float: left;
     border-color: #bbb;
@@ -328,4 +328,26 @@ h1,h2,h3,h4,h5,h6{
 h1#page_title{
     font-size: 150%;
     #margin-bottom: -0.5EM;
+}
+
+.button{
+    font-size: 150%;
+    background: #ccc;
+    padding: 1ex;
+    margin: 2ex 0;
+    border-radius:  1.2ex;
+    -moz-border-radius:1.2ex; /* Firefox 3.6 and earlier */
+    box-shadow: 0.4ex 0.2ex 1.0ex #777;
+}
+.button:hover{
+    background: #99d0c4;
+}
+
+.table_header{
+    background: #a3d6cb;
+
+}
+
+td, th{
+    padding: 1ex 2ex;
 }

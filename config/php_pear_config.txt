@@ -1,0 +1,43 @@
+This is what I did:
+
+[hbboston@srv02 ~]$ pear config-create /home/hbboston/pear .pearrc
+
+and it said:
+
+Successfully created default configuration file "/home/hbboston/.pearrc"
+
+
+Then I added the following to .bashrc:
+PATH=$PATH:~/pear/bin
+export PATH
+
+reopened bash and ran:
+
+pear install -o PEAR
+
+which ran mostly successfully
+
+Then the instructions at
+    http://beni.hallinger.org/peardoc/en/html/installation.shared.html
+say to
+
+<?php
+ini_set('include_path', '~/pear/lib' . PATH_SEPARATOR
+        . ini_get('include_path'));
+
+// From PHP 4.3.0 onward, you can use the following,
+// which especially useful on shared hosts:
+set_include_path('/home/hbboston/pear/pear/php' . PATH_SEPARATOR
+                 . get_include_path());
+
+//Note that the absolute path is required. I tested with relative, and it didn't work.
+?>
+
+
+still couldn't install. says needs pear/ole
+trying this:
+
+pear config-set preferred_state beta
+pear install OLE-1.0.0RC1
+pear install Spreadsheet_Excel_Writer
+pear config-set preferred_state stable

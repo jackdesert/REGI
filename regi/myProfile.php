@@ -252,7 +252,7 @@
 
 <input type='hidden' name='event_id' value='<?php print $event_id ?>'>
 <input type='hidden' name='user_id' value='<?php print $my_user_id ?>'>
-<input type='submit' name='action' value='<?php print $formAction; ?>' onclick='return checkProfile()'>
+<input type='submit' class='button' name='action' value='<?php print $formAction; ?>' onclick='return checkProfile()'>
 </form>
 </div><!-- closing div for #myprofile_narrow, only in this page -->
 <?php CHUNKfinishcontent(); ?>

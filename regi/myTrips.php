@@ -62,7 +62,7 @@
                 FROM events, user_events
                 WHERE events.event_id=user_events.event_id
                 AND user_events.user_id=$my_user_id
-                ORDER BY start_date DESC
+                ORDER BY start_date DESC, register_date DESC
 
                 LIMIT 30;";
 
@@ -85,7 +85,7 @@
         else
         {
 
-            print"<table class='center'><tr style='background-color: #a3d6cb;'><th class='hcolor'>Start</th><th class='hcolor'>End</th><th class='hcolor'>Event</th><th class='hcolor'>Role</th><th class='hcolor'>Event Status</th></tr>";
+            print"<table class='center'><tr class='table_header'><th>Start</th><th>End</th><th>Event</th><th>Role</th><th>Event Status</th></tr>";
             print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
             $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {

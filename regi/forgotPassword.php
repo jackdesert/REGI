@@ -46,9 +46,9 @@ to be emailed your username, or "Reset Password" to receive an email link for re
     <td></td>
     </tr>
     <tr>
-    <td><input type='submit' name='action' value='Send Username' title='Remind me what my user name is.' onclick=""></td>
+    <td><input type='submit' class='button' name='action' value='Send Username' title='Remind me what my user name is.' onclick=""></td>
     <td></td>
-    <td><input type='submit' name='action' value='Reset Password' title='Email me a link to reset my password.' onclick=""></td>
+    <td><input type='submit' class='button' name='action' value='Reset Password' title='Email me a link to reset my password.' onclick=""></td>
     </tr></table>
 </form>
 

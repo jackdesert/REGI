@@ -160,8 +160,8 @@
 <h1 id='page_title'>Roster of Participants</h1>
 <i style="color: #096">Don't forget to hit 'Update Roster' at bottom to save changes.</i>
 <form name='signup' action='action.php' method='post'>
-<table border=1><tr>
-<td></td><td>NAME / CONTACT</td><td>PROFILE & EVENT INFO</td><td>STATUS / ADMIN NOTES</td>
+<table><tr class='table_header'>
+<th></th><th>NAME / CONTACT</th><th>PROFILE & EVENT INFO</th><th>STATUS / ADMIN NOTES</th>
 
 <?php
 
@@ -208,22 +208,25 @@
         $stat_count_waitlist=0;
         $stat_count_approved=0;
 
+        $rowcount = 0;
         while($row = mysql_fetch_assoc($result)) {
-            echo "</tr><tr>";
+            $even_or_odd = $rowcount % 2;
+            echo "</tr><tr class='row{$even_or_odd}'>";
+            $rowcount += 1; // can increment here because it's not referenced again later
             echo "<td><input type='hidden' name='registration_id[]' value=$row[registration_id]>
 <input type='hidden' name='first_name[]' value=$row[first_name]>
 <input type='hidden' name='email[]' value=$row[email]>";
 
-            if ($row[register_status]=='LEADER' || $row[register_status]=='CO-LEADER') {
+            if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER') {
                 echo 'L'.++$stat_count_leader;
             }
-            else if ($row[register_status]=='SUBMITTED') {
+            else if ($row['register_status']=='SUBMITTED') {
                 echo 'S'.++$stat_count_submitted;
             }
-            else if ($row[register_status]=='WAIT LIST') {
+            else if ($row['register_status']=='WAIT LIST') {
                 echo 'W'.++$stat_count_waitlist;
             }
-            else if ($row[register_status]=='APPROVED' || $row[register_status]=='ENROLLED') {
+            else if ($row['register_status']=='APPROVED' || $row['register_status']=='ENROLLED') {
                 echo 'A'.++$stat_count_approved;
             }
             echo "</td>";
@@ -306,7 +309,7 @@
 </tr></table><br>
 <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
 <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
-<input type='submit' name='action' value='Update Roster' onclick=''>
+<input type='submit' class='button' name='action' value='Update Roster' onclick=''>
 </form>
 <p>&nbsp;</p>
 <h1>Export Roster</h1>
@@ -318,7 +321,7 @@ that the format is unknown. Just click OK and allow Excel to import the file as 
 <form name='export' action='action.php' method='post'>
   <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
   <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
-<input type='submit' name='action' value='Export Roster' onclick=''>
+<input type='submit' class='button' name='action' value='Export Roster' onclick=''>
 </form>
 
 <?php CHUNKfinishcontent(); ?>
