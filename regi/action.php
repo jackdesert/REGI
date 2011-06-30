@@ -36,8 +36,9 @@
     $action = $_POST['action'];
 
     //Allow end_date to be NULL
-    if ($_POST['end_date'] == '')
-        $_POST['end_date'] = "NULL";  //Recognized by SQL as long as you don't put two sets of quotes around it
+    if (isset($_POST['end_date']))
+        if ($_POST['end_date'] == '')
+            $_POST['end_date'] = "NULL";  //Recognized by SQL as long as you don't put two sets of quotes around it
 
     switch($action) {
 
@@ -334,10 +335,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
         break;
 
-        // Export Roster -----------------------------------------------------------
+        // Export Tab Delimited -----------------------------------------------------------
         //
 
-        case "Export Roster":
+        case "Export Tab Delimited":
 
             $event_id = $_POST["event_id"];
             $event_name= $_POST["event_name"];
@@ -396,6 +397,87 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     print "\t".preg_replace("/\r\n/", " || ", $row[admin_notes] );
                     print "\n";
                 }
+            }
+
+        break;
+
+
+        // Export Real Excel File -----------------------------------------------------------
+        //
+
+        case "Export Real Excel File":
+
+            $event_id = $_POST["event_id"];
+            $event_name= $_POST["event_name"];
+            //Remove non-alphanumeric chars from what we will use as the filename
+            //Note those must be single quotes for it to work.
+            $alphanum_event_name = preg_replace('/[^a-zA-Z0-9\s]/', '', $event_name);
+            //Shorten the event name
+            $alphanum_event_name = substr($alphanum_event_name,0,25);
+            $alphanum_event_name = trim($alphanum_event_name);
+
+            $query = "select users.user_id, first_name, last_name,
+            register_date, register_status,
+            email, phone_cell, phone_day, phone_evening, emergency_contact, medical, diet, gear,
+            need_ride, can_take, leaving_from, returning_to, admin_notes
+            FROM users, user_events
+            WHERE users.user_id=user_events.user_id
+            AND event_id=$event_id
+            ORDER BY register_status DESC;";
+
+            $result = mysql_query($query);
+            if (!$result) UTILdberror($query);
+
+            $numrows = mysql_num_rows($result);
+            if ($numrows < 1) {
+                print "No participants found for this event.";
+            } else {
+                # Get ready to do a real excel export
+                set_include_path('/home/hbboston/pear/pear/php' . PATH_SEPARATOR . get_include_path());
+                include 'Spreadsheet/Excel/Writer.php';
+                // Creating a workbook
+                $workbook = new Spreadsheet_Excel_Writer();
+                $real_excel_filename = "Signup__{$alphanum_event_name}.xls";
+
+                // sending HTTP headers
+                $workbook->send($real_excel_filename);
+
+                // Creating a worksheet
+                $worksheet =& $workbook->addWorksheet('My first worksheet');
+
+                //echo "NAME\tREGISTER DATE\tREGISTER STATUS\tEMAIL\tCELL\tDAY\tEVENING\tEMERGENCY CONTACT\tMEDICAL\tDIET\tGEAR\tNEED RIDE\tCAN TAKE\tLEAVING FROM\tRETURNING TO\tNOTES\n";
+
+                $x=0;
+                $rowCount=0;
+
+                while($row = mysql_fetch_assoc($result)) {
+                    $worksheet->write($rowCount, 0, $row['first_name'] . $row['last_name']);
+
+                    $rowCount++;
+
+
+/*
+                    print "$row[first_name] $row[last_name]";
+                    print "\t$row[register_date]";
+                    print "\t$row[register_status]";
+                    print "\t$row[email]";
+                    print "\t$row[phone_cell]";
+                    print "\t$row[phone_day]";
+                    print "\t$row[phone_evening]";
+                    print "\t".preg_replace("/\r\n/", " || ", $row[emergency_contact] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[medical] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[diet] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[gear] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[need_ride] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[can_take] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[leaving_from] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[returning_to] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row[admin_notes] );
+                    print "\n";
+*/
+                }
+                $workbook->close();
+
             }
 
         break;

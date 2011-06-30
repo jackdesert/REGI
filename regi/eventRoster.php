@@ -321,7 +321,8 @@ that the format is unknown. Just click OK and allow Excel to import the file as 
 <form name='export' action='action.php' method='post'>
   <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
   <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
-<input type='submit' class='button' name='action' value='Export Roster' onclick=''>
+<input type='submit' class='button' name='action' value='Export Tab Delimited' onclick=''>
+<input type='submit' class='button' name='action' value='Export Real Excel File' onclick=''>
 </form>
 
 <?php CHUNKfinishcontent(); ?>
