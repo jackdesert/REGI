@@ -341,10 +341,14 @@ function UTIL_gen_all_passhashes(){
 }
 
 function UTIL_disp_excel($in_string){
-    //remove carriage returns
-    $on_one_line = preg_replace("/\r\n/", " || ", $in_string);
-    //display special chars that may be encoded
-    $with_html_chars = htmlspecialchars_decode($on_one_line, ENT_QUOTES);
-    return $with_html_chars;
+    if ($in_string == ''){
+        return " ";     //Return a space so following cells will show up as empty
+    }else{
+        //remove carriage returns
+        $on_one_line = preg_replace("/\r\n/", " || ", $in_string);
+        //display special chars that may be encoded
+        $with_html_chars = htmlspecialchars_decode($on_one_line, ENT_QUOTES);
+        return $with_html_chars;
+    }
 }
 ?>

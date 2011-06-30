@@ -444,16 +444,29 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
                 // Creating a worksheet
                 $worksheet =& $workbook->addWorksheet('My first worksheet');
-
+                //Set column widths. Notice that default comes last.
+                $width_default = 13;
+                $width_more = 35;
+                $width_less = 5;
+                $worksheet->setColumn(15,15,$width_more);
+                $worksheet->setColumn(8,10,$width_more);
+                $worksheet->setColumn(3,3,$width_more);
+                $worksheet->setColumn(11,12,$width_less);
+                $worksheet->setColumn(0,15,$width_default);
 
                 $format_bold =& $workbook->addFormat();
                 $format_bold->setBold();
+
+                $format_wrap =& $workbook->addFormat();
+                $format_wrap->setTextWrap();
+
                 $harray = array("NAME","REGISTER DATE","REGISTER STATUS","EMAIL","CELL","DAY","EVENING","EMERGENCY CONTACT","MEDICAL","DIET","GEAR","NEED RIDE","CAN TAKE","LEAVING FROM","RETURNING TO","NOTES");
                 $hcounter = 0;
                 foreach ($harray as $heading){
                     $worksheet->write(0, $hcounter, $heading, $format_bold);
                     $hcounter += 1;
                 }
+
                 $x=0;
                 $rowCount=1;    //Start on the second row (after heading)
 
@@ -466,14 +479,14 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     $worksheet->write($rowCount, 5, $row['phone_day']);
                     $worksheet->write($rowCount, 6, $row['phone_evening']);
                     $worksheet->write($rowCount, 7, UTIL_disp_excel($row['emergency_contact']) );
-                    $worksheet->write($rowCount, 8, UTIL_disp_excel($row['medical'] ));
-                    $worksheet->write($rowCount, 9, UTIL_disp_excel($row['diet'] ));
-                    $worksheet->write($rowCount, 10, UTIL_disp_excel($row['gear'] ));
+                    $worksheet->write($rowCount, 8, UTIL_disp_excel($row['medical'] ), $format_wrap);
+                    $worksheet->write($rowCount, 9, UTIL_disp_excel($row['diet'] ), $format_wrap);
+                    $worksheet->write($rowCount, 10, UTIL_disp_excel($row['gear'] ), $format_wrap);
                     $worksheet->write($rowCount, 11, UTIL_disp_excel($row['need_ride'] ));
                     $worksheet->write($rowCount, 12, UTIL_disp_excel($row['can_take'] ));
-                    $worksheet->write($rowCount, 13, UTIL_disp_excel($row['leaving_from'] ));
-                    $worksheet->write($rowCount, 14, UTIL_disp_excel($row['returning_to'] ));
-                    $worksheet->write($rowCount, 15, UTIL_disp_excel($row['admin_notes'] ));
+                    $worksheet->write($rowCount, 13, UTIL_disp_excel($row['leaving_from'] ), $format_wrap);
+                    $worksheet->write($rowCount, 14, UTIL_disp_excel($row['returning_to'] ), $format_wrap);
+                    $worksheet->write($rowCount, 15, UTIL_disp_excel($row['admin_notes'] ), $format_wrap);
                     $rowCount++;
                 }
                 $workbook->close();
