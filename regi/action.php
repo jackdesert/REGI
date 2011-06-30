@@ -386,15 +386,15 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     print "\t$row[phone_cell]";
                     print "\t$row[phone_day]";
                     print "\t$row[phone_evening]";
-                    print "\t".preg_replace("/\r\n/", " || ", $row[emergency_contact] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[medical] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[diet] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[gear] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[need_ride] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[can_take] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[leaving_from] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[returning_to] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[admin_notes] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row['emergency_contact'] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row['medical'] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row['diet'] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row['gear'] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row['need_ride'] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row['can_take'] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row['leaving_from'] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row['returning_to'] );
+                    print "\t".preg_replace("/\r\n/", " || ", $row['admin_notes'] );
                     print "\n";
                 }
             }
@@ -445,39 +445,38 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 // Creating a worksheet
                 $worksheet =& $workbook->addWorksheet('My first worksheet');
 
-                //echo "NAME\tREGISTER DATE\tREGISTER STATUS\tEMAIL\tCELL\tDAY\tEVENING\tEMERGENCY CONTACT\tMEDICAL\tDIET\tGEAR\tNEED RIDE\tCAN TAKE\tLEAVING FROM\tRETURNING TO\tNOTES\n";
 
+                $format_bold =& $workbook->addFormat();
+                $format_bold->setBold();
+                $harray = array("NAME","REGISTER DATE","REGISTER STATUS","EMAIL","CELL","DAY","EVENING","EMERGENCY CONTACT","MEDICAL","DIET","GEAR","NEED RIDE","CAN TAKE","LEAVING FROM","RETURNING TO","NOTES");
+                $hcounter = 0;
+                foreach ($harray as $heading){
+                    $worksheet->write(0, $hcounter, $heading, $format_bold);
+                    $hcounter += 1;
+                }
                 $x=0;
-                $rowCount=0;
+                $rowCount=1;    //Start on the second row (after heading)
 
                 while($row = mysql_fetch_assoc($result)) {
-                    $worksheet->write($rowCount, 0, $row['first_name'] . $row['last_name']);
-
+                    $worksheet->write($rowCount, 0, $row['first_name'] . ' ' . $row['last_name']);
+                    $worksheet->write($rowCount, 1, $row['register_date']);
+                    $worksheet->write($rowCount, 2, $row['register_status']);
+                    $worksheet->write($rowCount, 3, $row['email']);
+                    $worksheet->write($rowCount, 4, $row['phone_cell']);
+                    $worksheet->write($rowCount, 5, $row['phone_day']);
+                    $worksheet->write($rowCount, 6, $row['phone_evening']);
+                    $worksheet->write($rowCount, 7, preg_replace("/\r\n/", " || ", $row['emergency_contact'] ));
+                    $worksheet->write($rowCount, 8, preg_replace("/\r\n/", " || ", $row['medical'] ));
+                    $worksheet->write($rowCount, 9, preg_replace("/\r\n/", " || ", $row['diet'] ));
+                    $worksheet->write($rowCount, 10, preg_replace("/\r\n/", " || ", $row['gear'] ));
+                    $worksheet->write($rowCount, 11, preg_replace("/\r\n/", " || ", $row['need_ride'] ));
+                    $worksheet->write($rowCount, 12, preg_replace("/\r\n/", " || ", $row['can_take'] ));
+                    $worksheet->write($rowCount, 13, preg_replace("/\r\n/", " || ", $row['leaving_from'] ));
+                    $worksheet->write($rowCount, 14, preg_replace("/\r\n/", " || ", $row['returning_to'] ));
+                    $worksheet->write($rowCount, 15, preg_replace("/\r\n/", " || ", $row['admin_notes'] ));
                     $rowCount++;
-
-
-/*
-                    print "$row[first_name] $row[last_name]";
-                    print "\t$row[register_date]";
-                    print "\t$row[register_status]";
-                    print "\t$row[email]";
-                    print "\t$row[phone_cell]";
-                    print "\t$row[phone_day]";
-                    print "\t$row[phone_evening]";
-                    print "\t".preg_replace("/\r\n/", " || ", $row[emergency_contact] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[medical] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[diet] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[gear] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[need_ride] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[can_take] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[leaving_from] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[returning_to] );
-                    print "\t".preg_replace("/\r\n/", " || ", $row[admin_notes] );
-                    print "\n";
-*/
                 }
                 $workbook->close();
-
             }
 
         break;
