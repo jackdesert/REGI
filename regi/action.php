@@ -419,15 +419,29 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             // Check if user_name is unique
             //
-
+            $unique = true;
             $query = "select user_id from users where user_name='$user_name';";
 
             $result = mysql_query($query);
             if (!$result) UTILdberror($query);
 
             $numrows = mysql_num_rows($result);
-            if ($numrows > 0) {
+            if ($numrows > 0){
                 $_SESSION['Smessage'] = "This user name already exists, please choose another one.";
+                $unique = false;
+            }
+
+            $query = "select email from users where email='$email';";
+
+            $result = mysql_query($query);
+            if (!$result) UTILdberror($query);
+
+            $numrows = mysql_num_rows($result);
+            if ($numrows > 0){
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password.";
+                $unique = false;
+            }
+            if (! $unique) {
                 $_SESSION['Sfirst_name']=$first_name;
                 $_SESSION['Slast_name']=$last_name;
                 $_SESSION['Semail']=$email;
@@ -503,6 +517,32 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 header( 'Location: ./userMaint.php');
                 exit();
             }
+
+
+            $query = "select email from users where email='$email';";
+
+            $result = mysql_query($query);
+            if (!$result) UTILdberror($query);
+
+            $numrows = mysql_num_rows($result);
+            if ($numrows > 0){
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password.";
+                $_SESSION['Sfirst_name']=$first_name;
+                $_SESSION['Slast_name']=$last_name;
+                $_SESSION['Semail']=$email;
+                $_SESSION['Sphone_evening']=$phone_evening;
+                $_SESSION['Sphone_day']=$phone_day;
+                $_SESSION['Sphone_cell']=$phone_cell;
+                $_SESSION['Smember']=$member;
+                $_SESSION['Semergency_contact']=$emergency_contact;
+                $_SESSION['Sexperience']=$experience;
+                $_SESSION['Sexercise']=$exercise;
+                $_SESSION['Smedical']=$medical;
+                $_SESSION['Sdiet']=$diet;
+                header("Location: ./myProfile.php");
+                exit();
+            }
+
 
             $query = "update users set user_name='$user_name',
             user_password='$user_password', first_name='$first_name', last_name='$last_name', email='$email',
