@@ -159,7 +159,7 @@
     $can_take='0';
     $leaving_from='';
     $returning_to='';
-    $my_register_status="New Registrant";
+    $my_register_status="Not Registered";
 
     $submitValue='Sign Up For This Event';
 

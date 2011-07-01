@@ -310,7 +310,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 $inc++;
             }
 
-            $_SESSION['Smessage'] = "Sign-up Sheet Updated.";
+            $_SESSION['Smessage'] = "Roster Updated.";
             header("Location: ./eventRoster.php?event_id=$event_id");
             exit();
 
