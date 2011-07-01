@@ -363,8 +363,10 @@ function UTIL_date_prettify($ugly){
 
 function UTIL_date_uglify($pretty){
     //incoming $pretty is in format MM/DD/YYYY
-    $reversed = strrev($pretty);
-    $new = preg_replace("/", "/-/", $reversed);
-    return $new;
+    $year = substr($pretty, 6, 4);
+    $month = substr($pretty, 0, 2);
+    $day = substr($pretty, 3, 2);
+    $ugly = $year . "-" . $month . "-" . $day;
+    return $ugly;
 }
 ?>

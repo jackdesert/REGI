@@ -704,8 +704,10 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $question1= UTILclean($_POST["question1"], 200, '');
             $question2= UTILclean($_POST["question2"], 200, '');
             $payment_method=$_POST["payment_method"];
-            $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
+            $pretty_start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
+            $start_date= UTIL_date_uglify($pretty_start_date);
             $end_date= UTILclean($_POST["end_date"], 20, '');
+
             $rating= UTILclean($_POST["rating"], 4, '');
             if ($end_date != "NULL")
                 $end_date = "'{$end_date}'";   //Add an extra quote around it so non-null values enter sql properly
