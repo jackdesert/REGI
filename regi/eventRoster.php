@@ -42,14 +42,6 @@
         exit(0);
     }
 
-    // NOTE: Currently: ALL users can admin an event IF their register_status is set to CO/LEADER or REGISTRAR
-    //       They do NOT need to be AMC LEADERS.
-
-    if ($_SESSION['Suser_type'] <> 'LEADER' && $_SESSION['Suser_type'] <> 'COLEADER' && $_SESSION['Suser_type'] <> 'ADMIN'){
-        header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be an AMC H/B Leader, Coleader, or Administrator to view this page.");
-        exit(0);
-    }
-
     if (isset($_GET['event_id']))
         $event_id = $_GET['event_id'];
     else
@@ -72,14 +64,19 @@
     $program_id='';
     $program_name='';
 
-    if ($event_id <> '')
-    {
-        // Check if current user is a leader, co-leader, or registrar of this event
-        //
+    if ($event_id == ''){
+        // Only user_type  of Leader, Coleader, or Admin can create a new trip
 
-        if ( ! UTILdb_proceed($my_user_id, $event_id))
-        {
-            header("Location: ./errorPage.php?errTitle=Error&errMsg=To view this page, you must be designated as the leader, co-leader, or registrar of this event. Please contact the leader of this event.");
+        if ($_SESSION['Suser_type'] <> 'LEADER' && $_SESSION['Suser_type'] <> 'COLEADER' && $_SESSION['Suser_type'] <> 'ADMIN'){
+            header("Location: ./errorPage.php?errTitle=Error&errMsg=You must be an AMC Leader, Coleader,  or Administrator to create new events.");
+            exit(0);
+        }
+
+
+    }else{
+
+        if ( ! UTILuser_may_admin($my_user_id, $event_id)){
+            header("Location: ./errorPage.php?errTitle=Error&errMsg=You must be a designated this event's leader, coleader, or registrar to view this page. Please contact the trip leader.");
             exit(0);
         }
 
