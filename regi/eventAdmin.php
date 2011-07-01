@@ -55,13 +55,7 @@
         exit(0);
     }
 
-    // NOTE: Currently: ALL users can admin a trip IF their register_status is set to CO/LEADER or REGISTRAR
-    //       They do NOT need to be AMC LEADERS.
 
-    if ($_SESSION['Suser_type'] <> 'LEADER' && $_SESSION['Suser_type'] <> 'COLEADER' && $_SESSION['Suser_type'] <> 'ADMIN'){
-        header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be an AMC Leader or Administrator to view this page.");
-        exit(0);
-    }
 
     if (isset($_GET['event_id']))
         $event_id = $_GET['event_id'];
@@ -85,10 +79,22 @@
     $program_id='';
     $program_name='';
 
-    if ($event_id <> '')
-    {
-        // Check if current user is a leader, co-leader, or registrar of this trip
-        //
+    if ($event_id == ''){
+        // Only user_type  of Leader, Coleader, or Admin can create a new trip
+
+        if ($_SESSION['Suser_type'] <> 'LEADER' && $_SESSION['Suser_type'] <> 'COLEADER' && $_SESSION['Suser_type'] <> 'ADMIN'){
+            header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be an AMC Leader, Coleader,  or Administrator to create new events.");
+            exit(0);
+        }
+
+
+    }else{
+        // Only user_type of Admin or (event) register_status of Leader, Coleader, or Registrar can View/Edit the Roster and Admin pages
+        // What this means is that the leader of a trip can promote anyone on the trip to be the new Leader/Coleader/Admin and that
+        // appointee will be able to administer the trip, even without being a user_type LEADER in the system.
+        // This is helpful when the leader suddenly becomes ill and has to bail from the trip--the trip must go on,
+        // and somebody must have access to the people's info to coordinate it.
+        // Reference: Julie LePage
 
         $query = "select users.user_id
             FROM users, user_events
