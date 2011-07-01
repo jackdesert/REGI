@@ -46,12 +46,12 @@ function CHUNKdatepicker(){
             new JsDatePick({
                 useMode:2,
                 target:'start_date',
-                dateFormat:'%Y-%m-%d'
+                dateFormat:'%m/%d/%Y'
             });
             new JsDatePick({
                 useMode:2,
                 target:'end_date',
-                dateFormat:'%Y-%m-%d'
+                dateFormat:'%m/%d/%Y'
             });
         };
     </script>";
