@@ -212,8 +212,14 @@
         exit();
     }
 
-    function UTILdb_proceed($user_id, $event_id){
-            $query = "select users.user_id
+    function UTILuser_may_admin($user_id, $event_id){
+        // Only user_type of Admin or (event) register_status of Leader, Coleader, or Registrar can View/Edit the Roster and Admin pages
+        // What this means is that the leader of a trip can promote anyone on the trip to be the new Leader/Coleader/Admin and that
+        // appointee will be able to administer the trip, even without being a user_type LEADER in the system.
+        // This is helpful when the leader suddenly becomes ill and has to bail from the trip--the trip must go on,
+        // and somebody must have access to the people's info to coordinate it.
+        // Reference: Julie LePage
+        $query = "select users.user_id
             FROM users, user_events
             WHERE users.user_id = user_events.user_id
             AND (register_status='LEADER' or register_status='CO-LEADER' or register_status='REGISTRAR')

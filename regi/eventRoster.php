@@ -77,7 +77,7 @@
         // Check if current user is a leader, co-leader, or registrar of this trip
         //
 
-        if ( ! UTILdb_proceed($my_user_id, $event_id))
+        if ( ! UTILuser_may_admin($my_user_id, $event_id))
         {
             header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be a designated trip leader, co-leader, or registrar to view this page. Please contact the trip leader.");
             exit(0);
