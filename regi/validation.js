@@ -53,20 +53,20 @@ function checkProfile() {
 }
 
 function checkDate(date_string, label){
-    var pattern=/^[\d]{4}-\d\d-\d\d$/;
+    var pattern=/^\d\d\/\d\d\/[\d]{4}$/;
     var err = '';
     if (pattern.test(date_string)){  //first pass makes sure it's the correct number of numbers and dashes
         //First pass
-        var groups = date_string.split('-');
-        var year = groups[0];
+        var groups = date_string.split('/');
+        var year = groups[2];
         if ('1999' < year && year < '2020');
         else
             err += label + "Bad Year: " + year + "\r\n";
-        var month = groups[1];
+        var month = groups[0];
         if ('00' < month && month < '13');
         else
             err += label + "Bad Month: " + month + "\r\n";
-        var day = groups[2];
+        var day = groups[1];
         if ('00' < day && day < '31');
         else
             err += label + "Bad Day of the Month: " + day + "\r\n";
@@ -77,7 +77,7 @@ function checkDate(date_string, label){
         else
             err += label + "Invalid Combination. (You're not scheduling for the 30th of February, are you?)\r\n";
     }else
-        err += label + "Date Format Invalid. (Should look something like 2012-07-24)\r\n";
+        err += label + "Date Format Invalid. (Should look something like 12/07/2012)\r\n";
 
 
     return err;

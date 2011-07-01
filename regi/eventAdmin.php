@@ -187,7 +187,7 @@
 <table style='border-collapse:separate;border-spacing:4ex 1ex;'>
     <tr>
         <td>
-            * <span style="font-weight: bold">Start Date:</span> <br>(format: YYYY-MM-DD)<br>
+            * <span style="font-weight: bold">Start Date:</span> <br>(format: MM/DD/YYYY)<br>
             <input type='text' required=required maxlength='10' name='start_date' id='start_date' value='<?php print UTIL_date_prettify($start_date); ?>' size=10><br><br>
         </td>
         <td>* <span style="font-weight: bold">Event Status</span>:
@@ -206,7 +206,7 @@
 
     </tr><tr>
         <td>
-            <span style="font-weight: bold">End Date:</span> <br>(Leave blank if event is only one day.<br>format: YYYY-MM-DD)<br>
+            <span style="font-weight: bold">End Date:</span> <br>(Leave blank if event is only one day.<br>format: MM/DD/YYYY)<br>
             <input type='text' maxlength='10' name='end_date' id='end_date' value='<?php print UTIL_date_prettify($end_date); ?>' size=10><br><br>
         </td>
     <td><span style="font-weight: bold">Hike Rating:</span> (Optional. Example: B3B. Also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/'>Hike Rating Key</a>)<br>
