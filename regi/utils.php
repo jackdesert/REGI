@@ -352,21 +352,29 @@ function UTIL_disp_excel($in_string){
     }
 }
 
-function UTIL_date_prettify($ugly){
-    //incoming $ugly is in format YYYY-MM-DD
-    $year = substr($ugly, 0, 4);
-    $month = substr($ugly, 5, 2);
-    $day = substr($ugly, 8, 2);
-    $pretty = $month . "/" . $day . "/" . $year;
-    return $pretty;
+function UTIL_date_prettify($standard){
+    //incoming $standard is in format YYYY-MM-DD
+    if ($standard == ""){
+        return "";
+    }else{
+        $year = substr($standard, 0, 4);
+        $month = substr($standard, 5, 2);
+        $day = substr($standard, 8, 2);
+        $pretty = $month . "/" . $day . "/" . $year;
+        return $pretty;
+    }
 }
 
-function UTIL_date_uglify($pretty){
+function UTIL_date_standardize($pretty){
     //incoming $pretty is in format MM/DD/YYYY
-    $year = substr($pretty, 6, 4);
-    $month = substr($pretty, 0, 2);
-    $day = substr($pretty, 3, 2);
-    $ugly = $year . "-" . $month . "-" . $day;
-    return $ugly;
+    if ($pretty == ""){
+        return "";
+    }else{
+        $year = substr($pretty, 6, 4);
+        $month = substr($pretty, 0, 2);
+        $day = substr($pretty, 3, 2);
+        $ugly = $year . "-" . $month . "-" . $day;
+        return $ugly;
+    }
 }
 ?>

@@ -207,7 +207,7 @@
     </tr><tr>
         <td>
             <span style="font-weight: bold">End Date:</span> <br>(Leave blank if event is only one day.<br>format: YYYY-MM-DD)<br>
-            <input type='text' maxlength='10' name='end_date' id='end_date' value='<?php print $end_date; ?>' size=10><br><br>
+            <input type='text' maxlength='10' name='end_date' id='end_date' value='<?php print UTIL_date_prettify($end_date); ?>' size=10><br><br>
         </td>
     <td><span style="font-weight: bold">Hike Rating:</span> (Optional. Example: B3B. Also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/'>Hike Rating Key</a>)<br>
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
