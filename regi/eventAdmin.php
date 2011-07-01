@@ -188,7 +188,7 @@
     <tr>
         <td>
             * <span style="font-weight: bold">Start Date:</span> <br>(format: YYYY-MM-DD)<br>
-            <input type='text' required=required maxlength='10' name='start_date' id='start_date' value='<?php print $start_date; ?>' size=10><br><br>
+            <input type='text' required=required maxlength='10' name='start_date' id='start_date' value='<?php print UTIL_date_prettify($start_date); ?>' size=10><br><br>
         </td>
         <td>* <span style="font-weight: bold">Event Status</span>:
 <select name='event_status'>

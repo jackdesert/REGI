@@ -351,4 +351,20 @@ function UTIL_disp_excel($in_string){
         return $with_html_chars;
     }
 }
+
+function UTIL_date_prettify($ugly){
+    //incoming $ugly is in format YYYY-MM-DD
+    $year = substr($ugly, 0, 4);
+    $month = substr($ugly, 5, 2);
+    $day = substr($ugly, 8, 2);
+    $pretty = $month . "/" . $day . "/" . $year;
+    return $pretty;
+}
+
+function UTIL_date_uglify($pretty){
+    //incoming $pretty is in format MM/DD/YYYY
+    $reversed = strrev($pretty);
+    $new = preg_replace("/", "/-/", $reversed);
+    return $new;
+}
 ?>
