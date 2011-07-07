@@ -31,20 +31,22 @@ class StackTest extends PHPUnit_Framework_TestCase
 
     public function testUTILbuildmenu()
     {
-        $html = UTILbuildmenu(0);
-        $this->assertGreaterThan(300, strlen($html), 'should return more than 300 characters');
-        $found = 'selected_top_tab';
-        $this->assertStringStartsWith($found, strstr($html, $found), 'should find text "selected_top_tab" once');
-        $html = UTILbuildmenu(1);
+        $values = array(0,1,5); //When tab 0, 1, or 5 is selected, selected_tab shows up even when not logged in
+        foreach ($values as $value){
+            print "value is: " . $value;
+            $html = UTILbuildmenu($value);
+            $this->assertGreaterThan(300, strlen($html), 'should return more than 300 characters');
+            $search_term = 'selected_top_tab';
+            $found = strstr($html, $search_term);
+            $this->assertNotEquals(false, $found, 'search_term not found');
+            //$this->assertStringStartsWith($found, strstr($html, $found), 'should find text "selected_top_tab" once');
+        }
+        //Make sure no errors thrown, even for arguments above 5
         $html = UTILbuildmenu(2);
         $html = UTILbuildmenu(3);
         $html = UTILbuildmenu(4);
-        $html = UTILbuildmenu(5);
         $html = UTILbuildmenu(6);
-        $html = UTILbuildmenu(7);
-        $html = UTILbuildmenu(8);
-        $html = UTILbuildmenu(9);
-        $this->assertGreaterThan(0, strlen($html), 'should have a return value of 0');
+
 
     }
 
