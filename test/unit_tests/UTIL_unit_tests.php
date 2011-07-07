@@ -31,8 +31,21 @@ class StackTest extends PHPUnit_Framework_TestCase
 
     public function testUTILbuildmenu()
     {
-        $long = UTILbuildmenu(0);
-        $this->assertGreaterThan(0, strlen($long), 'should have a return value of 0');
+        $html = UTILbuildmenu(0);
+        $this->assertGreaterThan(300, strlen($html), 'should return more than 300 characters');
+        $found = 'selected_top_tab';
+        $this->assertStringStartsWith($found, strstr($html, $found), 'should find text "selected_top_tab" once');
+        $html = UTILbuildmenu(1);
+        $html = UTILbuildmenu(2);
+        $html = UTILbuildmenu(3);
+        $html = UTILbuildmenu(4);
+        $html = UTILbuildmenu(5);
+        $html = UTILbuildmenu(6);
+        $html = UTILbuildmenu(7);
+        $html = UTILbuildmenu(8);
+        $html = UTILbuildmenu(9);
+        $this->assertGreaterThan(0, strlen($html), 'should have a return value of 0');
+
     }
 
     public function testUTILdbconnect()
@@ -46,11 +59,37 @@ class StackTest extends PHPUnit_Framework_TestCase
         $clean_output = UTILclean($clean_input, 0, '');
         $this->assertEquals($clean_input, $clean_output, 'All these symbols should come through clean');
 
-        $dirty_input = 'dirty &<> symbols.';
+        $dirty_input = '&<>"\'';
         $washed_output = UTILclean($dirty_input, 0, '');
-        print $washed_output;
         $this->assertNotEquals($dirty_input, $washed_output, 'These symbols should be replaced by html');
-        $this->assertEquals($washed_output, 'dirty &amp;&lt;&gt; symbols.', 'These symbols should be replaced by html');
+        $this->assertEquals($washed_output, '&amp;&lt;&gt;&quot;&#039;', 'Single quotes, double quotes, ampersand, and <> should be cleaned');
+
+        $long_input = 'a long, run-on sentence';
+        $short_output = UTILclean($long_input, 5, '');
+        print $washed_output;
+        $this->assertNotEquals(strlen($long_input), strlen($short_output), 'Output should be shorter than input.');
+        $this->assertEquals(5, strlen($short_output), 'Output should be 5 characters.');
+
+
     }
+
+    public function testUTILlog()
+    {
+        $current_dir = realpath('.');
+        chdir('../../regi');    //change to directory where UTILlog is normally called from
+        $random_string_length = 25;
+        $random_string = substr(md5(uniqid(rand(), true)), 0, $random_string_length);
+        $bogus_query = 'Unit test is writing this random string to log file: ' .  $random_string;
+        UTILlog($bogus_query);
+        $logfile_path = 'log/errorlog.log';
+        $logfile = fopen($logfile_path,"r");
+        $data = fread($logfile,filesize($logfile_path));
+        fclose($logfile);
+        $found = strstr($data, $bogus_query);
+        $this->assertGreaterThan(0, strlen($found), 'string found should have length > 0');
+        $this->assertEquals($found, $bogus_query, 'log file should contain the bogus_query that we wrote');
+        chdir($current_dir);
+    }
+
 }
 ?>
