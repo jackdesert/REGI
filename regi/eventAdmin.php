@@ -29,21 +29,20 @@
     // SECURITY
     // - User must be logged in
 
-    if (isset($_SESSION['Suser_id']))
-    {
-        $my_user_id = $_SESSION['Suser_id'];
-        $user_type = $_SESSION['Suser_type'];
-    }
-    else
-    {
-        header("Location: ./errorPage.php?errTitle=Error&errMsg=User must be logged in to view this page.");
-        exit(0);
-    }
-
     if (isset($_GET['event_id']))
         $event_id = $_GET['event_id'];
     else
         $event_id = '';
+
+    if (isset($_SESSION['Suser_id'])) {
+        $my_user_id = $_SESSION['Suser_id'];
+        $user_type = $_SESSION['Suser_type'];
+    } else {
+        $_SESSION['Smessage'] = 'Please Log In';
+        header("Location: ./login.php?event_id={$event_id}");
+        //print "<p>You must be logged in to register for an event.</p><p>If you do not have an account, you may create a new account <a href='myProfile.php' >here</a>.<br>";
+        exit();
+    }
 
     $submitValue='Create New Event';
     $event_name='';

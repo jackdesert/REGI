@@ -29,19 +29,22 @@
     UTILbuildmenu(3);
     CHUNKstylemessage($_SESSION);
 
+    if (isset($_GET['event_id']))
+        $event_id = $_GET['event_id'];
+    else
+        exit(0);
 
     if (isset($_SESSION['Suser_id'])) {
         $my_user_id = $_SESSION['Suser_id'];
         $user_type = $_SESSION['Suser_type'];
     } else {
-        print "<p>You must be logged in to register for an event.</p><p>If you do not have an account, you may create a new account <a href='myProfile.php' >here</a>.<br>";
+        $_SESSION['Smessage'] = 'Please Log In';
+        header("Location: ./login.php?event_id={$event_id}");
+        //print "<p>You must be logged in to register for an event.</p><p>If you do not have an account, you may create a new account <a href='myProfile.php' >here</a>.<br>";
         exit();
     }
 
-    if (isset($_GET['event_id']))
-        $event_id = $_GET['event_id'];
-    else
-        exit(0);
+
 
     // Get event summary info
     //
