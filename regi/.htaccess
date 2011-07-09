@@ -1,0 +1,4 @@
+# This is here to make sure people can stay logged in longer than
+# the default value of 1440 seconds
+php_value session.gc_maxlifetime 5
+php_value session.gc_probability 1000

@@ -109,7 +109,7 @@
                     else if ($admin_event_id <> '')
                         header("Location: ./eventAdmin.php?event_id=".$admin_event_id);
                     else
-                        header("Location: ./myTrips.php?user_id=".$row['user_id']);
+                        header("Location: ./myTrips.php");
 
                     exit();
                 }
@@ -615,7 +615,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             }
 
             if ($event_id == '')
-                header("Location: ./myProfile.php?user_id=$SUID");
+                header("Location: ./myProfile.php");
             else
                 header("Location: ./eventRegistration.php?event_id=$event_id");
 
@@ -689,7 +689,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
                 UTILdberror($query);
 
             $_SESSION['Smessage'] = "Your profile has been updated.";
-            header("Location: ./myProfile.php?user_id=$user_id");
+            header("Location: ./myProfile.php");
             exit();
 
         break;
@@ -940,7 +940,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
                 UTILdberror($query);
 
             $_SESSION['Smessage'] = "Your password has been updated.";
-            header("Location: ./myProfile.php?user_id=$user_id");
+            header("Location: ./myProfile.php");
             exit();
 
         break;

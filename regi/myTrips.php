@@ -44,8 +44,8 @@
 
         $my_user_id='';
         $my_user_type='';
-
-        header("Location: ./errorPage.php?errTitle=Authorization Error&errMsg=User Not Authorized to View this Profile");
+        $_SESSION['Smessage'] = 'Please Log In';
+        header("Location: ./login.php");
         exit();
     }
     else
