@@ -32,6 +32,9 @@
     if ($event_id <> '' && isset($_SESSION['Suser_id'])) {
         header("Location: ./eventRegistration.php?event_id=".$event_id);
         exit(0);
+    }elseif($event_id == '' && isset($_SESSION['Suser_id'])) {
+        header("Location: ./myTrips.php");
+        exit(0);
     }
 
     if (isset($_GET['admin_event_id']))
