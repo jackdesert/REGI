@@ -260,17 +260,17 @@
             </select>";
             else
             echo "<td  valign='top'><b>REGISTRATION STATUS:</b><br>
-                <select name='set_reg_status[]'>
-                <option value='*'>$row[register_status]
-                <option disabled>-------------
-                <option value='LEADER'>LEADER
-                <option value='CO-LEADER'>CO-LEADER
-                <option value='REGISTRAR'>REGISTRAR
-                <option value='SUBMITTED'>SUBMITTED
-                <option value='WAIT LIST'>WAIT LIST
-                <option value='APPROVED'>APPROVED
-                <option value='CANCELED'>CANCELED
-            </select>";
+                <select name='set_reg_status[]'>";
+            $selected_status = $row[register_status];
+            CHUNKdropdown('LEADER', $selected_status);
+            CHUNKdropdown('CO-LEADER', $selected_status);
+            CHUNKdropdown('REGISTRAR', $selected_status);
+            print "<option disabled>-------------";
+            CHUNKdropdown('APPROVED', $selected_status);
+            CHUNKdropdown('WAIT LIST', $selected_status);
+            CHUNKdropdown('CANCELED', $selected_status);
+            CHUNKdropdown('SUBMITTED', $selected_status);
+            print "</select>";
 
             echo "<br><b>NOTES:</b><br><textarea name='admin_notes[]' rows=5>$row[admin_notes]</textarea>";
 

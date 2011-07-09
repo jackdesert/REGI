@@ -145,4 +145,13 @@ function CHUNKlefttabs($user, $event, $tab){
 {$err}
 </div>";
 }
+
+function CHUNKdropdown($input, $selected_input){
+    if ($input == $selected_input)
+        $selected = " selected='selected'";
+    else
+        $selected = '';
+    print "<option value='{$input}'{$selected}>{$input}";
+
+}
 ?>
