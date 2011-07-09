@@ -45,11 +45,13 @@ function CHUNKdatepicker(){
         window.onload = function(){
             new JsDatePick({
                 useMode:2,
+                weekStartDay:0,
                 target:'start_date',
                 dateFormat:'%m/%d/%Y'
             });
             new JsDatePick({
                 useMode:2,
+                weekStartDay:0,
                 target:'end_date',
                 dateFormat:'%m/%d/%Y'
             });

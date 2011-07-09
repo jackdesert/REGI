@@ -67,7 +67,7 @@ function checkDate(date_string, label){
         else
             err += label + "Bad Month: " + month + "\r\n";
         var day = groups[1];
-        if ('00' < day && day < '31');
+        if ('00' < day && day < '32');
         else
             err += label + "Bad Day of the Month: " + day + "\r\n";
 

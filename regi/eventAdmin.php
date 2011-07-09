@@ -173,7 +173,7 @@
   {
     $event_url = 'http://www.hbbostonamc.org/registrationSystem/login.php?event_id=' . $event_id;
     print "<b>Registration URL:&nbsp&nbsp <a href='$event_url'>$event_url</a></b><br>";
-    print "<i>Copy and paste this URL into your AMC event posting to direct registrants to the Registration page.</i><br><br>";
+    print "<p class='colored_note'>Copy and paste this URL into your AMC event posting to direct registrants to the Registration page.</p><br>";
   }
 
 ?>
@@ -184,29 +184,31 @@
 <table style='border-collapse:separate;border-spacing:4ex 1ex;'>
     <tr>
         <td>
-            * <span style="font-weight: bold">Start Date:</span> <br>(format: MM/DD/YYYY)<br>
+            * <span style="font-weight: bold">Start Date:</span> <br>(MM/DD/YYYY)<br>
             <input type='text' required=required maxlength='10' name='start_date' id='start_date' value='<?php print UTIL_date_prettify($start_date); ?>' size=10><br><br>
         </td>
         <td>* <span style="font-weight: bold">Event Status</span>:
-<select name='event_status'>
-        <option value='<?php print $event_status; ?>'><?php print $event_status; ?>
-        <option disabled>----------
-        <option value='OPEN'>OPEN
-        <option value='WAIT LIST'>WAIT LIST
-        <option value='PENDING'>PENDING
-        <option value='FULL'>FULL
-        <option value='CLOSED'>CLOSED
-        <option value='CANCELED'>CANCELED
+
+        <br>Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.  All other statuses do NOT allow new registrations.
+        <br>
+        <select name='event_status'>
+            <option value='<?php print $event_status; ?>'><?php print $event_status; ?>
+            <option disabled>----------
+            <option value='OPEN'>OPEN
+            <option value='WAIT LIST'>WAIT LIST
+            <option value='PENDING'>PENDING
+            <option value='FULL'>FULL
+            <option value='CLOSED'>CLOSED
+            <option value='CANCELED'>CANCELED
         </select><br>
-        <i style="color: #096">Note: Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.  All other statuses do NOT allow new registrations.</i>
-        <br><br></td>
+        <br></td>
 
     </tr><tr>
         <td>
-            <span style="font-weight: bold">End Date:</span> <br>(Leave blank if event is only one day.<br>format: MM/DD/YYYY)<br>
+            <span style="font-weight: bold">End Date:</span> <br>(YYYY-MM-DD)<br>Leave blank if event is only one day.<br>
             <input type='text' maxlength='10' name='end_date' id='end_date' value='<?php print UTIL_date_prettify($end_date); ?>' size=10><br><br>
         </td>
-    <td><span style="font-weight: bold">Hike Rating:</span> (Optional. Example: B3B. Also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/'>Hike Rating Key</a>)<br>
+    <td><span style="font-weight: bold">Hike Rating:</span> <br>(Example: B3B, also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)<br>
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
     </td>
     </tr>
@@ -216,14 +218,14 @@
 <span style="font-weight: bold">* General Description:</span><br>
 <textarea name='description' rows=8 cols=60><?php print $description; ?></textarea><br><br>
 
-<span style="font-weight: bold">Gear List</span> (if no gear necessary, please type: "No gear necessary"):
+<span style="font-weight: bold">Gear List</span> (If no gear necessary, please type: "No gear necessary"):
 <textarea name='gear_list' rows=8 cols=60><?php print $gear_list; ?></textarea><br><br>
 
-<span style="font-weight: bold">Confirmation Page:</span> (This information will be displayed once a user registers for this event.)
+<span style="font-weight: bold">Confirmation Page:</span> (Displays when user registers for event.)
 <?php if ($event_id <> '') print "<br>Click here to <a href='./confirmationPage.php?event_id=$event_id'><big>Preview</big></a> the confirmation page.<br>"; ?>
 <textarea name='confirmation_page' rows=8 cols=60><?php print $confirmation_page; ?></textarea><br><br>
 
-<span style="font-weight: bold">Participant Info:</span> (Visible only for APPROVED participants, Directions to trailhead, etc).
+<span style="font-weight: bold">Participant Info:</span> (Directions to trailhead, etc. Visible only for APPROVED participants.)
 <textarea name='trip_info' rows=8 cols=60><?php print $trip_info; ?></textarea><br><br>
 
 <p>Two questions are automatically asked of participants upon registering. They are: </p>
@@ -255,7 +257,7 @@
 
 <input type="radio" name="event_is_program" value="P" <?php print $event_is_programP; ?> >This event is PART OF A PROGRAM. The Program ID is
 <input type='text' name='program_id' value='<?php print $program_id; ?>' size=10><?php print $program_name; ?><br>
-<i style="color: #096">Please contact the program leader for the Event ID of the program. If this event is not part of a program, leave blank or enter '0'</i>
+<p class='colored_note'>Please contact the program leader for the Event ID of the program. If this event is not part of a program, leave blank or enter '0'</p>
 <br>
 
 

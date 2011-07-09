@@ -11,6 +11,8 @@
 #   - dist/**/*.js
 #
 src_files:
+    - public/javascripts/helpers/jasmine-jquery-1.2.0.js
+    - public/javascripts/helpers/jquery-1.6.2.js
     - public/javascripts/**/*.js
 
 # stylesheets

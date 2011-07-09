@@ -47,31 +47,32 @@
 
     // Build top menu
     function UTILbuildmenu($num_tab) {
-    $id_string = " id='selected_top_tab' ";
-    $idArray = array('','','','','','','');
-    $idArray[$num_tab] = $id_string;
-        print IN2()."<div id='searchbox' onclick='location.href=\'http://hi.com\''>";
+        $id_string = " id='selected_top_tab' ";
+        $idArray = array('','','','','','','');
+        $idArray[$num_tab] = $id_string;
+        $bit = '';
+        $bit .= IN2()."<div id='searchbox' onclick='location.href=\'http://hi.com\''>";
 //<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRegistration.php?event_id={$event}\"'>Event Info</a></div>
-
-        print IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"http://www.hbbostonamc.org/trips.php\"' >HB Trip Listings</div>";
-        print IN3()."<div class='top_tab' $idArray[1] style='cursor: pointer;' onClick='location.href=\"support.php\"' >Support</div>";
+        $bit .= IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"http://www.hbbostonamc.org/trips.php\"' >HB Trip Listings</div>";
+        $bit .= IN3()."<div class='top_tab' $idArray[1] style='cursor: pointer;' onClick='location.href=\"support.php\"' >Support</div>";
 
         if (isset($_SESSION['Suser_id'])) {
             if (isset($_SESSION['Suser_type']))
                 if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
-                    print IN3()."<div class='top_tab' $idArray[2] style='cursor: pointer;' onClick='location.href=\"eventAdmin.php\"' >Create New Event</div>";
+                    $bit .= IN3()."<div class='top_tab' $idArray[2] style='cursor: pointer;' onClick='location.href=\"eventAdmin.php\"' >Create New Event</div>";
 
-            print IN3()."<div class='top_tab' $idArray[3] style='cursor: pointer;' onClick='location.href=\"myTrips.php\"' >My Events</div>";
-            print IN3()."\n<div class='top_tab' $idArray[4] style='cursor: pointer;' onClick='location.href=\"myProfile.php\"' >My Profile</div>";
-
-            print IN3()."\n<div class='top_tab' style='cursor: pointer;' onClick='location.href=\"logout.php\"' >Logout</div>";
+            $bit .= IN3()."<div class='top_tab' $idArray[3] style='cursor: pointer;' onClick='location.href=\"myTrips.php\"' >My Events</div>";
+            $bit .= IN3()."\n<div class='top_tab' $idArray[4] style='cursor: pointer;' onClick='location.href=\"myProfile.php\"' >My Profile</div>";
+            $bit .= IN3()."\n<div class='top_tab' style='cursor: pointer;' onClick='location.href=\"logout.php\"' >Logout</div>";
         }
         else
         {
-            print IN3()."<div class='top_tab' $idArray[5] style='cursor: pointer;' onClick='location.href=\"login.php\"' >Login</a></div>";
+            $bit .= IN3()."<div class='top_tab' $idArray[5] style='cursor: pointer;' onClick='location.href=\"login.php\"' >Login</a></div>";
         }
 
-        print "<br>";
+        $bit .= "<br>";
+        print $bit;
+        return $bit;
     }
 
 
@@ -247,7 +248,6 @@
     //
 
     function UTILlog($mess) {
-
         $File = "./log/errorlog.log";
         $Handle = fopen($File, 'a+');
 
@@ -312,13 +312,13 @@ define('SALT_LENGTH', 10);
 
 function UTILcheckhash($plainText, $stored)
 {
-    print "   stored:   " . $stored;
+    //print "   stored:   " . $stored;
     $hash_40 = substr($stored, SALT_LENGTH);
-    print "   hash_40:   " . $hash_40;
+    //print "   hash_40:   " . $hash_40;
     $salt = substr($stored, 0, SALT_LENGTH);
-    print "    salt:   " . $salt;
+    //print "    salt:   " . $salt;
     $new_hash = sha1($salt . $plainText);
-    print "   new_hash:   " . $new_hash;
+    //print "   new_hash:   " . $new_hash;
 
     if ($hash_40 == $new_hash)
         return true;
