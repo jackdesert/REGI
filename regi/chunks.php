@@ -154,4 +154,18 @@ function CHUNKdropdown($input, $selected_input){
     print "<option value='{$input}'{$selected}>{$input}";
 
 }
+
+function CHUNKtriplistings(){
+    $url = "http://www.hbbostonamc.org/trips.php";
+    $html = file_get_contents($url);
+    $trimmed = CHUNKtrimtrips($html);
+    return $trimmed;
+
+}
+
+function CHUNKtrimtrips($in_html){
+    $begin = '<div style="padding-left:20px; width:90%;">';
+    $end = '</div></body></html>';  //Note there are carriage returns in the real thing
+    return $in_html;
+}
 ?>
