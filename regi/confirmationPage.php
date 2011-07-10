@@ -65,7 +65,7 @@
 ?>
 
 
-<h1>Event Registration Confirmation<h1>
+<h1>Event Registration Confirmation</h1>
 
 <h1><?php print $event_name.'  [Event status: '.$event_status.']'; ?></h1>
 

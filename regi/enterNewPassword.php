@@ -78,13 +78,11 @@
 
     <td><b>* New Password</b></td>
     <td><input type='password' name='user_password' value='' MAXLENGTH=50 autofocus='autofocus'> (minimum 6 characters)</td>
-    </tr><tr>
 </tr></table>
 <br>
 <input type='hidden' name='user_id' value='<?php print $my_user_id ?>'>
 <input type='submit' class='button' name='action' value='Save New Password' onclick='return checkNewPassword();'>
 </form>
 <br>
-</div><!-- closing div for #myprofile_narrow, only in this page -->
 <?php CHUNKfinishcontent(); ?>
 

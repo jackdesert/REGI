@@ -38,7 +38,7 @@
 Enter your email address below. Then select either "Send Username"
 to be emailed your username, or "Reset Password" to receive an email link for resetting your password.
 <br><br>
-    <table align='center'><tr><td></td>
+    <table style='margin: auto;'><tr><td></td>
     <td><b>Your Email Address:<br><input type='email' name='email' value='' MAXLENGTH=40 autofocus='autofocus' required='required'></b></td>
     <td></td>
     </tr>

@@ -52,11 +52,14 @@
 
 
    <div style="padding-left:20px; width:90%;">
-<ul>
+<h1>Welcome to REGI</h1>
 <h4>Now it's much easier to register for H/B events: </h4>
+<ul>
 <li>Enter your profile and contact information only once</li>
 <li>Manage your event registration information and status online</li>
+</ul>
 <h4>Once approved for an event:</h4>
+<ul>
 <li>View up-to-date event information online</li>
 <li>View carpool &amp; contact information of other participants</li>
 </ul> <br>
@@ -71,23 +74,19 @@
     <td><b>Password</b></td>
     <td><input type='password' name='user_password' value='' MAXLENGTH=20></td>
 
-    <div style="display:none">
-        HIDDEN FIELDS
-    </div>
-
     </tr></table>
     <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
     <input type='hidden' name='admin_event_id' value='<?php print $admin_event_id; ?>'>
     <input type='submit' class='button' name='action' value='login' onclick='return checkLogin()'>
 </form>
 
-<br><b>Don't have an account? </b><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an account here</a>
+<br><b>Don't have an account? </b><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an account here</a>.
 <br><br>
-<b>Forgot your user name or password? </b><a href="forgotPassword.php">Click here</a>
+<b>Forgot your user name or password? </b><a href="forgotPassword.php">Click here</a>.
 
 <br><br><b>Need more support?</b>
-<a href="support.php"> View our Support Page</a>
+<a href="support.php"> View our support page</a>.
 <p></p>
-
+<div id='not_sure_why_this_div_is_here'>&nbsp;
 <?php CHUNKfinishcontent(); ?>
 
