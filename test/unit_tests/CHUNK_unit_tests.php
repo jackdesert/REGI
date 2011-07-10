@@ -6,6 +6,7 @@ class UTILtest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         //Note: double quotes have been replaced with single quotes in this example
+        //except where they have been replaced with an escaped double quote: \"
         $this->listings = "
 <html>
 
@@ -29,7 +30,7 @@ class UTILtest extends PHPUnit_Framework_TestCase
 
 
 
-<div style='padding-left:20px; width:90%;'>
+<div style=\"padding-left:20px; width:90%;\">
     Search_Text_With_Divs
 </div>
 
@@ -41,12 +42,21 @@ class UTILtest extends PHPUnit_Framework_TestCase
     public function testCHUNKtrimtrips()
     {
         $html = CHUNKtrimtrips($this->listings);
-        $wanted = "Search_Text_With_Divs";
-        print 'wanted:    ' . $wanted;
-        $found = strstr($html, $wanted);
-        print 'found:     ' . $found;
-        print $html;
-        $this->assertNotEquals(false, $found, 'Search_Text_With_Divs not found');
+        $wanted1 = "Search_Text_With_Divs";
+        $found1 = strstr($html, $wanted1);
+        $this->assertNotEquals(false, $found1, 'Search_Text_With_Divs not found');
+        $not_wanted2 = "</head";
+        $found2 = strstr($html, $not_wanted2);
+        $this->assertEquals(false, $found2, '</head> not stripped from html');
+/*
+        $found3 = strstr($html, $wanted3);
+        $this->assertNotEquals(false, $found3, 'Search_Text_With_Divs not found');
+        $found4 = strstr($html, $wanted4);
+        $this->assertNotEquals(false, $found4, 'Search_Text_With_Divs not found');
+        $found5 = strstr($html, $wanted5);
+        $this->assertNotEquals(false, $found5, 'Search_Text_With_Divs not found');
+*/
+
         //$this->assertEquals($num_opening_divs, $num_closing_divs, 'number of opening and closing divs differ');
 
     }

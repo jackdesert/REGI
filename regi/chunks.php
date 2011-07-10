@@ -166,6 +166,9 @@ function CHUNKtriplistings(){
 function CHUNKtrimtrips($in_html){
     $begin = '<div style="padding-left:20px; width:90%;">';
     $end = '</div></body></html>';  //Note there are carriage returns in the real thing
-    return $in_html;
+    $topless = strstr($in_html, $begin);
+    print 'in_html: ' . $in_html;
+    print 'topless: ' . $topless;
+    return $topless;
 }
 ?>
