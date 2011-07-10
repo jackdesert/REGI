@@ -33,7 +33,7 @@
 <h1>Support</h1>
 This is a placeholder for Question and Answer as well as a REGI user guide (coming soon).
 <h2>Email Support</h2>
-You can <a class='menu' href='mailto:amcbostonhbs@gmail.com?subject=Help With REGI Site' >email the webmaster</a> for help.
+You can <a class='menu' href='mailto:amcbostonhbs@gmail.com?subject=Help%20With%20REGI%20Site' >email the webmaster</a> for help.
 
 <h2>Q &amp; A</h2>
 

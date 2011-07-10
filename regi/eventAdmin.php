@@ -169,7 +169,7 @@
   if ($submitValue == 'Update Event')
   {
     $event_url = 'http://www.hbbostonamc.org/registrationSystem/login.php?event_id=' . $event_id;
-    print "<b>Registration URL:&nbsp&nbsp <a href='$event_url'>$event_url</a></b><br>";
+    print "<b>Registration URL:&nbsp&nbsp;<a href='$event_url'>$event_url</a></b><br>";
     print "<p class='colored_note'>Copy and paste this URL into your AMC event posting to direct registrants to the Registration page.</p><br>";
   }
 
@@ -219,7 +219,7 @@
 <textarea name='gear_list' rows=8 cols=60><?php print $gear_list; ?></textarea><br><br>
 
 <span style="font-weight: bold">Confirmation Page:</span> (Displays when user registers for event.)
-<?php if ($event_id <> '') print "<br>Click here to <a href='./confirmationPage.php?event_id=$event_id'><big>Preview</big></a> the confirmation page.<br>"; ?>
+<?php if ($event_id <> '') print "<br>Click here to <a href='./confirmationPage.php?event_id=$event_id'><span style='size:130%;'>Preview</span></a> the confirmation page.<br>"; ?>
 <textarea name='confirmation_page' rows=8 cols=60><?php print $confirmation_page; ?></textarea><br><br>
 
 <span style="font-weight: bold">Participant Info:</span> (Directions to trailhead, etc. Visible only for APPROVED participants.)
@@ -264,7 +264,7 @@
 <br><br>
 
 <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
-<input type='submit' class='button' class='button' name='action' value='<?php print $submitValue; ?>' onclick='return checkAdmin()'>
+<input type='submit' class='button' name='action' value='<?php print $submitValue; ?>' onclick='return checkAdmin()'>
 </form>
 
 <?php CHUNKfinishcontent(); ?>

@@ -224,7 +224,7 @@
             }
             echo "</td>";
 
-            echo "<td valign='top'><b>$row[first_name] $row[last_name]</b>";
+            echo "<td><b>$row[first_name] $row[last_name]</b>";
             echo "<br><b>Registered:</b>".UTILtime($row['register_date'])."";
             echo "<br><b>Member:</b> $row[member]";
             echo "<br><b>Email:</b> $row[email]";
@@ -232,7 +232,7 @@
             echo "<br><b>Day:</b> $row[phone_day]";
             echo "<br><b>Cell:</b> $row[phone_cell]</td>";
 
-            echo "<td valign='top'><b>Experience:</b> $row[experience]";
+            echo "<td><b>Experience:</b> $row[experience]";
             echo "<br><b>Exercise:</b> $row[exercise]";
             echo "<br><b>Medical:</b> $row[medical]";
             echo "<br><b>Diet:</b> $row[diet]";
@@ -257,7 +257,7 @@
             else
             echo "<td  valign='top'><b>REGISTRATION STATUS:</b><br>
                 <select name='set_reg_status[]'>";
-            $selected_status = $row[register_status];
+            $selected_status = $row['register_status'];
             CHUNKdropdown('LEADER', $selected_status);
             CHUNKdropdown('CO-LEADER', $selected_status);
             CHUNKdropdown('REGISTRAR', $selected_status);
@@ -293,13 +293,13 @@
 
         } // end loop
 
-        echo "<h2>COUNT SUMMARY: Co/Leaders:$stat_count_leader  *  Submitted:$stat_count_submitted  *  Wait List:$stat_count_waitlist  *  Approved:$stat_count_approved</h2>";
 
     }
 
 ?>
 
 </tr></table><br>
+<?php echo "<h2>COUNT SUMMARY: Co/Leaders:$stat_count_leader  *  Submitted:$stat_count_submitted  *  Wait List:$stat_count_waitlist  *  Approved:$stat_count_approved</h2>"; ?>
 <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
 <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
 <input type='submit' class='button' name='action' value='Update Roster' onclick=''>
