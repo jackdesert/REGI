@@ -175,8 +175,14 @@ function CHUNKtrimtrips($in_html){
     $index = strrpos($topless, '</div>');
     $topless_and_bottomless = substr($topless, 0, $index);
     $trimmed = trim($topless_and_bottomless);
-    return $trimmed;
+    $links_here = CHUNKlinksopenhere($trimmed);
+    return $links_here;
 
 
+}
+function CHUNKlinksopenhere($in_html){
+    $open_same_window = str_replace('target="_new"', '', $in_html);
+    $go_local = str_replace('href="http://www.hbbostonamc.org/registrationSystem/', 'href="./', $open_same_window);
+    return $go_local;
 }
 ?>

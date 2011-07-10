@@ -53,7 +53,7 @@
         $bit = '';
         $bit .= IN2()."<div id='searchbox' onclick='location.href=\'http://hi.com\''>";
 //<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRegistration.php?event_id={$event}\"'>Event Info</a></div>
-        $bit .= IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"http://www.hbbostonamc.org/trips.php\"' >HB Trip Listings</div>";
+        $bit .= IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"hbTrips.php\"' >HB Trip Listings</div>";
         $bit .= IN3()."<div class='top_tab' $idArray[1] style='cursor: pointer;' onClick='location.href=\"support.php\"' >Support</div>";
 
         if (isset($_SESSION['Suser_id'])) {

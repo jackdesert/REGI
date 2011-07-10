@@ -27,7 +27,7 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
-    UTILbuildmenu(3);
+    UTILbuildmenu(0);
 
     CHUNKstylemessage($_SESSION);
 
@@ -35,8 +35,8 @@
 ?>
 
 <h1>HB Trip Listings From Inside REGI</h1>
-<p class='colored_note'>To view these trips in their original window, <a href='http://hbbostonamc.org/trips.php'>click here</a>.</p>
-<hr>
+<p class='colored_note'>To view these same trips on the main site, <a href='http://hbbostonamc.org/trips.php'>click here</a>.</p>
+<br><hr>
 <?php
     CHUNKtriplistings();
 
