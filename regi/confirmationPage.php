@@ -1,7 +1,8 @@
-<!--
-
+<?php
+/*
     AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
+    Copyright (C) 2011 Jack Desert <jackdesert556@gmail.com>>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,10 +16,7 @@
     For a copy of the GNU General Public License, please refer to
     <http://www.gnu.org/licenses/>.
 
--->
-
-<?php
-
+*/
     include 'utils.php';
     session_start();
     UTILdbconnect();
