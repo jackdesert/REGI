@@ -51,7 +51,7 @@
         $idArray = array('','','','','','','');
         $idArray[$num_tab] = $id_string;
         $bit = '';
-        $bit .= IN2()."<div id='searchbox' onclick='location.href=\'http://hi.com\''>";
+        $bit .= IN2()."<div id='searchbox'>";
 //<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRegistration.php?event_id={$event}\"'>Event Info</a></div>
         $bit .= IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"hbTrips.php\"' >HB Trip Listings</div>";
         $bit .= IN3()."<div class='top_tab' $idArray[1] style='cursor: pointer;' onClick='location.href=\"support.php\"' >Support</div>";
@@ -67,7 +67,7 @@
         }
         else
         {
-            $bit .= IN3()."<div class='top_tab' $idArray[5] style='cursor: pointer;' onClick='location.href=\"login.php\"' >Login</a></div>";
+            $bit .= IN3()."<div class='top_tab' $idArray[5] style='cursor: pointer;' onClick='location.href=\"login.php\"' >Login</div>";
         }
 
         $bit .= "<br>";

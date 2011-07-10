@@ -246,7 +246,10 @@ a.menu:hover {
 }
 
 table.center {margin-left:auto; margin-right:auto;}
-#bright_msg {color: #00A480;}
+#bright_msg {
+    color: #00A480;
+    font-weight: bold;
+}
 #tabs{
     float: left;
     height:100%;

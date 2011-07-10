@@ -71,8 +71,8 @@ function CHUNKgivehead($dates=''){
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta http-equiv='Content-Type' content='text/html' charset='UTF-8'>
     <title>AMC Event Registration</title>
-    <meta http-equiv='Content-Type' content='text/html; charset='UTF-8' />
     <link href='http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css' type='text/css' rel='stylesheet' />
     <link rel='stylesheet' type='text/css' href='css/stylin.css'/>
     <SCRIPT type='text/javascript' src='validation.js'></SCRIPT>
@@ -100,7 +100,7 @@ function CHUNKstylemessage(&$session){
         unset($session['Smessage']);
     }
 
-    print "<b><p id='bright_msg'>{$msg}</p></b>
+    print "<p id='bright_msg'>{$msg}</p>
         </div>
    <div id='linked_background' onClick='location.href=\"http://www.hbbostonamc.org/index.php\";' style='cursor: pointer; width: 31%; height: 90%;'></div>
    </div>
@@ -139,9 +139,9 @@ function CHUNKlefttabs($user, $event, $tab){
     print "
 <div id='tabs'>
 
-<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRegistration.php?event_id={$event}\"'>Event Info</a></div>
-<div{$st2}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRoster.php?event_id={$event}\"'>Roster</a></div>
-<div{$st3}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventAdmin.php?event_id={$event}\"'>Admin</a></div>
+<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRegistration.php?event_id={$event}\"'>Event Info</div>
+<div{$st2}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRoster.php?event_id={$event}\"'>Roster</div>
+<div{$st3}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventAdmin.php?event_id={$event}\"'>Admin</div>
 {$err}
 </div>";
 }

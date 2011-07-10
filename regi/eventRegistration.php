@@ -89,7 +89,7 @@
 ?>
 
 
-<h1 id='page_title'>Event Registration<h1>
+<h1 id='page_title'>Event Registration</h1>
 
 <h1>Event: <?php print $event_name; ?></h1>
 <?php
@@ -204,7 +204,7 @@
             $need_rideD='checked';
     }
 
-    print "<p class='indented'></b>My Registration Status: <b>$my_register_status</b></p>";
+    print "<p class='indented'>My Registration Status: <b>$my_register_status</b></p>";
 
     //Display co/leaders
     $query = "select users.user_id, users.first_name, users.last_name, users.email
@@ -344,7 +344,6 @@
 
     <form name='signup' action='action.php' method='post'>
 
-    <table><tr>
 
 <?php
 
@@ -407,7 +406,7 @@
     }
 
 ?>
-
+    <br>
     <input type='hidden' name='registration_id' value='<?php print $registration_id; ?>'>
     <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
     <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
