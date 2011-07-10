@@ -100,6 +100,6 @@
 ?>
 
 <br><br>
-</div>
+
 <?php CHUNKfinishcontent(); ?>
 

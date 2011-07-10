@@ -171,7 +171,7 @@
     <table><tr>
 
     <td><b>* User Name</b></td>
-    <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?>  required='required'>  (6-40 chars.) Please don't use the following characters: ' " < > &</td>
+    <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?>  required='required'>  (6-40 chars.) Please don't use the following characters: ' " &lt; > &amp;</td>
     </tr><tr>
     <?php
     if ($formAction == 'New Profile'){
@@ -180,7 +180,7 @@
     <td><input type='password' name='user_password' value='' MAXLENGTH=50  required='required'> (minimum 6 characters)</td>
     </tr><tr>";
     }else{
-        print "    <td><b>&nbsp;&nbsp;Password</b></td><td>Save changes to your profile, then you may <a href='enterNewPassword.php' target='_blank'> change your password</a>.</td></tr>";
+        print "    <td><b>&nbsp;&nbsp;Password</b></td><td>Save changes to your profile, then you may <a href='enterNewPassword.php' target='_blank'> change your password</a>.</td></tr><tr>";
     }
     ?>
 
@@ -201,8 +201,6 @@
     </tr><tr>
     <td><b>Phone (cell)</b></td>
     <td><input type='text' name='phone_cell' value='<?php echo $phone_cell; ?>' MAXLENGTH=20></td>
-    </tr><tr>
-</font>
 </tr></table>
 
 <p>Are you an AMC member?
@@ -250,7 +248,7 @@
 <input type='hidden' name='event_id' value='<?php print $event_id ?>'>
 <input type='hidden' name='user_id' value='<?php print $my_user_id ?>'>
 <input type='submit' class='button' name='action' value='<?php print $formAction; ?>' onclick='return checkProfile()'>
-</form>
 </div><!-- closing div for #myprofile_narrow, only in this page -->
+</form>
 <?php CHUNKfinishcontent(); ?>
 

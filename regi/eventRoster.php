@@ -242,7 +242,7 @@
             echo "<br><b>Questions:</b> $row[questions]</td>";
 
             if ($event_is_program == 'Y')
-            echo "<td  valign='top'><b>PROGRAM STATUS:</b><br>
+            echo "<td><b>PROGRAM STATUS:</b><br>
                 <select name='set_reg_status[]'>
                 <option value='*'>$row[register_status]
                 <option disabled>-------------
@@ -255,7 +255,7 @@
                 <option value='CANCELED'>CANCELED
             </select>";
             else
-            echo "<td  valign='top'><b>REGISTRATION STATUS:</b><br>
+            echo "<td><b>REGISTRATION STATUS:</b><br>
                 <select name='set_reg_status[]'>";
             $selected_status = $row['register_status'];
             CHUNKdropdown('LEADER', $selected_status);

@@ -169,7 +169,7 @@
   if ($submitValue == 'Update Event')
   {
     $event_url = 'http://www.hbbostonamc.org/registrationSystem/login.php?event_id=' . $event_id;
-    print "<b>Registration URL:&nbsp&nbsp;<a href='$event_url'>$event_url</a></b><br>";
+    print "<b>Registration URL:&nbsp;&nbsp;<a href='$event_url'>$event_url</a></b><br>";
     print "<p class='colored_note'>Copy and paste this URL into your AMC event posting to direct registrants to the Registration page.</p><br>";
   }
 
