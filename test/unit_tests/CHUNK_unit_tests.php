@@ -48,16 +48,22 @@ class UTILtest extends PHPUnit_Framework_TestCase
         $not_wanted2 = "</head";
         $found2 = strstr($html, $not_wanted2);
         $this->assertEquals(false, $found2, '</head> not stripped from html');
+        $not_wanted3 = "</body>";
+        $found3 = strstr($html, $not_wanted3);
+        $this->assertEquals(false, $found3, '</body> tag not stripped from html');
+
+        $num_opening_divs = substr_count($html,'<div');
+        $num_closing_divs = substr_count($html,'</div');
+        $this->assertEquals($num_opening_divs, $num_closing_divs, 'number of opening and closing divs differ');
+
+
 /*
-        $found3 = strstr($html, $wanted3);
-        $this->assertNotEquals(false, $found3, 'Search_Text_With_Divs not found');
         $found4 = strstr($html, $wanted4);
         $this->assertNotEquals(false, $found4, 'Search_Text_With_Divs not found');
         $found5 = strstr($html, $wanted5);
         $this->assertNotEquals(false, $found5, 'Search_Text_With_Divs not found');
 */
 
-        //$this->assertEquals($num_opening_divs, $num_closing_divs, 'number of opening and closing divs differ');
 
     }
 

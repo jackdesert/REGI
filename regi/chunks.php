@@ -167,8 +167,14 @@ function CHUNKtrimtrips($in_html){
     $begin = '<div style="padding-left:20px; width:90%;">';
     $end = '</div></body></html>';  //Note there are carriage returns in the real thing
     $topless = strstr($in_html, $begin);
-    print 'in_html: ' . $in_html;
-    print 'topless: ' . $topless;
-    return $topless;
+
+    //Remove the $end material by finding hte last </div>
+    //note there are two 'r's in the function name, indicating reverse
+    $index = strrpos($topless, '</div>');
+    $topless_and_bottomless = substr($topless, 0, $index);
+    $trimmed = trim($topless_and_bottomless);
+    return $trimmed;
+
+
 }
 ?>
