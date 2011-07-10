@@ -94,5 +94,3 @@
 
 <?php CHUNKfinishcontent(); ?>
 
-</body>
-</html>

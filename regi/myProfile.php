@@ -256,5 +256,4 @@
 </form>
 </div><!-- closing div for #myprofile_narrow, only in this page -->
 <?php CHUNKfinishcontent(); ?>
-</body>
-</html>
+

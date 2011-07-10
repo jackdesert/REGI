@@ -55,5 +55,4 @@ to be emailed your username, or "Reset Password" to receive an email link for re
 
 <?php CHUNKfinishcontent(); ?>
 
-</body>
-</html>
+

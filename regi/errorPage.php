@@ -50,7 +50,4 @@
     Otherwise, please return to <a href="http://www.hbbostonamc.org/trips.php">Trip Listings</a> or <a href="./login.php">Login page</a>.
     <br><br>
 <?php CHUNKfinishcontent(); ?>
-</div>   <!-- outerframe -->
 
-</body>
-</html>

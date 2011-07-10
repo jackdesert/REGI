@@ -1,7 +1,8 @@
-<!--
-
+<?php
+/*
     AMC Event Registration System
     Copyright (C) 2010 Dirk Koechner
+    Copyright (C) 2011 Jack Desert <jackdesert556@gmail.com>>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -15,11 +16,7 @@
     For a copy of the GNU General Public License, please refer to
     <http://www.gnu.org/licenses/>.
 
--->
-
-
-
-<?php
+*/
 
     include 'utils.php';
     session_start();
@@ -362,7 +359,7 @@
     if ($event_is_program <> 'Y')
     {
         print "$SET_QUESTION_1<br>
-    <textarea name='gear' rows=3 cols=60>$gear</textarea></br><br>";
+    <textarea name='gear' rows=3 cols=60>$gear</textarea><br>";
 
     }
 
@@ -370,7 +367,7 @@
 ?>
 
     <br>
-    <textarea name='questions' rows=3 cols=60><?php print $questions; ?></textarea></br>
+    <textarea name='questions' rows=3 cols=60><?php print $questions; ?></textarea>
 
 <?php
 
@@ -414,6 +411,4 @@
     <input type='submit' class='button' name='action' value='<?php print $submitValue; ?>' onclick='return checkLogin()'>
     </form>
 <?php CHUNKfinishcontent(); ?>
-</div>
-</body>
-</html>
+

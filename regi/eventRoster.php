@@ -322,6 +322,5 @@ that the format is unknown. Just click OK and allow Excel to import the file as 
 </form>
 
 <?php CHUNKfinishcontent(); ?>
-</body>
-</html>
+
 

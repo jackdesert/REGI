@@ -277,8 +277,3 @@
         exit(0);
 ?>
 
-<br>
-
-</div>
-</body>
-</html>

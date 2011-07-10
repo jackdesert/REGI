@@ -45,5 +45,3 @@ A:<br>
 
 <?php CHUNKfinishcontent(); ?>
 
-</body>
-</html>

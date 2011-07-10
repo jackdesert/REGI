@@ -67,11 +67,10 @@ function CHUNKgivehead($dates=''){
         $date_includes = CHUNKdatepicker();
     else
         $date_includes = '';
-    print "
-<!DOCTYPE HTML>
+    print "<!DOCTYPE HTML>
 <html>
 <head>
-    <meta http-equiv='Content-Type' content='text/html' charset='UTF-8'>
+    <meta charset='UTF-8'>
     <title>AMC Event Registration</title>
     <link href='http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css' type='text/css' rel='stylesheet' />
     <link rel='stylesheet' type='text/css' href='css/stylin.css'/>
@@ -118,7 +117,7 @@ function CHUNKstartcontent($user='', $event='', $tab='none'){
 }
 
 function CHUNKfinishcontent(){
-    print "<br><br></div></div></div><div id='footer'>Copyright 2011 &nbsp;&nbsp;Powered by REGI-Trunk</div>";
+    print "<br><br></div></div></div><div id='footer'>Copyright 2011 &nbsp;&nbsp;Powered by REGI-Trunk</div></body></html>";
 }
 
 function CHUNKlefttabs($user, $event, $tab){

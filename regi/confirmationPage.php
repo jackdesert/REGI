@@ -77,6 +77,3 @@
 <br>
 <?php CHUNKfinishcontent(); ?>
 
-</div>
-</body>
-</html>
