@@ -159,7 +159,8 @@ function CHUNKtriplistings(){
     $url = "http://www.hbbostonamc.org/trips.php";
     $html = file_get_contents($url);
     $trimmed = CHUNKtrimtrips($html);
-    return $trimmed;
+    print $trimmed;
+    return 0;
 
 }
 
@@ -167,6 +168,7 @@ function CHUNKtrimtrips($in_html){
     $begin = '<div style="padding-left:20px; width:90%;">';
     $end = '</div></body></html>';  //Note there are carriage returns in the real thing
     $topless = strstr($in_html, $begin);
+    $topless = str_replace($begin, '<div>', $topless);
 
     //Remove the $end material by finding hte last </div>
     //note there are two 'r's in the function name, indicating reverse
