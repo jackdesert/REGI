@@ -158,13 +158,16 @@
     $need_rideD='';
     $can_take='0';
     $leaving_from='';
+    $leave_time='';
     $returning_to='';
+    $return_time='';
     $my_register_status="Not Registered";
 
     $submitValue='Sign Up For This Event';
 
     $query = "select registration_id, register_status, payment_status,
-        need_ride, can_take, leaving_from, returning_to,
+        need_ride, can_take, leaving_from, leave_time,
+        returning_to, return_time,
         answer1, answer2, gear, questions
         FROM user_events
         WHERE event_id=$event_id
@@ -186,7 +189,9 @@
         $need_ride=$row['need_ride'];
         $can_take=$row['can_take'];
         $leaving_from=$row['leaving_from'];
+        $leave_time=$row['leave_time'];
         $returning_to=$row['returning_to'];
+        $return_time=$row['return_time'];
         $answer1=$row['answer1'];
         $answer2=$row['answer2'];
         $gear=$row['gear'];
@@ -303,7 +308,8 @@
         //
 
         $query = "select first_name, last_name, email,
-            register_status, registration_id, need_ride, can_take, leaving_from, returning_to
+            register_status, registration_id, need_ride, can_take,
+            leaving_from, leave_time, returning_to, return_time
             FROM users, user_events
             WHERE users.user_id = user_events.user_id
             AND (register_status='LEADER' or register_status='CO-LEADER' or register_status='APPROVED')
@@ -324,7 +330,8 @@
                 print "<td>$row[first_name] $row[last_name]</td>";
                 print "<td>$row[email]</td>";
                 print "<td>$row[need_ride]</td><td>$row[can_take]</td>";
-                print "<td>$row[leaving_from]</td><td>$row[returning_to]</td>";
+                print "<td>$row[leaving_from]" . "@" . "$row[leave_time]</td>";
+                print "<td>$row[returning_to]" . "@" . "$row[return_time]</td>";
                 print "</tr>";
                 $rowcount += 1;
 
@@ -392,12 +399,17 @@
     <input type='radio' name='need_ride' value='N' $need_rideN >I'm all set and will meet you there
     </td>
 
+    </tr></table>
+    <table><tr>
+    <td>Leaving from (town):<br>
+    <input type='text' name='leaving_from' value='$leaving_from' size=30 MAXLENGTH=100></td>
+    <td>Day & Time:<br>
+    <input type='text' name='leave_time' value='$leave_time' size=30 MAXLENGTH=100></td>
     </tr><tr>
-    <td>Leaving from (town & street, date & time):</td>
-    <td><input type='text' name='leaving_from' value='$leaving_from' size=70 MAXLENGTH=100></td>
-    </tr><tr>
-    <td>Returning to (town & street, date & time):</td>
-    <td><input type='text' name='returning_to' value='$returning_to' size=70 MAXLENGTH=100></td>
+    <td>Returning to (town):<br>
+    <input type='text' name='returning_to' value='$returning_to' size=30 MAXLENGTH=100></td>
+    <td> Day & Time:<br>
+    <input type='text' name='return_time' value='$return_time' size=30 MAXLENGTH=100></td>
     </tr></table>";
 
     }

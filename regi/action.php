@@ -223,12 +223,15 @@ http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id
             $need_ride= UTILclean($_POST["need_ride"], 1, '');
             $can_take= UTILclean($_POST["can_take"], 2, '');
             $leaving_from= UTILclean($_POST["leaving_from"], 100, '');
+            $leave_time= UTILclean($_POST["leave_time"], 100, '');
             $returning_to= UTILclean($_POST["returning_to"], 100, '');
+            $return_time= UTILclean($_POST["return_time"], 100, '');
 
             $query = "update user_events set
                 answer1='$answer1', answer2='$answer2', gear='$gear', questions='$questions',
                 need_ride='$need_ride', can_take='$can_take',
-                leaving_from='$leaving_from', returning_to='$returning_to'
+                leaving_from='$leaving_from', leave_time='$leave_time',
+                returning_to='$returning_to', return_time='$return_time'
                 WHERE registration_id=$registration_id;";
 
             $result = mysql_query($query);
