@@ -228,7 +228,7 @@
         print "<div class='indented'>";
         while($row = mysql_fetch_assoc($result)){
             $leader_list=$leader_list."\"$row[first_name] $row[last_name]\" <$row[email]>, ";
-            print "<a href=mailto:{$row[email]}>$row[first_name] $row[last_name]</a><br>";
+            print "<a href=mailto:{$row['email']}>$row[first_name] $row[last_name]</a><br>";
         }
         print "</div>";
     }
@@ -330,8 +330,12 @@
                 print "<td>$row[first_name] $row[last_name]</td>";
                 print "<td>$row[email]</td>";
                 print "<td>$row[need_ride]</td><td>$row[can_take]</td>";
-                print "<td>$row[leaving_from]" . "@" . "$row[leave_time]</td>";
-                print "<td>$row[returning_to]" . "@" . "$row[return_time]</td>";
+                $leave_sep = '';
+                if ($row['leave_time'] != '') $leave_sep = ' @ ';
+                print "<td>$row[leaving_from]" . $leave_sep . "$row[leave_time]</td>";
+                $return_sep = '';
+                if ($row['return_time'] != '') $return_sep = ' @ ';
+                print "<td>$row[returning_to]" . $return_sep . "$row[return_time]</td>";
                 print "</tr>";
                 $rowcount += 1;
 
@@ -403,12 +407,12 @@
     <table><tr>
     <td>Leaving from (town):<br>
     <input type='text' name='leaving_from' value='$leaving_from' size=30 MAXLENGTH=100></td>
-    <td>Day & Time:<br>
+    <td>Time, Day:<br>
     <input type='text' name='leave_time' value='$leave_time' size=30 MAXLENGTH=100></td>
     </tr><tr>
     <td>Returning to (town):<br>
     <input type='text' name='returning_to' value='$returning_to' size=30 MAXLENGTH=100></td>
-    <td> Day & Time:<br>
+    <td> Time, Day:<br>
     <input type='text' name='return_time' value='$return_time' size=30 MAXLENGTH=100></td>
     </tr></table>";
 
