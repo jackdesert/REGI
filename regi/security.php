@@ -18,8 +18,9 @@
 */
 
 
-function SECcreateCookie($data, $special ){
-    return 'asdfasdfasdfasdf';
+function SECcreateCookie($user_name, $special ){
+    $HMAC = 'byebye';
+    return 'AMCuser_name=' . $user_name . $HMAC;
 }
 ?>
 
