@@ -19,3 +19,6 @@ ADD `end_date` DATE NULL DEFAULT NULL AFTER `start_date`
 # On the contrary, setting it from php doesn't do anything yet.
 
 mysql_error() is a FUNCTION
+
+# UNIQUE
+alter table users add unique (user_name)

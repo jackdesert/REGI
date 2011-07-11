@@ -404,18 +404,22 @@
     </td>
 
     </tr></table>
-    <p class='colored_note'>Carpoolers, tell us where you're coming from and what time you're leaving.</p>
-    <table><tr>
-    <td>Leaving from (town):<br>
-    <input type='text' name='leaving_from' value='$leaving_from' size=30 MAXLENGTH=100></td>
-    <td>Time, Day:<br>
-    <input type='text' name='leave_time' value='$leave_time' size=30 MAXLENGTH=100></td>
-    </tr><tr>
-    <td>Returning to (town):<br>
-    <input type='text' name='returning_to' value='$returning_to' size=30 MAXLENGTH=100></td>
-    <td> Time, Day:<br>
-    <input type='text' name='return_time' value='$return_time' size=30 MAXLENGTH=100></td>
-    </tr></table>";
+    <br><p class='colored_note'>Carpoolers, tell us where you're coming from and what time you're leaving.</p>
+    <table>
+    <tr><td></td><td>(Town)</td><td></td><td>(Time, Day)</td></tr>
+    <tr>
+        <td>Leaving from </td>
+        <td><input type='text' name='leaving_from' value='$leaving_from' size=30 MAXLENGTH=100></td>
+        <td>at</td>
+        <td><input type='text' name='leave_time' value='$leave_time' size=30 MAXLENGTH=100></td>
+    </tr>
+    <tr>
+        <td>Returning to </td>
+        <td><input type='text' name='returning_to' value='$returning_to' size=30 MAXLENGTH=100></td>
+        <td>at</td>
+        <td><input type='text' name='return_time' value='$return_time' size=30 MAXLENGTH=100></td>
+    </tr>
+    </table>";
 
     }
 
