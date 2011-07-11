@@ -387,7 +387,7 @@
 
     print "<h1>Carpool Info</h1>
     <table><tr>
-    <td>Do you need a ride?</td>
+    <td>Do you want to carpool?</td>
 
     <td>
     <input type='radio' name='need_ride' value='D' $need_rideD >I can drive and can take
@@ -404,6 +404,7 @@
     </td>
 
     </tr></table>
+    <p class='colored_note'>Carpoolers, tell us where you're coming from and what time you're leaving.</p>
     <table><tr>
     <td>Leaving from (town):<br>
     <input type='text' name='leaving_from' value='$leaving_from' size=30 MAXLENGTH=100></td>
