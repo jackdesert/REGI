@@ -1,6 +1,6 @@
 <?php
 
-    //include 'utils.php';
+    include 'utils.php';
     session_start();
     $_SESSION['Smessage'] = "Good bye, $_SESSION[Sfirst_name], you are now logged off.";
     //UTILdbconnect();
@@ -13,7 +13,7 @@
 
     session_unset();
     session_destroy();
-
+    SECdestroyCookie();
     header("Location: ./login.php");
     exit();
 

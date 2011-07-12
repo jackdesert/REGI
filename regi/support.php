@@ -23,6 +23,8 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
+    //Check cookie before building menu
+    SECisUserLoggedIn($SET_HMAC_SECRET_CODE);
     UTILbuildmenu(1);
     CHUNKstylemessage($_SESSION);
 

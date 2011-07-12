@@ -22,11 +22,6 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
-    UTILbuildmenu(4);
-
-    CHUNKstylemessage($_SESSION);
-    CHUNKstartcontent();
-
 
     // If Suser_id defined, populate screen with user profile + set to Update mode
     //  otherwise, set to New mode
@@ -153,6 +148,11 @@
     }else{
         $formAction='New Profile';
     }
+    //Note that UTILbuildmenu() is called clear down here so we can use the cookie to log in before we display
+    //the menu
+    UTILbuildmenu(4);
+    CHUNKstylemessage($_SESSION);
+    CHUNKstartcontent();
 
 ?>
 
