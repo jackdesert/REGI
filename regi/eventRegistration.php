@@ -47,7 +47,8 @@
     //
 
     $query = "select event_name, event_status, event_is_program, program_id, description,
-            gear_list, trip_info, question1, question2, payment_method, start_date, end_date, rating
+            gear_list, trip_info, question1, question2, payment_method, start_date, end_date,
+            pricing, rating
             FROM events
             WHERE event_id=$event_id;";
 
@@ -72,6 +73,7 @@
         $payment_method=$row['payment_method'];
         $start_date=$row['start_date'];
         $end_date=$row['end_date'];
+        $pricing=$row['pricing'];
         $rating=$row['rating'];
     }
 
@@ -96,7 +98,6 @@
         $date_stri = UTILdate($start_date)." - ".UTILdate($end_date);
     print "<p class='indented'>When: <b>{$date_stri}</b></p>";
     print "<p class='indented'>Event Status: <b>".$event_status."</b></p> ";
-    print "<p class='indented'>Hike Rating: <b>".$rating."</b></p> ";
 ?>
 
 <?php
@@ -207,6 +208,8 @@
     }
 
     print "<p class='indented'>My Registration Status: <b>$my_register_status</b></p>";
+    print "<p class='indented'>Hike Rating: <b>".$rating."</b></p> ";
+    print "<p class='indented'>Cost: <b>".str_replace("\n", "<br>", $pricing)."</b></p> ";
 
     //Display co/leaders
     $query = "select users.user_id, users.first_name, users.last_name, users.email
@@ -240,10 +243,10 @@
 
 <h1>Event Information</h1>
 
-<p><?php print htmlspecialchars_decode(str_replace("\n", "<br>", $description)); ?></p>
+<p><?php print str_replace("\n", "<br>", $description); ?></p>
 
 <h1>Gear List</h1>
-<?php print htmlspecialchars_decode(str_replace("\n", "<br>", $gear_list)); ?>
+<?php print str_replace("\n", "<br>", $gear_list); ?>
 
 <?php
 

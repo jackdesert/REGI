@@ -706,6 +706,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $payment_method=$_POST["payment_method"];
             $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
             $end_date= UTILclean($_POST["end_date"], 20, '');
+            $pricing= UTILclean($_POST["pricing"], 1000, '');
             $rating= UTILclean($_POST["rating"], 4, '');
             if ($end_date != "NULL")
                 $end_date = "'{$end_date}'";   //Add an extra quote around it so non-null values enter sql properly
@@ -716,10 +717,10 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             //Notice no extra quotes around $end_date so it can be NULL
             $query = "insert into events (event_name, event_status, event_is_program,
                 program_id, description, gear_list, trip_info, confirmation_page,
-                question1, question2, payment_method, start_date, end_date, rating) values
+                question1, question2, payment_method, start_date, end_date, pricing, rating) values
                 ('$event_name', '$event_status', '$event_is_program', $program_id, '$description',
                 '$gear_list', '$trip_info', '$confirmation_page', '$question1', '$question2',
-                '$payment_method', '$start_date', $end_date, '$rating' );";
+                '$payment_method', '$start_date', $end_date, '$pricing', '$rating' );";
 
             $result = mysql_query($query);
 
@@ -764,6 +765,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $payment_method=$_POST["payment_method"];
             $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
             $end_date= UTILclean($_POST["end_date"], 20, '');
+            $pricing= UTILclean($_POST["pricing"], 1000, '');
             $rating= UTILclean($_POST["rating"], 4, '');
 
             if ($end_date != "NULL")
@@ -775,7 +777,8 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $query = "update events set event_name='$event_name', event_status='$event_status', event_is_program='$event_is_program',
                 program_id=$program_id, description='$description', gear_list='$gear_list',
                 trip_info='$trip_info', confirmation_page='$confirmation_page', question1='$question1', question2='$question2',
-                payment_method='$payment_method', start_date='$start_date', end_date=$end_date, rating='$rating'
+                payment_method='$payment_method', start_date='$start_date', end_date=$end_date,
+                pricing='$pricing', rating='$rating'
                 WHERE event_id=$event_id;";
 
             $result = mysql_query($query);

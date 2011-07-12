@@ -200,7 +200,7 @@
         $stat_count_submitted=0;
         $stat_count_waitlist=0;
         $stat_count_approved=0;
-
+        $approved_email_list = '';
         $rowcount = 0;
         while($row = mysql_fetch_assoc($result)) {
             $even_or_odd = $rowcount % 2;
@@ -212,6 +212,7 @@
 
             if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER') {
                 echo 'L'.++$stat_count_leader;
+                $approved_email_list .= $row['email'] . ',';
             }
             else if ($row['register_status']=='SUBMITTED') {
                 echo 'S'.++$stat_count_submitted;
@@ -221,6 +222,7 @@
             }
             else if ($row['register_status']=='APPROVED' || $row['register_status']=='ENROLLED') {
                 echo 'A'.++$stat_count_approved;
+                $approved_email_list .= $row['email'] . ',';
             }
             echo "</td>";
 
@@ -305,6 +307,14 @@
 <input type='submit' class='button' name='action' value='Update Roster' onclick=''>
 </form>
 <p>&nbsp;</p>
+<?php
+if (strlen($approved_email_list) > 0){
+    print "<h1>Email Approved Participants</h1>";
+    $approved_email_list = substr($approved_email_list, 0, -1); //removing trailing comma
+    print "Click this link to <a href=mailto:$approved_email_list>email approved participants</a>. ";
+    print "(Leaders/Coleaders included).";
+}
+?>
 <h1>Export Roster</h1>
 <p>Export Roster as Excel Spreadsheet.
 <p><i style="color: #096">Note: When you open the roster in Excel, it's normal for Excel to warn you

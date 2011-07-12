@@ -79,7 +79,7 @@
         // Get event summary info
         //
 
-        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, question2, start_date, end_date, rating
+        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, question2, start_date, end_date, pricing, rating
                 FROM events
                 WHERE event_id=$event_id;";
 
@@ -104,6 +104,7 @@
             $question2=$row['question2'];
             $start_date=$row['start_date'];
             $end_date=$row['end_date'];
+            $pricing=$row['pricing'];
             $rating=$row['rating'];
 
             if ($start_date == "0000-00-00") //This accounts for the events that were created with this date when
@@ -148,6 +149,7 @@
         UTILbuildmenu(2);
         $start_date = '';   //define start_date for new events so PHP doesn't complain that it's undefined
         $end_date = '';
+        $pricing = '';
         $rating = '';
     }
     else
@@ -208,9 +210,12 @@
     <td><span style="font-weight: bold">Hike Rating:</span> <br>(Example: B3B, also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)<br>
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
     </td>
+
     </tr>
 </table>
 
+<span style="font-weight: bold">Pricing:</span> (Example: $110 covers 2 nights lodging, 2 breakfasts, 2 dinners, and a trail map.)<br>
+<textarea name='pricing' rows=3 cols=60><?php print $pricing; ?></textarea><br><br>
 
 <span style="font-weight: bold">* General Description:</span><br>
 <textarea name='description' rows=8 cols=60><?php print $description; ?></textarea><br><br>
