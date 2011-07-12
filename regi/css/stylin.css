@@ -362,3 +362,8 @@ td, th{
     margin: 0.5ex 0;
 }
 
+.slim{
+    padding: 0.5ex;
+    margin: 0.5ex;
+    vertical-align: middle;
+}

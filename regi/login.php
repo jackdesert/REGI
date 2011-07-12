@@ -52,42 +52,46 @@
 
 
    <div style="padding-left:20px; width:90%;">
-<h1>Welcome to REGI</h1>
-<h4>Now it's much easier to register for H/B events: </h4>
+<div style='float: left; width: 60%;'>
+
+<h1>With REGI, you can painlessly register for multiple AMC events</h1>
 <ul>
+
 <li>Enter your profile and contact information only once</li>
-<li>Manage your event registration information and status online</li>
-</ul>
-<h4>Once approved for an event:</h4>
-<ul>
+<li>Use your profile to register for as many events as you want</li>
+<li>Once approved for an event, arrange carpooling with other approved participants</li>
 <li>View up-to-date event information online</li>
-<li>View carpool &amp; contact information of other participants</li>
-</ul> <br>
+</ul>
+</div>
+<div style='float: right; width: 30%;'>
+
 <h2>Please login here:</h2>
 
 <form name='login' action='action.php' method='post'>
     <table>
     <tr>
-    <td><b>User Name</b></td>
-    <td><input type='text' name='user_name' value='' MAXLENGTH=50 autofocus='autofocus'></td>
+    <td class='slim'><b>User Name</b></td>
+    <td class='slim'><input type='text' name='user_name' value='' size=15 MAXLENGTH='50' autofocus='autofocus'></td>
     </tr><tr>
-    <td><b>Password</b></td>
-    <td><input type='password' name='user_password' value='' MAXLENGTH=20></td>
+    <td class='slim'><b>Password</b></td>
+    <td class='slim'><input type='password' maxlength='20' name='user_password' value='' size=15></td>
 
     </tr>
-    <tr><td colspan='2'>Keep me logged in <input type='checkbox' name='use_cookie' value='checked'></td></tr></table>
+    <tr><td class='slim' colspan='2' style='text-align:right;'>Keep me logged in <input type='checkbox' name='use_cookie' value='checked'>
+    <input type='submit' style='margin:0;' class='button' name='action' value='login' onclick='return checkLogin()'>
+    </td></tr></table>
     <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
     <input type='hidden' name='admin_event_id' value='<?php print $admin_event_id; ?>'>
-    <input type='submit' class='button' name='action' value='login' onclick='return checkLogin()'>
+
+
 </form>
 
-<br><b>Don't have an account? </b><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an account here</a>.
-<br><br>
-<b>Forgot your user name or password? </b><a href="forgotPassword.php">Click here</a>.
+<br><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an Account</a>.
+<br><a href="forgotPassword.php">Forgot user name or password</a>.
+<br><a href="support.php"> Get Support</a>.
+<p> </p>
+</div>
 
-<br><br><b>Need more support?</b>
-<a href="support.php"> View our support page</a>.
-<p></p>
 <div id='not_sure_why_this_div_is_here'>&nbsp;
 <?php CHUNKfinishcontent(); ?>
 
