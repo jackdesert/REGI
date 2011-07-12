@@ -74,7 +74,8 @@
     <td><b>Password</b></td>
     <td><input type='password' name='user_password' value='' MAXLENGTH=20></td>
 
-    </tr></table>
+    </tr>
+    <tr><td colspan='2'>Keep me logged in <input type='checkbox' name='use_cookie' value='checked'></td></tr></table>
     <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
     <input type='hidden' name='admin_event_id' value='<?php print $admin_event_id; ?>'>
     <input type='submit' class='button' name='action' value='login' onclick='return checkLogin()'>
