@@ -1,0 +1,201 @@
+#LyX 2.0.0beta4 created this file. For more info see http://www.lyx.org/
+\lyxformat 412
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Paragraph*
+Question: Once I create a event in the new system, how do I get it posted
+ to outdoors.org and included in HB Announce?
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Answer: You will need to first set up a Registration Page as listed above,
+ and then go to the AMC's Trip Administration Tool to post your event into
+ their system at: http://trips.outdoors.org/index.cfm/method/trips.showlogin
+ Copy & paste your new event Registration Link in the field that says "Include
+ web link(s) in event description:", located near the bottom of the page.
+ For instructions on posting an event on outdoors.org, view the "Posting
+ a Trip" page on H/B's website at: http://www.hbbostonamc.org/index.php/Table/Onlin
+e- Trip-Posting/
+\end_layout
+
+\begin_layout Paragraph
+Question: What is the easiest way to email all participants on a trip?
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Answer: Go to the [Administration Page]" link for the event and click the
+ “Export Info Sheet” button.
+ This will give you a sortable spreadsheet.
+ You may want to sort the list by STATUS before copying and pasting the
+ correct email addresses.
+\end_layout
+
+\begin_layout Paragraph
+Q: How do I create an REGI Account? 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A: Follow these three steps: 1.
+ Go to the login screen at http://www.hbbostonamc.org/regi 2.
+ Click the link that says "create an account here." 3.
+ Enter your information as requested and click the "Create New Profile"
+ button.
+\end_layout
+
+\begin_layout Paragraph
+Q: What do I do if I forgot my user name or password? 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A: Go to the REGI login page and click the link where it says: Forgot your
+ user name or password? Click here.
+\end_layout
+
+\begin_layout Paragraph
+Q: How do I edit My Profile? 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A: You can edit your profile at any time by clicking on "My Profile" in
+ the navigation bar at the upper right of every REGI page.
+ Don't forget to update your experience profile as you continue to use the
+ system.
+\end_layout
+
+\begin_layout Paragraph
+Q: How do I register for an event? 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A: Once you have created your profile, you can immediately begin to sign
+ up for events that are using the new online REGI system.
+ Follow these 2 steps: 1.
+ On the REGI page of the event you are interested in, you will find basic
+ information about the event: name, description, a gear list, and specific
+ questions, such as whether you have the listed gear, and your carpooling
+ details.
+ Enter the requested information and click the "Register" button.
+ Your registration status will be listed as “SUBMITTED” under your "My Events"
+ page until the leader approves you for the event.
+ If you are Approved, your status under “My Trips” will be chanced to “APPROVED”
+ and you will receive an automated email noting the update.
+\end_layout
+
+\begin_layout Paragraph
+Q: How do I get a ride, or offer a ride? 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A: When you register for a event, the REGI system will ask whether you can
+ participate in carpooling or if you need a ride.
+ By clicking on the “Roster” tab within the REGI page for that event, you
+ can view who is coming, where they are driving from, who needs a ride/can
+ drive, and how to contact them to arrange carpooling for yourself.
+\end_layout
+
+\begin_layout Paragraph
+Q: How do I know whether I have been approved for an event? 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A: Once the leader has had a chance to review your application, your registratio
+n status will be updated to "APPROVED" or "WAITLIST".
+ You will receive an automated email sent to your profile email address
+ to notify you of the status change.
+ Your registration status is also listed under your "My Events" page under
+ the column "Role".
+\end_layout
+
+\begin_layout Paragraph
+Q: What do I do if I’m WAITLISTED? 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A: If there the event is currently full, the leader will place you on a
+ waitlist and you will receive an automated email from the system letting
+ you know that your registration status has been updated to “WAITLIST.” If
+ spots open up on the event, the leader will contact you to offer you a
+ spot.
+ If you are taken off the waitlist, your registration status will switch
+ to “APPROVED” and you will receive an automated email to this effect.
+\end_layout
+
+\begin_layout Paragraph
+Q: How do I cancel out of a trip? 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A: If you need to cancel your registration, email the leader ASAP so that
+ he or she can cancel you from the trip and open the event to others.
+ Once the Leader cancels your registration, you will receive an automated
+ email that your registration status has been updated to “CANCELLED.” 
+\end_layout
+
+\end_body
+\end_document
