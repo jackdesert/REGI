@@ -22,14 +22,9 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
-    UTILbuildmenu(3);
 
-    CHUNKstylemessage($_SESSION);
-
-    CHUNKstartcontent();
 ?>
 
-<h1>My Events</h1>
 
 <?php
     // Notice the !!!!!!! in this next line
@@ -45,6 +40,12 @@
     }
     else
     {
+        //Note that UTILbuildmenu is clear down here to make sure the auth cookie is picked up first
+        UTILbuildmenu(3);
+        CHUNKstylemessage($_SESSION);
+        CHUNKstartcontent();
+        print "<h1>My Events</h1>";
+
         $my_user_id=$_SESSION['Suser_id'];
         $my_user_type=$_SESSION['Suser_type'];
 

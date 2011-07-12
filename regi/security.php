@@ -78,21 +78,16 @@ function SECwrapCheckCookie($special){
 
 function SECisUserLoggedIn($special){
     if (isset($_SESSION['Suser_id'])){
-        print "logged in via session";
         return true;
     }else{
-        print "will try via cookie";
         $hopeful = SECwrapCheckCookie($special);
     }
     if($hopeful){
-        print "you are a hopeful";
         $row = UTILselectUser($hopeful);
         if($row){
-            print "row found";
             SECpushToSession($row);
             return true;
         }else{
-            print "no row to hoe";
             return false;
         }
     }else{
@@ -108,6 +103,13 @@ function SECpushToSession($row){
     $_SESSION['Sfirst_name'] = $row['first_name'];
     $_SESSION['Slast_name'] = $row['last_name'];
     $_SESSION['Suser_type'] = $row['user_type'];
+}
+
+function SECdestroyCookie(){
+    $in_the_past = time() - 100;
+    $nothing = '';
+    setcookie("regi", $nothing, $in_the_past);    // not valid until next time around
+
 }
 ?>
 
