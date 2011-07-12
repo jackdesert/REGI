@@ -83,11 +83,7 @@
 
                     // Put User Info into SESSION
                     //
-
-                    $_SESSION['Suser_id'] = $row['user_id'];
-                    $_SESSION['Sfirst_name'] = $row['first_name'];
-                    $_SESSION['Slast_name'] = $row['last_name'];
-                    $_SESSION['Suser_type'] = $row['user_type'];
+                    SECpushToSession($row);
                     //Set a cookie so they will stay logged in
                     SECwrapSetCookie($Pusername, $SET_HMAC_SECRET_CODE);
                     // Update Last Login datetime
