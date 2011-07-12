@@ -399,7 +399,9 @@ function UTILselectUser($in_user_name){
         $_SESSION['Smessage'] = "User name not found in Database.";
         return false;
     }else{
-        return $result;
+        $row = mysql_fetch_assoc($result);
+
+        return $row;
     }
 }
 ?>

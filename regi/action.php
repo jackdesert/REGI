@@ -69,9 +69,9 @@
 
             // SELECT USER FROM DB
             //
-            $result = UTILselectUser($Pusername);
-            if ($result) {
-                $row = mysql_fetch_assoc($result);
+            $row = UTILselectUser($Pusername);
+            if ($row) {
+                //$row = mysql_fetch_assoc($result);
 
                 if ($row['user_type'] == 'Inactive') {
                     $_SESSION['Smessage'] = "This user account is not activated.";

@@ -87,8 +87,14 @@ function SECisUserLoggedIn($special){
     if($hopeful){
         print "you are a hopeful";
         $row = UTILselectUser($hopeful);
-        SECpushToSession($row);
-        return true;
+        if($row){
+            print "row found";
+            SECpushToSession($row);
+            return true;
+        }else{
+            print "no row to hoe";
+            return false;
+        }
     }else{
         print "you have no hope";
         return false;
@@ -97,6 +103,7 @@ function SECisUserLoggedIn($special){
 }
 
 function SECpushToSession($row){
+    //$row = mysql_fetch_assoc($result);
     $_SESSION['Suser_id'] = $row['user_id'];
     $_SESSION['Sfirst_name'] = $row['first_name'];
     $_SESSION['Slast_name'] = $row['last_name'];
