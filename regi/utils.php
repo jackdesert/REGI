@@ -386,6 +386,7 @@ function UTIL_date_standardize($pretty){
 }
 
 function UTILselectUser($in_user_name){
+    UTILdbconnect();
     $query = "select user_id, user_passhash, first_name, last_name, user_type
         from users where user_name = '$in_user_name';";
 

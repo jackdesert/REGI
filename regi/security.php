@@ -64,8 +64,7 @@ function SECwrapSetCookie($user_name, $special){
     return 0;
 }
 
-function SECwrapCheckCookie(){
-    $special = $SET_HMAC_SECRET_CODE;
+function SECwrapCheckCookie($special){
     if (isset($_COOKIE["regi"])){
         $hopefully_a_user_name = SECtestCookie($_COOKIE["regi"], $special);
     }else{
@@ -77,16 +76,21 @@ function SECwrapCheckCookie(){
         return false;
 }
 
-function SECisUserLoggedIn(){
-    if (isset($_SESSION['Suser_id']))
+function SECisUserLoggedIn($special){
+    if (isset($_SESSION['Suser_id'])){
+        print "logged in via session";
         return true;
-    else
-        $hopeful = SECwrapCheckCookie();
+    }else{
+        print "will try via cookie";
+        $hopeful = SECwrapCheckCookie($special);
+    }
     if($hopeful){
-        $row = UTILselectUser($hopeful){
+        print "you are a hopeful";
+        $row = UTILselectUser($hopeful);
         SECpushToSession($row);
         return true;
     }else{
+        print "you have no hope";
         return false;
     }
 
