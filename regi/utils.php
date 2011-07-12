@@ -384,4 +384,21 @@ function UTIL_date_standardize($pretty){
         return $ugly;
     }
 }
+
+function UTILselectUser($in_user_name){
+    $query = "select user_id, user_passhash, first_name, last_name, user_type
+        from users where user_name = '$in_user_name';";
+
+    $result = mysql_query($query);
+    if (!$result)
+        UTILdberror($query);
+
+    $numrows = mysql_num_rows($result);
+    if ($numrows != 1) {
+        $_SESSION['Smessage'] = "User name not found in Database.";
+        return false;
+    }else{
+        return $result;
+    }
+}
 ?>

@@ -77,13 +77,19 @@ function SECwrapCheckCookie(){
         return false;
 }
 
+function SECisUserLoggedIn(){
+    if (isset($_SESSION['Suser_id']))
+        return true;
+    else
+        $hopeful = SECwrapCheckCookie();
+    if($hopeful){
+        $_SESSION['Suser_id'] = $row['user_id'];
+        $_SESSION['Sfirst_name'] = $row['first_name'];
+        $_SESSION['Slast_name'] = $row['last_name'];
+        $_SESSION['Suser_type'] = $row['user_type'];
+    }
 
-function sex(){
-    print "oh..yeah!";
-    return 0;
 }
-
-
 
 ?>
 

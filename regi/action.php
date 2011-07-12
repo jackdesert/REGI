@@ -69,18 +69,8 @@
 
             // SELECT USER FROM DB
             //
-
-            $query = "select user_id, user_passhash, first_name, last_name, user_type
-                from users where user_name = '$Pusername';";
-
-            $result = mysql_query($query);
-            if (!$result)
-                UTILdberror($query);
-
-            $numrows = mysql_num_rows($result);
-            if ($numrows != 1) {
-                $_SESSION['Smessage'] = "User name not found in Database.";
-            } else {
+            $result = UTILselectUser($Pusername);
+            if ($result) {
                 $row = mysql_fetch_assoc($result);
 
                 if ($row['user_type'] == 'Inactive') {
