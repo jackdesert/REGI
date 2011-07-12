@@ -58,17 +58,16 @@
 
 \begin_body
 
-\begin_layout Paragraph*
-Question: Once I create a event in the new system, how do I get it posted
- to outdoors.org and included in HB Announce?
+\begin_layout Paragraph
+Once I create a event in the new system, how do I get it posted to outdoors.org
+ and included in HB Announce?
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-Answer: You will need to first set up a Registration Page as listed above,
- and then go to the AMC's Trip Administration Tool to post your event into
- their system at: http://trips.outdoors.org/index.cfm/method/trips.showlogin
- Copy & paste your new event Registration Link in the field that says "Include
+\begin_layout Quote
+You will need to first set up a Registration Page as listed above, and then
+ go to the AMC's Trip Administration Tool to post your event into their
+ system at: http://trips.outdoors.org/index.cfm/method/trips.showlogin Copy
+ & paste your new event Registration Link in the field that says "Include
  web link(s) in event description:", located near the bottom of the page.
  For instructions on posting an event on outdoors.org, view the "Posting
  a Trip" page on H/B's website at: http://www.hbbostonamc.org/index.php/Table/Onlin
@@ -76,61 +75,68 @@ e- Trip-Posting/
 \end_layout
 
 \begin_layout Paragraph
-Question: What is the easiest way to email all participants on a trip?
+What is the easiest way to email all participants on a trip?
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-Answer: Go to the [Administration Page]" link for the event and click the
- “Export Info Sheet” button.
+\begin_layout Quote
+Go to the [Administration Page]" link for the event and click the “Export
+ Info Sheet” button.
  This will give you a sortable spreadsheet.
  You may want to sort the list by STATUS before copying and pasting the
  correct email addresses.
 \end_layout
 
 \begin_layout Paragraph
-Q: How do I create an REGI Account? 
+How do I create an REGI Account? 
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-A: Follow these three steps: 1.
- Go to the login screen at http://www.hbbostonamc.org/regi 2.
- Click the link that says "create an account here." 3.
+\begin_layout Quote
+Follow these three steps: 
+\end_layout
+
+\begin_layout Quote
+1.
+ Go to the login screen at http://www.hbbostonamc.org/regi 
+\end_layout
+
+\begin_layout Quote
+2.
+ Click the link that says "create an account here."
+\end_layout
+
+\begin_layout Quote
+3.
  Enter your information as requested and click the "Create New Profile"
  button.
 \end_layout
 
 \begin_layout Paragraph
-Q: What do I do if I forgot my user name or password? 
+What do I do if I forgot my user name or password? 
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-A: Go to the REGI login page and click the link where it says: Forgot your
+\begin_layout Quote
+Go to the REGI login page and click the link where it says: Forgot your
  user name or password? Click here.
 \end_layout
 
 \begin_layout Paragraph
-Q: How do I edit My Profile? 
+How do I edit My Profile? 
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-A: You can edit your profile at any time by clicking on "My Profile" in
- the navigation bar at the upper right of every REGI page.
+\begin_layout Quote
+You can edit your profile at any time by clicking on "My Profile" in the
+ navigation bar at the upper right of every REGI page.
  Don't forget to update your experience profile as you continue to use the
  system.
 \end_layout
 
 \begin_layout Paragraph
-Q: How do I register for an event? 
+How do I register for an event? 
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-A: Once you have created your profile, you can immediately begin to sign
- up for events that are using the new online REGI system.
+\begin_layout Quote
+Once you have created your profile, you can immediately begin to sign up
+ for events that are using the new online REGI system.
  Follow these 2 steps: 1.
  On the REGI page of the event you are interested in, you will find basic
  information about the event: name, description, a gear list, and specific
@@ -144,12 +150,11 @@ A: Once you have created your profile, you can immediately begin to sign
 \end_layout
 
 \begin_layout Paragraph
-Q: How do I get a ride, or offer a ride? 
+How do I get a ride, or offer a ride? 
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-A: When you register for a event, the REGI system will ask whether you can
+\begin_layout Quote
+When you register for a event, the REGI system will ask whether you can
  participate in carpooling or if you need a ride.
  By clicking on the “Roster” tab within the REGI page for that event, you
  can view who is coming, where they are driving from, who needs a ride/can
@@ -157,13 +162,12 @@ A: When you register for a event, the REGI system will ask whether you can
 \end_layout
 
 \begin_layout Paragraph
-Q: How do I know whether I have been approved for an event? 
+How do I know whether I have been approved for an event? 
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-A: Once the leader has had a chance to review your application, your registratio
-n status will be updated to "APPROVED" or "WAITLIST".
+\begin_layout Quote
+Once the leader has had a chance to review your application, your registration
+ status will be updated to "APPROVED" or "WAITLIST".
  You will receive an automated email sent to your profile email address
  to notify you of the status change.
  Your registration status is also listed under your "My Events" page under
@@ -171,28 +175,25 @@ n status will be updated to "APPROVED" or "WAITLIST".
 \end_layout
 
 \begin_layout Paragraph
-Q: What do I do if I’m WAITLISTED? 
+What do I do if I’m WAITLISTED? 
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-A: If there the event is currently full, the leader will place you on a
- waitlist and you will receive an automated email from the system letting
- you know that your registration status has been updated to “WAITLIST.” If
- spots open up on the event, the leader will contact you to offer you a
- spot.
+\begin_layout Quote
+If there the event is currently full, the leader will place you on a waitlist
+ and you will receive an automated email from the system letting you know
+ that your registration status has been updated to “WAITLIST.” If spots open
+ up on the event, the leader will contact you to offer you a spot.
  If you are taken off the waitlist, your registration status will switch
  to “APPROVED” and you will receive an automated email to this effect.
 \end_layout
 
 \begin_layout Paragraph
-Q: How do I cancel out of a trip? 
+How do I cancel out of a trip? 
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-A: If you need to cancel your registration, email the leader ASAP so that
- he or she can cancel you from the trip and open the event to others.
+\begin_layout Quote
+If you need to cancel your registration, email the leader ASAP so that he
+ or she can cancel you from the trip and open the event to others.
  Once the Leader cancels your registration, you will receive an automated
  email that your registration status has been updated to “CANCELLED.” 
 \end_layout

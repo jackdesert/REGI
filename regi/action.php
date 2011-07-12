@@ -352,7 +352,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $query = "select users.user_id, first_name, last_name,
             register_date, register_status,
             email, phone_cell, phone_day, phone_evening, emergency_contact, medical, diet, gear,
-            need_ride, can_take, leaving_from, returning_to, admin_notes
+            need_ride, can_take, leaving_from, leave_time, returning_to, return_time, admin_notes
             FROM users, user_events
             WHERE users.user_id=user_events.user_id
             AND event_id=$event_id
@@ -392,8 +392,12 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     print "\t".UTIL_disp_excel($row['gear'] );
                     print "\t".UTIL_disp_excel($row['need_ride'] );
                     print "\t".UTIL_disp_excel($row['can_take'] );
-                    print "\t".UTIL_disp_excel($row['leaving_from'] );
-                    print "\t".UTIL_disp_excel($row['returning_to'] );
+                    $sep = '';
+                    if ($row['leave_time'] != '') $sep = ' @ ';
+                    print "\t".UTIL_disp_excel($row['leaving_from'] . $sep . $row['leave_time'] );
+                    $sep = '';
+                    if ($row['return_time'] != '') $sep = ' @ ';
+                    print "\t".UTIL_disp_excel($row['returning_to'] . $sep . $row['return_time']);
                     print "\t".UTIL_disp_excel($row['admin_notes'] );
                     print "\n";
                 }
@@ -419,7 +423,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             $query = "select users.user_id, first_name, last_name,
             register_date, register_status,
             email, phone_cell, phone_day, phone_evening, emergency_contact, medical, diet, gear,
-            need_ride, can_take, leaving_from, returning_to, admin_notes
+            need_ride, can_take, leaving_from, leave_time, returning_to, return_time, admin_notes
             FROM users, user_events
             WHERE users.user_id=user_events.user_id
             AND event_id=$event_id
@@ -484,8 +488,16 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     $worksheet->write($rowCount, 10, UTIL_disp_excel($row['gear'] ), $format_wrap);
                     $worksheet->write($rowCount, 11, UTIL_disp_excel($row['need_ride'] ));
                     $worksheet->write($rowCount, 12, UTIL_disp_excel($row['can_take'] ));
-                    $worksheet->write($rowCount, 13, UTIL_disp_excel($row['leaving_from'] ), $format_wrap);
-                    $worksheet->write($rowCount, 14, UTIL_disp_excel($row['returning_to'] ), $format_wrap);
+                    $sep = '';
+                    if ($row['leave_time'] != '') $sep = ' @ ';
+                    $leave_comp = $row['leaving_from'] . $sep . $row['leave_time'];
+                    print 'leave_comp: ' . $leave_comp;
+                    $worksheet->write($rowCount, 13, UTIL_disp_excel($leave_comp), $format_wrap);
+                    $sep = '';
+                    if ($row['return_time'] != '') $sep = ' @ ';
+                    $return_comp = $row['returning_to'] . $sep . $row['return_time'];
+                    print 'return_comp: ' . $return_comp;
+                    $worksheet->write($rowCount, 14, UTIL_disp_excel($return_comp), $format_wrap);
                     $worksheet->write($rowCount, 15, UTIL_disp_excel($row['admin_notes'] ), $format_wrap);
                     $rowCount++;
                 }

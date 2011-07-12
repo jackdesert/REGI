@@ -367,3 +367,22 @@ td, th{
     margin: 0.5ex;
     vertical-align: middle;
 }
+
+
+.Paragraph{
+    /*this class is used for eLyXer*/
+    font-weight: normal;
+    font-style: italic;
+    font-size: 110%;
+}
+
+.Quote{
+    /*this class is used for eLyXer*/
+    text-align: left;
+    margin-bottom: 4ex;
+    margin-top: 1ex;
+}
+.width_60{
+    width: 70ex;
+    padding-left: 4ex;
+}
