@@ -98,7 +98,8 @@
                     $_SESSION['Sfirst_name'] = $row['first_name'];
                     $_SESSION['Slast_name'] = $row['last_name'];
                     $_SESSION['Suser_type'] = $row['user_type'];
-
+                    //Set a cookie so they will stay logged in
+                    SECwrapSetCookie($Pusername, $SET_HMAC_SECRET_CODE);
                     // Update Last Login datetime
                     $query = "update users set last_login = now() where user_id = $row[user_id];";
                     $result = mysql_query($query);

@@ -21,6 +21,7 @@
 //
 
     // include global settings (applied whereever 'utils.php' included)
+    include 'security.php';
     include 'settings.php';
     include 'chunks.php';
 
