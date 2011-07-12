@@ -33,8 +33,8 @@
 
 <?php
 
-    if (!isset($_SESSION['Suser_id']))
-    {
+    if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
+
         // ERROR?
 
         $my_user_id='';

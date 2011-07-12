@@ -31,7 +31,7 @@
     else
         exit(0);
 
-    if (isset($_SESSION['Suser_id'])) {
+    if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
         $my_user_id = $_SESSION['Suser_id'];
         $user_type = $_SESSION['Suser_type'];
     } else {

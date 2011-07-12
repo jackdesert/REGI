@@ -26,10 +26,10 @@
     else
         $event_id='';
 
-    if ($event_id <> '' && isset($_SESSION['Suser_id'])) {
+    if ($event_id <> '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
         header("Location: ./eventRegistration.php?event_id=".$event_id);
         exit(0);
-    }elseif($event_id == '' && isset($_SESSION['Suser_id'])) {
+    }elseif($event_id == '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
         header("Location: ./myTrips.php");
         exit(0);
     }
@@ -39,7 +39,7 @@
     else
         $admin_event_id='';
 
-    if ($admin_event_id <> '' && isset($_SESSION['Suser_id'])) {
+    if ($admin_event_id <> '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
         header("Location: ./eventAdmin.php?event_id=".$admin_event_id);
         exit(0);
     }

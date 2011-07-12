@@ -47,7 +47,7 @@
             exit();
         }
 
-    }elseif(isset($_SESSION['Suser_id']))
+    }elseif(SECisUserLoggedIn($SET_HMAC_SECRET_CODE))
         $reset = true;
     else
         $_SESSION['Smessage'] = "You Are Not Logged in. Please Log in.";

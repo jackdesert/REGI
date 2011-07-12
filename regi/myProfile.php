@@ -60,8 +60,7 @@
         $event_id='';
 
 
-    if (isset($_SESSION['Suser_id']))
-    {
+    if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
         // if User is already logged in, pull profile from DB
 
         $my_user_id=$_SESSION['Suser_id'];
