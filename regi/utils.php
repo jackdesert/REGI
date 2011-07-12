@@ -57,7 +57,7 @@
         $bit .= IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"hbTrips.php\"' >HB Trip Listings</div>";
         $bit .= IN3()."<div class='top_tab' $idArray[1] style='cursor: pointer;' onClick='location.href=\"support.php\"' >Support</div>";
 
-        if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
+        if (isset($_SESSION['Suser_id'])){
             if (isset($_SESSION['Suser_type']))
                 if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
                     $bit .= IN3()."<div class='top_tab' $idArray[2] style='cursor: pointer;' onClick='location.href=\"eventAdmin.php\"' >Create New Event</div>";

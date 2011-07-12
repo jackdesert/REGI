@@ -32,8 +32,8 @@
 <h1>My Events</h1>
 
 <?php
-
-    if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
+    // Notice the !!!!!!! in this next line
+    if (! SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
 
         // ERROR?
 
