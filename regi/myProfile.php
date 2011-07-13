@@ -170,7 +170,7 @@
     <table><tr>
 
     <td><b>* User Name</b></td>
-    <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?>  required='required'>  (6-40 chars.) Please don't use the following characters: ' " &lt; > &amp;</td>
+    <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?>  required='required'>  (6-40 chars.) Please don't use the following: ' " &lt; > &amp;</td>
     </tr><tr>
     <?php
     if ($formAction == 'New Profile'){

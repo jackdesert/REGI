@@ -659,7 +659,8 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             }
 
 
-            $query = "select email from users where email='$email';";
+            $query = "select email from users where email='$email'
+                AND user_id <> $user_id;";
 
             $result = mysql_query($query);
             if (!$result) UTILdberror($query);
