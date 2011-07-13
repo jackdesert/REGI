@@ -404,4 +404,10 @@ function UTILselectUser($in_user_name){
         return $row;
     }
 }
-?>
+
+/*Note there is purposefully no closing php tag here, because
+if you accidentally put extra characters (even line breaks)
+after a closing php tag, you will get a warning when this
+file is included in another file. Such a warning can wreak
+havoc when the warning ends up inside an Excel export. (It's
+gibberish. So I'm removing this closing tag */

@@ -110,5 +110,11 @@ function SECdestroyCookie(){
     setcookie("regi", $nothing, $in_the_past);    // not valid until next time around
 
 }
-?>
+
+/*Note there is purposefully no closing php tag here, because
+if you accidentally put extra characters (even line breaks)
+after a closing php tag, you will get a warning when this
+file is included in another file. Such a warning can wreak
+havoc when the warning ends up inside an Excel export. (It's
+gibberish. So I'm removing this closing tag */
 
