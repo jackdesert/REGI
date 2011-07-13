@@ -73,11 +73,11 @@
 <h1>Enter New Password</h1>
 
 
-<form name='profile' action='action.php' method='post'>
+<form name='enter_new_password' action='action.php' method='post'>
     <table><tr>
 
     <td><b>* New Password</b></td>
-    <td><input type='password' name='new_user_password' value='' MAXLENGTH=50 autofocus='autofocus'> (minimum 6 characters)</td>
+    <td><input type='password' name='new_user_password' value='' MAXLENGTH=50 autofocus='autofocus' autocomplete='off'> (minimum 6 characters)</td>
 </tr></table>
 <br>
 <input type='hidden' name='user_id' value='<?php print $my_user_id ?>'>

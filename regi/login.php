@@ -70,7 +70,7 @@
 <form name='login' action='action.php' method='post'>
     <table>
     <tr>
-    <td class='slim'><b>User Name</b></td>
+    <td class='slim'><b>Username</b></td>
     <td class='slim'><input type='text' name='user_name' value='' size=15 MAXLENGTH='50' autofocus='autofocus'></td>
     </tr><tr>
     <td class='slim'><b>Password</b></td>
