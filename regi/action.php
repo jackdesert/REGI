@@ -367,7 +367,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
             } else {
 
                 header("Content-type: text/plain");
-                header("Content-Disposition: attachment; filename=\"Signup__{$alphanum_event_name}.xls\"");
+                header("Content-Disposition: attachment; filename=\"Signup__{$alphanum_event_name}.tsv\"");
 
                 //header("Content-type: application/csv");
                 //header("Content-Disposition: attachment; filename=eventInfoSheet.csv \"");
@@ -409,7 +409,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         // Export Real Excel File -----------------------------------------------------------
         //
 
-        case "Export Real Excel File":
+        case "Export Excel Spreadsheet":
 
             $event_id = $_POST["event_id"];
             $event_name= $_POST["event_name"];

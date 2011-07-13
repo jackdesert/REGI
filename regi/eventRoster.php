@@ -316,16 +316,13 @@ if (strlen($approved_email_list) > 0){
 }
 ?>
 <h1>Export Roster</h1>
-<p>Export Roster as Excel Spreadsheet.
-<p><i style="color: #096">Note: When you open the roster in Excel, it's normal for Excel to warn you
-that the format is unknown. Just click OK and allow Excel to import the file as Tab-Delimited text.</i>
-  <br>
+<p>Here you can export the roster as either a Microsoft Excel spreadsheet (recommended), or as tab delimited text.
 </p>
 <form name='export' action='action.php' method='post'>
   <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
   <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
+<input type='submit' class='button' name='action' value='Export Excel Spreadsheet' onclick=''>
 <input type='submit' class='button' name='action' value='Export Tab Delimited' onclick=''>
-<input type='submit' class='button' name='action' value='Export Real Excel File' onclick=''>
 </form>
 
 <?php CHUNKfinishcontent(); ?>
