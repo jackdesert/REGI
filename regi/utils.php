@@ -62,7 +62,7 @@
                 if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
                     $bit .= IN3()."<div class='top_tab' $idArray[2] style='cursor: pointer;' onClick='location.href=\"eventAdmin.php\"' >Create New Event</div>";
 
-            $bit .= IN3()."<div class='top_tab' $idArray[3] style='cursor: pointer;' onClick='location.href=\"myTrips.php\"' >My Events</div>";
+            $bit .= IN3()."<div class='top_tab' $idArray[3] style='cursor: pointer;' onClick='location.href=\"myEvents.php\"' >My Events</div>";
             $bit .= IN3()."\n<div class='top_tab' $idArray[4] style='cursor: pointer;' onClick='location.href=\"myProfile.php\"' >My Profile</div>";
             $bit .= IN3()."\n<div class='top_tab' style='cursor: pointer;' onClick='location.href=\"logout.php\"' >Logout</div>";
         }

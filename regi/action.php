@@ -98,7 +98,7 @@
                     else if ($admin_event_id <> '')
                         header("Location: ./eventAdmin.php?event_id=".$admin_event_id);
                     else
-                        header("Location: ./myTrips.php");
+                        header("Location: ./myEvents.php");
 
                     exit();
                 }
