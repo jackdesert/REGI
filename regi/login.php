@@ -77,7 +77,7 @@
     <td class='slim'><input type='password' maxlength='20' name='user_password' value='' size=15></td>
 
     </tr>
-    <tr><td class='slim' colspan='2' style='text-align:right;'>Keep me logged in <input type='checkbox' name='use_cookie' value='checked'>
+    <tr><td class='slim' colspan='2' style='text-align:right;'>Keep me logged in <input type='checkbox' name='use_cookie' value='checked' checked='checked'>
     <input type='submit' style='margin:0;' class='button' name='action' value='login' onclick='return checkLogin()'>
     </td></tr></table>
     <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
