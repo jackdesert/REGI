@@ -146,11 +146,14 @@ function CHUNKlefttabs($user, $event, $tab){
 }
 
 function CHUNKdropdown($input, $selected_input){
-    if ($input == $selected_input)
+    if ($input == $selected_input){
         $selected = " selected='selected'";
-    else
+        $new_value = "*";   // The star indicates no change, so no email will be sent
+    }else{
         $selected = '';
-    print "<option value='{$input}'{$selected}>{$input}";
+        $new_value = $input;
+    }
+    print "<option value='{$new_value}'{$selected}>{$input}";
 
 }
 
