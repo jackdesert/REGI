@@ -164,21 +164,24 @@
     }
 ?>
 
-<p>Note: When registering for a event, your profile will be shared with the leaders of that event.</p>
+<p>Keeping your profile up to date helps leaders determine if you are physically fit for a particular event.
+Your profile information is visible only to the leaders of the events you register for. </p>
 
 <form name='profile' action='action.php' method='post'>
     <table><tr>
 
-    <td><b>* User Name</b></td>
-    <td><input type='text' name='user_name' value='<?php echo $user_name; ?>' MAXLENGTH=40 <?php echo $readonly; ?>  required='required'>  (6-40 chars.) Please don't use the following: ' " &lt; > &amp;</td>
-    </tr><tr>
+
     <?php
     if ($formAction == 'New Profile'){
+        print "<td><b>* User Name</b></td>
+        <td><input type='text' name='user_name' value='$user_name' MAXLENGTH=40 $readonly required='required'>  (6-40 chars.) Please don't use the following: ' &quot; &lt; > &amp;</td>
+        </tr><tr>";
         print "
-    <td><b>* Password</b></td>
-    <td><input type='password' name='user_password' value='' MAXLENGTH=50  required='required'> (minimum 6 characters)</td>
-    </tr><tr>";
+        <td><b>* Password</b></td>
+        <td><input type='password' name='user_password' value='' MAXLENGTH=50  required='required'> (minimum 6 characters)</td>
+        </tr><tr>";
     }else{
+        print "<td><b>&nbsp;&nbsp;User Name:</b></td><td> $user_name</td></tr><tr>";
         print "    <td><b>&nbsp;&nbsp;Password</b></td><td>Save changes to your profile, then you may <a href='enterNewPassword.php' target='_blank'> change your password</a>.</td></tr><tr>";
     }
     ?>

@@ -183,12 +183,20 @@
 <table style='border-collapse:separate;border-spacing:4ex 1ex;'>
     <tr>
         <td>
-            * <span style="font-weight: bold">Start Date:</span> <br>(MM/DD/YYYY)<br>
+            * <span style="font-weight: bold">Start Date:</span> <br>MM/DD/YYYY<br>
             <input type='text' required=required maxlength='10' name='start_date' id='start_date' value='<?php print UTIL_date_prettify($start_date); ?>' size=10><br><br>
         </td>
-        <td>* <span style="font-weight: bold">Event Status</span>:
 
-        <br>Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.  All other statuses do NOT allow new registrations.
+
+        <td>
+            <span style="font-weight: bold">End Date:</span> (Leave blank if event is only one day.)<br>MM/DD/YYYY<br>
+            <input type='text' maxlength='10' name='end_date' id='end_date' value='<?php print UTIL_date_prettify($end_date); ?>' size=10><br><br>
+        </td>
+    </tr></table>
+
+        * <span style="font-weight: bold">Event Status</span>:
+
+        <br>Registration is ONLY active when status is set to 'OPEN' or 'WAIT LIST'.<br>All other statuses do NOT allow new registrations.
         <br>
         <select name='event_status'>
             <option value='<?php print $event_status; ?>'><?php print $event_status; ?>
@@ -199,22 +207,14 @@
             <option value='FULL'>FULL
             <option value='CLOSED'>CLOSED
             <option value='CANCELED'>CANCELED
-        </select><br>
-        <br></td>
+        </select><br><br>
 
-    </tr><tr>
-        <td>
-            <span style="font-weight: bold">End Date:</span> <br>(YYYY-MM-DD)<br>Leave blank if event is only one day.<br>
-            <input type='text' maxlength='10' name='end_date' id='end_date' value='<?php print UTIL_date_prettify($end_date); ?>' size=10><br><br>
-        </td>
-    <td><span style="font-weight: bold">Hike Rating:</span> <br>(Example: B3B, also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)<br>
+
+<span style="font-weight: bold">Hike Rating:</span> <br>(Example: <i>B3B</i>, also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)<br>
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
-    </td>
 
-    </tr>
-</table>
 
-<span style="font-weight: bold">Pricing:</span> (Example: $110 covers 2 nights lodging, 2 breakfasts, 2 dinners, and a trail map.)<br>
+<span style="font-weight: bold">Pricing:</span> (Example: <i>$110 covers 2 nights lodging, 2 breakfasts, 2 dinners, and a trail map.</i>)<br>
 <textarea name='pricing' rows=3 cols=60><?php print $pricing; ?></textarea><br><br>
 
 <span style="font-weight: bold">* General Description:</span><br>
@@ -222,30 +222,6 @@
 
 <span style="font-weight: bold">Gear List</span> (If no gear necessary, please type: "No gear necessary"):
 <textarea name='gear_list' rows=8 cols=60><?php print $gear_list; ?></textarea><br><br>
-
-<span style="font-weight: bold">Confirmation Page:</span> (Displays when user registers for event.)
-<?php if ($event_id <> '') print "<br>Click here to <a href='./confirmationPage.php?event_id=$event_id'><span style='font-size:130%;'>Preview</span></a> the confirmation page.<br>"; ?>
-<textarea name='confirmation_page' rows=8 cols=60><?php print $confirmation_page; ?></textarea><br><br>
-
-<span style="font-weight: bold">Participant Info:</span> (Directions to trailhead, etc. Visible only for APPROVED participants.)
-<textarea name='trip_info' rows=8 cols=60><?php print $trip_info; ?></textarea><br><br>
-
-<p>Two questions are automatically asked of participants upon registering. They are: </p>
-
-<ol>
-<li><span style="font-weight: bold"><?php print "\"$SET_QUESTION_1\""; ?></span></li>
-<li><span style="font-weight: bold"><?php print "\"$SET_QUESTION_2\""; ?></span></li>
-</ol>
-
-
-<p>If you would like to ask additional questions, list them here:</p>
-
-<span style="font-weight: bold">Additional Event Question </span>(Optional)<br>
-<input type='text' name='question1' value='<?php print $question1; ?>' size=80><br><br>
-<!-- Do Not Display Second Question
-<span style="font-weight: bold">Additional Event Question 2 (Optional)</span><br>
-<input type='text' name='question2' value='<?php print $question2; ?>' size=80><br><br>
--->
 
 <h2>Program Info</h2>
 <?php  //Set one button to be checked by default
@@ -259,11 +235,37 @@
 
 <input type="radio" name="event_is_program" value="P" <?php print $event_is_programP; ?> >This event is PART OF A PROGRAM. The Program ID is
 <input type='text' name='program_id' value='<?php print $program_id; ?>' size=10><?php print $program_name; ?><br>
-<p class='colored_note'>Please contact the program leader for the Event ID of the program. If this event is not part of a program, leave blank or enter '0'</p>
-<br>
+<p class='colored_note'>Please contact the program leader for the program ID. If this event is not part of a program, leave blank.</p>
+
+<h2>Default Questions</h2>
+<p>Your event will ask the following by default: </p>
+
+<ul>
+<li><span style="font-weight: bold"><?php print "\"$SET_QUESTION_2\""; ?></span></li>
+</ul>
+<p>If it's not a PROGRAM, your event will also ask: </p>
+<ul><li><span style="font-weight: bold"><?php print "\"$SET_QUESTION_1\""; ?></span></li>
+</ul>
+
+
+<p>You can also ask participants an additional question by listing it here:</p>
+
+<span style="font-weight: bold">Additional Event Question </span>(Optional)<br>
+<input type='text' name='question1' value='<?php print $question1; ?>' size=80><br><br>
+<!-- Do Not Display Second Question
+<span style="font-weight: bold">Additional Event Question 2 (Optional)</span><br>
+<input type='text' name='question2' value='<?php print $question2; ?>' size=80><br><br>
+-->
 
 
 
+
+<span style="font-weight: bold">Confirmation Page:</span> (Displays when user registers for event.)
+<?php if ($event_id <> '') print "<br>Save changes and then you can <a href='./confirmationPage.php?event_id=$event_id'><span style='font-size:130%;'>Preview</span></a> what you wrote.<br>"; ?>
+<textarea name='confirmation_page' rows=8 cols=60><?php print $confirmation_page; ?></textarea><br><br>
+
+<span style="font-weight: bold">Participant Info:</span> (Directions to trailhead, etc. Visible only to APPROVED participants.)
+<textarea name='trip_info' rows=8 cols=60><?php print $trip_info; ?></textarea><br><br>
 
 
 <br><br>
