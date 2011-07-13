@@ -512,10 +512,10 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
         break;
 
 
-        // New Profile -----------------------------------------------------------
+        // Create Profile -----------------------------------------------------------
         //
 
-        case "New Profile":
+        case "Create Profile":
 
             $user_name= UTILclean($_POST["user_name"], 40, 'User name');
             $user_password= UTILclean($_POST["user_password"], 20, 'Password');
@@ -939,7 +939,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             $user_id= $_POST["user_id"];
             $user_name= UTILclean($_POST["user_name"], 40, 'User name');
-            $user_password= UTILclean($_POST["user_password"], 20, 'Password');
+            $user_password= UTILclean($_POST["new_user_password"], 20, 'Password');
             $user_passhash = UTILgenhash($user_password);
             $first_name= UTILclean($_POST["first_name"], 20, 'First name');
             $last_name= UTILclean($_POST["last_name"], 20, 'Last name');

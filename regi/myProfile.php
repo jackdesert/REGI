@@ -102,7 +102,7 @@
             $readonly='readonly';
         }
     }elseif (isset($_SESSION['Semail'])){
-        $formAction='New Profile';
+        $formAction='Create Profile';
 
         // If Form fields have been cached: if so: repopulate
 
@@ -146,7 +146,7 @@
         else
             $member_no='checked';
     }else{
-        $formAction='New Profile';
+        $formAction='Create Profile';
     }
     //Note that UTILbuildmenu() is called clear down here so we can use the cookie to log in before we display
     //the menu
@@ -159,7 +159,7 @@
 <h1>My Profile</h1>
 
 <?php
-    if ($formAction=='New Profile') {
+    if ($formAction=='Create Profile') {
     print "<font color='red'>Please note: if you have already created an account, please use that account to login and do not create a new account.  If you don't remember your password, please click <a href='forgotPassword.php'>here</a>.</font>";
     }
 ?>
@@ -172,7 +172,7 @@ Your profile information is visible only to the leaders of the events you regist
 
 
     <?php
-    if ($formAction == 'New Profile'){
+    if ($formAction == 'Create Profile'){
         print "<td><b>* User Name</b></td>
         <td><input type='text' name='user_name' value='$user_name' MAXLENGTH=40 $readonly required='required'>  (6-40 chars.) Please don't use the following: ' &quot; &lt; > &amp;</td>
         </tr><tr>";
@@ -182,7 +182,7 @@ Your profile information is visible only to the leaders of the events you regist
         </tr><tr>";
     }else{
         print "<td><b>&nbsp;&nbsp;User Name:</b></td><td> $user_name</td></tr><tr>";
-        print "    <td><b>&nbsp;&nbsp;Password</b></td><td>Save changes to your profile, then you may <a href='enterNewPassword.php' target='_blank'> change your password</a>.</td></tr><tr>";
+        print "    <td><b>&nbsp;&nbsp;Password</b></td><td>Save changes to your profile, then you may <a href='enterNewPassword.php'> change your password</a>.</td></tr><tr>";
     }
     ?>
 
@@ -211,7 +211,7 @@ Your profile information is visible only to the leaders of the events you regist
 <input type="radio" name="member" value="N" <?php print $member_no ?> >NO
 
 <?php
-    if ($formAction=='New Profile') {
+    if ($formAction=='Create Profile') {
         print "<p>Are you a current AMC H/B Leader or Coleader?
         <input type='radio' name='leader_request' value='Y' $leader_request_yes >YES
         &nbsp;
