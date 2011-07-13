@@ -117,4 +117,3 @@ after a closing php tag, you will get a warning when this
 file is included in another file. Such a warning can wreak
 havoc when the warning ends up inside an Excel export. (It's
 gibberish. So I'm removing this closing tag */
-

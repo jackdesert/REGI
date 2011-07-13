@@ -491,16 +491,21 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                     $sep = '';
                     if ($row['leave_time'] != '') $sep = ' @ ';
                     $leave_comp = $row['leaving_from'] . $sep . $row['leave_time'];
-                    print 'leave_comp: ' . $leave_comp;
                     $worksheet->write($rowCount, 13, UTIL_disp_excel($leave_comp), $format_wrap);
                     $sep = '';
                     if ($row['return_time'] != '') $sep = ' @ ';
                     $return_comp = $row['returning_to'] . $sep . $row['return_time'];
-                    print 'return_comp: ' . $return_comp;
                     $worksheet->write($rowCount, 14, UTIL_disp_excel($return_comp), $format_wrap);
                     $worksheet->write($rowCount, 15, UTIL_disp_excel($row['admin_notes'] ), $format_wrap);
                     $rowCount++;
                 }
+                //Note: the key to getting the excel to export cleanly is to have NO print statements
+                //going off while writing data to cells, and to have NO warnings going off
+                // while writing to cells. Watch out for the "Cannot Resend Header" warning
+                // that happens when you include php files with extra spaces after the
+                //closing php tag. These warnings end up as gibberish in your excel file
+                // and totally screw with where things go. I recommend just leaving
+                // off the closing php tag in any file that is included in another file
                 $workbook->close();
             }
 
