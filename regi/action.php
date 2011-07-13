@@ -298,7 +298,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
                 if ($admin_notes_AR[$inc] <> '')
                 {
                     $query = "update user_events set
-                    admin_notes='$admin_notes_AR[$inc]'
+                    admin_notes='" . UTILclean($admin_notes_AR[$inc], 1000, '') . "'
                     WHERE
                     registration_id=$REG_ID;";
 
