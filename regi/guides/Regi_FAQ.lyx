@@ -59,6 +59,14 @@
 \begin_body
 
 \begin_layout Section*
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "0.5ex"
+
+\end_inset
+
 Frequently Asked Questions 
 \end_layout
 
@@ -414,7 +422,7 @@ will display additional information specific to REGI event management.
 LatexCommand rule
 offset "0.5ex"
 width "100col%"
-height "1pt"
+height "0.5ex"
 
 \end_inset
 
@@ -805,6 +813,18 @@ TO
 
  field.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "0.5ex"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section*

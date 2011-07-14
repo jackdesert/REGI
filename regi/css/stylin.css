@@ -374,6 +374,7 @@ td, th{
     font-weight: normal;
     font-style: italic;
     font-size: 110%;
+    padding-left: 4ex;
 }
 
 .Quote{
@@ -381,8 +382,11 @@ td, th{
     text-align: left;
     margin-bottom: 4ex;
     margin-top: 1ex;
+    padding-left: 4ex;
 }
 .width_60{
     width: 70ex;
-    padding-left: 4ex;
+}
+.width_60 ul{
+    padding-left: 12ex;
 }
