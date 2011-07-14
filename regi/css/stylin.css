@@ -370,17 +370,19 @@ td, th{
 
 
 .Paragraph{
-    /*this class is used for eLyXer*/
-    font-weight: normal;
+    /*this class is used in paragraph headings (Questions) for eLyXer*/
+    font-weight: bold;
     font-style: italic;
     font-size: 110%;
     padding-left: 4ex;
+    margin-top: 4ex;
+    margin-bottom: 1.5ex;
 }
 
 .Quote{
     /*this class is used for eLyXer*/
     text-align: left;
-    margin-bottom: 4ex;
+    margin-bottom: 1ex;
     margin-top: 1ex;
     padding-left: 4ex;
 }
@@ -389,4 +391,12 @@ td, th{
 }
 .width_60 ul{
     padding-left: 12ex;
+}
+.width_60 hr{
+    margin-top: 10ex;
+}
+
+.Unindented{
+    padding-bottom: 2ex;
+    width: 145%;
 }

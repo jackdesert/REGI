@@ -59,14 +59,6 @@
 \begin_body
 
 \begin_layout Section*
-\begin_inset CommandInset line
-LatexCommand rule
-offset "0.5ex"
-width "100col%"
-height "0.5ex"
-
-\end_inset
-
 Frequently Asked Questions 
 \end_layout
 
@@ -420,9 +412,9 @@ will display additional information specific to REGI event management.
 \begin_layout Standard
 \begin_inset CommandInset line
 LatexCommand rule
-offset "0.5ex"
+offset "0.5cm"
 width "100col%"
-height "0.5ex"
+height "0.7bp"
 
 \end_inset
 
@@ -430,7 +422,7 @@ height "0.5ex"
 \end_layout
 
 \begin_layout Section*
-REGI Leader Guide (for REGI Leaders, Coleaders, and Registrars)
+REGI Leader Guide
 \end_layout
 
 \begin_layout Standard
@@ -745,7 +737,22 @@ You can choose from either a Microsoft Excel spreadsheet or a tab-delimited
 \begin_layout Quote
 This will allow you to sort the list by registration status, last name,
  payment status, etc.
- 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5cm"
+width "100col%"
+height "1pc"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Frequently Asked Questions (Leaders)
 \end_layout
 
 \begin_layout Paragraph
@@ -818,9 +825,9 @@ TO
 \begin_layout Standard
 \begin_inset CommandInset line
 LatexCommand rule
-offset "0.5ex"
+offset "0.5cm"
 width "100col%"
-height "0.5ex"
+height "0.7bp"
 
 \end_inset
 
@@ -831,7 +838,7 @@ height "0.5ex"
 About REGI 
 \end_layout
 
-\begin_layout Quote
+\begin_layout Standard
 REGI is currently hosted at http://hbbostonamc.org/regi.
  The application was originally developed in LAMP (Linux, Apache, MySQL,
  PHP) and HTML in 2010 by Dirk Koechner, a long time AMC Boston chapter
@@ -845,8 +852,8 @@ target "mailto:jackdesert556@gmail.com"
 \end_inset
 
  stepped up to add more features and improve the look and feel of the site.
- If you have any suggestions on what would really make this site kick a$$,
- Jack would love to hear them.
+ If you have suggestions on what would really make this site get up and
+ dance, Jack would love to hear them.
  
 \end_layout
 
