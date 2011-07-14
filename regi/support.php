@@ -32,19 +32,13 @@
 
 
 <?php CHUNKstartcontent(); ?>
-<h1>Support</h1>
-This is where you can get help using the REGI system.
-<h2>User Guides</h2>
-<a href='guides/AMCBostonHBOnlineEventRegSystem-UserGuide.pdf'>User Guide</a><br>
-<?php
-    if (isset($_SESSION['Suser_type']))
-        if ($_SESSION['Suser_type'] != 'USER')
-            print "<a href='guides/AMCBostonHBOnlineEventRegSystem-LeaderGuide.pdf'>Leader Guide</a><br>";
-?>
-<h2>Email Support</h2>
-You can <a class='menu' href='mailto:amcbostonhbs@gmail.com?subject=Help%20With%20REGI%20Site' >email the webmaster</a> for help.
 
-<h2>Frequently Asked Questions</h2>
+<h1>Support</h1>
+We're here to help. If you can't find the information you're looking for on this page,
+<a class='menu' href='mailto:amcbostonhbs@gmail.com?subject=Help%20With%20REGI%20Site' >send Jule and Abby an email</a>.
+If something is broken, we want to know so we can ask Jack to fix it. And if something needs more explanation, let us
+know and we'll add it to our Frequently Asked Questions below. Welcome, and thanks for using REGI.
+
 <?php
     //The REGI FAQ is in LyX format, which makes for easy editing
     //To generate html from it, use elyxer
