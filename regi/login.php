@@ -77,7 +77,7 @@
     <td class='slim'><input type='password' maxlength='20' name='user_password' value='' size=15></td>
 
     </tr>
-    <tr><td class='slim' colspan='2' style='text-align:right;'>Keep me logged in <input type='checkbox' name='use_cookie' value='checked' checked='checked'>
+    <tr><td class='slim' colspan='2' style='text-align:right;'><input type='checkbox' name='use_cookie' value='checked' checked='checked'>Stay Signed In
     <input type='submit' style='margin:0;' class='button' name='action' value='login' onclick='return checkLogin()'>
     </td></tr></table>
     <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
@@ -86,9 +86,9 @@
 
 </form>
 
-<br><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an Account</a>.
-<br><a href="forgotPassword.php">Forgot user name or password</a>.
-<br><a href="support.php"> Get Support</a>.
+<br><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an Account</a>
+<br><a href="forgotPassword.php">Forgot Username or Password</a>
+<br><a href="support.php"> Get Support</a>
 <p> </p>
 </div>
 

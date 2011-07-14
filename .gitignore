@@ -2,6 +2,8 @@
 
 jasmine/spec/javascripts/PlayerSpec.js
 jasmine/spec/javascripts/ex_spec.js
+test/results.txt
 
-docs/*.pdf
+regi/guides/*~
+external_docs/*
 regi/log/*
