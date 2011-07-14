@@ -34,7 +34,7 @@ class Standard
 
         def login
         ########### U S E R    D E F I N E D  ######################
-        test_site = "localhost/regi/login.php"
+        test_site = "localhost/regi/logout.php"
         test_user = "jacktest"
         test_pass = "jacktest"
         #############################################################
