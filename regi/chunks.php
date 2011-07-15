@@ -190,24 +190,21 @@ function CHUNKlinksopenhere($in_html){
 
 function CHUNKhikerating($rating, $edit = false){
     if ($edit == true){
-        $show_rating_too = "<div class='indented' style='float:left;'> (Example: <i>B3B</i>, also see the&nbsp;&nbsp;</div>";
-        //Example: <i>B3B</i>, also see the</div>";
+        $show_rating_too = "<div style='float:left;'> (Example: <i>B3B</i>, also see the&nbsp;&nbsp;</div>";
+        $less_space_beneath = " style='margin-bottom: -1.6ex;'";
 
     //<span style="font-weight: bold">Hike Rating:</span> <br>(Example: <i>B3B</i>, also see the
     }else{
         $show_rating_too = "<div class='indented' style='float:left;'>Hike Rating: <b>".$rating." </b>&nbsp;&nbsp;(</div>";
+        $less_space_beneath = "";
     }
     $stuff=$show_rating_too . "
-    <div class='hike_rating'>
+    <div class='hike_rating' $less_space_beneath>
     <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)</p>
     <div class='visible_on_hover'>
     <div class='row0'>
-    <dl>
-        <td>Example: <b>B3B</b></td>
-        <dd>5-9 miles (B)</dd>
-        <dd>moderately paced (3)</dd>
-        <dd>on strenuous terrain (B)</dd>
-    </dl>
+    <h2>Hike Rating Quick Reference</h2>
+    (Click link to see full reference.)
     </div>
 
     <div class='row1'>
@@ -237,7 +234,27 @@ function CHUNKhikerating($rating, $edit = false){
         <dd>D= easy</dd>
     </dl>
     </div>
+
     <div class='row0'>
+    <dl>
+        <td>Example: <b>B3B</b></td>
+        <dd>5-9 miles (B)</dd>
+        <dd>moderately paced (3)</dd>
+        <dd>on strenuous terrain (B)</dd>
+    </dl>
+    </div>
+
+
+
+    </div>
+    </div>";
+    print $stuff;
+    return $stuff;
+}
+
+/* Cut material from hike rating:
+ *
+ *     <div class='row0'>
     <dl>
         <td>Notes:</td>
         <dd>Terrain ratings may not match Connecticut or Southeastern Massachusetts values.</dd>
@@ -246,13 +263,10 @@ function CHUNKhikerating($rating, $edit = false){
         <dd>Actual trip pace may differ from the pace number if terrain is not &quot;average&quot;.</dd>
     </dl>
     </div>
+    *
+    * */
 
 
-    </div>
-    </div>";
-    print $stuff;
-    return $stuff;
-}
 /*Note there is purposefully no closing php tag here, because
 if you accidentally put extra characters (even line breaks)
 after a closing php tag, you will get a warning when this

@@ -411,7 +411,7 @@ td, th{
 }
 .hike_rating .visible_on_hover {
     position: absolute;
-    left:40%;
+    left:50%;
     top: 30%;
     width: 35%;
     display: none;
