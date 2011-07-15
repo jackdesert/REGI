@@ -188,10 +188,10 @@ function CHUNKlinksopenhere($in_html){
     return $go_local;
 }
 
-function CHUNKhikerating(){
-    $stuff="
+function CHUNKhikerating($rating){
+    $stuff="<div class='indented' style='float:left;'>Hike Rating: <b>".$rating.". </b>&nbsp;&nbsp;</div>
     <div class='hike_rating'>
-    View Hike Rating Key
+    (<a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)</p>
     <div class='visible_on_hover'>
     <div class='row0'>
     <dl>

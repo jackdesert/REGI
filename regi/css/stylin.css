@@ -401,11 +401,28 @@ td, th{
     width: 145%;
 }
 
-.hike_rating {width: 50%;}
-.hike_rating .visible_on_hover {display: none;}
-.hike_rating:hover .visible_on_hover {
-    display: block;
+.hike_rating {
+    width: 50%;
+    #float: left;
+}
+.hike_rating:hover{
+    background: #ccc;
+    border-radius: 2ex;
+}
+.hike_rating .visible_on_hover {
+    position: absolute;
+    left:40%;
+    top: 30%;
+    width: 35%;
+    display: none;
+    padding: 1ex;
     border-style: solid;
+    border-radius: 2ex;
+    background: white;
+
     border-color: black;
     border-width: 2px;
+}
+.hike_rating:hover .visible_on_hover {
+    display: block;
 }
