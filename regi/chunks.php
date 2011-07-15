@@ -188,10 +188,18 @@ function CHUNKlinksopenhere($in_html){
     return $go_local;
 }
 
-function CHUNKhikerating($rating){
-    $stuff="<div class='indented' style='float:left;'>Hike Rating: <b>".$rating.". </b>&nbsp;&nbsp;</div>
+function CHUNKhikerating($rating, $edit = false){
+    if ($edit == true){
+        $show_rating_too = "<div class='indented' style='float:left;'> (Example: <i>B3B</i>, also see the&nbsp;&nbsp;</div>";
+        //Example: <i>B3B</i>, also see the</div>";
+
+    //<span style="font-weight: bold">Hike Rating:</span> <br>(Example: <i>B3B</i>, also see the
+    }else{
+        $show_rating_too = "<div class='indented' style='float:left;'>Hike Rating: <b>".$rating." </b>&nbsp;&nbsp;(</div>";
+    }
+    $stuff=$show_rating_too . "
     <div class='hike_rating'>
-    (<a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)</p>
+    <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)</p>
     <div class='visible_on_hover'>
     <div class='row0'>
     <dl>

@@ -209,8 +209,14 @@
             <option value='CANCELED'>CANCELED
         </select><br><br>
 
+<span style="font-weight: bold">Hike Rating:</span> <br>
 
-<span style="font-weight: bold">Hike Rating:</span> <br>(Example: <i>B3B</i>, also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank' >Hike Rating Key</a>)<br>
+<?php CHUNKhikerating($rating, true); ?>
+<!--
+ <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank' >Hike Rating Key</a>)<br>
+
+-->
+
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
 
 
