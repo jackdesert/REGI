@@ -2,8 +2,8 @@ describe('test with jasmine-jquery', function () {
   it('should load many fixtures into DOM', function () {
     loadFixtures('my_fixture_1.html');
     var a = readFixtures('my_fixture_1.html');
-    expect(a).toContain('nothing');
-    expect($('#jasmine-fixtures')).toContain('nothing');//verifyPasswordLength());
+    //expect(a).toContain('Hi There');
+    //expect($('#jasmine-fixtures')).toContain('Hi There');//verifyPasswordLength());
   });
 
 });
