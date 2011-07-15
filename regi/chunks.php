@@ -219,19 +219,19 @@ function CHUNKhikerating($rating, $edit = false){
     <div class='row0'>
     <dl>
         <dt>Middle number indicates <b>pace</b> across &quot;average&quot; terrain:</dt>
-        <dd>1= very fast (2.5 mph+)</dd>
-        <dd>2= fast (2 to 2.5 mph)</dd>
-        <dd>3= moderate (1.5 to 2 mph)</dd>
-        <dd>4= leisurely (0.5 to 1.5 mph)</dd>
+        <dd>1 = very fast (2.5 mph+)</dd>
+        <dd>2 = fast (2 to 2.5 mph)</dd>
+        <dd>3 = moderate (1.5 to 2 mph)</dd>
+        <dd>4 = leisurely (0.5 to 1.5 mph)</dd>
     </dl>
     </div>
     <div class='row1'>
     <dl>
         <dt>End letters indicate <b>terrain</b>:</dt>
-        <dd>A= very strenuous</dd>
-        <dd>A= very strenuous</dd>
-        <dd>C= average</dd>
-        <dd>D= easy</dd>
+        <dd>A = very strenuous</dd>
+        <dd>B = strenuous</dd>
+        <dd>C = average</dd>
+        <dd>D = easy</dd>
     </dl>
     </div>
 
