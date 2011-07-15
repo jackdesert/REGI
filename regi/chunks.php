@@ -188,7 +188,62 @@ function CHUNKlinksopenhere($in_html){
     return $go_local;
 }
 
+function CHUNKhikerating(){
+    $stuff="<div class='hike_rating'>
+    View Hike Rating Key
+    <div class='visible_on_hover'>
+    <div class='row0'>
+    <dl>
+        <td>Example: <b>B3B</b></td>
+        <dd>5-9 miles (B)</dd>
+        <dd>moderately paced (3)</dd>
+        <dd>on strenuous terrain (B)</dd>
+    </dl>
+    </div>
 
+    <div class='row1'>
+    <dl>
+        <dt>First letters indicate <b>mileage</b>:</dt>
+        <dd>AA = 13 mi and over</dd>
+        <dd>A = 9 to 13 mi</dd>
+        <dd>B = 5 to 9 mi</dd>
+        <dd>C = under 5 mi</dd>
+    </dl>
+    </div>
+    <div class='row0'>
+    <dl>
+        <dt>Middle number indicates <b>pace</b> across "average" terrain:</dt>
+        <dd>1= very fast (2.5 mph+)</dd>
+        <dd>2= fast (2 to 2.5 mph)</dd>
+        <dd>3= moderate (1.5 to 2 mph)</dd>
+        <dd>4= leisurely (0.5 to 1.5 mph)</dd>
+    </dl>
+    </div>
+    <div class='row1'>
+    <dl>
+        <dt>End letters indicate <b>terrain</b>:</dt>
+        <dd>A= very strenuous</dd>
+        <dd>A= very strenuous</dd>
+        <dd>C= average</dd>
+        <dd>D= easy</dd>
+    </dl>
+    </div>
+    <div class='row0'>
+    <dl>
+        <td>Notes:</td>
+        <dd>Terrain ratings may not match Connecticut or Southeastern Massachusetts values.</dd>
+        <dd>Backpacks rate the most difficult day of hiking planned.</dd>
+        <dd>Some ratings may have an additional two letters at the end, these indicate a terrain level between the values.</dd>
+        <dd>Actual trip pace may differ from the pace number if terrain is not &quot;average&quot;.</dd>
+    </dl>
+    </div>
+
+
+    </div>
+    </div>";
+    print $stuff;
+    return $stuff;
+}
 /*Note there is purposefully no closing php tag here, because
 if you accidentally put extra characters (even line breaks)
 after a closing php tag, you will get a warning when this

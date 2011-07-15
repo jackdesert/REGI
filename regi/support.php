@@ -35,7 +35,7 @@
 
 <h1>Support</h1>
 We're here to help. If you can't find the information you're looking for on this page,
-<a class='menu' href='mailto:amcbostonhbs@gmail.com?subject=Help%20With%20REGI%20Site' >send Julie and Abby an email</a>.
+<a class='menu' href='mailto:amcbostonhbs@gmail.com?subject=Help%20With%20REGI%20Site' >send an email to REGI Support</a>.
 If something is broken, we want to know so we can ask Jack to fix it. And if something needs more explanation, let us
 know and we'll add it to our Frequently Asked Questions below.
 

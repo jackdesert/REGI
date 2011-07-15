@@ -400,3 +400,7 @@ td, th{
     padding-bottom: 2ex;
     width: 145%;
 }
+
+.hike_rating {width: 50%;}
+.hike_rating .visible_on_hover {display: none;}
+.hike_rating:hover .visible_on_hover {display: inline;)

@@ -214,7 +214,7 @@
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
 
 
-<span style="font-weight: bold">Pricing:</span> (Example: <i>$110 covers 2 nights lodging, 2 breakfasts, 2 dinners, and a trail map.</i>)<br>
+<span style="font-weight: bold">Cost:</span> (Example: <i>$110 covers 2 nights lodging, 2 breakfasts, and 2 dinners.</i>)<br>
 <textarea name='pricing' rows=3 cols=60><?php print $pricing; ?></textarea><br><br>
 
 <span style="font-weight: bold">* General Description:</span><br>
