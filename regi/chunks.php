@@ -189,7 +189,8 @@ function CHUNKlinksopenhere($in_html){
 }
 
 function CHUNKhikerating(){
-    $stuff="<div class='hike_rating'>
+    $stuff="
+    <div class='hike_rating'>
     View Hike Rating Key
     <div class='visible_on_hover'>
     <div class='row0'>
@@ -212,7 +213,7 @@ function CHUNKhikerating(){
     </div>
     <div class='row0'>
     <dl>
-        <dt>Middle number indicates <b>pace</b> across "average" terrain:</dt>
+        <dt>Middle number indicates <b>pace</b> across &quot;average&quot; terrain:</dt>
         <dd>1= very fast (2.5 mph+)</dd>
         <dd>2= fast (2 to 2.5 mph)</dd>
         <dd>3= moderate (1.5 to 2 mph)</dd>

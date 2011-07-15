@@ -403,4 +403,9 @@ td, th{
 
 .hike_rating {width: 50%;}
 .hike_rating .visible_on_hover {display: none;}
-.hike_rating:hover .visible_on_hover {display: inline;)
+.hike_rating:hover .visible_on_hover {
+    display: block;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
