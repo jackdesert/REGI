@@ -39,7 +39,7 @@ h5{font-size: 80%}
 <script language="JavaScript1.2">mmLoadMenus();</script>
 <table align="center" width="759" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="760" bgcolor="#000000"><a href="../index.html"><img src="http://www.maccweb.org/Images/emacc_banner.jpg" width="759" height="96" border="0" longdesc="http://www.maccweb.org/Images/emacc_banner.jpg"></a></td>
+    <td width="760" bgcolor="#000000"><a href="http://www.maccweb.org/forms/resources_templates.html"><img src="http://www.maccweb.org/Images/emacc_banner.jpg" width="759" height="96" border="0" longdesc="http://www.maccweb.org/Images/emacc_banner.jpg"></a></td>
   </tr>
 </table>
 
