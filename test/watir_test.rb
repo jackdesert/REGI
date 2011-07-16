@@ -75,7 +75,7 @@ class AMC < Test::Unit::TestCase
     #~ end
     def test_01_create_event_valid_start_no_end
         puts "Clicking Create New Event"
-        @truck.b.link(:text, "Create New Event").click
+        @truck.b.div(:text, "Create New Event").click
         puts "Entering Information"
         @truck.b.text_field(:name, "start_date").value = @truck.start_date
         @truck.b.text_field(:name, "event_name").value = @truck.event_name
