@@ -22,8 +22,8 @@ class Standard
     attr_reader :b, :start_date, :end_date, :event_name, :description
     attr_accessor :event_id
     def initialize
-        @start_date = "2011-01-01"
-        @end_date = "2011-01-01"
+        @start_date = "01/01/2011"
+        @end_date = "01/01/2011"
         @event_name = "The Name I was Born With"
         @description = "A short, concise treatise on what you will get out of this."
         @event_id = ''
@@ -80,18 +80,18 @@ class AMC < Test::Unit::TestCase
         @truck.b.text_field(:name, "start_date").value = @truck.start_date
         @truck.b.text_field(:name, "event_name").value = @truck.event_name
         @truck.b.text_field(:name, "description").value = @truck.description
-        @truck.b.button(:value, "New Event").click
+        @truck.b.button(:value, "Create New Event").click
         assert(@truck.b.text.include?( "This event has been inserted into the database"), "Event not inserted")
         assert(@truck.b.html.include?( @truck.start_date ),"Start date not found on page")
         assert(@truck.b.html.include?( @truck.event_name ),"Event name not found on page")
         assert(@truck.b.html.include?( @truck.description ),"Description not found on page")
         # Change Start Date to another reasonable value
-        new_date = "2011-02-28"
+        new_date = "02/28/2011"
         @truck.b.text_field(:name, "start_date").value = new_date
         @truck.b.button(:value, "Update Event").click
         assert(@truck.b.text.include?( "This event has been updated in the database"), "Event not inserted")
         assert(@truck.b.html.include?( new_date ),"Start date not found on page")
-        end_date = "2011-02-30"
+        end_date = "02/30/2011"
         @truck.b.text_field(:name, "end_date").value = end_date
         @truck.b.button(:value, "Update Event").click
         #assert(@truck.b.text.include?( "Invalid Combination"), "Javascript was supposed to catch bad date combo")
@@ -101,7 +101,3 @@ class AMC < Test::Unit::TestCase
     end
 
 end
-
-        #~ truck.start_date = "2011-12-24"
-        #~ event_name = "test_event"
-        #~ description= "description " * 24
