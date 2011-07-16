@@ -39,15 +39,25 @@ h5{font-size: 80%}
 <script language="JavaScript1.2">mmLoadMenus();</script>
 <table align="center" width="759" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="760" bgcolor="#000000"><a href="http://www.maccweb.org/forms/resources_templates.html"><img src="http://www.maccweb.org/Images/emacc_banner.jpg" width="759" height="96" border="0" longdesc="http://www.maccweb.org/Images/emacc_banner.jpg"></a></td>
+    <td width="760" bgcolor="#000000"><a href="http://www.maccweb.org/resources_templates.html"><img src="http://www.maccweb.org/Images/emacc_banner.jpg" width="759" height="96" border="0" longdesc="http://www.maccweb.org/Images/emacc_banner.jpg"></a></td>
   </tr>
 </table>
 
 <table  width="760" bgcolor="adbcc9" width="759" border="0" align="center" cellpadding="5" cellspacing="0">
 <tr valign="top" bgcolor="d1d9d5" border="0" cellpadding="0" cellspacing="0"><td border="0" cellpadding="0" cellspacing="0">
 
-<div class="title" align="center" >MACC Electronic Resource Center </div>
 <?php
+
+function whereAmI(){
+    //calculate path to come back to same directory
+    $script_path = $_SERVER['SCRIPT_NAME'];
+    $pattern = '/\/.*\//';
+    preg_match($pattern, $script_path, $match_array);
+    $script_dir = $match_array[0];
+    $script_dir_no_trail = substr($script_dir, 1, -1);
+    print "<div class='title' align='center'>$script_dir_no_trail</div>";
+    print "<div align='center' ><a href='http://www.maccweb.org/resources_templates.html'>Back to MACC Electronic Resource Center</a> </div>";
+}
 
 function getDirectory( $path = '.', $level = 0 ){
 
@@ -118,7 +128,7 @@ function getDirectory( $path = '.', $level = 0 ){
     // Close the directory handle
 
 }
-
+whereAmI();
 getDirectory();
 ?>
 
