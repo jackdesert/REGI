@@ -260,7 +260,7 @@
 <p>You can also ask participants an additional question by listing it here:</p>
 
 <span style="font-weight: bold">Additional Event Question </span>(Optional)<br>
-<input type='text' name='question1' value='<?php print $question1; ?>' size=80><br><br>
+<input type='text' name='question1' value='<?php print $question1; ?>' size=60><br><br>
 <!-- Do Not Display Second Question
 <span style="font-weight: bold">Additional Event Question 2 (Optional)</span><br>
 <input type='text' name='question2' value='<?php print $question2; ?>' size=80><br><br>
