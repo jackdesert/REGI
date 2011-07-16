@@ -208,7 +208,8 @@
     }
 
     print "<p class='indented'>My Registration Status: <b>$my_register_status</b></p>";
-    print "<p class='indented'>Hike Rating: <b>".$rating.". </b>&nbsp;&nbsp;(<a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/'>Hike Rating Key</a>)</p> ";
+    CHUNKhikerating($rating);
+    //print "<p class='indented'>Hike Rating: <b>".$rating.". </b>&nbsp;&nbsp;(<a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)</p> ";
     print "<p class='indented'>Cost: <b>".str_replace("\n", "<br>", $pricing)."</b></p> ";
 
     //Display co/leaders

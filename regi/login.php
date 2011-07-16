@@ -54,7 +54,7 @@
    <div style="padding-left:20px; width:90%;">
 <div style='float: left; width: 60%;'>
 
-<h1>With REGI, you can painlessly register for multiple AMC events</h1>
+<h1>With REGI, it's easy to register for multiple AMC events</h1>
 <ul>
 
 <li>Enter your profile and contact information only once</li>

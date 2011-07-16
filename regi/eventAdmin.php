@@ -209,12 +209,18 @@
             <option value='CANCELED'>CANCELED
         </select><br><br>
 
+<span style="font-weight: bold">Hike Rating:</span> <br>
 
-<span style="font-weight: bold">Hike Rating:</span> <br>(Example: <i>B3B</i>, also see the <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/'>Hike Rating Key</a>)<br>
+<?php CHUNKhikerating($rating, true); ?>
+<!--
+ <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank' >Hike Rating Key</a>)<br>
+
+-->
+
 <input type='text' maxlength='4' name='rating' value='<?php print $rating; ?>' size=4><br><br>
 
 
-<span style="font-weight: bold">Pricing:</span> (Example: <i>$110 covers 2 nights lodging, 2 breakfasts, 2 dinners, and a trail map.</i>)<br>
+<span style="font-weight: bold">Cost:</span> (Example: <i>$110 covers 2 nights lodging, 2 breakfasts, and 2 dinners.</i>)<br>
 <textarea name='pricing' rows=3 cols=60><?php print $pricing; ?></textarea><br><br>
 
 <span style="font-weight: bold">* General Description:</span><br>
@@ -222,6 +228,9 @@
 
 <span style="font-weight: bold">Gear List</span> (If no gear necessary, please type: "No gear necessary"):
 <textarea name='gear_list' rows=8 cols=60><?php print $gear_list; ?></textarea><br><br>
+
+<span style="font-weight: bold">Participant Info:</span> (Directions to trailhead, etc. Visible only to APPROVED participants.)
+<textarea name='trip_info' rows=8 cols=60><?php print $trip_info; ?></textarea><br><br>
 
 <h2>Program Info</h2>
 <?php  //Set one button to be checked by default
@@ -251,7 +260,7 @@
 <p>You can also ask participants an additional question by listing it here:</p>
 
 <span style="font-weight: bold">Additional Event Question </span>(Optional)<br>
-<input type='text' name='question1' value='<?php print $question1; ?>' size=80><br><br>
+<input type='text' name='question1' value='<?php print $question1; ?>' size=60><br><br>
 <!-- Do Not Display Second Question
 <span style="font-weight: bold">Additional Event Question 2 (Optional)</span><br>
 <input type='text' name='question2' value='<?php print $question2; ?>' size=80><br><br>
@@ -263,10 +272,6 @@
 <span style="font-weight: bold">Confirmation Page:</span> (Displays when user registers for event.)
 <?php if ($event_id <> '') print "<br>Save changes and then you can <a href='./confirmationPage.php?event_id=$event_id'><span style='font-size:130%;'>Preview</span></a> what you wrote.<br>"; ?>
 <textarea name='confirmation_page' rows=8 cols=60><?php print $confirmation_page; ?></textarea><br><br>
-
-<span style="font-weight: bold">Participant Info:</span> (Directions to trailhead, etc. Visible only to APPROVED participants.)
-<textarea name='trip_info' rows=8 cols=60><?php print $trip_info; ?></textarea><br><br>
-
 
 <br><br>
 
