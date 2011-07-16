@@ -44,7 +44,7 @@ h5{font-size: 80%}
 </table>
 
 <table  width="760" bgcolor="adbcc9" width="759" border="0" align="center" cellpadding="5" cellspacing="0">
-<tr valign="top" bgcolor="d1d9d5" border="0" cellpadding="0" cellspacing="0"><td border="0" cellpadding="0" cellspacing="0">
+<tr valign="top" background='http://www.maccweb.org/img/clouds-dark-bkd.gif' bgcolor="d1d9d5" border="0" cellpadding="0" cellspacing="0"><td border="0" cellpadding="0" cellspacing="0">
 
 <?php
 
