@@ -191,16 +191,12 @@ function CHUNKlinksopenhere($in_html){
 function CHUNKhikerating($rating, $edit = false){
     if ($edit == true){
         $show_rating_too = "<div style='float:left;'> (Example: <i>B3B</i>, also see the&nbsp;&nbsp;</div>";
-        $less_space_beneath = " style='margin-bottom: -1.6ex;'";
-
-    //<span style="font-weight: bold">Hike Rating:</span> <br>(Example: <i>B3B</i>, also see the
     }else{
         $show_rating_too = "<div class='indented' style='float:left;'>Hike Rating: <b>".$rating." </b>&nbsp;&nbsp;(</div>";
-        $less_space_beneath = "";
     }
     $stuff=$show_rating_too . "
-    <div class='hike_rating' $less_space_beneath>
-    <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)</p>
+    <div class='hike_rating'>
+    <a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)
     <div class='visible_on_hover'>
     <div class='row0'>
     <h2>Hike Rating Quick Reference</h2>
@@ -237,7 +233,7 @@ function CHUNKhikerating($rating, $edit = false){
 
     <div class='row0'>
     <dl>
-        <td>Example: <b>B3B</b></td>
+        <dt>Example: <b>B3B</b></dt>
         <dd>5-9 miles (B)</dd>
         <dd>moderately paced (3)</dd>
         <dd>on strenuous terrain (B)</dd>
