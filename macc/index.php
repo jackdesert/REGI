@@ -39,20 +39,19 @@ h5{font-size: 80%}
 <script language="JavaScript1.2">mmLoadMenus();</script>
 <table align="center" width="759" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="760" bgcolor="#000000"><img src="../img/banner_01.jpg" width="759" height="64"></td>
+    <td width="760" bgcolor="#000000"><a href="../index.html"><img src="http://www.maccweb.org/Images/emacc_banner.jpg" width="759" height="96" border="0" longdesc="http://www.maccweb.org/Images/emacc_banner.jpg"></a></td>
   </tr>
-  <tr><td bgcolor="#000000"><img src="../img/banner_03.gif" width="99" height="32"></tr>
 </table>
 
 <table  width="760" bgcolor="adbcc9" width="759" border="0" align="center" cellpadding="5" cellspacing="0">
 <tr valign="top" bgcolor="d1d9d5" border="0" cellpadding="0" cellspacing="0"><td border="0" cellpadding="0" cellspacing="0">
 
-<div class="title" align="center" >MACC Electronic Resource Center</div>
+<div class="title" align="center" >MACC Electronic Resource Center </div>
 <?php
 
 function getDirectory( $path = '.', $level = 0 ){
 
-    $ignore = array( 'cgi-bin', '.', '..','.git','index.php','resources_links.html','resources_templates.html','run.rb','backups' );
+    $ignore = array( 'cgi-bin', '.', '..','.git','index.php','resources_links.html','resources_templates.html','run.rb','indexbu.php','backups' );
     // Directories to ignore when listing output. Many hosts
     // will deny PHP access to the cgi-bin.
     $myDirs = array();
