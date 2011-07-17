@@ -58,17 +58,21 @@
 
 \begin_body
 
-\begin_layout Standard
+\begin_layout Title
 REGI Security
 \end_layout
 
-\begin_layout Standard
+\begin_layout Author
+Jack Desert
+\end_layout
+
+\begin_layout Abstract
 This paper is designed to lay out exactly what security measures are in
  place on the REGI site, that they may be reviewed to make sure security
  and confidentiality are adequate and appropriate.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Abstract
 Largely the information is confidential more than it is private.
  There are no credit cards used in REGI.
  However, certain sensitive personal information exists and it seems important
@@ -78,12 +82,260 @@ Largely the information is confidential more than it is private.
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Section
 Password Authentication
 \end_layout
 
 \begin_layout Standard
+The REGI database has a user_password field as well as a user_passhash field.
+ The user_password field will soon be deprecated once the user_passhash
+ field goes live with version 0.53.
+ 
+\end_layout
 
+\begin_layout Standard
+The user_passhash that is stored in the database is a salted hash of the
+ password given by the user.
+ A ten-character random salt is appended the the user_password before it
+ is hashed using the sha1 algorithm.
+ The hashed value (40 characters in length) as well as the salt value are
+ stored together in the field called user_passhash.
+ 
+\end_layout
+
+\begin_layout LyX-Code
+
+\end_layout
+
+\begin_layout LyX-Code
+function UTILgenhash($plainText) { 
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+$salt = substr(md5(uniqid(rand(), true)), 0, SALT_LENGTH); 
+\end_layout
+
+\begin_layout LyX-Code
+return $salt .
+ sha1($salt .
+ $plainText); 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+} 
+\end_layout
+
+\begin_layout Standard
+To check the password, the reverse happens.
+ The 10-character salt is read from the database.
+ The sha1 has is created of salt+password.
+ If that hash matches the last 40 characters from the user_passhash, authenticat
+ion is confirmed.
+ 
+\end_layout
+
+\begin_layout LyX-Code
+define('SALT_LENGTH', 10);
+\end_layout
+
+\begin_layout LyX-Code
+function UTILcheckhash($plainText, $stored) { 
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+$hash_40 = substr($stored, SALT_LENGTH); 
+\end_layout
+
+\begin_layout LyX-Code
+$salt = substr($stored, 0, SALT_LENGTH); 
+\end_layout
+
+\begin_layout LyX-Code
+$new_hash = sha1($salt .
+ $plainText); 
+\end_layout
+
+\begin_layout LyX-Code
+if ($hash_40 == $new_hash) return true; 
+\end_layout
+
+\begin_layout LyX-Code
+else return false; 
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+}
+\end_layout
+
+\begin_layout Section
+Cookies
+\end_layout
+
+\begin_layout Standard
+In order that users not be troubled for a password every half hour, cookies
+ are provided.
+ Once a user authenticates once with a password, a digitally signed cookie
+ is created that contains the username.
+ The cookie is given a one-month expiration date, but it is left to the
+ client (browser) to enforce this, so ther is no guarantee that the client
+ will discard the cookie.
+ 
+\end_layout
+
+\begin_layout Section
+Data Transmission
+\end_layout
+
+\begin_layout Standard
+Passwords are cookies are both passed back and forth in plaintext, as are
+ all the confidentially-sensitive data saved in the REGI database.
+ This means that they can be easily sniffed.
+ The passwords would then be known by a third party, and that third party
+ could gain complete access--at least to whatever that user has access to.
+ Sniffed cookies would provide access to the compromised account for at
+ least a month, and perhaps longer if the third party is smart enough to
+ tell his browser to keep them.
+ 
+\end_layout
+
+\begin_layout Section
+Passwords
+\end_layout
+
+\begin_layout Standard
+Passwords are required to be at least 6 characters in length.
+ They may be of any characters, though special characters &<>'
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\emph on
+space
+\emph default
+ are all escaped using $quot; for double quotes, for example.
+ 
+\end_layout
+
+\begin_layout Subsection
+Forgotten Passwords
+\end_layout
+
+\begin_layout Standard
+By typing in her email address, a user may request a link to reset her password.
+ A link containing her authorization code is sent to her email.
+ The authorization code is a random 50-character string.
+ 
+\end_layout
+
+\begin_layout Subsection
+Resetting Passwords
+\end_layout
+
+\begin_layout Standard
+Once a user is logged in, she may reset her password.
+ She is not required to enter her new password twice.
+ She is not required to enter her old password.
+ 
+\end_layout
+
+\begin_layout Subsection
+Registration Status
+\end_layout
+
+\begin_layout Standard
+There are three registration statuses for a trip.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Submitted: User has registered, but cannot view participant info field (usually
+ contains directions to trailhead).
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Canceled: User is not approved.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Approved: User is accepted into the trip.
+ User may view the carpooling information of other participants.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+Leader/Coleader/Registrar: User may assign registration statuses to other
+ users for THIS TRIP ONLY.
+ May also change details about THIS TRIP ONLY.
+\end_layout
+
+\begin_layout Subsection
+User Type
+\end_layout
+
+\begin_layout Standard
+There are three user types.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+USER may only view and edit her own registration information for a trip.
+ 
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+LEADER Has all permissions of USER, but can also create new trips.
+ By creating a new trip, she automatically acquires Leader registration
+ status for that trip.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+ADMIN This is the superuser of registration status.
+ This user type can do anyhing a Leader/Coleader/Registrar can do for a
+ trip, except that for an ADMIN these privileges extend to any trips within
+ the system.
+ And generally, people with ADMIN privileges also have direct access to
+ the database vi PHPMyAdmin, allowing them to view and edit anything that
+ is in the database.
+ 
+\end_layout
+
+\begin_layout Section
+Script Injection
+\end_layout
+
+\begin_layout Standard
+All text-entry fields in REGI have all html special characters stripped
+ using PHP's htmlspecialchars() function before being inserted into the
+ database.
+ And in most cases, they are displayed on the website in encoded form.
+ However, the confirmation page and the Participant Info field decode their
+ data before displaying it to the web site.
+ The purpose of this is so that html tags containing PayPal links may be
+ embedded into these pages.
+ This also means that any html tags, like <br><b><i><ul> can be used to
+ make fancy formatting on these pages.
+ One side effect of this is when such tags are not closed.
+ Then the footer at the bottom the page shows up with different formatting
+ that we intended.
+ 
+\end_layout
+
+\begin_layout Standard
+One other place where html tags are decoded is when exporting the roster
+ of participants to either an Excel or tab-delimited file.
+ It makes no sense to put &quot; in an excel file, so we put real quotations
+ in instead.
+ 
 \end_layout
 
 \end_body
