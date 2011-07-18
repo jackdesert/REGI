@@ -275,6 +275,53 @@ APPROVED
 \end_layout
 
 \begin_layout Paragraph
+An event is marked 
+\begin_inset Quotes eld
+\end_inset
+
+FULL
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Can I still register?
+\end_layout
+
+\begin_layout Quote
+The short answer is 
+\begin_inset Quotes eld
+\end_inset
+
+no
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Here is what the different event statuses mean:
+\end_layout
+
+\begin_layout Itemize
+OPEN: Sign up for this cool event!
+\end_layout
+
+\begin_layout Itemize
+WAIT LIST: All the spots on the event are taken, but you can still sign
+ up to be on the wait list, and if someone else cancels you may get to go.
+ 
+\end_layout
+
+\begin_layout Itemize
+FULL: All the spots on the event are taken, and the waitlist is also full.
+ No more registrations are being accepted.
+ 
+\end_layout
+
+\begin_layout Itemize
+CANCELLED: This event will not happen.
+ 
+\end_layout
+
+\begin_layout Paragraph
 How do I get a ride or offer a ride? 
 \end_layout
 
