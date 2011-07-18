@@ -409,10 +409,10 @@ td, th{
     background: #ccc;
     border-radius: 2ex;
 }
-.hike_rating .visible_on_hover {
-    position: absolute;
+.visible_on_hover {
+    position: fixed; /* fixed means relative to the browser window*/
     left:50%;
-    top: 30%;
+    top: 1ex;
     width: 35%;
     display: none;
     padding: 1ex;
