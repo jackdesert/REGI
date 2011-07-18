@@ -63,6 +63,7 @@ function CHUNKdatepicker(){
 
 
 function CHUNKgivehead($dates=''){
+    CHUNKuseSSL();
     if ($dates)
         $date_includes = CHUNKdatepicker();
     else
@@ -80,6 +81,14 @@ function CHUNKgivehead($dates=''){
 ";
 
     return 1;
+}
+
+function CHUNKuseSSL(){
+    //force redirect to secure page
+    if($_SERVER['SERVER_PORT'] != '443') {
+        header('Location: https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+        exit();
+    }
 }
 
 function CHUNKstartbody(){

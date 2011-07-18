@@ -53,7 +53,7 @@ function SECtestCookie($in_cookie, $special){
 
 function SECsetAuthCookie($cookie_val){
     $expiry = time() + 60*60*24*30; //One month
-    setcookie("regi", $cookie_val, $expiry);    // not valid until next time around
+    setcookie("regi", $cookie_val, $expiry, '', '', true, true);    // not valid until next time around
     return 0;
 }
 
