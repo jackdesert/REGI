@@ -301,12 +301,12 @@ no
 \end_layout
 
 \begin_layout Itemize
-OPEN: Sign up for this cool event!
+OPEN: This event is currently accepting new registrants.
 \end_layout
 
 \begin_layout Itemize
 WAIT LIST: All the spots on the event are taken, but you can still sign
- up to be on the wait list, and if someone else cancels you may get to go.
+ up to be on the wait list, and if someone else cancels youwill be notified.
  
 \end_layout
 
@@ -317,7 +317,7 @@ FULL: All the spots on the event are taken, and the waitlist is also full.
 \end_layout
 
 \begin_layout Itemize
-CANCELLED: This event will not happen.
+CANCELLED: This event has been cancelled.
  
 \end_layout
 
