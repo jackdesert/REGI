@@ -19,7 +19,7 @@ body{
 h1,h2,h3,h4,h5,.title{
     font-family: Georgia, Times New Roman;
     line-height:    100%;
-    padding-top:    1em;}
+    padding-top:    0em;}
 .title{font-size: 200%;}
 h1{font-size: 120%}
 h2{font-size: 110%}
@@ -54,9 +54,12 @@ function whereAmI(){
     $pattern = '/\/.*\//';
     preg_match($pattern, $script_path, $match_array);
     $script_dir = $match_array[0];
+    $script_dir = str_replace('/forms', '', $script_dir);
     $script_dir_no_trail = substr($script_dir, 1, -1);
+    print "<br>";
     print "<div class='title' align='center'>$script_dir_no_trail</div>";
     print "<div align='center' ><a href='http://www.maccweb.org/resources_templates.html'>Back to MACC Electronic Resource Center</a> </div>";
+    print "<br>";
 }
 
 function getDirectory( $path = '.', $level = 0 ){
@@ -126,7 +129,7 @@ function getDirectory( $path = '.', $level = 0 ){
 
     closedir( $dh );
     // Close the directory handle
-
+    print "<br>";
 }
 whereAmI();
 getDirectory();
