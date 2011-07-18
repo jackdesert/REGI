@@ -90,7 +90,10 @@ Password Authentication
 The REGI database has a user_password field as well as a user_passhash field.
  The user_password field will soon be deprecated once the user_passhash
  field goes live with version 0.53.
- 
+ (Currently in use is version 0.50 which has the option of emailing the password
+ to the user in plain text.
+ Also, anybody with access to the database can read everyone's passwords
+ and try them on various sites around the web.) 
 \end_layout
 
 \begin_layout Standard
@@ -179,7 +182,7 @@ Cookies
 In order that users not be troubled for a password every half hour, cookies
  are provided.
  Once a user authenticates once with a password, a digitally signed cookie
- is created that contains the username.
+ is created using the HMAC algorithm that contains the plaintext username.
  The cookie is given a one-month expiration date, but it is left to the
  client (browser) to enforce this, so ther is no guarantee that the client
  will discard the cookie.
@@ -191,14 +194,18 @@ Data Transmission
 \end_layout
 
 \begin_layout Standard
-Passwords are cookies are both passed back and forth in plaintext, as are
- all the confidentially-sensitive data saved in the REGI database.
+Passwords, cookies, publicly-viewable data, and confidential data are all
+ transmitted in plaintext.
  This means that they can be easily sniffed.
- The passwords would then be known by a third party, and that third party
- could gain complete access--at least to whatever that user has access to.
- Sniffed cookies would provide access to the compromised account for at
- least a month, and perhaps longer if the third party is smart enough to
- tell his browser to keep them.
+ The confidential data can be easily sniffed by anyone with is WiFi range
+ of the user.
+ The breached user's passwords and/or authentication cookie could then be
+ known by a third party, and that third party could gain complete access
+ to whatever the breached user has access to, Sniffed cookies would provide
+ access to the compromised account for at least a month, and perhaps longer
+ if the third party is smart enough to tell his browser to keep them.
+ In the case where a user who has ADMIN priviliges is breached, the offending
+ third party could make changes to any of the trips in the database.
  
 \end_layout
 
@@ -318,23 +325,57 @@ All text-entry fields in REGI have all html special characters stripped
  using PHP's htmlspecialchars() function before being inserted into the
  database.
  And in most cases, they are displayed on the website in encoded form.
- However, the confirmation page and the Participant Info field decode their
- data before displaying it to the web site.
- The purpose of this is so that html tags containing PayPal links may be
- embedded into these pages.
- This also means that any html tags, like <br><b><i><ul> can be used to
- make fancy formatting on these pages.
- One side effect of this is when such tags are not closed.
- Then the footer at the bottom the page shows up with different formatting
- that we intended.
+ However, there are three places on the REGI site where these data are decoded
+ before being printed to the page:
+\end_layout
+
+\begin_layout Itemize
+Participant Info field 
+\end_layout
+
+\begin_layout Itemize
+Confirmation Page
+\end_layout
+
+\begin_layout Itemize
+Roster Export (Excel or tab-delimited format)
+\end_layout
+
+\begin_layout Standard
+The purpose of allowing html decoding of the first two is so that PayPal
+ links may be embedded into these pages.
+ The purpose of allowing html decoding of the Roster Export is because Excel
+ and tab-delimited files don't know how to display things like &quot;.
  
 \end_layout
 
 \begin_layout Standard
-One other place where html tags are decoded is when exporting the roster
- of participants to either an Excel or tab-delimited file.
- It makes no sense to put &quot; in an excel file, so we put real quotations
- in instead.
+One side effect of allowing Participant Info and Confirmation Page to display
+ raw html tags is that a savvy user could add fancy formatting, like <br><b><i><
+ul>, in her entry.
+ One problem with this is that any unclosed tags will affect our footer
+ at the bottom of the page.
+ 
+\end_layout
+
+\begin_layout Section
+Data Backups
+\end_layout
+
+\begin_layout Standard
+Currently no nightly backups are being made of the REGI database.
+ 
+\end_layout
+
+\begin_layout Section
+Bots
+\end_layout
+
+\begin_layout Standard
+No captchas are used on the site.
+ Valid email addresses are not required to create accounts.
+ No time delay is enforced between login attempts.
+ No limit is placed on how many login attempts a user may try.
  
 \end_layout
 
