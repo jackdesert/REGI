@@ -305,15 +305,15 @@ OPEN: This event is currently accepting new registrations.
 \end_layout
 
 \begin_layout Itemize
-WAIT LIST: All the spots on the event are taken, but you can still sign
- up to be on the wait list, and if someone else cancels out of the event
- you will be notified.
+WAIT LIST: All the spots on the event are taken.
+ However, you can still sign up to be on the wait list, and if someone else
+ cancels out of the event you will be notified.
  
 \end_layout
 
 \begin_layout Itemize
-FULL: All the spots on the event are taken, and the waitlist is also full.
- No more registrations are being accepted.
+FULL: All the spots on the event are taken.
+ No more registrations are being accepted, not even for the wait list.
  
 \end_layout
 
@@ -323,30 +323,77 @@ CANCELLED: This event has been cancelled.
 \end_layout
 
 \begin_layout Paragraph
-How do I get a ride or offer a ride? 
+\begin_inset Quotes eld
+\end_inset
+
+My Status
+\begin_inset Quotes erd
+\end_inset
+
+ is 
+\begin_inset Quotes eld
+\end_inset
+
+APPROVED
+\begin_inset Quotes erd
+\end_inset
+
+.
+ What does that mean?
 \end_layout
 
 \begin_layout Quote
-When you register for an event, the REGI system will ask whether you can
- offer others a ride or if you need a ride yourself.
- Once you are approved for the event, you will be able to see other participants
-' carpooling information.
- Who is coming, where they are coming from, whether they are offering or
- requesting rides, and their email address.
- You can then email them and offer to carpool with them.
+
+\emph on
+My Status
+\emph default
+ is short for 
+\emph on
+My Registration Status
+\emph default
+.
+ It tells whether you have been approved for that particular event.
+ Here is what the different statuses mean:
+\end_layout
+
+\begin_layout Itemize
+SUBMITTED: You have registered for the event.
+ Your approval for this event is pending.
  
 \end_layout
 
+\begin_layout Itemize
+APPROVED: You made the list.
+ You're in.
+ You're going.
+ You'll have a great time.
+ 
+\end_layout
+
+\begin_layout Itemize
+WAIT LIST: All the spots on the event are taken.
+ However you have been added to the wait list.
+ If someone cancels out of the event you will be notified.
+\end_layout
+
+\begin_layout Itemize
+CANCELLED: You have cancelled your attendance for this event.
+\end_layout
+
 \begin_layout Paragraph
-How do I know whether I have been approved for an event? 
+When will I know if I have been approved for an event? 
 \end_layout
 
 \begin_layout Quote
 Once the leader has had a chance to review your application, your registration
- status will be updated to "APPROVED" or "WAITLIST".
+ status will be updated toeither "APPROVED" or "WAITLIST".
  You will receive an automated email sent to your profile email address
  to notify you of the status change.
- Your registration status is also listed under your 
+ You can also check the 
+\emph on
+My Status 
+\emph default
+column under your 
 \emph on
 
 \begin_inset CommandInset href
@@ -358,11 +405,8 @@ target "myEvents.php"
 
 
 \emph default
- page under the 
-\emph on
-Role
-\emph default
- column.
+ page.
+ 
 \end_layout
 
 \begin_layout Paragraph
@@ -370,14 +414,7 @@ What do I do if I’m WAITLISTED?
 \end_layout
 
 \begin_layout Quote
-If there the event is currently full, the leader will place you on a waitlist
- and you will receive an automated email from the system letting you know
- that your registration status has been updated to 
-\emph on
-WAITLIST
-\emph default
-.
- If spots open up on the event, the leader will contact you to offer you
+If a spot opens up on the event, the leader will contact you to offer you
  a spot.
  If you are taken off the waitlist, your registration status will switch
  to “APPROVED” and you will receive an automated email to this effect.
@@ -396,6 +433,21 @@ If you need to cancel your registration, email the leader ASAP so that he
 CANCELLED
 \emph default
 .
+ 
+\end_layout
+
+\begin_layout Paragraph
+How do I get a ride or offer a ride? 
+\end_layout
+
+\begin_layout Quote
+When you register for an event, the REGI system will ask whether you can
+ offer others a ride or if you need a ride yourself.
+ Once you are approved for the event, you will be able to see other participants
+' carpooling information.
+ Who is coming, where they are coming from, whether they are offering or
+ requesting rides, and their email address.
+ You can then email them and offer to carpool with them.
  
 \end_layout
 
