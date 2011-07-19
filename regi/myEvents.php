@@ -80,7 +80,7 @@
         else
         {
 
-            print"<table class='center'><tr class='table_header'><th>Start</th><th>End</th><th>Event</th><th>Role</th><th>Event Status</th></tr>";
+            print"<table class='center'><tr class='table_header'><th>Start</th><th>End</th><th>Event</th><th>My Status</th><th>Event Status</th></tr>";
             print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
             $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {
