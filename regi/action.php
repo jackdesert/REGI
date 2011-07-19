@@ -185,9 +185,10 @@
                 }
 
 
-                $title="AMC Boston Chapter Event Registration - New Registrant";
-                $message="Notice to event leaders:\n\n$first_name $last_name has just registered for the following event: $event_name.\n\nClick here for the admin page:
-http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id\n\nThank you!";
+                $title="New Registrant for $event_name";
+                $message="Notice to event leaders:\n\n$first_name $last_name has just registered for the following event: $event_name.\n\n
+Please review their profile and update their registration status on the Roster page:
+http://hbbostonamc.org/registrationSystem/eventRoster.php?event_id=$event_id\n\nThank you!";
 
                 UTILsendEmail($leader_list, $title, $message);
             }
