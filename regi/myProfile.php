@@ -93,60 +93,72 @@
             $exercise=$row['exercise'];
             $diet=$row['diet'];
 
-            if ($member=='Y')
-                $member_yes='checked';
-            else
-                $member_no='checked';
 
             $readonly='readonly';
         }
     }elseif (isset($_SESSION['Semail'])){
+        //if not logged in yet but some info like email is in the session,
+        // it means they clicked "Create Profile", but something didn't work.
         $formAction='Create Profile';
 
-        // If Form fields have been cached: if so: repopulate
-
-        //$user_name=$_SESSION['user_name'];
-        //$user_password=$_SESSION['user_password'];
-        $first_name=$_SESSION['Sfirst_name'];
-        //unset($_SESSION['Sfirst_name']);
-        $last_name=$_SESSION['Slast_name'];
-        unset($_SESSION['Slast_name']);
-        $user_type=$_SESSION['Suser_type'];
-        unset($_SESSION['Suser_type']);
-        $email=$_SESSION['Semail'];
-        unset($_SESSION['Semail']);
-        $phone_evening=$_SESSION['Sphone_evening'];
-        unset($_SESSION['Sphone_evening']);
-        $phone_day=$_SESSION['Sphone_day'];
-        unset($_SESSION['Sphone_day']);
-        $phone_cell=$_SESSION['Sphone_cell'];
-        unset($_SESSION['Sphone_cell']);
-        $member=$_SESSION['Smember'];
-        unset($_SESSION['Smember']);
-        $leader_request=$_SESSION['Sleader_request'];
-        unset($_SESSION['Sleader_request']);
-        $emergency_contact=$_SESSION['Semergency_contact'];
-        unset($_SESSION['Semergency_contact']);
-        $experience=$_SESSION['Sexperience'];
-        unset($_SESSION['Sexperience']);
-        $medical=$_SESSION['Smedical'];
-        unset($_SESSION['Smedical']);
-        $exercise=$_SESSION['Sexercise'];
-        unset($_SESSION['Sexercise']);
-        $diet=$_SESSION['Sdiet'];
-        unset($_SESSION['Sdiet']);
-
+        // These two fields only need to be saved if they haven't yet created their profile
+        // (This is in case they face an error)
+        if (isset(_SESSION['Suser_name']))
+            $user_name=$_SESSION['Suser_name'];
+        if (isset(_SESSION['Suser_password']))
+            $user_password=$_SESSION['Suser_password'];
+        // Remember their preference to be a leader or not
         if ($leader_request=='Y')
             $leader_request_yes='checked';
         elseif ($leader_request=='N')
             $leader_request_no='checked';
-        if ($member=='Y')
-            $member_yes='checked';
-        else
-            $member_no='checked';
+
     }else{
+        // If not logged in and not second time around, start fresh
         $formAction='Create Profile';
     }
+
+
+    // Use anything that has been saved to the session so they don't lose what they've typed
+    // (This is in case they face an error)
+
+    //$user_name=$_SESSION['user_name'];
+    //$user_password=$_SESSION['user_password'];
+    $first_name=$_SESSION['Sfirst_name'];
+    //unset($_SESSION['Sfirst_name']);
+    $last_name=$_SESSION['Slast_name'];
+    unset($_SESSION['Slast_name']);
+    $user_type=$_SESSION['Suser_type'];
+    unset($_SESSION['Suser_type']);
+    $email=$_SESSION['Semail'];
+    unset($_SESSION['Semail']);
+    $phone_evening=$_SESSION['Sphone_evening'];
+    unset($_SESSION['Sphone_evening']);
+    $phone_day=$_SESSION['Sphone_day'];
+    unset($_SESSION['Sphone_day']);
+    $phone_cell=$_SESSION['Sphone_cell'];
+    unset($_SESSION['Sphone_cell']);
+    $member=$_SESSION['Smember'];
+    unset($_SESSION['Smember']);
+    $leader_request=$_SESSION['Sleader_request'];
+    unset($_SESSION['Sleader_request']);
+    $emergency_contact=$_SESSION['Semergency_contact'];
+    unset($_SESSION['Semergency_contact']);
+    $experience=$_SESSION['Sexperience'];
+    unset($_SESSION['Sexperience']);
+    $medical=$_SESSION['Smedical'];
+    unset($_SESSION['Smedical']);
+    $exercise=$_SESSION['Sexercise'];
+    unset($_SESSION['Sexercise']);
+    $diet=$_SESSION['Sdiet'];
+    unset($_SESSION['Sdiet']);
+
+    if ($member=='Y')
+        $member_yes='checked';
+    else
+        $member_no='checked';
+
+
     //Note that UTILbuildmenu() is called clear down here so we can use the cookie to log in before we display
     //the menu
     UTILbuildmenu(4);
