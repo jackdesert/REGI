@@ -52,12 +52,12 @@ class Standard
     def create
         # ADD NEW EVENT
         puts "Clicking Create New Event"
-        @b.link(:text, "Create New Event").click
+        @b.div(:text, "Create New Event").click
         puts "Entering Information"
-        @b.text_field(:name, "start_date").value = start_date
-        @b.text_field(:name, "event_name").value = event_name
-        @b.text_field(:name, "description").value = description
-        @b.button(:value, "New Event").click
+        @b.text_field(:name, "start_date").value = @start_date
+        @b.text_field(:name, "event_name").value = @event_name
+        @b.text_field(:name, "description").value = @description
+        @b.button(:value, "Create New Event").click
     end
 end
 
@@ -73,31 +73,33 @@ class AMC < Test::Unit::TestCase
         #~ @truck.b.close
         #~ relax
     #~ end
-    def test_01_create_event_valid_start_no_end
-        puts "Clicking Create New Event"
-        @truck.b.div(:text, "Create New Event").click
-        puts "Entering Information"
-        @truck.b.text_field(:name, "start_date").value = @truck.start_date
-        @truck.b.text_field(:name, "event_name").value = @truck.event_name
-        @truck.b.text_field(:name, "description").value = @truck.description
-        @truck.b.button(:value, "Create New Event").click
-        assert(@truck.b.text.include?( "This event has been inserted into the database"), "Event not inserted")
-        assert(@truck.b.html.include?( @truck.start_date ),"Start date not found on page")
-        assert(@truck.b.html.include?( @truck.event_name ),"Event name not found on page")
-        assert(@truck.b.html.include?( @truck.description ),"Description not found on page")
-        # Change Start Date to another reasonable value
-        new_date = "02/28/2011"
-        @truck.b.text_field(:name, "start_date").value = new_date
-        @truck.b.button(:value, "Update Event").click
-        assert(@truck.b.text.include?( "This event has been updated in the database"), "Event not inserted")
-        assert(@truck.b.html.include?( new_date ),"Start date not found on page")
-        end_date = "02/30/2011"
-        @truck.b.text_field(:name, "end_date").value = end_date
-        @truck.b.button(:value, "Update Event").click
-        #assert(@truck.b.text.include?( "Invalid Combination"), "Javascript was supposed to catch bad date combo")
-
-        @truck.b.close
-
+    #~ def test_01_create_event_valid_start_no_end
+        #~ puts "Clicking Create New Event"
+        #~ @truck.b.div(:text, "Create New Event").click
+        #~ puts "Entering Information"
+        #~ @truck.b.text_field(:name, "start_date").value = @truck.start_date
+        #~ @truck.b.text_field(:name, "event_name").value = @truck.event_name
+        #~ @truck.b.text_field(:name, "description").value = @truck.description
+        #~ @truck.b.button(:value, "Create New Event").click
+        #~ assert(@truck.b.text.include?( "This event has been inserted into the database"), "Event not inserted")
+        #~ assert(@truck.b.html.include?( @truck.start_date ),"Start date not found on page")
+        #~ assert(@truck.b.html.include?( @truck.event_name ),"Event name not found on page")
+        #~ assert(@truck.b.html.include?( @truck.description ),"Description not found on page")
+        #~ # Change Start Date to another reasonable value
+        #~ new_date = "02/28/2011"
+        #~ @truck.b.text_field(:name, "start_date").value = new_date
+        #~ @truck.b.button(:value, "Update Event").click
+        #~ assert(@truck.b.text.include?( "This event has been updated in the database"), "Event not inserted")
+        #~ assert(@truck.b.html.include?( new_date ),"Start date not found on page")
+        #~ end_date = "02/30/2011"
+        #~ @truck.b.text_field(:name, "end_date").value = end_date
+        #~ @truck.b.button(:value, "Update Event").click
+        #~ #assert(@truck.b.text.include?( "Invalid Combination"), "Javascript was supposed to catch bad date combo")
+        #~ @truck.b.close
+    #~ end
+    def test_02_function_create
+        puts "creating event using class method"
+        @truck.create
+        assert(@truck.b.text.include?( "This event has been inserted" ))
     end
-
 end
