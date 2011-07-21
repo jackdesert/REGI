@@ -116,5 +116,11 @@ class AMC < Test::Unit::TestCase
         @truck.b.button(:value, "Update My Profile").click
         assert(@truck.b.text.include?( "Your profile has been updated" ))
         assert(@truck.b.text.include?( myRand ))
+        # Make sure that temporary edits are saved if you try something that gives an error
+        myRand2 = rand(100000000000).to_s
+        @truck.b.text_field(:name, "emergency_contact").value = myRand2
+        @truck.b.text_field(:name, "email").value = "2@2.com"   # this email should throw a duplicate error
+        @truck.b.button(:value, "Update My Profile").click
+        assert(@truck.b.text.include?( myRand2 ), "Edits not saved after error")
     end
 end

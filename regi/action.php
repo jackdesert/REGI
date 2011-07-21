@@ -640,7 +640,6 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
         case "Update My Profile":
 
             $user_id= $_POST["user_id"];
-            $user_name= UTILclean($_POST["user_name"], 40, 'User name');
             $first_name= UTILclean($_POST["first_name"], 20, 'First name');
             $last_name= UTILclean($_POST["last_name"], 20, 'Last name');
             $email= UTILclean($_POST["email"], 40, 'Email');
