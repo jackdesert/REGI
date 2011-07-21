@@ -38,6 +38,7 @@
     $member_no='';
     $leader_request_yes='';
     $leader_request_no='';
+    $leader_request='N';
     $emergency_contact='';
     $experience='';
     $medical='';
@@ -111,11 +112,6 @@
             unset($_SESSION['Suser_password']);
         }
 
-        // Remember their preference to be a leader or not
-        if ($leader_request=='Y')
-            $leader_request_yes='checked';
-        elseif ($leader_request=='N')
-            $leader_request_no='checked';
 
     }else{
         // If not logged in and not second time around, start fresh
@@ -188,6 +184,11 @@
     else
         $member_no='checked';
 
+    // Remember their preference to be a leader or not
+    if ($leader_request=='Y')
+        $leader_request_yes='checked';
+    elseif ($leader_request=='N')
+        $leader_request_no='checked';
 
     //Note that UTILbuildmenu() is called clear down here so we can use the cookie to log in before we display
     //the menu
