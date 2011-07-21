@@ -70,42 +70,43 @@ class AMC < Test::Unit::TestCase
         @truck = Standard.new
         @truck.login
     end
-    #~ def test_00_login
-        #~ assert(@truck.b.text.include?( "you are now logged in!" ), "Not Logged In")
-        #~ puts "Success!"
-        #~ relax
-        #~ @truck.b.close
-        #~ relax
-    #~ end
-    #~ def test_01_create_event_valid_start_no_end
-        #~ puts "Clicking Create New Event"
-        #~ @truck.b.div(:text, "Create New Event").click
-        #~ puts "Entering Information"
-        #~ @truck.b.text_field(:name, "start_date").value = @truck.start_date
-        #~ @truck.b.text_field(:name, "event_name").value = @truck.event_name
-        #~ @truck.b.text_field(:name, "description").value = @truck.description
-        #~ @truck.b.button(:value, "Create New Event").click
-        #~ assert(@truck.b.text.include?( "This event has been inserted into the database"), "Event not inserted")
-        #~ assert(@truck.b.html.include?( @truck.start_date ),"Start date not found on page")
-        #~ assert(@truck.b.html.include?( @truck.event_name ),"Event name not found on page")
-        #~ assert(@truck.b.html.include?( @truck.description ),"Description not found on page")
-        #~ # Change Start Date to another reasonable value
-        #~ new_date = "02/28/2011"
-        #~ @truck.b.text_field(:name, "start_date").value = new_date
-        #~ @truck.b.button(:value, "Update Event").click
-        #~ assert(@truck.b.text.include?( "This event has been updated in the database"), "Event not inserted")
-        #~ assert(@truck.b.html.include?( new_date ),"Start date not found on page")
-        #~ end_date = "02/30/2011"
-        #~ @truck.b.text_field(:name, "end_date").value = end_date
-        #~ @truck.b.button(:value, "Update Event").click
-        #~ #assert(@truck.b.text.include?( "Invalid Combination"), "Javascript was supposed to catch bad date combo")
-        #~ @truck.b.close
-    #~ end
-    #~ def test_02_function_create
-        #~ puts "creating event using class method"
-        #~ @truck.create
-        #~ assert(@truck.b.text.include?( "This event has been inserted" ))
-    #~ end
+    def test_00_login
+        assert(@truck.b.text.include?( "you are now logged in!" ), "Not Logged In")
+        puts "Success!"
+        relax
+        @truck.b.close
+        relax
+    end
+    def test_01_create_event_valid_start_no_end
+        puts "Clicking Create New Event"
+        @truck.b.div(:text, "Create New Event").click
+        puts "Entering Information"
+        @truck.b.text_field(:name, "start_date").value = @truck.start_date
+        @truck.b.text_field(:name, "event_name").value = @truck.event_name
+        @truck.b.text_field(:name, "description").value = @truck.description
+        @truck.b.button(:value, "Create New Event").click
+        assert(@truck.b.text.include?( "This event has been inserted into the database"), "Event not inserted")
+        assert(@truck.b.html.include?( @truck.start_date ),"Start date not found on page")
+        assert(@truck.b.html.include?( @truck.event_name ),"Event name not found on page")
+        assert(@truck.b.html.include?( @truck.description ),"Description not found on page")
+        # Change Start Date to another reasonable value
+        new_date = "02/28/2011"
+        @truck.b.text_field(:name, "start_date").value = new_date
+        @truck.b.button(:value, "Update Event").click
+        assert(@truck.b.text.include?( "This event has been updated in the database"), "Event not inserted")
+        assert(@truck.b.html.include?( new_date ),"Start date not found on page")
+        end_date = "02/30/2011"
+        @truck.b.text_field(:name, "end_date").value = end_date
+        @truck.b.button(:value, "Update Event").click
+        #assert(@truck.b.text.include?( "Invalid Combination"), "Javascript was supposed to catch bad date combo")
+        @truck.b.close
+    end
+    def test_02_function_create
+        puts "creating event using class method"
+        @truck.create
+        assert(@truck.b.text.include?( "This event has been inserted" ))
+        @truck.b.close
+    end
 
     def test_03_update_profile
         @truck.view_profile
@@ -122,5 +123,6 @@ class AMC < Test::Unit::TestCase
         @truck.b.text_field(:name, "email").value = "2@2.com"   # this email should throw a duplicate error
         @truck.b.button(:value, "Update My Profile").click
         assert(@truck.b.text.include?( myRand2 ), "Edits not saved after error")
+        @truck.b.close
     end
 end
