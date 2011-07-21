@@ -22,7 +22,6 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
-
     // If Suser_id defined, populate screen with user profile + set to Update mode
     //  otherwise, set to New mode
 
@@ -220,7 +219,7 @@ Your profile information is visible only to the leaders of the events you regist
         </tr><tr>";
         print "
         <td><b>* Password</b></td>
-        <td><input type='password' name='user_password' value='' MAXLENGTH=50  required='required'> (minimum 6 characters)</td>
+        <td><input type='password' name='user_password' value='$user_password' MAXLENGTH=50  required='required'> (minimum 6 characters)</td>
         </tr><tr>";
     }else{
         print "<td><b>&nbsp;&nbsp;User Name:</b></td><td> $user_name</td></tr><tr>";

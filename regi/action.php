@@ -563,10 +563,12 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $numrows = mysql_num_rows($result);
             if ($numrows > 0){
-                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.";
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.<br>Or enter a different email address.<br>Your profile has not been saved.";
                 $unique = false;
             }
             if (! $unique) {
+                $_SESSION['Suser_name']=$user_name;
+                $_SESSION['Suser_password']=$user_password;
                 $_SESSION['Sfirst_name']=$first_name;
                 $_SESSION['Slast_name']=$last_name;
                 $_SESSION['Semail']=$email;
@@ -667,7 +669,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             $numrows = mysql_num_rows($result);
             if ($numrows > 0){
-                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.";
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.<br>Or enter a different email address.<br>Your profile has not been saved.";
                 $_SESSION['Sfirst_name']=$first_name;
                 $_SESSION['Slast_name']=$last_name;
                 $_SESSION['Semail']=$email;
