@@ -686,7 +686,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             }
 
 
-            $query = "update users set user_name='$user_name',
+            $query = "update users set
             first_name='$first_name', last_name='$last_name', email='$email',
             phone_day='$phone_day', phone_evening='$phone_evening', phone_cell='$phone_cell',
             emergency_contact='$emergency_contact', member='$member', experience='$experience',

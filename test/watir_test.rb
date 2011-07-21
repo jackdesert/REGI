@@ -59,6 +59,10 @@ class Standard
         @b.text_field(:name, "description").value = @description
         @b.button(:value, "Create New Event").click
     end
+    def view_profile
+        puts "Viewing Profile"
+        @b.div("text", "My Profile").click
+    end
 end
 
 class AMC < Test::Unit::TestCase
@@ -97,9 +101,20 @@ class AMC < Test::Unit::TestCase
         #~ #assert(@truck.b.text.include?( "Invalid Combination"), "Javascript was supposed to catch bad date combo")
         #~ @truck.b.close
     #~ end
-    def test_02_function_create
-        puts "creating event using class method"
-        @truck.create
-        assert(@truck.b.text.include?( "This event has been inserted" ))
+    #~ def test_02_function_create
+        #~ puts "creating event using class method"
+        #~ @truck.create
+        #~ assert(@truck.b.text.include?( "This event has been inserted" ))
+    #~ end
+
+    def test_03_update_profile
+        @truck.view_profile
+        assert(@truck.b.text.include?( "User Name" ))
+        # update diet
+        myRand = rand(100000000000).to_s
+        @truck.b.text_field(:name, "diet").value = myRand
+        @truck.b.button(:value, "Update My Profile").click
+        assert(@truck.b.text.include?( "Your profile has been updated" ))
+        assert(@truck.b.text.include?( myRand ))
     end
 end
