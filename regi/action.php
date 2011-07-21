@@ -563,7 +563,7 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $numrows = mysql_num_rows($result);
             if ($numrows > 0){
-                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password.";
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.";
                 $unique = false;
             }
             if (! $unique) {
@@ -667,7 +667,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             $numrows = mysql_num_rows($result);
             if ($numrows > 0){
-                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password.";
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.";
                 $_SESSION['Sfirst_name']=$first_name;
                 $_SESSION['Slast_name']=$last_name;
                 $_SESSION['Semail']=$email;
