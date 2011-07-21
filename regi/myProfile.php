@@ -103,10 +103,15 @@
 
         // These two fields only need to be saved if they haven't yet created their profile
         // (This is in case they face an error)
-        if (isset(_SESSION['Suser_name']))
+        if (isset($_SESSION['Suser_name'])){
             $user_name=$_SESSION['Suser_name'];
-        if (isset(_SESSION['Suser_password']))
+            unset($_SESSION['Suser_name']);
+        }
+        if (isset($_SESSION['Suser_password'])){
             $user_password=$_SESSION['Suser_password'];
+            unset($_SESSION['Suser_password']);
+        }
+
         // Remember their preference to be a leader or not
         if ($leader_request=='Y')
             $leader_request_yes='checked';
@@ -122,36 +127,62 @@
     // Use anything that has been saved to the session so they don't lose what they've typed
     // (This is in case they face an error)
 
-    //$user_name=$_SESSION['user_name'];
-    //$user_password=$_SESSION['user_password'];
-    $first_name=$_SESSION['Sfirst_name'];
-    //unset($_SESSION['Sfirst_name']);
-    $last_name=$_SESSION['Slast_name'];
-    unset($_SESSION['Slast_name']);
-    $user_type=$_SESSION['Suser_type'];
-    unset($_SESSION['Suser_type']);
-    $email=$_SESSION['Semail'];
-    unset($_SESSION['Semail']);
-    $phone_evening=$_SESSION['Sphone_evening'];
-    unset($_SESSION['Sphone_evening']);
-    $phone_day=$_SESSION['Sphone_day'];
-    unset($_SESSION['Sphone_day']);
-    $phone_cell=$_SESSION['Sphone_cell'];
-    unset($_SESSION['Sphone_cell']);
-    $member=$_SESSION['Smember'];
-    unset($_SESSION['Smember']);
-    $leader_request=$_SESSION['Sleader_request'];
-    unset($_SESSION['Sleader_request']);
-    $emergency_contact=$_SESSION['Semergency_contact'];
-    unset($_SESSION['Semergency_contact']);
-    $experience=$_SESSION['Sexperience'];
-    unset($_SESSION['Sexperience']);
-    $medical=$_SESSION['Smedical'];
-    unset($_SESSION['Smedical']);
-    $exercise=$_SESSION['Sexercise'];
-    unset($_SESSION['Sexercise']);
-    $diet=$_SESSION['Sdiet'];
-    unset($_SESSION['Sdiet']);
+    if (isset($_SESSION['Sfirst_name'])){
+        $first_name=$_SESSION['Sfirst_name'];
+        unset($_SESSION['Sfirst_name']);
+    }
+    if (isset($_SESSION['Slast_name'])){
+        $last_name=$_SESSION['Slast_name'];
+        unset($_SESSION['Slast_name']);
+    }
+    if (isset($_SESSION['Suser_type'])){
+        $user_type=$_SESSION['Suser_type'];
+        unset($_SESSION['Suser_type']);
+    }
+    if (isset($_SESSION['Semail'])){
+        $email=$_SESSION['Semail'];
+        unset($_SESSION['Semail']);
+    }
+    if (isset($_SESSION['Sphone_evening'])){
+        $phone_evening=$_SESSION['Sphone_evening'];
+        unset($_SESSION['Sphone_evening']);
+    }
+    if (isset($_SESSION['Sphone_day'])){
+        $phone_day=$_SESSION['Sphone_day'];
+        unset($_SESSION['Sphone_day']);
+    }
+    if (isset($_SESSION['Sphone_cell'])){
+        $phone_cell=$_SESSION['Sphone_cell'];
+        unset($_SESSION['Sphone_cell']);
+    }
+    if (isset($_SESSION['Smember'])){
+        $member=$_SESSION['Smember'];
+        unset($_SESSION['Smember']);
+    }
+    if (isset($_SESSION['Sleader_request'])){
+        $leader_request=$_SESSION['Sleader_request'];
+        unset($_SESSION['Sleader_request']);
+    }
+    if (isset($_SESSION['Semergency_contact'])){
+        $emergency_contact=$_SESSION['Semergency_contact'];
+        unset($_SESSION['Semergency_contact']);
+    }
+    if (isset($_SESSION['Sexperience'])){
+        $experience=$_SESSION['Sexperience'];
+        unset($_SESSION['Sexperience']);
+    }
+    if (isset($_SESSION['Smedical'])){
+        $medical=$_SESSION['Smedical'];
+        unset($_SESSION['Smedical']);
+    }
+    if (isset($_SESSION['Sexercise'])){
+        $exercise=$_SESSION['Sexercise'];
+        unset($_SESSION['Sexercise']);
+    }
+    if (isset($_SESSION['Sdiet'])){
+        $diet=$_SESSION['Sdiet'];
+        unset($_SESSION['Sdiet']);
+    }
 
     if ($member=='Y')
         $member_yes='checked';
