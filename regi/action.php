@@ -185,9 +185,10 @@
                 }
 
 
-                $title="AMC Boston Chapter Event Registration - New Registrant";
-                $message="Notice to event leaders:\n\n$first_name $last_name has just registered for the following event: $event_name.\n\nClick here for the admin page:
-http://www.hbbostonamc.org/registrationSystem/login.php?admin_event_id=$event_id\n\nThank you!";
+                $title="New Registrant for $event_name";
+                $message="Notice to event leaders:\n\n$first_name $last_name has just registered for the following event: $event_name.\n\n
+Please review their profile and update their registration status on the Roster page:
+http://hbbostonamc.org/registrationSystem/eventRoster.php?event_id=$event_id\n\nThank you!";
 
                 UTILsendEmail($leader_list, $title, $message);
             }
@@ -562,10 +563,12 @@ http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
 
             $numrows = mysql_num_rows($result);
             if ($numrows > 0){
-                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password.";
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.<br>Or enter a different email address.<br>Your profile has not been saved.";
                 $unique = false;
             }
             if (! $unique) {
+                $_SESSION['Suser_name']=$user_name;
+                $_SESSION['Suser_password']=$user_password;
                 $_SESSION['Sfirst_name']=$first_name;
                 $_SESSION['Slast_name']=$last_name;
                 $_SESSION['Semail']=$email;
@@ -639,7 +642,6 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
         case "Update My Profile":
 
             $user_id= $_POST["user_id"];
-            $user_name= UTILclean($_POST["user_name"], 40, 'User name');
             $first_name= UTILclean($_POST["first_name"], 20, 'First name');
             $last_name= UTILclean($_POST["last_name"], 20, 'Last name');
             $email= UTILclean($_POST["email"], 40, 'Email');
@@ -667,7 +669,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             $numrows = mysql_num_rows($result);
             if ($numrows > 0){
-                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password.";
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.<br>Or enter a different email address.<br>Your profile has not been saved.";
                 $_SESSION['Sfirst_name']=$first_name;
                 $_SESSION['Slast_name']=$last_name;
                 $_SESSION['Semail']=$email;
@@ -685,7 +687,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             }
 
 
-            $query = "update users set user_name='$user_name',
+            $query = "update users set
             first_name='$first_name', last_name='$last_name', email='$email',
             phone_day='$phone_day', phone_evening='$phone_evening', phone_cell='$phone_cell',
             emergency_contact='$emergency_contact', member='$member', experience='$experience',

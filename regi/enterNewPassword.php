@@ -55,7 +55,6 @@
 
     if ($reset){
         $my_user_id = $_SESSION['Suser_id'];
-        unset($_SESSION['Semail']); //this makes it look like the session is empty later on
     }else{
         header( 'Location: ./login.php');
         exit();

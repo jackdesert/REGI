@@ -334,13 +334,13 @@ function UTILgenhash($plainText)
 }
 
 function UTIL_gen_all_passhashes(){
-    $first_query = "select user_password FROM users;";
+    $first_query = "select user_password, user_passhash FROM users;";
     $result = mysql_query($first_query);
-
+    $default = 'none generated';
     while($row = mysql_fetch_assoc($result)) {
         $plain = $row['user_password'];
         $hashed = UTILgenhash($plain);
-        $second_query = "update users set user_passhash='$hashed' where user_password='$plain';";
+        $second_query = "update users set user_passhash='$hashed' where user_password='$plain' and user_passhash='$default';";
         $iter_result = mysql_query($second_query);
     }
 

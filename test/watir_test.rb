@@ -52,12 +52,16 @@ class Standard
     def create
         # ADD NEW EVENT
         puts "Clicking Create New Event"
-        @b.link(:text, "Create New Event").click
+        @b.div(:text, "Create New Event").click
         puts "Entering Information"
-        @b.text_field(:name, "start_date").value = start_date
-        @b.text_field(:name, "event_name").value = event_name
-        @b.text_field(:name, "description").value = description
-        @b.button(:value, "New Event").click
+        @b.text_field(:name, "start_date").value = @start_date
+        @b.text_field(:name, "event_name").value = @event_name
+        @b.text_field(:name, "description").value = @description
+        @b.button(:value, "Create New Event").click
+    end
+    def view_profile
+        puts "Viewing Profile"
+        @b.div("text", "My Profile").click
     end
 end
 
@@ -66,13 +70,13 @@ class AMC < Test::Unit::TestCase
         @truck = Standard.new
         @truck.login
     end
-    #~ def test_00_login
-        #~ assert(@truck.b.text.include?( "you are now logged in!" ), "Not Logged In")
-        #~ puts "Success!"
-        #~ relax
-        #~ @truck.b.close
-        #~ relax
-    #~ end
+    def test_00_login
+        assert(@truck.b.text.include?( "you are now logged in!" ), "Not Logged In")
+        puts "Success!"
+        relax
+        @truck.b.close
+        relax
+    end
     def test_01_create_event_valid_start_no_end
         puts "Clicking Create New Event"
         @truck.b.div(:text, "Create New Event").click
@@ -95,9 +99,30 @@ class AMC < Test::Unit::TestCase
         @truck.b.text_field(:name, "end_date").value = end_date
         @truck.b.button(:value, "Update Event").click
         #assert(@truck.b.text.include?( "Invalid Combination"), "Javascript was supposed to catch bad date combo")
-
         @truck.b.close
-
+    end
+    def test_02_function_create
+        puts "creating event using class method"
+        @truck.create
+        assert(@truck.b.text.include?( "This event has been inserted" ))
+        @truck.b.close
     end
 
+    def test_03_update_profile
+        @truck.view_profile
+        assert(@truck.b.text.include?( "User Name" ))
+        # update diet
+        myRand = rand(100000000000).to_s
+        @truck.b.text_field(:name, "diet").value = myRand
+        @truck.b.button(:value, "Update My Profile").click
+        assert(@truck.b.text.include?( "Your profile has been updated" ))
+        assert(@truck.b.text.include?( myRand ))
+        # Make sure that temporary edits are saved if you try something that gives an error
+        myRand2 = rand(100000000000).to_s
+        @truck.b.text_field(:name, "emergency_contact").value = myRand2
+        @truck.b.text_field(:name, "email").value = "2@2.com"   # this email should throw a duplicate error
+        @truck.b.button(:value, "Update My Profile").click
+        assert(@truck.b.text.include?( myRand2 ), "Edits not saved after error")
+        @truck.b.close
+    end
 end
