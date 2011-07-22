@@ -426,3 +426,6 @@ td, th{
 .hike_rating:hover .visible_on_hover {
     display: block;
 }
+#trip-id{
+    display: none;
+}
