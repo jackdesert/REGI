@@ -21,15 +21,15 @@
     include 'utils.php';
     session_start();
     UTILdbconnect();
-    CHUNKgivehead();
-    CHUNKstartbody();
-    UTILbuildmenu(3);
-    CHUNKstylemessage($_SESSION);
 
-    if (isset($_GET['event_id']))
+
+    if (isset($_GET['event_id'])){
         $event_id = $_GET['event_id'];
-    else
+    }else{
+        header("Location: ./errorPage.php?errTitle=Error&errMsg=You attempted to view this page without specifying a trip. I suggest you go to My Events and click an event from there.");
         exit(0);
+    }
+
 
     if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
         $my_user_id = $_SESSION['Suser_id'];
@@ -37,11 +37,15 @@
     } else {
         $_SESSION['Smessage'] = 'Please Log In';
         header("Location: ./login.php?event_id={$event_id}");
-        //print "<p>You must be logged in to register for an event.</p><p>If you do not have an account, you may create a new account <a href='myProfile.php' >here</a>.<br>";
         exit();
     }
 
 
+    // Now that all header redirects are passed, we can write html to page
+    CHUNKgivehead();
+    CHUNKstartbody();
+    UTILbuildmenu(3);
+    CHUNKstylemessage($_SESSION);
 
     // Get event summary info
     //
