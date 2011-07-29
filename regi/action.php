@@ -722,8 +722,6 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $trip_info= UTILclean($_POST["trip_info"], 2000, '');
             $confirmation_page= UTILclean($_POST["confirmation_page"], 2000, '');
             $question1= UTILclean($_POST["question1"], 200, '');
-            $question2= UTILclean($_POST["question2"], 200, '');
-            $payment_method=$_POST["payment_method"];
             $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
             $end_date= UTILclean($_POST["end_date"], 20, '');
             $pricing= UTILclean($_POST["pricing"], 1000, '');
@@ -737,10 +735,10 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             //Notice no extra quotes around $end_date so it can be NULL
             $query = "insert into events (event_name, event_status, event_is_program,
                 program_id, description, gear_list, trip_info, confirmation_page,
-                question1, question2, payment_method, start_date, end_date, pricing, rating) values
+                question1, start_date, end_date, pricing, rating) values
                 ('$event_name', '$event_status', '$event_is_program', $program_id, '$description',
-                '$gear_list', '$trip_info', '$confirmation_page', '$question1', '$question2',
-                '$payment_method', '$start_date', $end_date, '$pricing', '$rating' );";
+                '$gear_list', '$trip_info', '$confirmation_page', '$question1',
+                '$start_date', $end_date, '$pricing', '$rating' );";
 
             $result = mysql_query($query);
 
@@ -781,8 +779,6 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $trip_info= UTILclean($_POST["trip_info"], 2000, '');
             $confirmation_page= UTILclean($_POST["confirmation_page"], 2000, '');
             $question1= UTILclean($_POST["question1"], 200, '');
-            $question2= UTILclean($_POST["question2"], 200, '');
-            $payment_method=$_POST["payment_method"];
             $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
             $end_date= UTILclean($_POST["end_date"], 20, '');
             $pricing= UTILclean($_POST["pricing"], 1000, '');
@@ -796,8 +792,8 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             //Note no second set of quotes around $end_date. This way the NULL passes through to Mysql
             $query = "update events set event_name='$event_name', event_status='$event_status', event_is_program='$event_is_program',
                 program_id=$program_id, description='$description', gear_list='$gear_list',
-                trip_info='$trip_info', confirmation_page='$confirmation_page', question1='$question1', question2='$question2',
-                payment_method='$payment_method', start_date='$start_date', end_date=$end_date,
+                trip_info='$trip_info', confirmation_page='$confirmation_page', question1='$question1',
+                start_date='$start_date', end_date=$end_date,
                 pricing='$pricing', rating='$rating'
                 WHERE event_id=$event_id;";
 
