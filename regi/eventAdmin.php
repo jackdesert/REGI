@@ -21,8 +21,6 @@
     include 'utils.php';
     session_start();
     UTILdbconnect();
-    CHUNKgivehead($dates=true);
-    CHUNKstartbody();
 
     // SECURITY
     // - User must be logged in
@@ -75,6 +73,11 @@
             header("Location: ./errorPage.php?errTitle=Error&errMsg=You must be a designated this event's leader, coleader, or registrar to view this page. Please contact the trip leader.");
             exit(0);
         }
+
+        // Now that all header redirects are passed, we can write html to page
+        CHUNKgivehead($dates=true);
+        CHUNKstartbody();
+
 
         // Get event summary info
         //

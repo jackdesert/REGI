@@ -21,9 +21,6 @@
     include 'utils.php';
     session_start();
     UTILdbconnect();
-    CHUNKgivehead();
-    CHUNKstartbody();
-    UTILbuildmenu(4);
 
     $reset = false;
 
@@ -56,13 +53,16 @@
     if ($reset){
         $my_user_id = $_SESSION['Suser_id'];
     }else{
-        header( 'Location: ./login.php');
+        header("Location: ./login.php");
         exit();
     }
 
 
+    // Now that all header redirects are passed, we can write html to page
+    CHUNKgivehead();
+    CHUNKstartbody();
+    UTILbuildmenu(4);
     CHUNKstylemessage($_SESSION);
-
     CHUNKstartcontent();
 
 

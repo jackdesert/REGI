@@ -20,10 +20,6 @@
     include 'utils.php';
     session_start();
     UTILdbconnect();
-    CHUNKgivehead();
-    CHUNKstartbody();
-    UTILbuildmenu(3);
-    CHUNKstylemessage($_SESSION);
 
     // SECURITY
     // - User must be logged in
@@ -39,7 +35,6 @@
     } else {
         $_SESSION['Smessage'] = 'Please Log In';
         header("Location: ./login.php?event_id={$event_id}");
-        //print "<p>You must be logged in to register for an event.</p><p>If you do not have an account, you may create a new account <a href='myProfile.php' >here</a>.<br>";
         exit();
     }
 
@@ -75,6 +70,12 @@
             header("Location: ./errorPage.php?errTitle=Error&errMsg=You must be a designated this event's leader, coleader, or registrar to view this page. Please contact the trip leader.");
             exit(0);
         }
+
+        // Now that all header redirects are passed, we can write html to page
+        CHUNKgivehead();
+        CHUNKstartbody();
+        UTILbuildmenu(3);
+        CHUNKstylemessage($_SESSION);
 
         // Get event summary info
         //

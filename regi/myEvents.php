@@ -20,13 +20,7 @@
     include 'utils.php';
     session_start();
     UTILdbconnect();
-    CHUNKgivehead();
-    CHUNKstartbody();
 
-?>
-
-
-<?php
     // Notice the !!!!!!! in this next line
     if (! SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
 
@@ -40,6 +34,9 @@
     }
     else
     {
+        // Now that all header redirects are passed, we can write html to page
+        CHUNKgivehead();
+        CHUNKstartbody();
         //Note that UTILbuildmenu is clear down here to make sure the auth cookie is picked up first
         UTILbuildmenu(3);
         CHUNKstylemessage($_SESSION);
