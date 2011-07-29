@@ -936,11 +936,8 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
         case "Save New Password":
 
             $user_id= $_POST["user_id"];
-            $user_name= UTILclean($_POST["user_name"], 40, 'User name');
             $user_password= UTILclean($_POST["new_user_password"], 20, 'Password');
             $user_passhash = UTILgenhash($user_password);
-            $first_name= UTILclean($_POST["first_name"], 20, 'First name');
-            $last_name= UTILclean($_POST["last_name"], 20, 'Last name');
 
             $query = "update users set user_passhash='$user_passhash'
             WHERE user_id=$user_id;";

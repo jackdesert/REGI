@@ -65,7 +65,10 @@
             header("Location: ./errorPage.php?errTitle=Error&errMsg=You must be an AMC Leader, Coleader,  or Administrator to create new events.");
             exit(0);
         }
-
+        // Note these are in twice
+        // Now that all header redirects are passed, we can write html to page
+        CHUNKgivehead($dates=true);
+        CHUNKstartbody();
 
     }else{
 
@@ -73,7 +76,7 @@
             header("Location: ./errorPage.php?errTitle=Error&errMsg=You must be a designated this event's leader, coleader, or registrar to view this page. Please contact the trip leader.");
             exit(0);
         }
-
+        // Note these are in twice
         // Now that all header redirects are passed, we can write html to page
         CHUNKgivehead($dates=true);
         CHUNKstartbody();
