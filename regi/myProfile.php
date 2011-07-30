@@ -121,6 +121,7 @@
 
     // Use anything that has been saved to the session so they don't lose what they've typed
     // (This is in case they face an error)
+    // Question: do we really need to unset these?
 
     if (isset($_SESSION['Sfirst_name'])){
         $first_name=$_SESSION['Sfirst_name'];
@@ -129,10 +130,6 @@
     if (isset($_SESSION['Slast_name'])){
         $last_name=$_SESSION['Slast_name'];
         unset($_SESSION['Slast_name']);
-    }
-    if (isset($_SESSION['Suser_type'])){
-        $user_type=$_SESSION['Suser_type'];
-        unset($_SESSION['Suser_type']);
     }
     if (isset($_SESSION['Semail'])){
         $email=$_SESSION['Semail'];
