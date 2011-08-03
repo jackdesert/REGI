@@ -218,10 +218,10 @@ target "hbTrips.php"
 \end_layout
 
 \begin_layout Quote
-Click on the REGI link listed near the bottom of the link.
+Click on the REGI link listed near the bottom of the listing.
  Usually REGI links are of the form 
 \emph on
-http://www.hbbostonamc.org/registrationSystem/login.php?event_id=xxx
+http://www.hbbostonamc.org/regi/xxx
 \emph default
 .
  This link takes you to this event's REGI page.
