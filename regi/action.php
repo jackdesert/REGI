@@ -188,7 +188,7 @@
                 $title="New Registrant for $event_name";
                 $message="Notice to event leaders:\n\n$first_name $last_name has just registered for the following event: $event_name.\n\n
 Please review their profile and update their registration status on the Roster page:
-http://hbbostonamc.org/registrationSystem/eventRoster.php?event_id=$event_id\n\nThank you!";
+http://hbbostonamc.org/regi/eventRoster.php?event_id=$event_id\n\nThank you!";
 
                 UTILsendEmail($leader_list, $title, $message);
             }
@@ -275,7 +275,7 @@ http://hbbostonamc.org/registrationSystem/eventRoster.php?event_id=$event_id\n\n
 
                     $title="AMC Boston Chapter - Event Registration Status";
                     $message="Hello $first_name,\n\nYour event registration status has been updated to $reg_status for the following event: $event_name.\n\nClick here to log in and view this event:
-http://www.hbbostonamc.org/registrationSystem/login.php?event_id=$event_id
+http://hbbostonamc.org/regi/login.php?event_id=$event_id
 \n\nPlease contact the event leader if there are any questions.\n\nThank you!";
 
                     UTILsendEmail($email, $title, $message);
