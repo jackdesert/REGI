@@ -117,8 +117,14 @@
 
             $user_id= $_SESSION["Suser_id"];
             $event_id= $_POST["event_id"];
-            $answer1= UTILclean($_POST["answer1"], 3000, '');
-            $answer2= UTILclean($_POST["answer2"], 3000, '');
+            if (isset($_POST["answer1"]))
+                $answer1= UTILclean($_POST["answer1"], 3000, '');
+            else
+                $answer1 = '';
+            if (isset($_POST["answer2"]))
+                $answer2= UTILclean($_POST["answer2"], 3000, '');
+            else
+                $answer2 = '';
             $gear= UTILclean($_POST["gear"], 3000, '');
             $questions= UTILclean($_POST["questions"], 3000, '');
             $need_ride= UTILclean($_POST["need_ride"], 1, '');
@@ -151,7 +157,7 @@
                 UTILdberror($query);
             else
             {
-                $_SESSION['Smessage'] = "Your registration has been submitted.<br>This event will now show up in your MyTrips section.";
+                $_SESSION['Smessage'] = "Your registration has been submitted.<br>This event will now show up in your My Events section.";
 
                 // Send email to leaders - TBD
                 //
