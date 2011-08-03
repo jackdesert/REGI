@@ -10,3 +10,7 @@ sendmail_path = "/usr/sbin/sendmail -t -i "
 
 display_errors = On
 
+# Since the server was changed to super.secure428.net, output_buffering is set to Off
+# So I've changed my local version to "off" as well so I get the same "Headers already sent"
+# errors
+output_buffering = Off
