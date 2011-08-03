@@ -185,7 +185,8 @@ function CHUNKtrimtrips($in_html){
 function CHUNKlinksopenhere($in_html){
     $open_same_window = str_replace('target="_new"', '', $in_html);
     $go_local = str_replace('href="http://www.hbbostonamc.org/registrationSystem/', 'href="./', $open_same_window);
-    return $go_local;
+    $short_urls_too = str_replace('href="http://hbbostonamc.org/regi/', 'href="./', $go_local);
+    return $short_urls_too;
 }
 
 function CHUNKhikerating($rating, $edit = false){
