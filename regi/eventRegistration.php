@@ -45,7 +45,6 @@
     CHUNKgivehead();
     CHUNKstartbody();
     UTILbuildmenu(3);
-    CHUNKstylemessage($_SESSION);
 
     // Get event summary info
     //
@@ -61,7 +60,8 @@
 
     $numrows = mysql_num_rows($result);
     if ($numrows <> 1) {
-        print "<p>ERROR: Can not retrieve event from database.</p>";
+        $_SESSION['Smessage'] = "Invalid event ID.<br> Please make sure you typed in the URL correctly.";
+        CHUNKstylemessage($_SESSION);
         exit();
     } else {
         $row = mysql_fetch_assoc($result);
@@ -87,7 +87,7 @@
 
 
 
-
+    CHUNKstylemessage($_SESSION);
     CHUNKstartcontent($my_user_id, $event_id, 'my');
 ?>
 
