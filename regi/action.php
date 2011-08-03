@@ -249,7 +249,6 @@ http://hbbostonamc.org/regi/eventRoster.php?event_id=$event_id\n\nThank you!";
         case "Update Roster":
 
             $set_reg_status_AR = $_POST["set_reg_status"];
-            $set_pay_status_AR = $_POST["set_pay_status"];
             $admin_notes_AR = $_POST["admin_notes"];
             $registration_id_AR = $_POST["registration_id"];
             $first_name_AR = $_POST["first_name"];
@@ -287,19 +286,6 @@ http://hbbostonamc.org/regi/login.php?event_id=$event_id
                     UTILsendEmail($email, $title, $message);
 
                 }
-
-                //if ($set_pay_status_AR[$inc][0] <> '*')
-                //{
-                //  $query = "update user_events set
-                //  payment_status='$set_pay_status_AR[$inc]'
-                //  WHERE
-                //  registration_id=$REG_ID;";
-
-                //  $result = mysql_query($query);
-
-                //  if (!$result)
-                //      UTILdberror($query);
-                //}
 
                 // Check if change bit is set, currently always updating if not null - TBD
                 if ($admin_notes_AR[$inc] <> '')
