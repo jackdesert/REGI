@@ -74,6 +74,7 @@ function CHUNKgivehead($dates=''){
     <title>AMC Event Registration</title>
     <link href='http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css' type='text/css' rel='stylesheet' />
     <link rel='stylesheet' type='text/css' href='css/stylin.css'/>
+    <link rel='shortcut icon' href='images/favicon.ico' />
     <SCRIPT type='text/javascript' src='validation.js'></SCRIPT>
     $date_includes
 </head>
