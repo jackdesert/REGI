@@ -276,7 +276,7 @@
 
 
 <span style="font-weight: bold">Confirmation Page:</span> (Displays when user registers for event.)
-<?php if ($event_id <> '') print "<br>Save changes and then you can <a href='./confirmationPage.php?event_id=$event_id'><span style='font-size:130%;'>Preview</span></a> what you wrote.<br>"; ?>
+<?php if ($event_id <> '') print "<br>Save changes and then you can <a href='./$event_id~confirm'><span style='font-size:130%;'>Preview</span></a> what you wrote.<br>"; ?>
 <textarea name='confirmation_page' rows=8 cols=60><?php print $confirmation_page; ?></textarea><br><br>
 
 <br><br>

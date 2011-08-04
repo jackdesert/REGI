@@ -54,21 +54,21 @@
         $bit = '';
         $bit .= IN2()."<div id='searchbox'>";
 //<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRegistration.php?event_id={$event}\"'>Event Info</a></div>
-        $bit .= IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"hbTrips.php\"' >HB Trip Listings</div>";
-        $bit .= IN3()."<div class='top_tab' $idArray[1] style='cursor: pointer;' onClick='location.href=\"support.php\"' >Support</div>";
+        $bit .= IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"hbTrips\"' >HB Trip Listings</div>";
+        $bit .= IN3()."<div class='top_tab' $idArray[1] style='cursor: pointer;' onClick='location.href=\"support\"' >Support</div>";
 
         if (isset($_SESSION['Suser_id'])){
             if (isset($_SESSION['Suser_type']))
                 if ($_SESSION['Suser_type'] == 'ADMIN' || $_SESSION['Suser_type'] == 'LEADER')
-                    $bit .= IN3()."<div class='top_tab' $idArray[2] style='cursor: pointer;' onClick='location.href=\"eventAdmin.php\"' >Create New Event</div>";
+                    $bit .= IN3()."<div class='top_tab' $idArray[2] style='cursor: pointer;' onClick='location.href=\"newEvent\"' >Create New Event</div>";
 
-            $bit .= IN3()."<div class='top_tab' $idArray[3] style='cursor: pointer;' onClick='location.href=\"myEvents.php\"' >My Events</div>";
-            $bit .= IN3()."\n<div class='top_tab' $idArray[4] style='cursor: pointer;' onClick='location.href=\"myProfile.php\"' >My Profile</div>";
-            $bit .= IN3()."\n<div class='top_tab' style='cursor: pointer;' onClick='location.href=\"logout.php\"' >Logout</div>";
+            $bit .= IN3()."<div class='top_tab' $idArray[3] style='cursor: pointer;' onClick='location.href=\"myEvents\"' >My Events</div>";
+            $bit .= IN3()."\n<div class='top_tab' $idArray[4] style='cursor: pointer;' onClick='location.href=\"myProfile\"' >My Profile</div>";
+            $bit .= IN3()."\n<div class='top_tab' style='cursor: pointer;' onClick='location.href=\"logout\"' >Logout</div>";
         }
         else
         {
-            $bit .= IN3()."<div class='top_tab' $idArray[5] style='cursor: pointer;' onClick='location.href=\"login.php\"' >Login</div>";
+            $bit .= IN3()."<div class='top_tab' $idArray[5] style='cursor: pointer;' onClick='location.href=\"login\"' >Login</div>";
         }
 
         $bit .= "<br>";
