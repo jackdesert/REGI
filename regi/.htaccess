@@ -20,3 +20,10 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^support$ support.php [L]
+RewriteRule ^myEvents$ myEvents.php [L]
+RewriteRule ^hbTrips$ hbTrips.php [L]
+RewriteRule ^myProfile$ myProfile.php [L]
+RewriteRule ^login$ login.php [L]
+RewriteRule ^eventAdmin$ eventAdmin.php [L]
+RewriteRule ^newEvent$ eventAdmin.php [L]
+RewriteRule ^([0-9]+)$ eventRegistration.php?event_id=$1 [L]
