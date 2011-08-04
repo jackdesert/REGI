@@ -7,6 +7,11 @@ php_value session.gc_maxlifetime 604800
 # This line enables Apache to redirect short codes for events to the right page
 ErrorDocument 404 /regi/slim.php
 
+
+# Specify myEvents.php as the directory index
+DirectoryIndex myEvents.php
+
+
 # This rewrite rule makes people use the /regi/ shortcut
 RewriteEngine On
 
@@ -19,6 +24,7 @@ RewriteEngine On
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
 RewriteRule ^support$ support.php [L]
 RewriteRule ^myEvents$ myEvents.php [L]
 RewriteRule ^hbTrips$ hbTrips.php [L]
