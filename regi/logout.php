@@ -6,7 +6,7 @@
     $_SESSION = array();    // This removes all session vars.
     session_destroy();
     SECdestroyCookie();     // This removes the cookie
-    header("Location: ./login.php");
+    header("Location: ./login");
     exit();
 
 ?>

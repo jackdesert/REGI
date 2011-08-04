@@ -38,7 +38,7 @@
         $numrows = mysql_num_rows($result);
         if ($numrows == 1) {
             //Redirect to the appropriate page
-            header("Location: ./eventRegistration.php?event_id=".$event_id);
+            header("Location: ./".$event_id);
             exit();
         }
     }

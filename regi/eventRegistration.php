@@ -125,7 +125,7 @@
         if ($pnumrows == 1) {
             $prow = mysql_fetch_assoc($presult);
             print "This event is part of a program series: ";
-            print "<a href=\"eventRegistration.php?event_id=$program_id\" >".$prow['event_name'];
+            print "<a href=\"$program_id\" >".$prow['event_name'];
             print "</a><br>";
         }
 
@@ -278,7 +278,7 @@
 
             while($row = mysql_fetch_assoc($result)) {
 
-                echo "<tr><td><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></td></tr>";
+                echo "<tr><td><a href=\"$row[event_id]\" >$row[event_name]</a></td></tr>";
 
             }
             echo "</table>";

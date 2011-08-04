@@ -199,7 +199,7 @@
 
 <?php
     if ($formAction=='Create Profile') {
-    print "<font color='red'>Please note: if you have already created an account, please use that account to login and do not create a new account.  If you don't remember your password, please click <a href='forgotPassword.php'>here</a>.</font>";
+    print "<font color='red'>Please note: if you have already created an account, please use that account to login and do not create a new account.  If you don't remember your password, please click <a href='forgotPassword'>here</a>.</font>";
     }
 ?>
 

@@ -64,7 +64,7 @@
             $Pusername = UTILclean($_POST["user_name"], 50, "User Name");
             $Ppassword = UTILclean($_POST["user_password"], 20, "Password");
             if (!UTILrequiredfields()) {
-                header( 'Location: ./login.php');
+                header( 'Location: ./login');
                 exit();
             }
 
@@ -94,11 +94,11 @@
                     if (!$result) UTILdberror($query);
 
                     if ($event_id <> '')
-                        header("Location: ./eventRegistration.php?event_id=".$event_id);
+                        header("Location: ./".$event_id);
                     else if ($admin_event_id <> '')
-                        header("Location: ./eventAdmin.php?event_id=".$admin_event_id);
+                        header("Location: ./".$admin_event_id."~admin");
                     else
-                        header("Location: ./myEvents.php");
+                        header("Location: ./myEvents");
 
                     exit();
                 }
@@ -194,12 +194,12 @@
                 $title="New Registrant for $event_name";
                 $message="Notice to event leaders:\n\n$first_name $last_name has just registered for the following event: $event_name.\n\n
 Please review their profile and update their registration status on the Roster page:
-http://hbbostonamc.org/regi/eventRoster.php?event_id=$event_id\n\nThank you!";
+http://hbbostonamc.org/regi/$event_id\n\nThank you!";
 
                 UTILsendEmail($leader_list, $title, $message);
             }
 
-            header("Location: ./confirmationPage.php?event_id=$event_id");
+            header("Location: ./".$event_id."~confirm");
             exit();
 
         break;
@@ -237,7 +237,7 @@ http://hbbostonamc.org/regi/eventRoster.php?event_id=$event_id\n\nThank you!";
             else
                 $_SESSION['Smessage'] = "Registration info updated.";
 
-            header("Location: ./eventRegistration.php?event_id=$event_id");
+            header("Location: ./$event_id");
             exit();
 
         break;
@@ -305,7 +305,7 @@ http://hbbostonamc.org/regi/login.php?event_id=$event_id
             }
 
             $_SESSION['Smessage'] = "Roster Updated.";
-            header("Location: ./eventRoster.php?event_id=$event_id");
+            header("Location: ./$event_id~roster");
             exit();
 
         break;
@@ -530,7 +530,7 @@ http://hbbostonamc.org/regi/login.php?event_id=$event_id
             $event_id = $_POST["event_id"];
 
             if (!UTILrequiredfields()) {
-                header( 'Location: ./userDetail.php');
+                header( 'Location: ./myProfile');
                 exit();
             }
 
@@ -555,7 +555,7 @@ http://hbbostonamc.org/regi/login.php?event_id=$event_id
 
             $numrows = mysql_num_rows($result);
             if ($numrows > 0){
-                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.<br>Or enter a different email address.<br>Your profile has not been saved.";
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword'>click here </a>to retrieve your password for that account.<br>Or enter a different email address.<br>Your profile has not been saved.";
                 $unique = false;
             }
             if (! $unique) {
@@ -575,7 +575,7 @@ http://hbbostonamc.org/regi/login.php?event_id=$event_id
                 $_SESSION['Sexercise']=$exercise;
                 $_SESSION['Smedical']=$medical;
                 $_SESSION['Sdiet']=$diet;
-                header("Location: ./myProfile.php");
+                header("Location: ./myProfile");
                 exit();
             }
 
@@ -619,9 +619,9 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             }
 
             if ($event_id == '')
-                header("Location: ./myProfile.php");
+                header("Location: ./myProfile");
             else
-                header("Location: ./eventRegistration.php?event_id=$event_id");
+                header("Location: ./$event_id");
 
             exit();
 
@@ -648,7 +648,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $diet= UTILclean($_POST["diet"], 500, '');
 
             if (!UTILrequiredfields()) {
-                header( 'Location: ./myProfile.php');
+                header( 'Location: ./myProfile');
                 exit();
             }
 
@@ -661,7 +661,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             $numrows = mysql_num_rows($result);
             if ($numrows > 0){
-                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword.php'>click here </a>to retrieve your password for that account.<br>Or enter a different email address.<br>Your profile has not been saved.";
+                $_SESSION['Smessage'] = "Another account already exists with this email address.<br>Please <a href='forgotPassword'>click here </a>to retrieve your password for that account.<br>Or enter a different email address.<br>Your profile has not been saved.";
                 $_SESSION['Sfirst_name']=$first_name;
                 $_SESSION['Slast_name']=$last_name;
                 $_SESSION['Semail']=$email;
@@ -674,7 +674,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
                 $_SESSION['Sexercise']=$exercise;
                 $_SESSION['Smedical']=$medical;
                 $_SESSION['Sdiet']=$diet;
-                header("Location: ./myProfile.php");
+                header("Location: ./myProfile");
                 exit();
             }
 
@@ -693,7 +693,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
                 UTILdberror($query);
 
             $_SESSION['Smessage'] = "Your profile has been updated.";
-            header("Location: ./myProfile.php");
+            header("Location: ./myProfile");
             exit();
 
         break;
@@ -750,7 +750,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
                 UTILdberror($query);
 
             $_SESSION['Smessage'] = "This event has been inserted into the database (eventID = $event_id).<br>You can view and administer this event from 'My Events'.<br>The registration URL for participants is listed below.";
-            header("Location: ./eventAdmin.php?event_id=$event_id");
+            header("Location: ./$event_id~admin");
             exit();
 
         break;
@@ -796,7 +796,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             else
                 $_SESSION['Smessage'] = "This event has been updated in the database.";
 
-            header("Location: ./eventAdmin.php?event_id=$event_id");
+            header("Location: ./$event_id~admin");
             exit();
 
         break;
@@ -809,7 +809,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             // Get POST vars from home.php
             $email= UTILclean($_POST["email"], 40, 'Email');
             if (!UTILrequiredfields()) {
-                header( 'Location: ./forgotPassword.php');
+                header( 'Location: ./forgotPassword');
                 exit();
             }
 
@@ -823,12 +823,12 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $numrows = mysql_num_rows($result);
             if ($numrows < 1) {
                 $_SESSION['Smessage'] = "No account found with this email: $email.";
-                header("Location: ./forgotPassword.php");
+                header("Location: ./forgotPassword");
                 exit();
             }
             if ($numrows > 1) {
                 $_SESSION['Smessage'] = "Warning: more than 1 account shares this email address: $email.<br>Please contact the administrator.";
-                header("Location: ./forgotPassword.php");
+                header("Location: ./forgotPassword");
                 exit();
             }
 
@@ -846,7 +846,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
             $_SESSION['Smessage'] .= "<br>Sent to: " . $email;
 
-            header( 'Location: ./login.php');
+            header( 'Location: ./login');
             exit();
 
         break;
@@ -861,7 +861,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             $email= UTILclean($_POST["email"], 40, 'Email');
             if (!UTILrequiredfields()) {
-                header( 'Location: ./forgotPassword.php');
+                header( 'Location: ./forgotPassword');
                 exit();
             }
 
@@ -875,12 +875,12 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $numrows = mysql_num_rows($result);
             if ($numrows < 1) {
                 $_SESSION['Smessage'] = "No account found with this email: $email.";
-                header("Location: ./forgotPassword.php");
+                header("Location: ./forgotPassword");
                 exit();
             }
             if ($numrows > 1) {
                 $_SESSION['Smessage'] = "Warning: more than 1 account shares this email address: $email.<br>Please contact the administrator.";
-                header("Location: ./forgotPassword.php");
+                header("Location: ./forgotPassword");
                 exit();
             }
 
@@ -903,7 +903,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $pattern = '/\/.*\//';
             preg_match($pattern, $script_path, $match_array);
             $script_dir = $match_array[0];
-            $validation_base = "http://" . $_SERVER['HTTP_HOST'] . $script_dir . 'enterNewPassword.php';
+            $validation_base = "http://" . $_SERVER['HTTP_HOST'] . $script_dir . 'enterNewPassword';
             //send validation_url
             $validation_url=$validation_base."?user_id=$user_id&pass_reset_code=$pass_reset_code";
             $message="Hello $first_name,\n\nThis email is being sent due to a recent request to reset your AMC Boston Chapter registration system password.\n\n
@@ -917,7 +917,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
             $_SESSION['Smessage'] .= "<br>Sent to: " . $email;
 
-            header( 'Location: ./login.php');
+            header( 'Location: ./login');
             exit();
 
         break;
@@ -940,7 +940,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
                 UTILdberror($query);
 
             $_SESSION['Smessage'] = "Your password has been updated.";
-            header("Location: ./myProfile.php");
+            header("Location: ./myProfile");
             exit();
 
         break;

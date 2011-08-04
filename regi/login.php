@@ -27,10 +27,10 @@
         $event_id='';
 
     if ($event_id <> '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
-        header("Location: ./eventRegistration.php?event_id=".$event_id);
+        header("Location: ./".$event_id);
         exit(0);
     }elseif($event_id == '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
-        header("Location: ./myEvents.php");
+        header("Location: ./myEvents");
         exit(0);
     }
 
@@ -40,7 +40,7 @@
         $admin_event_id='';
 
     if ($admin_event_id <> '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
-        header("Location: ./eventAdmin.php?event_id=".$admin_event_id);
+        header("Location: ./".$admin_event_id."~admin");
         exit(0);
     }
     CHUNKgivehead();
@@ -86,9 +86,9 @@
 
 </form>
 
-<br><a href="myProfile.php?event_id=<?php print $event_id; ?>" >Create an Account</a>
-<br><a href="forgotPassword.php">Forgot Username or Password</a>
-<br><a href="support.php"> Get Support</a>
+<br><a href="myProfile" >Create an Account</a>
+<br><a href="forgotPassword">Forgot Username or Password</a>
+<br><a href="support"> Get Support</a>
 <p> </p>
 </div>
 

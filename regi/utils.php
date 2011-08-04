@@ -53,7 +53,6 @@
         $idArray[$num_tab] = $id_string;
         $bit = '';
         $bit .= IN2()."<div id='searchbox'>";
-//<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRegistration.php?event_id={$event}\"'>Event Info</a></div>
         $bit .= IN3()."<div class='top_tab' $idArray[0] style='cursor: pointer;' onClick='location.href=\"hbTrips\"' >HB Trip Listings</div>";
         $bit .= IN3()."<div class='top_tab' $idArray[1] style='cursor: pointer;' onClick='location.href=\"support\"' >Support</div>";
 

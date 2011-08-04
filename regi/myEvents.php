@@ -29,7 +29,7 @@
         $my_user_id='';
         $my_user_type='';
         $_SESSION['Smessage'] = 'Please Log In';
-        header("Location: ./login.php");
+        header("Location: ./login");
         exit();
     }
     else
@@ -85,7 +85,7 @@
                 print IN1()."<tr class='row{$even_or_odd}'>";
                 print IN2()."<td class='mytrips_nowrap'>".UTILshortdate($row['start_date'])."</td>";
                 print IN2()."<td class='mytrips_nowrap'>".UTILshortdate($row['end_date'])."</td>";
-                print IN2()."<td class='mytrips_en'><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
+                print IN2()."<td class='mytrips_en'><strong><a href=\"$row[event_id]\" >$row[event_name]</a></strong><br>";
                 print IN2()."<td class='mytrips'>".ucfirst(strtolower($row['register_status']))."</td>";
                 print IN2()."<td class='mytrips'>".ucfirst(strtolower($row['event_status']))."</td>";
                 print IN1()."</tr>";
