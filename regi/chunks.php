@@ -76,6 +76,7 @@ function CHUNKgivehead($dates=''){
     <link rel='stylesheet' type='text/css' href='css/stylin.css'/>
     <link rel='shortcut icon' href='images/favicon.ico' />
     <SCRIPT type='text/javascript' src='validation.js'></SCRIPT>
+    <noscript><p style='color: yellow; font-size: 120%;'>Please enable Javascript in your browser to use this site.</p></noscript>
     $date_includes
 </head>
 ";
