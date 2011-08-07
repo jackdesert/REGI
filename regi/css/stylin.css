@@ -221,7 +221,7 @@ a{
     color: #6e943b;
 }
 
-a:link, a.menu:visited {
+a:link, a:visited, a.menu:visited {
     color: #0349A8;
     font-weight: bold;
     text-decoration: none;

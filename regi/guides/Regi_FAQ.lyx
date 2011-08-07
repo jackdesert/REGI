@@ -59,6 +59,12 @@
 \begin_body
 
 \begin_layout Section*
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:user_faq"
+
+\end_inset
+
 Frequently Asked Questions 
 \end_layout
 
@@ -522,6 +528,12 @@ height "0.7bp"
 \end_layout
 
 \begin_layout Section*
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:leader_guide"
+
+\end_inset
+
 REGI Leader Guide
 \end_layout
 
@@ -852,6 +864,12 @@ height "1pc"
 \end_layout
 
 \begin_layout Section*
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:leader_faq"
+
+\end_inset
+
 Frequently Asked Questions (Leaders)
 \end_layout
 
@@ -935,6 +953,12 @@ height "0.7bp"
 \end_layout
 
 \begin_layout Section*
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:about"
+
+\end_inset
+
 About REGI 
 \end_layout
 
