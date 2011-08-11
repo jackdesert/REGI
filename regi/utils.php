@@ -293,7 +293,7 @@
         //define the headers we want passed. Note that they are separated with \r\n
 
         $headers = "Content-Type: text/plain; charset=\"utf-8\"\r\n";
-        $headers.= "From: AMC.Event.Registration\r\nReply-To: Please.do.not.reply\r\nBcc: ".$bcc;
+        $headers.= "From: AMC.Event.Registration\r\nReply-To: REGI Support<amcbostonhbs@gmail.com>\r\nBcc: ".$bcc;
 
         $footer = "\n\n-----------------------------------------------------------------------\n";
         $footer.= "This email was sent to you by the AMC Boston Chapter event registration system.\n";
