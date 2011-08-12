@@ -30,7 +30,7 @@
         header("Location: ./".$event_id);
         exit(0);
     }elseif($event_id == '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
-        header("Location: ./myEvents");
+        header("Location: ./");
         exit(0);
     }
 
