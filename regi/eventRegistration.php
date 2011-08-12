@@ -21,15 +21,15 @@
     include 'utils.php';
     session_start();
     UTILdbconnect();
-    CHUNKgivehead();
-    CHUNKstartbody();
-    UTILbuildmenu(3);
-    CHUNKstylemessage($_SESSION);
 
-    if (isset($_GET['event_id']))
+
+    if (isset($_GET['event_id'])){
         $event_id = $_GET['event_id'];
-    else
+    }else{
+        header("Location: ./errorPage.php?errTitle=Error&errMsg=You attempted to view this page without specifying a trip. I suggest you go to My Events and click an event from there.");
         exit(0);
+    }
+
 
     if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
         $my_user_id = $_SESSION['Suser_id'];
@@ -37,11 +37,14 @@
     } else {
         $_SESSION['Smessage'] = 'Please Log In';
         header("Location: ./login.php?event_id={$event_id}");
-        //print "<p>You must be logged in to register for an event.</p><p>If you do not have an account, you may create a new account <a href='myProfile.php' >here</a>.<br>";
         exit();
     }
 
 
+    // Now that all header redirects are passed, we can write html to page
+    CHUNKgivehead();
+    CHUNKstartbody();
+    UTILbuildmenu(3);
 
     // Get event summary info
     //
@@ -57,7 +60,8 @@
 
     $numrows = mysql_num_rows($result);
     if ($numrows <> 1) {
-        print "<p>ERROR: Can not retrieve event from database.</p>";
+        $_SESSION['Smessage'] = "Invalid event ID.<br> Please make sure you typed in the URL correctly.";
+        CHUNKstylemessage($_SESSION);
         exit();
     } else {
         $row = mysql_fetch_assoc($result);
@@ -83,7 +87,7 @@
 
 
 
-
+    CHUNKstylemessage($_SESSION);
     CHUNKstartcontent($my_user_id, $event_id, 'my');
 ?>
 
@@ -121,7 +125,7 @@
         if ($pnumrows == 1) {
             $prow = mysql_fetch_assoc($presult);
             print "This event is part of a program series: ";
-            print "<a href=\"eventRegistration.php?event_id=$program_id\" >".$prow['event_name'];
+            print "<a href=\"$program_id\" >".$prow['event_name'];
             print "</a><br>";
         }
 
@@ -274,7 +278,7 @@
 
             while($row = mysql_fetch_assoc($result)) {
 
-                echo "<tr><td><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></td></tr>";
+                echo "<tr><td><a href=\"$row[event_id]\" >$row[event_name]</a></td></tr>";
 
             }
             echo "</table>";

@@ -22,7 +22,6 @@
     UTILdbconnect();
     CHUNKgivehead();
     CHUNKstartbody();
-
     // If Suser_id defined, populate screen with user profile + set to Update mode
     //  otherwise, set to New mode
 
@@ -39,6 +38,7 @@
     $member_no='';
     $leader_request_yes='';
     $leader_request_no='';
+    $leader_request='N';
     $emergency_contact='';
     $experience='';
     $medical='';
@@ -59,7 +59,6 @@
         // if User is already logged in, pull profile from DB
 
         $my_user_id=$_SESSION['Suser_id'];
-        $my_user_type=$_SESSION['Suser_type'];
         $formAction='Update My Profile';
 
         // Get user profile
@@ -94,60 +93,100 @@
             $exercise=$row['exercise'];
             $diet=$row['diet'];
 
-            if ($member=='Y')
-                $member_yes='checked';
-            else
-                $member_no='checked';
 
             $readonly='readonly';
         }
     }elseif (isset($_SESSION['Semail'])){
+        //if not logged in yet but some info like email is in the session,
+        // it means they clicked "Create Profile", but something didn't work.
         $formAction='Create Profile';
 
-        // If Form fields have been cached: if so: repopulate
+        // These two fields only need to be saved if they haven't yet created their profile
+        // (This is in case they face an error)
+        if (isset($_SESSION['Suser_name'])){
+            $user_name=$_SESSION['Suser_name'];
+            unset($_SESSION['Suser_name']);
+        }
+        if (isset($_SESSION['Suser_password'])){
+            $user_password=$_SESSION['Suser_password'];
+            unset($_SESSION['Suser_password']);
+        }
 
-        //$user_name=$_SESSION['user_name'];
-        //$user_password=$_SESSION['user_password'];
-        $first_name=$_SESSION['Sfirst_name'];
-        //unset($_SESSION['Sfirst_name']);
-        $last_name=$_SESSION['Slast_name'];
-        unset($_SESSION['Slast_name']);
-        $user_type=$_SESSION['Suser_type'];
-        unset($_SESSION['Suser_type']);
-        $email=$_SESSION['Semail'];
-        unset($_SESSION['Semail']);
-        $phone_evening=$_SESSION['Sphone_evening'];
-        unset($_SESSION['Sphone_evening']);
-        $phone_day=$_SESSION['Sphone_day'];
-        unset($_SESSION['Sphone_day']);
-        $phone_cell=$_SESSION['Sphone_cell'];
-        unset($_SESSION['Sphone_cell']);
-        $member=$_SESSION['Smember'];
-        unset($_SESSION['Smember']);
-        $leader_request=$_SESSION['Sleader_request'];
-        unset($_SESSION['Sleader_request']);
-        $emergency_contact=$_SESSION['Semergency_contact'];
-        unset($_SESSION['Semergency_contact']);
-        $experience=$_SESSION['Sexperience'];
-        unset($_SESSION['Sexperience']);
-        $medical=$_SESSION['Smedical'];
-        unset($_SESSION['Smedical']);
-        $exercise=$_SESSION['Sexercise'];
-        unset($_SESSION['Sexercise']);
-        $diet=$_SESSION['Sdiet'];
-        unset($_SESSION['Sdiet']);
 
-        if ($leader_request=='Y')
-            $leader_request_yes='checked';
-        elseif ($leader_request=='N')
-            $leader_request_no='checked';
-        if ($member=='Y')
-            $member_yes='checked';
-        else
-            $member_no='checked';
     }else{
+        // If not logged in and not second time around, start fresh
         $formAction='Create Profile';
     }
+
+
+    // Use anything that has been saved to the session so they don't lose what they've typed
+    // (This is in case they face an error)
+    // Question: do we really need to unset these?
+
+    if (isset($_SESSION['Sfirst_name'])){
+        $first_name=$_SESSION['Sfirst_name'];
+        unset($_SESSION['Sfirst_name']);
+    }
+    if (isset($_SESSION['Slast_name'])){
+        $last_name=$_SESSION['Slast_name'];
+        unset($_SESSION['Slast_name']);
+    }
+    if (isset($_SESSION['Semail'])){
+        $email=$_SESSION['Semail'];
+        unset($_SESSION['Semail']);
+    }
+    if (isset($_SESSION['Sphone_evening'])){
+        $phone_evening=$_SESSION['Sphone_evening'];
+        unset($_SESSION['Sphone_evening']);
+    }
+    if (isset($_SESSION['Sphone_day'])){
+        $phone_day=$_SESSION['Sphone_day'];
+        unset($_SESSION['Sphone_day']);
+    }
+    if (isset($_SESSION['Sphone_cell'])){
+        $phone_cell=$_SESSION['Sphone_cell'];
+        unset($_SESSION['Sphone_cell']);
+    }
+    if (isset($_SESSION['Smember'])){
+        $member=$_SESSION['Smember'];
+        unset($_SESSION['Smember']);
+    }
+    if (isset($_SESSION['Sleader_request'])){
+        $leader_request=$_SESSION['Sleader_request'];
+        unset($_SESSION['Sleader_request']);
+    }
+    if (isset($_SESSION['Semergency_contact'])){
+        $emergency_contact=$_SESSION['Semergency_contact'];
+        unset($_SESSION['Semergency_contact']);
+    }
+    if (isset($_SESSION['Sexperience'])){
+        $experience=$_SESSION['Sexperience'];
+        unset($_SESSION['Sexperience']);
+    }
+    if (isset($_SESSION['Smedical'])){
+        $medical=$_SESSION['Smedical'];
+        unset($_SESSION['Smedical']);
+    }
+    if (isset($_SESSION['Sexercise'])){
+        $exercise=$_SESSION['Sexercise'];
+        unset($_SESSION['Sexercise']);
+    }
+    if (isset($_SESSION['Sdiet'])){
+        $diet=$_SESSION['Sdiet'];
+        unset($_SESSION['Sdiet']);
+    }
+
+    if ($member=='Y')
+        $member_yes='checked';
+    else
+        $member_no='checked';
+
+    // Remember their preference to be a leader or not
+    if ($leader_request=='Y')
+        $leader_request_yes='checked';
+    elseif ($leader_request=='N')
+        $leader_request_no='checked';
+
     //Note that UTILbuildmenu() is called clear down here so we can use the cookie to log in before we display
     //the menu
     UTILbuildmenu(4);
@@ -160,7 +199,7 @@
 
 <?php
     if ($formAction=='Create Profile') {
-    print "<font color='red'>Please note: if you have already created an account, please use that account to login and do not create a new account.  If you don't remember your password, please click <a href='forgotPassword.php'>here</a>.</font>";
+    print "<font color='red'>Please note: if you have already created an account, please use that account to login and do not create a new account.  If you don't remember your password, please click <a href='forgotPassword'>here</a>.</font>";
     }
 ?>
 
@@ -178,7 +217,7 @@ Your profile information is visible only to the leaders of the events you regist
         </tr><tr>";
         print "
         <td><b>* Password</b></td>
-        <td><input type='password' name='user_password' value='' MAXLENGTH=50  required='required'> (minimum 6 characters)</td>
+        <td><input type='password' name='user_password' value='$user_password' MAXLENGTH=50  required='required'> (minimum 6 characters)</td>
         </tr><tr>";
     }else{
         print "<td><b>&nbsp;&nbsp;User Name:</b></td><td> $user_name</td></tr><tr>";

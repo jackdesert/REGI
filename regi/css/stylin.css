@@ -221,7 +221,7 @@ a{
     color: #6e943b;
 }
 
-a:link, a.menu:visited {
+a:link, a:visited, a.menu:visited {
     color: #0349A8;
     font-weight: bold;
     text-decoration: none;
@@ -385,9 +385,14 @@ td, th{
     margin-bottom: 1ex;
     margin-top: 1ex;
     padding-left: 4ex;
+    text-align: justify;
+}
+
+li{
+    width: 70ex;
 }
 .width_60{
-    width: 70ex;
+    width: 90ex;
 }
 .width_60 ul{
     padding-left: 12ex;
@@ -398,7 +403,7 @@ td, th{
 
 .Unindented{
     padding-bottom: 2ex;
-    width: 145%;
+    width: 100ex;
 }
 
 .hike_rating {
@@ -426,3 +431,7 @@ td, th{
 .hike_rating:hover .visible_on_hover {
     display: block;
 }
+#trip-id{
+    display: none;
+}
+

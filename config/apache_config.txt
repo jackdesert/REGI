@@ -24,3 +24,38 @@ grant all privileges on hbboston_amcreg.* to "hbboston_admin"@"localhost" identi
 
 # Running Javascript files
 Change ScriptAlias to Alias, and then javascript
+
+# Make sure
+    Options FollowSymLinks
+is enabled in apache, since /regi is pointing toward /registrationSystem
+
+# Enabled the rewrite module with the following command:
+    sudo a2enmod rewrite
+
+# Put the following near the top of /etc/apache2/sites-enabled/000-default:
+# Note that DocumentRoot has been changed, as the rewrite rules are all
+# appended to DocumentRoot. (There is also a RewriteBase, but I'm not sure
+# how to use it.
+
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        RewriteEngine On
+        RewriteOptions Inherit
+        RewriteRule /s /support.php
+        DocumentRoot /home/jd/php/regi
+        ...
+
+
+# Or you can do it like this in .htaccess:
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^z$ support.php?_REQUEST=$1 [L]
+# But note that you must have DocumentRoot set to /home/jd/php/regi for this to work
+# Don't know how to get it to work in specific cases only
+
+# NOTE THAT YOU MUST NOT HAVE A SLASH BEFORE THE JUNK
+
+Question: Why is REGI coming up at http://localhost as well as http://localhost/regi?
+Answer: Oh, it's because DocumentRoot is set there.

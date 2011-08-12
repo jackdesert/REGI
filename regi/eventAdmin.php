@@ -21,8 +21,6 @@
     include 'utils.php';
     session_start();
     UTILdbconnect();
-    CHUNKgivehead($dates=true);
-    CHUNKstartbody();
 
     // SECURITY
     // - User must be logged in
@@ -67,7 +65,10 @@
             header("Location: ./errorPage.php?errTitle=Error&errMsg=You must be an AMC Leader, Coleader,  or Administrator to create new events.");
             exit(0);
         }
-
+        // Note these are in twice
+        // Now that all header redirects are passed, we can write html to page
+        CHUNKgivehead($dates=true);
+        CHUNKstartbody();
 
     }else{
 
@@ -75,6 +76,11 @@
             header("Location: ./errorPage.php?errTitle=Error&errMsg=You must be a designated this event's leader, coleader, or registrar to view this page. Please contact the trip leader.");
             exit(0);
         }
+        // Note these are in twice
+        // Now that all header redirects are passed, we can write html to page
+        CHUNKgivehead($dates=true);
+        CHUNKstartbody();
+
 
         // Get event summary info
         //
@@ -170,7 +176,7 @@
 
   if ($submitValue == 'Update Event')
   {
-    $event_url = 'http://www.hbbostonamc.org/registrationSystem/login.php?event_id=' . $event_id;
+    $event_url = 'http://hbbostonamc.org/regi/' . $event_id;
     print "<b>Registration URL:&nbsp;&nbsp;<a href='$event_url'>$event_url</a></b><br>";
     print "<p class='colored_note'>Copy and paste this URL into your AMC event posting to direct registrants to the Registration page.</p><br>";
   }
@@ -270,7 +276,7 @@
 
 
 <span style="font-weight: bold">Confirmation Page:</span> (Displays when user registers for event.)
-<?php if ($event_id <> '') print "<br>Save changes and then you can <a href='./confirmationPage.php?event_id=$event_id'><span style='font-size:130%;'>Preview</span></a> what you wrote.<br>"; ?>
+<?php if ($event_id <> '') print "<br>Save changes and then you can <a href='./$event_id~confirm'><span style='font-size:130%;'>Preview</span></a> what you wrote.<br>"; ?>
 <textarea name='confirmation_page' rows=8 cols=60><?php print $confirmation_page; ?></textarea><br><br>
 
 <br><br>

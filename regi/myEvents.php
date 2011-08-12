@@ -20,13 +20,7 @@
     include 'utils.php';
     session_start();
     UTILdbconnect();
-    CHUNKgivehead();
-    CHUNKstartbody();
 
-?>
-
-
-<?php
     // Notice the !!!!!!! in this next line
     if (! SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
 
@@ -35,11 +29,14 @@
         $my_user_id='';
         $my_user_type='';
         $_SESSION['Smessage'] = 'Please Log In';
-        header("Location: ./login.php");
+        header("Location: ./login");
         exit();
     }
     else
     {
+        // Now that all header redirects are passed, we can write html to page
+        CHUNKgivehead();
+        CHUNKstartbody();
         //Note that UTILbuildmenu is clear down here to make sure the auth cookie is picked up first
         UTILbuildmenu(3);
         CHUNKstylemessage($_SESSION);
@@ -80,7 +77,7 @@
         else
         {
 
-            print"<table class='center'><tr class='table_header'><th>Start</th><th>End</th><th>Event</th><th>Role</th><th>Event Status</th></tr>";
+            print"<table class='center'><tr class='table_header'><th>Start</th><th>End</th><th>Event</th><th>My Status</th><th>Event Status</th></tr>";
             print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
             $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {
@@ -88,7 +85,7 @@
                 print IN1()."<tr class='row{$even_or_odd}'>";
                 print IN2()."<td class='mytrips_nowrap'>".UTILshortdate($row['start_date'])."</td>";
                 print IN2()."<td class='mytrips_nowrap'>".UTILshortdate($row['end_date'])."</td>";
-                print IN2()."<td class='mytrips_en'><strong><a href=\"eventRegistration.php?event_id=$row[event_id]\" >$row[event_name]</a></strong><br>";
+                print IN2()."<td class='mytrips_en'><strong><a href=\"$row[event_id]\" >$row[event_name]</a></strong><br>";
                 print IN2()."<td class='mytrips'>".ucfirst(strtolower($row['register_status']))."</td>";
                 print IN2()."<td class='mytrips'>".ucfirst(strtolower($row['event_status']))."</td>";
                 print IN1()."</tr>";

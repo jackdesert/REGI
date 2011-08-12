@@ -38,7 +38,13 @@ We're here to help. If you can't find the information you're looking for on this
 <a class='menu' href='mailto:amcbostonhbs@gmail.com?subject=Help%20With%20REGI%20Site' >send an email to REGI Support</a>.
 If something is broken, we want to know so we can ask Jack to fix it. And if something needs more explanation, let us
 know and we'll add it to our Frequently Asked Questions below.
-
+<h1>Contents</h1>
+<ul>
+<li><a href='support#sec:user_faq'>User FAQ</a></li>
+<li><a href='support#sec:leader_guide'>Leader Guide</a></li>
+<li><a href='support#sec:leader_faq'>Leader FAQ</a></li>
+<li><a href='support#sec:about'>About REGI</a></li>
+</ul>
 <?php
     //The REGI FAQ is in LyX format, which makes for easy editing
     //To generate html from it, use elyxer

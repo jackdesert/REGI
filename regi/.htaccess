@@ -3,3 +3,39 @@
 # Note: 604800 seconds is one week (7 days)
 
 php_value session.gc_maxlifetime 604800
+
+# This line enables Apache to redirect short codes for events to the right page
+ErrorDocument 404 /regi/slim.php
+
+
+# Specify myEvents.php as the directory index
+DirectoryIndex myEvents.php
+
+
+# This rewrite rule makes people use the /regi/ shortcut
+RewriteEngine On
+
+# RewriteBase /home/hbboston/public_html/regi
+#RewriteBase /home/jd/php/regi
+#RewriteRule /s /support.php
+#RewriteRule /z /myEvents.php
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^support$ support.php [L]
+RewriteRule ^forgotPassword$ forgotPassword.php [L]
+RewriteRule ^enterNewPassword$ enterNewPassword.php [L]
+RewriteRule ^myEvents$ myEvents.php [L]
+RewriteRule ^hbTrips$ hbTrips.php [L]
+RewriteRule ^myProfile$ myProfile.php [L]
+RewriteRule ^login$ login.php [L]
+RewriteRule ^logout$ logout.php [L]
+RewriteRule ^eventAdmin$ eventAdmin.php [L]
+RewriteRule ^newEvent$ eventAdmin.php [L]
+RewriteRule ^([0-9]+)$ eventRegistration.php?event_id=$1 [L]
+RewriteRule ^([0-9]+)~admin$ eventAdmin.php?event_id=$1 [L]
+RewriteRule ^([0-9]+)~roster$ eventRoster.php?event_id=$1 [L]
+RewriteRule ^([0-9]+)~confirm$ confirmationPage.php?event_id=$1 [L]

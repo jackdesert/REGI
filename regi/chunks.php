@@ -75,7 +75,9 @@ function CHUNKgivehead($dates=''){
     <title>AMC Event Registration</title>
     <link href='http://www.hbbostonamc.org/templates/amctemplate/template_css/template_2css.css' type='text/css' rel='stylesheet' />
     <link rel='stylesheet' type='text/css' href='css/stylin.css'/>
+    <link rel='shortcut icon' href='images/favicon.ico' />
     <SCRIPT type='text/javascript' src='validation.js'></SCRIPT>
+    <noscript><p style='color: yellow; font-size: 120%;'>Please enable Javascript in your browser to use this site.</p></noscript>
     $date_includes
 </head>
 ";
@@ -127,7 +129,6 @@ function CHUNKstartcontent($user='', $event='', $tab='none'){
 
 function CHUNKfinishcontent(){
     print "<br><br></div></div></div><div id='footer'>Copyright 2011 &nbsp;&nbsp;Powered by REGI-Trunk </div></body></html>";
-
 }
 
 function CHUNKlefttabs($user, $event, $tab){
@@ -148,9 +149,9 @@ function CHUNKlefttabs($user, $event, $tab){
     print "
 <div id='tabs'>
 
-<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRegistration.php?event_id={$event}\"'>Event Info</div>
-<div{$st2}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventRoster.php?event_id={$event}\"'>Roster</div>
-<div{$st3}{$class_string} style='cursor: pointer;' onClick='location.href=\"eventAdmin.php?event_id={$event}\"'>Admin</div>
+<div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"{$event}\"'>Event Info</div>
+<div{$st2}{$class_string} style='cursor: pointer;' onClick='location.href=\"{$event}~roster\"'>Roster</div>
+<div{$st3}{$class_string} style='cursor: pointer;' onClick='location.href=\"{$event}~admin\"'>Admin</div>
 {$err}
 </div>";
 }
@@ -195,7 +196,8 @@ function CHUNKtrimtrips($in_html){
 function CHUNKlinksopenhere($in_html){
     $open_same_window = str_replace('target="_new"', '', $in_html);
     $go_local = str_replace('href="http://www.hbbostonamc.org/registrationSystem/', 'href="./', $open_same_window);
-    return $go_local;
+    $short_urls_too = str_replace('href="http://hbbostonamc.org/regi/', 'href="./', $go_local);
+    return $short_urls_too;
 }
 
 function CHUNKhikerating($rating, $edit = false){

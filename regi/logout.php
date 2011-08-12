@@ -2,19 +2,11 @@
 
     include 'utils.php';
     session_start();
-    $_SESSION['Smessage'] = "Good bye, $_SESSION[Sfirst_name], you are now logged off.";
-    //UTILdbconnect();
 
-    unset($_SESSION['Suser_id']);
-    unset($_SESSION['Sfirst_name']);
-    unset($_SESSION['Suser_type']);
-
-    unset($_SESSION['Sviewable_users']);
-
-    session_unset();
+    $_SESSION = array();    // This removes all session vars.
     session_destroy();
-    SECdestroyCookie();
-    header("Location: ./login.php");
+    SECdestroyCookie();     // This removes the cookie
+    header("Location: ./login");
     exit();
 
 ?>
