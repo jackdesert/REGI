@@ -4,6 +4,6 @@
   <title>REGI - Event Registration System</title>
 </head>
 <body>
-<meta http-equiv="REFRESH" content="0; url=myEvents">
+<meta http-equiv="REFRESH" content="0; url=.">
 </body>
 </html>
