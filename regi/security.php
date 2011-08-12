@@ -32,10 +32,10 @@ function SECtestCookie($in_cookie, $special){
     $delimiter = '&';
     $parts = explode($delimiter, $in_cookie, 2);
     if (count($parts) != 2){
-        print 'should have split into exactly two pieces';
+        //print 'should have split into exactly two pieces';
         return false;   // should be exactly one delimiter in the in_cookie
     }elseif(strlen($parts[0]) < 14){
-        print 'not long enough';
+        //print 'not long enough';
         return false;   // not long enough to contain the 'AMCuser_name' prepend
     }else{
         $cookiePayload = $parts[0];
@@ -45,7 +45,7 @@ function SECtestCookie($in_cookie, $special){
         if ($in_hmac_key == $generated_hmac_key){
             return $proposed_user_name;
         }else{
-            print 'hmac key did not match';
+            //print 'hmac key did not match';
             return false;
         }
     }

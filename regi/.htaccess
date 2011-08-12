@@ -28,7 +28,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^support$ support.php [L]
 RewriteRule ^forgotPassword$ forgotPassword.php [L]
 RewriteRule ^enterNewPassword$ enterNewPassword.php [L]
-RewriteRule ^myEvents$ myEvents.php [L]
 RewriteRule ^hbTrips$ hbTrips.php [L]
 RewriteRule ^myProfile$ myProfile.php [L]
 RewriteRule ^login$ login.php [L]
