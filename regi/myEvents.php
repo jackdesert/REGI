@@ -18,6 +18,10 @@
 
 */
     include 'utils.php';
+    function my_events_table_start(){
+        print "<table class='center'><tr class='table_header'><th>Start</th><th>End</th><th>Event</th><th>My Status</th><th>Event Status</th></tr>";
+        print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
+    }
     session_start();
     UTILdbconnect();
 
@@ -76,11 +80,16 @@
         }
         else
         {
-
-            print"<table class='center'><tr class='table_header'><th>Start</th><th>End</th><th>Event</th><th>My Status</th><th>Event Status</th></tr>";
-            print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
+            my_events_table_start();
             $rowcount = 0;
+            $need_archive_header = true;
+            $yesterday = date("Y-m-d", strtotime("-1 day"));
             while($row = mysql_fetch_assoc($result)) {
+                if ($row['start_date'] < $yesterday and $need_archive_header){
+                    print "</table><h1>My Archived Events</h1><table>";
+                    my_events_table_start();
+                    $need_archive_header = false;
+                }
                 $even_or_odd = $rowcount % 2;
                 print IN1()."<tr class='row{$even_or_odd}'>";
                 print IN2()."<td class='mytrips_nowrap'>".UTILshortdate($row['start_date'])."</td>";

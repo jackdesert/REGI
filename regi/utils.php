@@ -288,22 +288,22 @@
     // Send Email to BCC list (1 or many users)
     //  - Requires: SMTP mail server
 
-    function UTILsendEmail($bcc, $title, $message) {
+    function UTILsendEmail($to, $subject, $message) {
 
         //define the headers we want passed. Note that they are separated with \r\n
 
-        $headers = "Content-Type: text/plain; charset=\"utf-8\"\r\n";
-        $headers.= "From: AMC.Event.Registration\r\nReply-To: REGI Support<amcbostonhbs@gmail.com>\r\nBcc: ".$bcc;
+        $headers = "Content-Type: text/plain; charset=\"utf-8\"\n";
+        $headers.= "From: AMC.Event.Registration\r\nReply-To: REGI Support<amcbostonhbs@gmail.com>";
 
         $footer = "\n\n-----------------------------------------------------------------------\n";
         $footer.= "This email was sent to you by the AMC Boston Chapter event registration system.\n";
-        $footer.= "All email addresses are kept confidential.";
+        $footer.= "For support, please reply to this email.";
 
         //send the email
-        $mail_sent = mail("", $title, $message.$footer, $headers);
+        $mail_sent = mail($to, $subject, $message.$footer, $headers);
 
         if (!$mail_sent)
-            UTILlog("ERROR: email not sent FROM: ($SUID) TO: ($bcc) TITLE: ($title)");
+            UTILlog("ERROR: email not sent FROM: ($SUID) TO: ($to) TITLE: ($title)");
     }
 
 

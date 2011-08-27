@@ -130,7 +130,9 @@
             $need_ride= UTILclean($_POST["need_ride"], 1, '');
             $can_take= UTILclean($_POST["can_take"], 2, '');
             $leaving_from= UTILclean($_POST["leaving_from"], 100, '');
+            $leave_time= UTILclean($_POST["leave_time"], 100, '');
             $returning_to= UTILclean($_POST["returning_to"], 100, '');
+            $return_time= UTILclean($_POST["return_time"], 100, '');
 
             //if ($user_id == '') $user_id = -1;
 
@@ -140,11 +142,11 @@
             //  $event_id='';
 
             $query = "insert into user_events (
-                user_id, event_id, answer1, answer2, gear, questions, need_ride,
-                can_take, leaving_from, returning_to,
+                user_id, event_id, answer1, gear, questions, need_ride,
+                can_take, leaving_from, leave_time, returning_to, return_time,
                 register_status, payment_status, register_date) values (
-                '$user_id', '$event_id', '$answer1', '$answer2', '$gear', '$questions', '$need_ride',
-                '$can_take', '$leaving_from', '$returning_to',
+                '$user_id', '$event_id', '$answer1', '$gear', '$questions', '$need_ride',
+                '$can_take', '$leaving_from', '$leave_time', '$returning_to', '$return_time',
                 'SUBMITTED', 'NO PAYMENT', now());";
 
             $result = mysql_query($query);
