@@ -42,7 +42,7 @@
     // Get event summary info
     //
 
-    $query = "select event_name, event_status, confirmation_page
+    $query = "select event_name, event_status, confirmation_page, start_date
             FROM events
             WHERE
             event_id=$event_id;";
@@ -59,6 +59,7 @@
         $event_name=$row['event_name'];
         $event_status=$row['event_status'];
         $confirmation_page=$row['confirmation_page'];
+        $start_date = UTIL_date_prettify($row['start_date']);
     }
 
     CHUNKstartcontent($my_user_id, $event_id, 'admin');
@@ -66,8 +67,10 @@
 
 
 <h1>Event Registration Confirmation</h1>
-
-<h1><?php print $event_name.'  [Event status: '.$event_status.']'; ?></h1>
+You just signed up for
+<h1><?php print $event_name?></h1>
+<b>Event status:</b> <?php print $event_status ?><br>
+<b>Start Date:</b> <?php print $start_date ?><br><br>
 
 <?php print htmlspecialchars_decode(str_replace("\n", "<br>", $confirmation_page)); ?>
 
