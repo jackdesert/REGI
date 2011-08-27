@@ -24,6 +24,7 @@
     include 'security.php';
     include 'settings.php';
     include 'chunks.php';
+    include 'emails.php';
 
     //return date format
     function UTILdate($datestr) {

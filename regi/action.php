@@ -281,9 +281,7 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
                     $reg_status=$set_reg_status_AR[$inc];
 
                     $title="AMC Boston Chapter - Event Registration Status";
-                    $message="Hello $first_name,\n\nYour event registration status has been updated to $reg_status for the following event: $event_name.\n\nClick here to log in and view this event:
-http://hbbostonamc.org/regi/login.php?event_id=$event_id
-\n\nPlease contact the event leader if there are any questions.\n\nThank you!";
+                    $message=reg_status_email($first_name, $reg_status, $event_name, $event_id);
 
                     UTILsendEmail($email, $title, $message);
 
