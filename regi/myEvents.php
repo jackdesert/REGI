@@ -18,6 +18,10 @@
 
 */
     include 'utils.php';
+    function my_events_table_start(){
+        print "<table class='center'><tr class='table_header'><th>Start</th><th>End</th><th>Event</th><th>My Status</th><th>Event Status</th></tr>";
+        print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
+    }
     session_start();
     UTILdbconnect();
 
@@ -76,9 +80,7 @@
         }
         else
         {
-
-            print"<table class='center'><tr class='table_header'><th>Start</th><th>End</th><th>Event</th><th>My Status</th><th>Event Status</th></tr>";
-            print "<tr><td colspan='5' class='row1' style='height:2px; padding:0;'></td></tr>";
+            my_events_table_start();
             $rowcount = 0;
             while($row = mysql_fetch_assoc($result)) {
                 $even_or_odd = $rowcount % 2;
