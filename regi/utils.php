@@ -298,7 +298,7 @@
 
         $footer = "\n\n-----------------------------------------------------------------------\n";
         $footer.= "REGI MAILER\nThank you for using the H/B Boston REGI. ";
-        $footer.= "For support, please reply to this email.";
+        $footer.= "For help, please visit our support page at http://hbbostonamc.org/regi/support or reply to this email.";
 
         //send the email
         $mail_sent = mail($to, $subject, $message.$footer, $headers);
