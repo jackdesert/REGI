@@ -280,7 +280,7 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
                     $email=$email_AR[$inc];
                     $reg_status=$set_reg_status_AR[$inc];
 
-                    $title="AMC Boston Chapter - Event Registration Status";
+                    $title="AMC REGI Status: $reg_status -- $event_name";
                     $message=reg_status_email($first_name, $reg_status, $event_name, $event_id);
 
                     UTILsendEmail($email, $title, $message);

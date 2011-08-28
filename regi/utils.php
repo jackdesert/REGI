@@ -286,7 +286,7 @@
         return $retval;
     }
 
-    // Send Email to BCC list (1 or many users)
+    // Send Email
     //  - Requires: SMTP mail server
 
     function UTILsendEmail($to, $subject, $message) {
@@ -297,7 +297,7 @@
         $headers.= "From: AMC.Event.Registration\r\nReply-To: REGI Support<amcbostonhbs@gmail.com>";
 
         $footer = "\n\n-----------------------------------------------------------------------\n";
-        $footer.= "This email was sent to you by the AMC Boston Chapter event registration system.\n";
+        $footer.= "REGI MAILER\nThank you for using the H/B Boston REGI. ";
         $footer.= "For support, please reply to this email.";
 
         //send the email
