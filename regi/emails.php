@@ -33,7 +33,7 @@ function congrats_admin($reg_status, $event_name){
 }
 function regi_link($event_id){
     $link = "http://hbbostonamc.org/regi/$event_id";
-    $sentence = "You may view this event online at $link. ";
+    $sentence = "You may view the REGI page for this event at $link. ";
     return $sentence;
 }
 
@@ -94,7 +94,7 @@ function reg_status_email($first_name, $reg_status, $event_name, $event_id){
             $bit .= "CANCELED\n";
             $bit .= "You are no longer registered for the following event: $event_name. ";
             $bit .= "If you believe this is a mistake, please contact the event leader.\n\n";
-            $bit .= regi_link();
+            $bit .= regi_link($event_id);
             break;
         default:    // This should never be reached.
             $bit .= "Your registration status has been updated to $reg_status for the following event: $event_name.\n\n";
