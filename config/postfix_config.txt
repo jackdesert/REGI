@@ -1,0 +1,4 @@
+To flush the sendmail que:
+    sudo postsuper -d ALL
+
+
