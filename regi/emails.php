@@ -22,13 +22,10 @@ function leader_means(){
     $means .= "From the Admin tab, you can update the event details. ";
     return $means;
 }
-function registrar_also_means(){
-    $also = "\n\nAs a registrar, you will not be participating in the event. But you get all the other perks of being a leader. ";
-    return $also;
-}
 
 function congrats_admin($reg_status, $event_name){
-    $congrats = "Congratulations! You are now listed as a $reg_status for the following event: $event_name. ";
+    $up = strtoupper($reg_status);
+    $congrats = "Congratulations! You are now listed as a $up for the following event: $event_name. ";
     return $congrats;
 }
 function regi_link($event_id){
@@ -53,30 +50,25 @@ function reg_status_email($first_name, $reg_status, $event_name, $event_id){
     $bit = "$first_name,\n\n";
     switch($reg_status) {
         case "leader":
-            $bit .= "LEADER\n";
             $bit .= congrats_admin($reg_status, $event_name);
             $bit .= regi_link($event_id);
             $bit .= leader_means();
             $bit .= thank($reg_status);
             break;
         case "coleader":
-            $bit .= "COLEADER\n";
             $bit .= congrats_admin($reg_status, $event_name);
             $bit .= regi_link($event_id);
             $bit .= leader_means();
             $bit .= thank($reg_status);
             break;
         case "registrar":
-            $bit .= "REGISTRAR\n";
             $bit .= congrats_admin($reg_status, $event_name);
             $bit .= regi_link($event_id);
-            $bit .= registrar_also_means();
             $bit .= leader_means();
             $bit .= thank($reg_status);
             break;
         case "approved":
-            $bit .= "APPROVED\n";
-            $bit .= "Congratulations! You have been approved to participate in the following event: $event_name. ";
+            $bit .= "Congratulations! You have been APPROVED to participate in the following event: $event_name. ";
             $bit .= regi_link($event_id);
             $bit .= "\n\nCARPOOL\n";
             $bit .= "Carpooling is good for the environment, and a great way to get to know people. ";
@@ -84,20 +76,19 @@ function reg_status_email($first_name, $reg_status, $event_name, $event_id){
             $bit .= contact_leader();
             break;
         case "waitlist":
-            $bit .= "WAITLIST\n";
-            $bit .= "You are on the wait list for the following event: $event_name. ";
+            $bit .= "You are on the WAIT LIST for the following event: $event_name. ";
             $bit .= waitlist_means();
             $bit .= regi_link($event_id);
             $bit .= contact_leader();
             break;
         case "canceled":
-            $bit .= "CANCELED\n";
             $bit .= "You are no longer registered for the following event: $event_name. ";
             $bit .= "If you believe this is a mistake, please contact the event leader.\n\n";
             $bit .= regi_link($event_id);
             break;
         default:    // This should never be reached.
-            $bit .= "Your registration status has been updated to $reg_status for the following event: $event_name.\n\n";
+            $up = strtoupper($reg_status);
+            $bit .= "Your registration status has been updated to $up for the following event: $event_name.\n\n";
             $bit .= regi_link($event_id);
             //log the error
             $mail_error = "Case not found in emails.php.";
