@@ -17,7 +17,6 @@
     <http://www.gnu.org/licenses/>.
 */
 
-include "settings.php";
 
 
 function SECcreateCookie($user_name, $special ){
