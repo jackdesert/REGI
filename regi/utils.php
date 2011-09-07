@@ -129,7 +129,7 @@
     function UTILrequiredfields() {
 
         if (isset($_SESSION['reqfields'])) {
-            echo "Required fields missing:<br>$_SESSION[reqfields]";
+            //echo "Required fields missing:<br>$_SESSION[reqfields]";
             $_SESSION['Smessage'] = "The following are required fields: ".$_SESSION['reqfields'];
             unset($_SESSION['reqfields']);
             return 0;
