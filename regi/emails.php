@@ -28,8 +28,13 @@ function congrats_admin($reg_status, $event_name){
     $congrats = "Congratulations! You are now listed as a $up for the following event: $event_name. ";
     return $congrats;
 }
-function regi_link_sentence($event_id){
+function regi_link($event_id){
     $link = "http://hbbostonamc.org/regi/$event_id";
+    return $link;
+}
+
+function regi_link_sentence($event_id){
+    $link = regi_link($event_id);
     $sentence = "You may view the REGI page for this event at $link. ";
     return $sentence;
 }
@@ -74,8 +79,9 @@ function reg_status_email($first_name, $reg_status, $event_name, $event_id){
             $bit .= "Carpooling is good for the environment, and a great way to get to know people. ";
             $bit .= "We encourage you to contact other participants and find ways to share transportation. ";
             $bit .= "You can update your carpool information and view the carpool information for other ";
-            $bit .= "participants by going to the REGI site for the event:\n";
-            $bit .=
+            $bit .= "participants by going to the REGI site for the event:  ";
+            $bit .= regi_link($event_id);
+            $bit .= ".";
             $bit .= contact_leader();
             break;
         case "waitlist":
