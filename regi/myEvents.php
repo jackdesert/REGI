@@ -45,7 +45,7 @@
         UTILbuildmenu(3);
         CHUNKstylemessage($_SESSION);
         CHUNKstartcontent();
-        print "<h1>My Events</h1>";
+        print "<h1>My Upcoming Events</h1>";
 
         $my_user_id=$_SESSION['Suser_id'];
         $my_user_type=$_SESSION['Suser_type'];

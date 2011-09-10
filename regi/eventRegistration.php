@@ -213,8 +213,15 @@
 
     print "<p class='indented'>My Registration Status: <b>$my_register_status</b></p>";
     CHUNKhikerating($rating);
+    if (strlen($pricing) < 20){
+        $start_bold = "<b>";
+        $end_bold = "</b>";
+    }else{
+        $start_bold = '';
+        $end_bold = '';
+    }
     //print "<p class='indented'>Hike Rating: <b>".$rating.". </b>&nbsp;&nbsp;(<a href='http://www.hbbostonamc.org/index.php/Table/Key-to-Hike-Ratings/' target='_blank'>Hike Rating Key</a>)</p> ";
-    print "<p class='indented'>Cost: <b>".str_replace("\n", "<br>", $pricing)."</b></p> ";
+    print "<p class='indented'>Cost: ".$start_bold.str_replace("\n", "<br>", $pricing).$end_bold."</p> ";
 
     //Display co/leaders
     $query = "select users.user_id, users.first_name, users.last_name, users.email
