@@ -1,13 +1,20 @@
+# .htaccess file
+# Note that you should only use '#' at the beginning of a line
+# apache2 gets confused if you put in a command and then comments on the same line
+# The server will SCREAM if you do that. So I don't recommend it.
+
+
 # This is here to make sure people can stay logged in longer than
 # the default value of 1440 seconds
 # Note: 604800 seconds is one week (7 days)
 
 php_value session.gc_maxlifetime 604800
 
+##############  ERROR  REPORTING  ################################
 # Do not display errors to screen. Rather, log them to a file
-php_value error_reporting -1            # everything under the sun
-php_flag display_errors off             # do not print to screen
-php_flag log_errors on                  # log to a file
+php_value error_reporting -1
+php_flag display_errors off
+php_flag log_errors on
 # Make sure the log file exists on the server and is chmod 622
 # (When you first push a file to the server it defaults to chmod 644, which won't work)
 php_value error_log log/php_errors.log
