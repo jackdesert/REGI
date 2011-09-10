@@ -125,11 +125,11 @@
 
     if (isset($_SESSION['Sfirst_name'])){
         $first_name=$_SESSION['Sfirst_name'];
-        unset($_SESSION['Sfirst_name']);
+        // don't unset because emails use this
     }
     if (isset($_SESSION['Slast_name'])){
         $last_name=$_SESSION['Slast_name'];
-        unset($_SESSION['Slast_name']);
+        // don't unset because emails use this
     }
     if (isset($_SESSION['Semail'])){
         $email=$_SESSION['Semail'];
