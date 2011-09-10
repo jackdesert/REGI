@@ -260,7 +260,11 @@
         //print "System Message: ".$today." : ".$mess;
     }
 
-
+    function UTILsessionlog(){
+        $bit = "Session info:\n";
+        $bit .= print_r($_SESSION, true);   # the 'true makes it return a string instead of printing to screen
+        UTILlog($bit);
+    }
     // Functions to convert arrays to strings, and vice-versa
     //  - from a post at http://us2.php.net/array
 
