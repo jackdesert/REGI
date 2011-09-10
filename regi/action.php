@@ -750,7 +750,7 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
                 UTILdberror($query);
 
             $_SESSION['Smessage'] = "This event has been inserted into the database (eventID = $event_id).<br>You can view and administer this event from 'My Events'.<br>The registration URL for participants is listed below.";
-            header("Location: ./$event_id~admin");
+            header("Location: ./$event_id~share");
             exit();
 
         break;
