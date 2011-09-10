@@ -19,6 +19,10 @@ php_flag log_errors on
 # (When you first push a file to the server it defaults to chmod 644, which won't work)
 php_value error_log log/php_errors.log
 
+##################  TIME  ZONE  #################################
+# This prevents a STRICT warning from being thrown
+php_value date.timezone "America/New_York"
+
 
 # This line enables Apache to redirect short codes for events to the right page
 ErrorDocument 404 /regi/slim.php
