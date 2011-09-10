@@ -4,6 +4,15 @@
 
 php_value session.gc_maxlifetime 604800
 
+# Do not display errors to screen. Rather, log them to a file
+php_value error_reporting -1            # everything under the sun
+php_flag display_errors off             # do not print to screen
+php_flag log_errors on                  # log to a file
+# Make sure the log file exists on the server and is chmod 622
+# (When you first push a file to the server it defaults to chmod 644, which won't work)
+php_value error_log log/php_errors.log
+
+
 # This line enables Apache to redirect short codes for events to the right page
 ErrorDocument 404 /regi/slim.php
 
