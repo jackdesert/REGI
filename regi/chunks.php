@@ -135,6 +135,7 @@ function CHUNKlefttabs($user, $event, $tab){
     $st1 = '';
     $st2 = '';
     $st3 = '';
+    $st4 = '';
     $err = '';
     $id_string = " id='selected_tab'";
     $class_string = " class='tab'";
@@ -144,6 +145,8 @@ function CHUNKlefttabs($user, $event, $tab){
         $st2 = $id_string;
     elseif ($tab == 'admin')
         $st3 = $id_string;
+    elseif ($tab == 'share')
+        $st4 = $id_string;
     else
         $err = "<div>Tab\n Not \nSelected</div>";
     print "
@@ -152,6 +155,7 @@ function CHUNKlefttabs($user, $event, $tab){
 <div{$st1}{$class_string} style='cursor: pointer;' onClick='location.href=\"{$event}\"'>Event Info</div>
 <div{$st2}{$class_string} style='cursor: pointer;' onClick='location.href=\"{$event}~roster\"'>Roster</div>
 <div{$st3}{$class_string} style='cursor: pointer;' onClick='location.href=\"{$event}~admin\"'>Admin</div>
+<div{$st4}{$class_string} style='cursor: pointer;' onClick='location.href=\"{$event}~share\"'>Share</div>
 {$err}
 </div>";
 }
