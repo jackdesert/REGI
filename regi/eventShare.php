@@ -82,53 +82,49 @@
     CHUNKstylemessage($_SESSION);
 
     CHUNKstartcontent($my_user_id, $event_id, 'share');
-
-
-    print "<h1 id='page_title'>Advertise Your Event on Outdoors.org</h1>";
-
-    print "<p>Congratulations! Your event has been created in REGI. Now let's put the word on the street ";
-    print "so people will know where to go to sign up. First, you need to log in to <a href = '$SET_OUTDOORS_LINK'>$SET_OUTDOORS_LINK</a>. ";
-    print "Then find the link that says <em>Add Chapter Trip</em>. ";
-    print "Here are some tidbits that you will need in order to post the trip.";
-
-
-
+    print "<h1>Thank Yor for Making a REGI Page</h1>";
+    print "<p>Congratulations, your Registration Page has been created. This page allows you to keep track of who's signing up for your event. Now, let's post your event so people can sign up for it!</p>";
+    print "<h1>Post your REGI page with your Trip Listing:</h1>";
+    print "<ol><li>Log in to <a href = '$SET_OUTDOORS_LINK'>$SET_OUTDOORS_LINK</a>. </li>";
+    print "<li>Click on the link in the side bar under <em>Events</em> that says <em>Add Chapter Trip</em>.</li>";
+    print "<li>Below are the details of your event. Copy and paste them into your listing.</li>";
+    print "</ol>";
+    print "<div style = 'margin-left: 8%'>";
     $event_url = 'http://hbbostonamc.org/regi/' . $event_id;
-    print "<br><br><b>Registration URL:&nbsp;&nbsp;<a href='$event_url'>$event_url</a></b><br>";
+    print "<b>Registration URL:&nbsp;&nbsp;<a href='$event_url'>$event_url</a></b><br>";
 
 ?>
+    <span style="font-weight: bold">Event Name:</span> &nbsp; <?php print $event_name; ?>
 
-<span style="font-weight: bold">Event Name:</span> &nbsp; <?php print $event_name; ?>
+    <table style='border-collapse:separate;border-spacing:4ex 1ex;'>
+        <tr>
+            <td>
+                <span style="font-weight: bold">Start Date:</span> <br><?php print UTIL_date_prettify($start_date); ?>
 
-<table style='border-collapse:separate;border-spacing:4ex 1ex;'>
-    <tr>
-        <td>
-            <span style="font-weight: bold">Start Date:</span> <br><?php print UTIL_date_prettify($start_date); ?>
-
-        </td>
-
-
-        <td>
-            <span style="font-weight: bold">End Date:</span> (Blank means event is only one day.)<br><?php print UTIL_date_prettify($end_date); ?>
-
-        </td>
-    </tr></table>
+            </td>
 
 
-<span style="font-weight: bold">Hike Rating:</span> <?php print $rating; ?><br><br>
+            <td>
+                <span style="font-weight: bold">End Date:</span> (Blank means event is only one day.)<br><?php print UTIL_date_prettify($end_date); ?>
+
+            </td>
+        </tr></table>
+
+
+    <span style="font-weight: bold">Hike Rating:</span> <?php print $rating; ?><br><br>
 
 
 
-<span style="font-weight: bold">Cost:</span> <?php print $pricing; ?><br><br>
+    <span style="font-weight: bold">Cost:</span> <?php print $pricing; ?><br><br>
 
 
-<span style="font-weight: bold">General Description:</span><br>
-<?php print $description; ?><br><br>
+    <span style="font-weight: bold">General Description:</span><br>
+    <?php print $description; ?><br><br>
 
 
-<span style="font-weight: bold">Gear List</span>
-<?php print $gear_list; ?>
-
+    <span style="font-weight: bold">Gear List</span>
+    <?php print $gear_list; ?>
+</div>
 <h1>View Your Trip</h1>
 <p>Once your trip is posted on outdoors.org, you will be able to view it at <a href='hbTrips'>HB Trip Listings </a>. </p>
 
