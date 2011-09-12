@@ -82,16 +82,13 @@
     CHUNKstylemessage($_SESSION);
 
     CHUNKstartcontent($my_user_id, $event_id, 'share');
-
-
-    print "<h1 id='page_title'>Advertise Your Event on Outdoors.org</h1>";
-
-    print "<p>Congratulations! Your event has been created in REGI. Now let's put the word on the street ";
-    print "so people will know where to go to sign up. First, you need to log in to <a href = '$SET_OUTDOORS_LINK'>$SET_OUTDOORS_LINK</a>. ";
-    print "Then find the link that says <em>Add Chapter Trip</em>. ";
-    print "Here are some tidbits that you will need in order to post the trip.";
-
-
+    print "<h1>Thank Yor for Making a REGI Page</h1>";
+    print "<p>Congratulations, your Registration Page has been created. This page allows you to keep track of who's signing up for your event. Now, let's post your event so people can sign up for it!</p>";
+    print "<h1>Post your REGI page with your Trip Listing:</h1>";
+    print "<ol><li>Log in to <a href = '$SET_OUTDOORS_LINK'>$SET_OUTDOORS_LINK</a>. </li>";
+    print "<li>Click on the link in the side bar under <em>Events</em> that says <em>Add Chapter Trip</em>.</li>";
+    print "<li>Below are the details of your event. Copy and paste them into your listing.</li>";
+    print "</ol>";
 
     $event_url = 'http://hbbostonamc.org/regi/' . $event_id;
     print "<br><br><b>Registration URL:&nbsp;&nbsp;<a href='$event_url'>$event_url</a></b><br>";
