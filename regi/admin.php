@@ -53,13 +53,30 @@
 
         CHUNKstartcontent('','','');
 
-        $numrows = mysql_num_rows($result);
-        if ($numrows > 0) {
-            $row = mysql_fetch_assoc($result);
+        print "<table class='center'><tr class='table_header'><th>Name</th><th>Email</th><th>Approve</th><th>Decline</th></tr>";
+        print "<tr><td colspan='4' class='row1' style='height:2px; padding:0;'></td></tr>";
+        while($row = mysql_fetch_assoc($result)) {
             $first_name=$row['first_name'];
             $last_name=$row['last_name'];
+            $email=$row['email'];
             $leader_id = $row['user_id'];
             print_r ($row);
+
+
+
+            $even_or_odd = $rowcount % 2;
+            print "<form>";
+            print "<input type='hidden' id='leader_id' value=$leader_id />";
+            print IN1()."<tr class='row{$even_or_odd}'>";
+            print IN2()."<td class='mytrips_nowrap'>".$first_name." ".$last_name."</td>";
+            print IN2()."<td>".$email."</td>";
+            print IN2()."<td><input type='submit' value='Approve'></td>";
+            print IN2()."<td><input type='submit' value='Decline'></td>";
+
+            print IN1()."</tr>";
+            $rowcount += 1;
+            print "</form>";
         }
+        print "</table>";
 
 CHUNKfinishcontent();
