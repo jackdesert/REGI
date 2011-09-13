@@ -946,9 +946,35 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
         break;
 
 
-        default:
-            echo "ERROR: Undefined action: >$action<";
+        case "Approve Leader":
+
+            $leader_id= $_POST["leader_id"];
+
+            $query = "update users set user_type = 'LEADER' WHERE user_id=$leader_id;";
+
+            $result = mysql_query($query);
+
+            if (!$result)
+                UTILdberror($query);
+
+            $_SESSION['Smessage'] = "User number $leader_id is now a LEADER.";
+            $query = "update users set leader_request = false WHERE user_id=$leader_id;";
+
+            $result = mysql_query($query);
+
+            if (!$result)
+                UTILdberror($query);
+
+            header("Location: ./admin");
+            exit();
+
         break;
+
+
+        default:
+            echo "ERROR: Undefined action: $action";
+        break;
+
 
     }  // End: action
 
