@@ -90,6 +90,7 @@
     print "<li>Below are the details of your event. Copy and paste them into your listing.</li>";
     print "</ol>";
     print "<div style = 'margin-left: 8%'>";
+
     $event_url = 'http://hbbostonamc.org/regi/' . $event_id;
     print "<b>Registration URL:&nbsp;&nbsp;<a href='$event_url'>$event_url</a></b><br>";
 
