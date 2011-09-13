@@ -42,14 +42,16 @@
 
 
 
-        $query = "SELECT first_name, last_name, email, leader_request FROM users WHERE leader_request = true";
+        $query = "SELECT first_name, last_name, email, user_id, leader_request FROM users WHERE leader_request = true";
 
         $result = mysql_query($query);
         if (!$result) UTILdberror($query);
+        CHUNKgivehead();
+        CHUNKstartbody();
         UTILbuildmenu(3);
         CHUNKstylemessage($_SESSION);
 
-        CHUNKstartcontent($my_user_id, $event_id, 'admin');
+        CHUNKstartcontent('','','');
 
         $numrows = mysql_num_rows($result);
         if ($numrows > 0) {
