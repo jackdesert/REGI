@@ -127,7 +127,7 @@
     <?php print $gear_list; ?>
 </div>
 <h1>View Your Trip</h1>
-<p>Once your trip is posted on outdoors.org, you will be able to view it at <a href='hbTrips'>HB Trip Listings </a>. </p>
+<p>Once your event is posted on outdoors.org, you will be able to view it at <a href='hbTrips'>HB Trip Listings </a>. </p>
 
 <?php CHUNKfinishcontent(); ?>
 
