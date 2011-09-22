@@ -109,6 +109,26 @@ function reg_status_email($first_name, $reg_status, $event_name, $event_id){
     return $bit;
 }
 
+
+function new_leader_email($first_name, $email_address, $approve = true) {
+
+    $bit = "$first_name,\n\n";
+    if ($approve) {
+        $bit .= "You are now a leader in REGI. Please log out of REGI, then log back in for this to take effect. \n\n";
+        $bit .= "http://hbbostonamc.org/regi";
+
+    }else{
+        $bit .= "According to our records, you are not an AMC leader. So you have not been ";
+        $bit .= "made a leader in REGI. If you believe this is a mistake, please contact us at $SET_ADMIN_EMAIL.\n\n";
+        $bit .= "http://hbbostonamc.org/regi/support";
+    }
+
+    }
+    return $bit;
+}
+
+
+
 /*Note there is purposefully no closing php tag here, because
 if you accidentally put extra characters (even line breaks)
 after a closing php tag, you will get a warning when this

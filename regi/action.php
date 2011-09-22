@@ -957,22 +957,38 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
             if (!$result)
                 UTILdberror($query);
 
-            $_SESSION['Smessage'] = "User number $leader_id is now a LEADER.";
             $query = "update users set leader_request = false WHERE user_id=$leader_id;";
 
             $result = mysql_query($query);
 
             if (!$result)
                 UTILdberror($query);
+            $_SESSION['Smessage'] = "User number $leader_id is now a LEADER.";
 
             header("Location: ./admin");
             exit();
 
         break;
 
+        case "Decline Leader":
+
+            $leader_id= $_POST["leader_id"];
+
+            $query = "update users set leader_request = false WHERE user_id=$leader_id;";
+
+            $result = mysql_query($query);
+
+            if (!$result)
+                UTILdberror($query);
+            $_SESSION['Smessage'] = "User number $leader_id was not upgraded to a LEADER.";
+
+            header("Location: ./admin");
+            exit();
+
+        break;
 
         default:
-            echo "ERROR: Undefined action: $action";
+            echo "ERROR: The file action.php was passed an 'action' that it did not understand: $action";
         break;
 
 
