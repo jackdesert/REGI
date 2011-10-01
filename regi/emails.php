@@ -123,7 +123,6 @@ function new_leader_email($first_name, $email_address, $approve = true) {
         $bit .= "http://hbbostonamc.org/regi/support";
     }
 
-    }
     return $bit;
 }
 
