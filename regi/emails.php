@@ -111,7 +111,7 @@ function reg_status_email($first_name, $reg_status, $event_name, $event_id){
 
 
 function new_leader_email($first_name, $email_address, $approve = true) {
-
+    global $SET_SUPPORT_EMAIL;
     $bit = "$first_name,\n\n";
     if ($approve) {
         $bit .= "You are now a leader in REGI. Please log out of REGI, then log back in for this to take effect. \n\n";
@@ -119,7 +119,7 @@ function new_leader_email($first_name, $email_address, $approve = true) {
 
     }else{
         $bit .= "According to our records, you are not an AMC leader. So you have not been ";
-        $bit .= "made a leader in REGI. If you believe this is a mistake, please contact us at $SET_ADMIN_EMAIL.\n\n";
+        $bit .= "made a leader in REGI. If you believe this is a mistake, please contact us at $SET_SUPPORT_EMAIL.\n\n";
         $bit .= "http://hbbostonamc.org/regi/support";
     }
 
