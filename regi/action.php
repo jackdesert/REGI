@@ -520,7 +520,7 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
             $phone_day= UTILclean($_POST["phone_day"], 15, '');
             $phone_cell= UTILclean($_POST["phone_cell"], 15, '');
             $member= UTILclean($_POST["member"], 1, '');
-            $leader_request= UTILclean($_POST["leader_request"], 1, '');
+            $leader_request= UTILclean($_POST["leader_request"], 5, '');
             $emergency_contact= UTILclean($_POST["emergency_contact"], 80, '');
             $experience= UTILclean($_POST["experience"], 500, '');
             $exercise= UTILclean($_POST["exercise"], 500, '');
@@ -581,13 +581,13 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
 
             // Insert new profile
             //
-
+            // Note that leader_request does not get quotes, because it is a boolean value
             $query = "insert into users (
-                user_name, user_passhash, first_name, last_name, user_type,
+                user_name, user_passhash, first_name, last_name, user_type, leader_request,
                 email, phone_day, phone_evening, phone_cell, member,
                 emergency_contact, experience, exercise, medical, diet,
                 create_date) values (
-                '$user_name', '$user_passhash', '$first_name', '$last_name', 'USER',
+                '$user_name', '$user_passhash', '$first_name', '$last_name', 'USER', $leader_request,
                 '$email', '$phone_day', '$phone_evening', '$phone_cell', '$member',
                 '$emergency_contact', '$experience', '$exercise',
                 '$medical', '$diet', now());";
@@ -603,7 +603,7 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
             $_SESSION['Suser_type']='USER';
             $_SESSION['Smessage'] = "Your profile has been created.";
 
-            if ($leader_request == 'Y'){
+            if ($leader_request == 'true'){
                 $link_to_db_site = "http://hbbostonamc.org:2082/?login_theme=cpanel";
                 $leader_request_message = "Someone has just requested to be an AMC HB Trip Leader.\n
     First Name: $first_name\n
@@ -963,7 +963,12 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             if (!$result)
                 UTILdberror($query);
-            $_SESSION['Smessage'] = "User number $leader_id is now a LEADER.";
+            $email_body = new_leader_email($_SESSION['Sfirst_name'], $approve = true);
+            $email_subject = "You are now a Leader in REGI";
+            $email_to = UTILgetEmail($leader_id);
+            UTILsendEmail($email_to, $email_subject, $email_body);
+
+            $_SESSION['Smessage'] = "User number $email_to is now a LEADER.";
 
             header("Location: ./admin");
             exit();

@@ -38,7 +38,7 @@
     $member_no='';
     $leader_request_yes='';
     $leader_request_no='';
-    $leader_request='N';
+    $leader_request='false';
     $emergency_contact='';
     $experience='';
     $medical='';
@@ -182,9 +182,9 @@
         $member_no='checked';
 
     // Remember their preference to be a leader or not
-    if ($leader_request=='Y')
+    if ($leader_request=='true')
         $leader_request_yes='checked';
-    elseif ($leader_request=='N')
+    elseif ($leader_request=='false')
         $leader_request_no='checked';
 
     //Note that UTILbuildmenu() is called clear down here so we can use the cookie to log in before we display
@@ -252,9 +252,9 @@ Your profile information is visible only to the leaders of the events you regist
 <?php
     if ($formAction=='Create Profile') {
         print "<p>Are you a current AMC H/B Leader or Coleader?
-        <input type='radio' name='leader_request' value='Y' $leader_request_yes >YES
+        <input type='radio' name='leader_request' value='true' $leader_request_yes >YES
         &nbsp;
-        <input type='radio' name='leader_request' value='N' $leader_request_no >NO
+        <input type='radio' name='leader_request' value='false' $leader_request_no >NO
         <font color='red'><br>Please note: selecting yes will send an email to the administrator to verify your AMC H/B Leader/Coleader status.</p></font>";
     }
 ?>

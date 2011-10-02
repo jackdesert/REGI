@@ -306,9 +306,10 @@
 
         //send the email
         $mail_sent = mail($to, $subject, $message.$footer, $headers);
+        //UTILlog("Mail probably sent TO: ($to) SUBJECT: ($subject) HEADERS: $headers ");
 
         if (!$mail_sent)
-            UTILlog("ERROR: email not sent FROM: ($SUID) TO: ($to) TITLE: ($title)");
+            UTILlog("ERROR: email not sent. SUID: ($SUID) TO: ($to) SUBJECT: ($subject)");
     }
 
 

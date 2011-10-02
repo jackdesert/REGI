@@ -110,7 +110,7 @@ function reg_status_email($first_name, $reg_status, $event_name, $event_id){
 }
 
 
-function new_leader_email($first_name, $email_address, $approve = true) {
+function new_leader_email($first_name, $approve = true) {
     global $SET_SUPPORT_EMAIL;
     $bit = "$first_name,\n\n";
     if ($approve) {
