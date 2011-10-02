@@ -405,6 +405,15 @@ function UTILgetEmail($user_id){
     return $email['email'];
 }
 
+
+function UTILgetFirstName($user_id){
+    $query = "select first_name from users where user_id = '$user_id';";
+    $error_message = "User ID $user_id not found in database.";
+    $name = UTILreturn_single_row($query, $error_message);
+    return $name['first_name'];
+}
+
+
 function UTILreturn_single_row($query, $error_message){
     UTILdbconnect();
     $result = mysql_query($query);

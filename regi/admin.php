@@ -36,7 +36,7 @@
     // Only admins can view this page
     if ($_SESSION['Suser_type'] != "ADMIN"){
         $_SESSION['Smessage'] = "Only admins can view that page.<br>Redirecting";
-        header("Location: ./myEvents");
+        header("Location: ./");
         exit();
     }
 

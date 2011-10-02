@@ -605,13 +605,14 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
 
             if ($leader_request == 'true'){
                 $link_to_db_site = "http://hbbostonamc.org:2082/?login_theme=cpanel";
+                $link_to_admin_site = "http://hbbostonamc.org/regi/admin";
                 $leader_request_message = "Someone has just requested to be an AMC HB Trip Leader.\n
     First Name: $first_name\n
     Last Name:  $last_name\n
     Email:  $email\n
     Username: $user_name\n
     Userid: $SUID\n
-Please login at $link_to_db_site to grant them LEADER status if they are indeed a leader.";
+Please login at $link_to_admin_site to grant them LEADER status if they are indeed a leader.";
 
 
                 UTILsendEmail($SET_ADMIN_EMAIL, 'HB Leader Request', $leader_request_message);
@@ -963,12 +964,13 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             if (!$result)
                 UTILdberror($query);
-            $email_body = new_leader_email($_SESSION['Sfirst_name'], $approve = true);
+            $email_first_name = UTILgetFirstName($leader_id);
+            $email_body = new_leader_email($email_first_name, $approve = true);
             $email_subject = "You are now a Leader in REGI";
             $email_to = UTILgetEmail($leader_id);
             UTILsendEmail($email_to, $email_subject, $email_body);
 
-            $_SESSION['Smessage'] = "User number $email_to is now a LEADER.";
+            $_SESSION['Smessage'] = "User number $leader_id is now a LEADER.<br>Email sent to $email_to";
 
             header("Location: ./admin");
             exit();
@@ -985,7 +987,13 @@ Please login at $link_to_db_site to grant them LEADER status if they are indeed 
 
             if (!$result)
                 UTILdberror($query);
-            $_SESSION['Smessage'] = "User number $leader_id was not upgraded to a LEADER.";
+
+            $email_first_name = UTILgetFirstName($leader_id);
+            $email_body = new_leader_email($email_first_name, $approve = false);
+            $email_subject = "REGI Leader Status Declined";
+            $email_to = UTILgetEmail($leader_id);
+            UTILsendEmail($email_to, $email_subject, $email_body);
+            $_SESSION['Smessage'] = "User number $leader_id was not upgraded to a LEADER.<br>Email sent to $email_to";
 
             header("Location: ./admin");
             exit();
