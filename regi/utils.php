@@ -390,25 +390,35 @@ function UTIL_date_standardize($pretty){
 }
 
 function UTILselectUser($in_user_name){
-    UTILdbconnect();
     $query = "select user_id, user_passhash, first_name, last_name, user_type
         from users where user_name = '$in_user_name';";
+    $error_message = "User name not found in Database.";
+    $row = UTILreturn_single_row($query, $error_message);
+    return $row;
+}
 
+function UTILgetEmail($user_id){
+    $query = "select email from users where user_id = '$user_id';";
+    $error_message = "User ID $user_id not found in database.";
+    $email = UTILreturn_single_row($query, $error_message);
+    return $email['email'];
+}
+
+function UTILreturn_single_row($query, $error_message){
+    UTILdbconnect();
     $result = mysql_query($query);
     if (!$result)
         UTILdberror($query);
 
     $numrows = mysql_num_rows($result);
     if ($numrows != 1) {
-        $_SESSION['Smessage'] = "User name not found in Database.";
+        $_SESSION['Smessage'] = $error_message;
         return false;
     }else{
         $row = mysql_fetch_assoc($result);
-
         return $row;
     }
 }
-
 /*Note there is purposefully no closing php tag here, because
 if you accidentally put extra characters (even line breaks)
 after a closing php tag, you will get a warning when this
