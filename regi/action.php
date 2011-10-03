@@ -600,6 +600,7 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
             $SUID=mysql_insert_id();
             $_SESSION['Suser_id']=$SUID;
             $_SESSION['Sfirst_name']=$first_name;
+            $_SESSION['Slast_name']=$last_name;
             $_SESSION['Suser_type']='USER';
             $_SESSION['Smessage'] = "Your profile has been created.";
 
