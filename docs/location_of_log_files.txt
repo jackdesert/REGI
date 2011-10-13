@@ -1,0 +1,5 @@
+# Apache Logs
+/var/log/apache2/*
+
+# PHP Logs
+

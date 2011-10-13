@@ -298,11 +298,11 @@
         //define the headers we want passed. Note that they are separated with \r\n
 
         $headers = "Content-Type: text/plain; charset=\"utf-8\"\n";
-        $headers.= "From: AMC.Event.Registration\r\nReply-To: REGI Support<amcbostonhbs@gmail.com>";
+        $headers.= "From: AMC.Event.Registration\r\nReply-To: Do Not Reply<Do.Not.Reply@>";
 
         $footer = "\n\n-----------------------------------------------------------------------\n";
         $footer.= "REGI MAILER\nThank you for using the H/B Boston REGI. ";
-        $footer.= "For help, please visit our support page at http://hbbostonamc.org/regi/support or reply to this email.";
+        $footer.= "For help, please visit our support page at http://hbbostonamc.org/regi/support.";
 
         //send the email
         $mail_sent = mail($to, $subject, $message.$footer, $headers);
