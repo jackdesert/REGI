@@ -312,8 +312,11 @@
 if (strlen($approved_email_list) > 0){
     print "<h1>Email Approved Participants</h1>";
     $approved_email_list = substr($approved_email_list, 0, -1); //removing trailing comma
-    print "Click this link to <a href=mailto:$approved_email_list>email approved participants</a>. ";
-    print "(Leaders/Coleaders included).";
+    print "Click this <a href=mailto:$approved_email_list>link</a> or the button below to email approved participants. ";
+    print "(Leaders/Coleaders included).<br>";
+    print "<form>";
+    print "<input type='button' class='button' value='Email Approved Participants' onclick=\"parent.location='mailto:$approved_email_list'\">";
+    print "</form>";
 }
 ?>
 <h1>Export Roster</h1>
