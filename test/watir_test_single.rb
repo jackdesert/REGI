@@ -74,10 +74,10 @@ class AMC < Test::Unit::TestCase
         assert(@truck.b.text.include?( "you are now logged in!" ), "Not Logged In")
         puts "Success!"
         relax
-        @truck.b.close
+        # @truck.b.close
         relax
-    end
-    def test_01_create_event_valid_start_no_end
+    #~ end
+    #~ def test_01_create_event_valid_start_no_end
         puts "Clicking Create New Event"
         @truck.b.div(:text, "Create New Event").click
         puts "Entering Information"
@@ -100,16 +100,16 @@ class AMC < Test::Unit::TestCase
         @truck.b.text_field(:name, "end_date").value = end_date
         @truck.b.button(:value, "Update Event").click
         #assert(@truck.b.text.include?( "Invalid Combination"), "Javascript was supposed to catch bad date combo")
-        @truck.b.close
-    end
-    def test_02_function_create
+        # @truck.b.close
+    #~ end
+    #~ def test_02_function_create
         puts "creating event using class method"
         @truck.create
         assert(@truck.b.text.include?( "This event has been inserted" ))
-        @truck.b.close
-    end
-
-    def test_03_update_profile
+        # truck.b.close
+    #~ end
+#~
+    #~ def test_03_update_profile
         @truck.view_profile
         assert(@truck.b.text.include?( "User Name" ))
         # update diet
@@ -124,6 +124,6 @@ class AMC < Test::Unit::TestCase
         @truck.b.text_field(:name, "email").value = "2@2.com"   # this email should throw a duplicate error
         @truck.b.button(:value, "Update My Profile").click
         assert(@truck.b.text.include?( myRand2 ), "Edits not saved after error")
-        @truck.b.close
+        # @truck.b.close
     end
 end
