@@ -711,10 +711,10 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $event_is_program=$_POST["event_is_program"];
             $program_id= $_POST["program_id"];
             $event_status=$_POST["event_status"];
-            $description= UTILclean($_POST["description"], 4000, 'Event description');
-            $gear_list= UTILclean($_POST["gear_list"], 2000, '');
+            $description= UTILclean($_POST["description"], 6000, 'Event description');
+            $gear_list= UTILclean($_POST["gear_list"], 6000, '');
             $trip_info= UTILclean($_POST["trip_info"], 6000, '');
-            $confirmation_page= UTILclean($_POST["confirmation_page"], 2000, '');
+            $confirmation_page= UTILclean($_POST["confirmation_page"], 6000, '');
             $question1= UTILclean($_POST["question1"], 200, '');
             $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
             $end_date= UTILclean($_POST["end_date"], 20, '');
@@ -768,10 +768,10 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $event_is_program=$_POST["event_is_program"];
             $event_status=$_POST["event_status"];
             $program_id= $_POST["program_id"];
-            $description= UTILclean($_POST["description"], 4000, 'Event description');
-            $gear_list= UTILclean($_POST["gear_list"], 2000, '');
+            $description= UTILclean($_POST["description"], 6000, 'Event description');
+            $gear_list= UTILclean($_POST["gear_list"], 6000, '');
             $trip_info= UTILclean($_POST["trip_info"], 6000, '');
-            $confirmation_page= UTILclean($_POST["confirmation_page"], 2000, '');
+            $confirmation_page= UTILclean($_POST["confirmation_page"], 6000, '');
             $question1= UTILclean($_POST["question1"], 200, '');
             $start_date= UTILclean($_POST["start_date"], 20, 'Event Start Date');
             $end_date= UTILclean($_POST["end_date"], 20, '');
