@@ -98,6 +98,7 @@
     }else{
         $date_label = "Date";
     }
+    print $end_date;
 
 ?>
     <span style="font-weight: bold">Event Name:</span> &nbsp; <?php print $event_name; ?>
@@ -109,11 +110,12 @@
 
             </td>
 
-
-            <td>
-                <span style="font-weight: bold">End Date:</span> (Blank means event is only one day.)<br><?php print UTIL_date_prettify($end_date); ?>
-
-            </td>
+<?php
+    if ($end_date){
+        $printed_end_date = UTIL_date_prettify($end_date);
+        print "<td><span style='font-weight: bold'>End Date:</span><br>$printed_end_date</td>";
+        }
+?>
         </tr></table>
 
 
