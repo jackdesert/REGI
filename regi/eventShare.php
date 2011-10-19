@@ -93,6 +93,11 @@
 
     $event_url = 'http://hbbostonamc.org/regi/' . $event_id;
     print "<b>Registration URL:&nbsp;&nbsp;<a href='$event_url'>$event_url</a></b><br>";
+    if ($end_date){
+        $date_label = "Start Date";
+    }else{
+        $date_label = "Date";
+    }
 
 ?>
     <span style="font-weight: bold">Event Name:</span> &nbsp; <?php print $event_name; ?>
@@ -100,7 +105,7 @@
     <table style='border-collapse:separate;border-spacing:4ex 1ex;'>
         <tr>
             <td>
-                <span style="font-weight: bold">Start Date:</span> <br><?php print UTIL_date_prettify($start_date); ?>
+                <span style="font-weight: bold"><?php print $date_label;?>:</span> <br><?php print UTIL_date_prettify($start_date); ?>
 
             </td>
 
