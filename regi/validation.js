@@ -24,9 +24,8 @@ function verifyPasswordLength(){
         return ('');
 }
 function checkNewPassword(){
-    requiredFields = verifyPasswordLength();
-    if (requiredFields != '')
-        alert("The following are required fields:\n\r"+requiredFields);
+    if (document.forms.enter_new_password.new_user_password.value.length < 6)
+        alert("Please enter a password at least 6 characters long\r\n");
     else
         return true;
     return false;
