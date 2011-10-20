@@ -569,7 +569,6 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
                 $_SESSION['Sphone_cell']=$phone_cell;
                 $_SESSION['Smember']=$member;
                 $_SESSION['Sleader_request']=$leader_request;
-                $_SESSION['Sleader']=$leader;
                 $_SESSION['Semergency_contact']=$emergency_contact;
                 $_SESSION['Sexperience']=$experience;
                 $_SESSION['Sexercise']=$exercise;
