@@ -1,0 +1,6 @@
+MAILTO=jackdesert556@gmail.com
+
+7 5 * * * mysqldump -u hbboston_admin -p"admin" hbboston_amcreg > /home/hbboston/database_backups/regi_db_backup-`date +\%Y\$
+
+37 * * * * /home/hbboston/public_html/regi/log/report.sh
+
