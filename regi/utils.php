@@ -249,16 +249,13 @@
     //
 
     function UTILlog($mess) {
-        $File = "./log/errorlog.log";
-        $Handle = fopen($File, 'a+');
-
-        $today = date("F j, Y, g:i a"); // Ex: March 10, 2001, 5:16 pm
-
-        fwrite($Handle, "\r\n------------------------------------------\r\n$today\r\n------------------------------------------\r\n" . $mess);
-        fclose($Handle);
-
-        //print "System Message: ".$today." : ".$mess;
+        $from_whom = print_r($_SESSION, true);
+        $line = "\n--------------------------------------------\n";
+        $log_this = $line . $mess . $line . $from_whom . $line;
+        error_log($log_this);
     }
+
+
 
     function UTILsessionlog(){
         $bit = "Session info:\n";
