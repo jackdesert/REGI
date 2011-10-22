@@ -53,6 +53,7 @@ function thank($reg_status){
 function reg_status_email($first_name, $reg_status, $event_name, $event_id){
     $reg_status = strtolower($reg_status);
     $bit = "$first_name,\n\n";
+    $reg_status = str_replace("-", "", $reg_status)
     switch($reg_status) {
         case "leader":
             $bit .= congrats_admin($reg_status, $event_name);
