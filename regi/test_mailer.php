@@ -3,10 +3,10 @@ include 'utils.php';
 
 
 //$to = "Julie LePage <julielepage88@gmail.com>, Abby Driscoll <atdriscoll@gmail.com>, Jack Desert <jackdesert556@gmail.com>" ;
-$to = "Jack Desert <jworky@gmail.com>" ;
+$to = "Jack Desert <jackdesert556@gmail.com>" ;
 $first_name = "Tina";
 $event_name = "Fall Hike to Trail's Cabin";
-$statuses = Array('CANCELED', 'WAITLIST', 'APPROVED', 'REGISTRAR', 'COLEADER', 'LEADER');
+$statuses = Array('CANCELED', 'WAITLIST', 'APPROVED', 'REGISTRAR', 'CO-LEADER', 'LEADER');
 
 $event_id = 100;
 foreach ($statuses as $index => $reg_status){
