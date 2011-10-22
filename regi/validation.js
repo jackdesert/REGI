@@ -1,5 +1,19 @@
 <!-- Front End JS functions -->
 
+function checkSignup() {
+    requiredFields = "";
+    if (document.forms.signup.gear.value.length < 3){
+        alert("Please answer the question, 'Do you have the required gear?' before submitting");
+        return false;
+    }
+    if (document.forms.signup.questions.value.length < 2){
+        alert("Please answer the question, 'Do you have any questions or comments for us?' before submitting.");
+        return false;
+    }
+    return true;
+}
+
+
 function checkLogin() {
     requiredFields = "";
 
@@ -15,7 +29,6 @@ function checkLogin() {
 
     return false;
 }
-
 
 function verifyPasswordLength(){
     if (document.forms.profile.user_password.value.length < 6)
