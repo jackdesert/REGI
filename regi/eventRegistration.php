@@ -373,19 +373,19 @@
     if ($question1 <> '')
     {
         print $question1;
-        print "<br><textarea name='answer1' rows=3 cols=60 >$answer1</textarea><br><br>";
+        print "<br><textarea name='answer1' rows=3 cols=60 required='required'>$answer1</textarea><br><br>";
     }
 
     if ($question2 <> '')
     {
         print $question2;
-        print "<br><textarea name='answer2' rows=3 cols=60>$answer2</textarea><br><br>";
+        print "<br><textarea name='answer2' rows=3 cols=60 required='required'>$answer2</textarea><br><br>";
     }
 
     if ($event_is_program <> 'Y')
     {
         print "$SET_QUESTION_1<br>
-    <textarea name='gear' rows=3 cols=60>$gear</textarea><br>";
+    <textarea name='gear' rows=3 cols=60 required='required'>$gear</textarea><br>";
 
     }
 
@@ -393,7 +393,7 @@
 ?>
 
     <br>
-    <textarea name='questions' rows=3 cols=60><?php print $questions; ?></textarea>
+    <textarea name='questions' rows=3 cols=60 required='required'><?php print $questions; ?></textarea>
 
 <?php
 
@@ -405,7 +405,7 @@
     <td>Do you want to carpool?</td>
 
     <td>
-    <input type='radio' name='need_ride' value='D' $need_rideD >I can drive and can take
+    <input type='radio' required='required' name='need_ride' value='D' $need_rideD >I can drive and can take
     <input type='text' name='can_take' value='$can_take' size=3 MAXLENGTH=2> other participants
     </td>
 
@@ -424,7 +424,7 @@
     <tr><td></td><td>(Town)</td><td></td><td>(Time, Day)</td></tr>
     <tr>
         <td>Leaving from </td>
-        <td><input type='text' name='leaving_from' value='$leaving_from' size=30 MAXLENGTH=100></td>
+        <td><input type='text' name='leaving_from' value='$leaving_from' size=30 MAXLENGTH=100 required='required'></td>
         <td>at</td>
         <td><input type='text' name='leave_time' value='$leave_time' size=30 MAXLENGTH=100></td>
     </tr>
