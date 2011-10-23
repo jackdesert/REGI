@@ -267,6 +267,11 @@ function CHUNKhikerating($rating, $edit = false){
     return $stuff;
 }
 
+
+function CHUNKshowtripname($event_id){
+    $event_name = UTILgetEventName($event_id);
+    print $event_name;
+}
 /* Cut material from hike rating:
  *
  *     <div class='row0'>

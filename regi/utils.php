@@ -410,6 +410,12 @@ function UTILgetFirstName($user_id){
     return $name['first_name'];
 }
 
+function UTILgetEventName($event_id){
+    $query = "SELECT event_name FROM events WHERE event_id = $event_id";
+    $error_message = "Could not find event # " . $event_id . " in database.";
+    $row = UTILreturn_single_row($query, $error_message);
+    return $row['event_name'];
+}
 
 function UTILreturn_single_row($query, $error_message){
     UTILdbconnect();
