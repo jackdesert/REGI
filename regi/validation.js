@@ -1,7 +1,6 @@
 <!-- Front End JS functions -->
 
 function checkSignup() {
-    requiredFields = "";
     if (document.forms.signup.gear.value.length < 3){
         alert("Please answer the question, 'Do you have the required gear?' before submitting");
         return false;
@@ -10,6 +9,23 @@ function checkSignup() {
         alert("Please answer the question, 'Do you have any questions or comments for us?' before submitting.");
         return false;
     }
+    var index = 0;
+    var count = 0;
+    for (index = 0; index < 3; index++){
+        if (document.forms.signup.need_ride[index].checked){
+            count = 1;
+        }
+    }
+    if (count == 0){
+        alert("Please indicate your carpooling preferences before submitting.");
+        return false;
+    }
+
+    if (document.forms.signup.leaving_from.value.length < 1){
+        alert("Please indicate where you are leaving from before submitting.");
+        return false;
+    }
+
     return true;
 }
 
