@@ -105,8 +105,11 @@ function CHUNKstartbody(){
 // Note this is passing by reference. It WILL change $_SESSION that you pass in
 function CHUNKstylemessage(&$session){
     $msg = '';
+    if (isset($session['Sfirst_name'])){
+        $msg .= 'Welcome, ' . $session['Sfirst_name'] . " " . $session['Slast_name'] . "<br>";
+    }
     if (isset($session['Smessage'])){
-        $msg = $session['Smessage'];
+        $msg .= $session['Smessage'];
         unset($session['Smessage']);
     }
 

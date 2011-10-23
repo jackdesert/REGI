@@ -80,7 +80,7 @@
                 elseif (UTILcheckhash($Ppassword, $row['user_passhash']) == false) {
                     $_SESSION['Smessage'] = "Invalid Password, please try again.";
                 } else {
-                    $_SESSION['Smessage'] = "Welcome: $row[first_name] $row[last_name], you are now logged in!";
+                    $_SESSION['Smessage'] = "You are now logged in!";
 
                     // Put User Info into SESSION
                     //

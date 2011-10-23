@@ -28,7 +28,7 @@
         $user_type = $_SESSION['Suser_type'];
     } else {
         $_SESSION['Smessage'] = 'Please Log In';
-        header("Location: ./login.php?event_id={$event_id}");
+        header("Location: ./login");
         //print "<p>You must be logged in to register for an event.</p><p>If you do not have an account, you may create a new account <a href='myProfile.php' >here</a>.<br>";
         exit();
     }
