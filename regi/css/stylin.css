@@ -254,7 +254,7 @@ table.center {margin-left:auto; margin-right:auto;}
     float: left;
     height:100%;
     padding-left: 5px;
-    margin-top: 2.5ex;
+    margin-top: 83px;
 }
 
 #content{
@@ -330,6 +330,7 @@ h1,h2,h3,h4,h5,h6{
 
 h1#page_title{
     font-size: 150%;
+    margin-top: 18px;;
     #margin-bottom: -0.5EM;
 }
 
@@ -433,5 +434,14 @@ li{
 }
 #trip-id{
     display: none;
+}
+
+#event_name{
+    text-align: center;
+    font-size: 180%;
+    color: #2a7168;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    margin-top: 15px;
 }
 

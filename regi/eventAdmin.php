@@ -163,6 +163,7 @@
     CHUNKstylemessage($_SESSION);
 
     CHUNKstartcontent($my_user_id, $event_id, 'admin');
+    CHUNKshowtripname($event_id);
 
     if ($event_id == '')
         print "<h1 id='page_title'>Create New Event</h1>";

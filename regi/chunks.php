@@ -126,7 +126,7 @@ function CHUNKstartcontent($user='', $event='', $tab='none'){
         if (UTILuser_may_admin($user, $event))      //Display tabs if this user has auth.
             CHUNKlefttabs($user, $event, $tab);
     print "<div id='content'>
-    <br><hr>";
+     ";
 
 }
 
@@ -270,7 +270,9 @@ function CHUNKhikerating($rating, $edit = false){
 
 function CHUNKshowtripname($event_id){
     $event_name = UTILgetEventName($event_id);
-    print $event_name;
+    $bit = "<div id='event_name'>" . $event_name . "</div>";
+    $bit .= "<hr>";
+    print $bit;
 }
 /* Cut material from hike rating:
  *

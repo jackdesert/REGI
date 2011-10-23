@@ -145,6 +145,7 @@
     }  // end: $event_id<>''
 
     CHUNKstartcontent($my_user_id, $event_id, 'roster');
+    CHUNKshowtripname($event_id);
 
     if ($event_id == '')
         exit(0);

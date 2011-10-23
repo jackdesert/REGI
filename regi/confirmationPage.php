@@ -63,6 +63,8 @@
     }
 
     CHUNKstartcontent($my_user_id, $event_id, 'admin');
+    CHUNKshowtripname($event_id);
+
 ?>
 
 

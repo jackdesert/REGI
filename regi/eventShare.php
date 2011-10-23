@@ -82,6 +82,8 @@
     CHUNKstylemessage($_SESSION);
 
     CHUNKstartcontent($my_user_id, $event_id, 'share');
+    CHUNKshowtripname($event_id);
+
     print "<h1>Thank Yor for Making a REGI Page</h1>";
     print "<p>Congratulations, your Registration Page has been created. This page allows you to keep track of who's signing up for your event. Now, let's post your event so people can sign up for it!</p>";
     print "<h1>Post your REGI page with your Trip Listing:</h1>";

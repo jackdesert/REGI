@@ -89,6 +89,7 @@
 
     CHUNKstylemessage($_SESSION);
     CHUNKstartcontent($my_user_id, $event_id, 'my');
+    CHUNKshowtripname($event_id);
 ?>
 
 
