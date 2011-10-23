@@ -260,24 +260,24 @@ Your profile information is visible only to the leaders of the events you regist
 ?>
 
 <div id='myprofile_narrow'>
-<p>What is your previous hiking experience? (If applicable, please name mountains and include approximate distances.)<br />
+<p>* What is your previous hiking experience? (If applicable, please name mountains and include approximate distances.)<br />
 
-<textarea name="experience" rows="10" cols="60">
+<textarea name="experience" rows="10" cols="60" required='required'>
 <?php echo $experience; ?>
 </textarea></p>
 
-<p>What is your weekly exercise routine? Please be honest.<br />
-<textarea name="exercise" rows="6" cols="60">
+<p>* What is your weekly exercise routine? Please be honest.<br />
+<textarea name="exercise" rows="6" cols="60" required='required'>
 <?php echo $exercise; ?>
 </textarea></p>
 
-<p>Do you have any allergies, are taking any medications, or have other medical conditions that may be important? (Your answer will remain confidential.)<br />
-<textarea name="medical" rows="3" cols="60">
+<p>* Do you have any allergies, are taking any medications, or have other medical conditions that may be important? (Your answer will remain confidential.)<br />
+<textarea name="medical" rows="3" cols="60" required='required'>
 <?php echo $medical; ?>
 </textarea></p>
 
-<p>In case of emergency, please enter a person to contact, including name and phone number.<br />
-<textarea name="emergency_contact" rows="3" cols="60">
+<p>* In case of emergency, please enter a person to contact, including name and phone number.<br />
+<textarea name="emergency_contact" rows="3" cols="60" required='required'>
 <?php echo $emergency_contact; ?>
 </textarea></p>
 
@@ -285,10 +285,16 @@ Your profile information is visible only to the leaders of the events you regist
 <textarea name="diet" rows="3" cols="60">
 <?php echo $diet; ?>
 </textarea></p>
-
+<?php
+if ($formAction == "Update My Profile"){
+    $check = "checkUpdatedProfile";
+}else{
+    $check = "checkNewProfile";
+}
+?>
 <input type='hidden' name='event_id' value='<?php print $event_id ?>'>
 <input type='hidden' name='user_id' value='<?php print $my_user_id ?>'>
-<input type='submit' class='button' name='action' value='<?php print $formAction; ?>' onclick='return checkProfile()'>
+<input type='submit' class='button' name='action' value='<?php print $formAction; ?>' onclick='return <?php print $check; ?>()'>
 </div><!-- closing div for #myprofile_narrow, only in this page -->
 </form>
 <?php CHUNKfinishcontent(); ?>

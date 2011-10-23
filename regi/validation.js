@@ -59,21 +59,42 @@ function checkNewPassword(){
         return true;
     return false;
 }
-function checkProfile() {
+
+function checkNewProfile() {
+    if (document.forms.profile.user_password.value.length < 6){
+        alert ("Your password must be at least 6 characters");
+        return false;
+    }
+    if (document.forms.profile.user_name.value.length < 6){
+        alert ("Your user name must be at least 6 characters");
+        return false
+    }
+    return checkUpdatedProfile();
+}
+
+/* Note that checkUpdatedProfile() is a subset of checkNewProfile() */
+function checkUpdatedProfile() {
     requiredFields = "";
-    if (document.forms.profile.user_password)
-        requiredFields += verifyPasswordLength();
-    if (document.forms.profile.user_name.value.length < 6)
-        requiredFields += "   * User Name (minimum 6 characters)\r\n";
+
     if (document.forms.profile.first_name.value == '')
         requiredFields += "   * First Name\r\n";
     if (document.forms.profile.last_name.value == '')
         requiredFields += "   * Last Name\r\n";
     if (document.forms.profile.email.value == '')
         requiredFields += "   * Email\r\n";
+    if (document.forms.profile.experience.value == '')
+        requiredFields += "   * Previous Hiking Experience\r\n";
+    if (document.forms.profile.exercise.value == '')
+        requiredFields += "   * What is your weekly exercise routine?\r\n";
+    if (document.forms.profile.emergency_contact.value == '')
+        requiredFields += "   * Emergency Contact\r\n";
+    if (document.forms.profile.medical.value == '')
+        requiredFields += "   * The Allergies / Medications / Medical Conditions question\r\n";
+    if (document.forms.profile.experience.value == '')
+        requiredFields += "   * Previous Hiking Experience\r\n";
 
     if (requiredFields != '')
-        alert("The following are required fields:\n\r"+requiredFields);
+        alert("Please enter the following required fields:\n\r"+requiredFields);
     else
         return true;
 
