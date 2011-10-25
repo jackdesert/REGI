@@ -86,6 +86,11 @@ function reg_status_email($first_name, $reg_status, $event_name, $event_id){
             $bit .= ".";
             $bit .= contact_leader();
             break;
+        case "enrolled":
+            $bit .= "Congratulations! You are now ENROLLED in the following program: $event_name. ";
+            $bit .= regi_link_sentence($event_id);
+            $bit .= "\n\nPlease contact the program leader if you have any questions";
+            break;
         case "waitlist":
             $bit .= "You are on the WAIT LIST for the following event: $event_name. ";
             $bit .= waitlist_means();
