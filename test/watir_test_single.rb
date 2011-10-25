@@ -72,13 +72,11 @@ class AMC < Test::Unit::TestCase
         @truck.login
     end
     def test_00_login
+
+        puts "logging in"
         assert(@truck.b.text.include?( "You are now logged in!" ), "Not Logged In")
         puts "Success!"
-        relax
-        # @truck.b.close
-        relax
-    #~ end
-    #~ def test_01_create_event_valid_start_no_end
+
         puts "Clicking Create New Event"
         @truck.b.div(:text, "Create New Event").click
         puts "Entering Information"
@@ -100,17 +98,13 @@ class AMC < Test::Unit::TestCase
         end_date = "02/30/2011"
         @truck.b.text_field(:name, "end_date").value = end_date
         @truck.b.button(:value, "Update Event").click
-        #assert(@truck.b.text.include?( "Invalid Combination"), "Javascript was supposed to catch bad date combo")
-        # @truck.b.close
-    #~ end
-    #~ def test_02_function_create
+
+
         puts "creating event using class method"
         @truck.create
         assert(@truck.b.text.include?( "This event has been inserted" ))
-        # truck.b.close
-    #~ end
-#~
-    #~ def test_03_update_profile
+
+        puts "Updating Profile"
         @truck.view_profile
         assert(@truck.b.text.include?( "User Name" ))
         # update diet
@@ -125,6 +119,21 @@ class AMC < Test::Unit::TestCase
         @truck.b.text_field(:name, "email").value = "2@2.com"   # this email should throw a duplicate error
         @truck.b.button(:value, "Update My Profile").click
         assert(@truck.b.text.include?( myRand2 ), "Edits not saved after error")
-        # @truck.b.close
+
+
+        puts "Registering (again) for an event";
+        @truck.b.goto "localhost/regi/144"
+        gear = rand(100000000000).to_s
+        @truck.b.text_field(:name, "gear").value = gear
+        quest = rand(100000).to_s
+        @truck.b.text_field(:name, "questions").value = quest
+        @truck.b.radio(:name, "need_ride").set
+        leaving_from = rand(100000).to_s
+        @truck.b.text_field(:name, "leaving_from").value = leaving_from
+        @truck.b.button(:value, "Update Registration Page").click
+        assert(@truck.b.html.include?( gear ),"Gear not found")
+        assert(@truck.b.html.include?( quest ),"Quest not found")
+        assert(@truck.b.html.include?( leaving_from ),"Leaving from not found")
+        assert(@truck.b.html.include?( "Registration info updated" ),"No message that says registration info updated after update")
     end
 end
