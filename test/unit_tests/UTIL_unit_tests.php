@@ -75,23 +75,6 @@ class StackTest extends PHPUnit_Framework_TestCase
 
     }
 
-    public function testUTILlog()
-    {
-        $current_dir = realpath('.');
-        chdir('../../regi');    //change to directory where UTILlog is normally called from
-        $random_string_length = 25;
-        $random_string = substr(md5(uniqid(rand(), true)), 0, $random_string_length);
-        $bogus_query = 'Unit test is writing this random string to log file: ' .  $random_string;
-        UTILlog($bogus_query);
-        $logfile_path = 'log/errorlog.log';
-        $logfile = fopen($logfile_path,"r");
-        $data = fread($logfile,filesize($logfile_path));
-        fclose($logfile);
-        $found = strstr($data, $bogus_query);
-        $this->assertGreaterThan(0, strlen($found), 'string found should have length > 0');
-        $this->assertEquals($found, $bogus_query, 'log file should contain the bogus_query that we wrote');
-        chdir($current_dir);
-    }
 
 }
 ?>

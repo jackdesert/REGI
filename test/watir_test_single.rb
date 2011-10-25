@@ -14,7 +14,7 @@ require 'test/unit'
 
 
 def relax
-    #sleep 0.5
+    sleep 5
 end
 
 
@@ -30,6 +30,7 @@ class Standard
         Watir::Browser.default="firefox"
         puts "Opening a Browser"
         @b = Watir::Browser.new
+        relax
     end
 
         def login
@@ -71,7 +72,7 @@ class AMC < Test::Unit::TestCase
         @truck.login
     end
     def test_00_login
-        assert(@truck.b.text.include?( "you are now logged in!" ), "Not Logged In")
+        assert(@truck.b.text.include?( "You are now logged in!" ), "Not Logged In")
         puts "Success!"
         relax
         # @truck.b.close

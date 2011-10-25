@@ -249,7 +249,10 @@
     //
 
     function UTILlog($mess) {
-        $from_whom = print_r($_SESSION, true);
+        if (isset ($_SESSION))
+            $from_whom = print_r($_SESSION, true);
+        else
+            $from_whom = "Session is empty";
         $line = "\n--------------------------------------------\n";
         $log_this = $line . $mess . $line . $from_whom . $line;
         error_log($log_this);
