@@ -130,10 +130,18 @@
             $need_ride= UTILclean($_POST["need_ride"], 1, '');
             $can_take= UTILclean($_POST["can_take"], 2, '');
             $leaving_from= UTILclean($_POST["leaving_from"], 100, '');
-            $leave_time= UTILclean($_POST["leave_time"], 100, '');
-            $returning_to= UTILclean($_POST["returning_to"], 100, '');
-            $return_time= UTILclean($_POST["return_time"], 100, '');
-
+            if (isset($_POST["leave_time"]))
+                $leave_time= UTILclean($_POST["leave_time"], 100, '');
+            else
+                $leave_time = "";
+            if (isset($_POST["returning_to"]))
+                $returning_to= UTILclean($_POST["returning_to"], 100, '');
+            else
+                $returning_to = "";
+            if (isset($_POST["return_time"]))
+                $return_time = UTILclean($_POST["return_time"], 100, '');
+            else
+                $return_time = "";
             //if ($user_id == '') $user_id = -1;
 
             //if (isset($_GET['event_id']))
@@ -221,9 +229,18 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
             $need_ride= UTILclean($_POST["need_ride"], 1, '');
             $can_take= UTILclean($_POST["can_take"], 2, '');
             $leaving_from= UTILclean($_POST["leaving_from"], 100, '');
-            $leave_time= UTILclean($_POST["leave_time"], 100, '');
-            $returning_to= UTILclean($_POST["returning_to"], 100, '');
-            $return_time= UTILclean($_POST["return_time"], 100, '');
+            if (isset($_POST["leave_time"]))
+                $leave_time= UTILclean($_POST["leave_time"], 100, '');
+            else
+                $leave_time = "";
+            if (isset($_POST["returning_to"]))
+                $returning_to= UTILclean($_POST["returning_to"], 100, '');
+            else
+                $returning_to = "";
+            if (isset($_POST["return_time"]))
+                $return_time = UTILclean($_POST["return_time"], 100, '');
+            else
+                $return_time = "";
 
             $query = "update user_events set
                 answer1='$answer1', answer2='$answer2', gear='$gear', questions='$questions',
