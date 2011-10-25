@@ -386,6 +386,16 @@ WAIT LIST: All the spots on the event are taken.
 CANCELLED: You have cancelled your attendance for this event.
 \end_layout
 
+\begin_layout Itemize
+ENROLLED (Only applies to 
+\emph on
+programs)
+\emph default
+ You made the list.
+ You're in.
+ We'll see you there.
+\end_layout
+
 \begin_layout Paragraph
 When will I know if I have been approved for an event? 
 \end_layout
