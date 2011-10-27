@@ -6,7 +6,7 @@ include 'utils.php';
 $to = "Jack Desert <jackdesert556@gmail.com>" ;
 $first_name = "Tina";
 $event_name = "Fall Hike to Trail's Cabin";
-$statuses = Array('CANCELED', 'WAITLIST', 'APPROVED', 'REGISTRAR', 'CO-LEADER', 'LEADER');
+$statuses = Array('CANCELED', 'WAIT LIST', 'APPROVED', 'REGISTRAR', 'CO-LEADER', 'LEADER');
 
 $event_id = 100;
 foreach ($statuses as $index => $reg_status){
