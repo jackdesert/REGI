@@ -121,10 +121,7 @@
                 $answer1= UTILclean($_POST["answer1"], 3000, '');
             else
                 $answer1 = '';
-            if (isset($_POST["answer2"]))
-                $answer2= UTILclean($_POST["answer2"], 3000, '');
-            else
-                $answer2 = '';
+
             $gear= UTILclean($_POST["gear"], 3000, '');
             $questions= UTILclean($_POST["questions"], 3000, '');
             $need_ride= UTILclean($_POST["need_ride"], 1, '');
@@ -224,7 +221,8 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
             $event_id= $_POST["event_id"];
             if (isset($_POST['answer1']))
                 $answer1= UTILclean($_POST["answer1"], 3000, '');
-            $answer2= UTILclean($_POST["answer2"], 3000, '');
+            else
+                $answer1 = '';
             $gear= UTILclean($_POST["gear"], 500, '');
             $questions= UTILclean($_POST["questions"], 500, '');
             $need_ride= UTILclean($_POST["need_ride"], 1, '');
@@ -244,7 +242,7 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
                 $return_time = "";
 
             $query = "update user_events set
-                answer1='$answer1', answer2='$answer2', gear='$gear', questions='$questions',
+                answer1='$answer1', gear='$gear', questions='$questions',
                 need_ride='$need_ride', can_take='$can_take',
                 leaving_from='$leaving_from', leave_time='$leave_time',
                 returning_to='$returning_to', return_time='$return_time'

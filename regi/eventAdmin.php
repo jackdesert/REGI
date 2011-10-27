@@ -52,7 +52,6 @@
     $trip_info='';
     $confirmation_page='Thank you for registering. An event leader will be in contact with you soon regarding your participation in this event.';
     $question1='';
-    $question2='';
 
     $program_id='';
     $program_name='';
@@ -85,7 +84,7 @@
         // Get event summary info
         //
 
-        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, question2, start_date, end_date, pricing, rating
+        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, start_date, end_date, pricing, rating
                 FROM events
                 WHERE event_id=$event_id;";
 
@@ -107,7 +106,6 @@
             $trip_info=$row['trip_info'];
             $confirmation_page=$row['confirmation_page'];
             $question1=$row['question1'];
-            $question2=$row['question2'];
             $start_date=$row['start_date'];
             $end_date=$row['end_date'];
             $pricing=$row['pricing'];
@@ -269,10 +267,7 @@
 
 <span style="font-weight: bold">Additional Event Question </span>(Optional)<br>
 <input type='text' name='question1' value='<?php print $question1; ?>' size=60><br><br>
-<!-- Do Not Display Second Question
-<span style="font-weight: bold">Additional Event Question 2 (Optional)</span><br>
-<input type='text' name='question2' value='<?php print $question2; ?>' size=80><br><br>
--->
+
 
 
 

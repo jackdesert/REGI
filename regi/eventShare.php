@@ -48,7 +48,7 @@
         // Get event summary info
         //
 
-        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, question2, start_date, end_date, pricing, rating
+        $query = "select event_name, event_status, event_is_program, program_id, description, gear_list, trip_info, confirmation_page, question1, start_date, end_date, pricing, rating
                 FROM events
                 WHERE event_id=$event_id;";
 

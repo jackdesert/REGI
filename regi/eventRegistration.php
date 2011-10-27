@@ -50,7 +50,7 @@
     //
 
     $query = "select event_name, event_status, event_is_program, program_id, description,
-            gear_list, trip_info, question1, question2, payment_method, start_date, end_date,
+            gear_list, trip_info, question1, payment_method, start_date, end_date,
             pricing, rating
             FROM events
             WHERE event_id=$event_id;";
@@ -73,7 +73,6 @@
         $gear_list=$row['gear_list'];
         $trip_info=$row['trip_info'];
         $question1=$row['question1'];
-        $question2=$row['question2'];
         $payment_method=$row['payment_method'];
         $start_date=$row['start_date'];
         $end_date=$row['end_date'];
@@ -377,11 +376,6 @@
         print "<br><textarea name='answer1' rows=3 cols=60 required='required'>$answer1</textarea><br><br>";
     }
 
-    if ($question2 <> '')
-    {
-        print $question2;
-        print "<br><textarea name='answer2' rows=3 cols=60 required='required'>$answer2</textarea><br><br>";
-    }
 
     if ($event_is_program <> 'Y')
     {
