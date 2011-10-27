@@ -123,16 +123,19 @@ class AMC < Test::Unit::TestCase
 
         puts "Registering (again) for an event";
         @truck.b.goto "localhost/regi/144"
-        gear = rand(100000000000).to_s
+        answer1 = rand(100000000000).to_s
+        @truck.b.text_field(:name, "answer1").value = answer1
+        gear = rand(100000).to_s
         @truck.b.text_field(:name, "gear").value = gear
-        quest = rand(100000).to_s
-        @truck.b.text_field(:name, "questions").value = quest
+        questions = rand(100000).to_s
+        @truck.b.text_field(:name, "questions").value = questions
         @truck.b.radio(:name, "need_ride").set
         leaving_from = rand(100000).to_s
         @truck.b.text_field(:name, "leaving_from").value = leaving_from
         @truck.b.button(:value, "Update Registration Page").click
         assert(@truck.b.html.include?( gear ),"Gear not found")
-        assert(@truck.b.html.include?( quest ),"Quest not found")
+        assert(@truck.b.html.include?( questions ),"Quest not found")
+        assert(@truck.b.html.include?( answer1 ),"Answer1 not found")
         assert(@truck.b.html.include?( leaving_from ),"Leaving from not found")
         assert(@truck.b.html.include?( "Registration info updated" ),"No message that says registration info updated after update")
     end
