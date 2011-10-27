@@ -222,7 +222,8 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
 
             $registration_id= $_POST["registration_id"];
             $event_id= $_POST["event_id"];
-            $answer1= UTILclean($_POST["answer1"], 3000, '');
+            if (isset($_POST['answer1']))
+                $answer1= UTILclean($_POST["answer1"], 3000, '');
             $answer2= UTILclean($_POST["answer2"], 3000, '');
             $gear= UTILclean($_POST["gear"], 500, '');
             $questions= UTILclean($_POST["questions"], 500, '');
