@@ -10,20 +10,20 @@
 <style>
 a:link{text-decoration: none;}
  body,td,th {
-	font-family: Verdana, Arial, Helvetica, "Trebuchet MS", sans-serif;
-	font-size: 12px;
+    font-family: Verdana, Arial, Helvetica, "Trebuchet MS", sans-serif;
+    font-size: 12px;
 }
  h1 {
-	font-size: 18px;
-	color: #000;
+    font-size: 18px;
+    color: #000;
 }
  h2 {
-	font-size: 14px;
-	color: #000;
+    font-size: 14px;
+    color: #000;
 }
  body {
-	background-image: url(http://maccweb.org/img/clouds-book-bkd.gif);
-	color: #000;
+    background-image: url(http://maccweb.org/img/clouds-book-bkd.gif);
+    color: #000;
 }
  </style>
 </head>
@@ -52,8 +52,11 @@ function whereAmI(){
     $script_dir = $match_array[0];
     $script_dir = str_replace('/forms', '', $script_dir);
     $script_dir_no_trail = substr($script_dir, 1, -1);
+    $whereWeAre = str_replace('_', ' ', $script_dir_no_trail);
+    $whereWeAre_caps = ucwords($whereWeAre);
+    $page_title = str_replace('And', 'and', $whereWeAre_caps);
     print "<br>";
-    print "<div class='title' align='center'>$script_dir_no_trail</div>";
+    print "<h1 class='title' align='center'>$page_title</h1>";
     print "<div align='center' ><a href='http://www.maccweb.org/resources_templates.html'>Back to MACC Electronic Resource Center</a> </div>";
     print "<br>";
 }
