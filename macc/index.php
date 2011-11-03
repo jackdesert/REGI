@@ -3,48 +3,44 @@
 <head>
 <title>MACC</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<script language="JavaScript" type="text/javascript" src="../js/menus.js"></script>
- <script language="JavaScript" src="../mm_menu.js"></script>
- <link href="../CSS/Level1_Arial.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" type="text/javascript" src="http://maccweb.org/js/menus.js"></script>
+ <script language="JavaScript" src="http://maccweb.org/mm_menu.js"></script>
+ <link href="http://maccweb.org/CSS/Level1_Arial.css" rel="stylesheet" type="text/css">
  <style type="text/css">
 <style>
 a:link{text-decoration: none;}
-a:hover {
-  text-decoration: underline;
+ body,td,th {
+	font-family: Verdana, Arial, Helvetica, "Trebuchet MS", sans-serif;
+	font-size: 12px;
 }
-body{
-    font-family: Arial;
-    font-size:  90%;
+ h1 {
+	font-size: 18px;
+	color: #000;
 }
-h1,h2,h3,h4,h5,.title{
-    font-family: Georgia, Times New Roman;
-    line-height:    100%;
-    padding-top:    0em;}
-.title{font-size: 200%;}
-h1{font-size: 120%}
-h2{font-size: 110%}
-h3{font-size: 100%}
-h4{font-size: 90%}
-h5{font-size: 80%}
-.level_1, h1{padding-left: 5%;}
-.level_2, h2{padding-left: 10%;}
-.level_3, h3{padding-left: 15%;}
-.level_4, h4{padding-left: 20%;}
-.level_5, h5{padding-left: 25%;}
-
+ h2 {
+	font-size: 14px;
+	color: #000;
+}
+ body {
+	background-image: url(http://maccweb.org/img/clouds-book-bkd.gif);
+	color: #000;
+}
  </style>
 </head>
 
-<body bgcolor="#EEEEFC" background="../img/water.gif" link="#000000" vlink="#000000" leftmargin="0" topmargin="0"><body leftmargin="0" topmargin="0"> <body leftmargin="0" topmargin="0">
-<script language="JavaScript1.2">mmLoadMenus();</script>
-<table align="center" width="759" border="0" cellspacing="0" cellpadding="0">
+<body bgcolor="#EEEEFC" link="#000000" vlink="#000000" leftmargin="0" topmargin="0"><body leftmargin="0" topmargin="0"> <body leftmargin="0" topmargin="0">
+<table width="759" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="760" bgcolor="#000000"><a href="http://www.maccweb.org/resources_templates.html"><img src="http://www.maccweb.org/Images/emacc_banner.jpg" width="759" height="96" border="0" longdesc="http://www.maccweb.org/Images/emacc_banner.jpg"></a></td>
+    <td width="760" bgcolor="#000000"><img src="http://maccweb.org/img/banner_01.jpg" alt="" width="759" height="64"></td>
+  </tr>
+  <tr>
+    <td height="32" bgcolor="#000000"><img src="http://maccweb.org/img/banner_03.gif" alt="" width="99" height="32"><a href="http://maccweb.org/index.html" onMouseOver="MM_showMenu(window.mm_menu_0211005850_0,0,21,null,'image9')" onMouseOut="MM_startTimeout();"><img src="http://maccweb.org/img/banner_04.gif" alt="" name="image9" width="48" height="32" border="0" id="image9"></a><a href="http://maccweb.org/edu.html" onMouseOver="MM_showMenu(window.mm_menu_0205213153_0,0,21,null,'image1')" onMouseOut="MM_startTimeout();"><img src="http://maccweb.org/img/banner_05.gif" alt="" name="image1" width="75" height="32" border="0" id="image1"></a><a href="http://maccweb.org/advocacy.html" onMouseOver="MM_showMenu(window.mm_menu_0205215445_0,0,21,null,'image2')" onMouseOut="MM_startTimeout();"><img src="http://maccweb.org/img/banner_06.gif" alt="" name="image2" width="68" height="32" border="0" id="image2" color="#00000"></a><a href="http://maccweb.org/resources.html" onMouseOver="MM_showMenu(window.mm_menu_0210170912_0,0,21,null,'image3')" onMouseOut="MM_startTimeout();"><img src="http://maccweb.org/img/banner_07.gif" alt="" name="image3" width="74" height="32" border="0" id="image3"></a><a href="http://maccweb.org/biodiversity.html" onMouseOver="MM_showMenu(window.mm_menu_0210231747_0,0,21,null,'image6')" onMouseOut="MM_startTimeout();"><img src="http://maccweb.org/img/banner_08.gif" alt="" name="image6" width="81" height="32" border="0" id="image6"></a><a href="http://maccweb.org/about.html" onMouseOver="MM_showMenu(window.mm_menu_0210172108_0,0,21,null,'image4')" onMouseOut="MM_startTimeout();"><img src="http://maccweb.org/img/banner_09.gif" alt="" name="image4" width="65" height="32" border="0" id="image4"></a><a href="http://maccweb.org/support.html" onMouseOver="MM_showMenu(window.mm_menu_0210173038_0,-50,21,null,'image5')" onMouseOut="MM_startTimeout();"><img src="http://maccweb.org/img/banner_10.gif" alt="" name="image5" width="58" height="32" border="0" id="image5"></a><a href="http://maccweb.org/products_services.html" onMouseOver="MM_showMenu(window.mm_menu_0211003036_0,-15,21,null,'image7')" onMouseOut="MM_startTimeout();"><img src="http://maccweb.org/img/banner_11.gif" alt="" name="image7" width="130" height="32" border="0" id="image7"></a><a href="http://maccweb.org/contact.html" onMouseOver="MM_showMenu(window.mm_menu_0211003924_0,-100,21,null,'image8')" onMouseOut="MM_startTimeout();"><img src="http://maccweb.org/img/banner_12.gif" alt="" name="image8" width="61" height="32" border="0" id="image8"></a></td>
   </tr>
 </table>
+<script language="JavaScript1.2">mmLoadMenus();</script>
 
-<table  width="760" bgcolor="adbcc9" width="759" border="0" align="center" cellpadding="5" cellspacing="0">
-<tr valign="top" background='http://www.maccweb.org/img/clouds-dark-bkd.gif' bgcolor="d1d9d5" border="0" cellpadding="0" cellspacing="0"><td border="0" cellpadding="0" cellspacing="0">
+<table  width="760" width="759" border="0" align="center" cellpadding="5" cellspacing="0">
+<tr valign="top" border="0" cellpadding="0" cellspacing="0"><td border="0" cellpadding="0" cellspacing="0">
 
 <?php
 
