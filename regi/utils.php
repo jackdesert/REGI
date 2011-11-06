@@ -263,6 +263,8 @@
     function UTILsessionlog(){
         $bit = "Session info:\n";
         $bit .= print_r($_SESSION, true);   # the 'true makes it return a string instead of printing to screen
+        $bit = "Post info:\n";
+        $bit .= print_r($_POST, true);   # the 'true makes it return a string instead of printing to screen
         UTILlog($bit);
     }
     // Functions to convert arrays to strings, and vice-versa

@@ -122,6 +122,7 @@
             else
                 $answer1 = '';
 
+            UTILsessionlog();
             $gear= UTILclean($_POST["gear"], 3000, '');
             $questions= UTILclean($_POST["questions"], 3000, '');
             $need_ride= UTILclean($_POST["need_ride"], 1, '');
