@@ -1,5 +1,4 @@
-Note that the log files in this directory must be writable by others, or else
-nothing will get written to them.
+Note that the log files in this directory must be writable and readable by others.
 I suggest:
-  chmod 622 <filename>
+  chmod 666 <filename>
 
