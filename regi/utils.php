@@ -422,6 +422,13 @@ function UTILgetEventName($event_id){
     return $row['event_name'];
 }
 
+
+function UTILeventisprogram($event_id){
+    $query = "SELECT event_is_program FROM events WHERE event_id = $event_id;";
+    $error_message = "Could not find event # " . $event_id . " in database.";
+    $row = UTILreturn_single_row($query, $error_message);
+    return $row['event_is_program'];
+}
 function UTILreturn_single_row($query, $error_message){
     UTILdbconnect();
     $result = mysql_query($query);

@@ -121,13 +121,19 @@
                 $answer1= UTILclean($_POST["answer1"], 3000, '');
             else
                 $answer1 = '';
-
-            UTILsessionlog();
-            $gear= UTILclean($_POST["gear"], 3000, '');
+            // Programs do not have carpooling or gear lists
+            if (UTILeventisprogram($event_id) == "Y"){
+                $gear = "";
+                $need_ride = "";
+                $can_take = "";
+                $leaving_from = "";
+            }else{
+                $gear= UTILclean($_POST["gear"], 3000, '');
+                $need_ride= UTILclean($_POST["need_ride"], 1, '');
+                $can_take= UTILclean($_POST["can_take"], 2, '');
+                $leaving_from= UTILclean($_POST["leaving_from"], 100, '');
+            }
             $questions= UTILclean($_POST["questions"], 3000, '');
-            $need_ride= UTILclean($_POST["need_ride"], 1, '');
-            $can_take= UTILclean($_POST["can_take"], 2, '');
-            $leaving_from= UTILclean($_POST["leaving_from"], 100, '');
             if (isset($_POST["leave_time"]))
                 $leave_time= UTILclean($_POST["leave_time"], 100, '');
             else
@@ -224,11 +230,21 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
                 $answer1= UTILclean($_POST["answer1"], 3000, '');
             else
                 $answer1 = '';
-            $gear= UTILclean($_POST["gear"], 500, '');
-            $questions= UTILclean($_POST["questions"], 500, '');
-            $need_ride= UTILclean($_POST["need_ride"], 1, '');
-            $can_take= UTILclean($_POST["can_take"], 2, '');
-            $leaving_from= UTILclean($_POST["leaving_from"], 100, '');
+
+            // Programs do not have carpooling or gear lists
+            if (UTILeventisprogram($event_id) == "Y"){
+                $gear = "";
+                $need_ride = "";
+                $can_take = "";
+                $leaving_from = "";
+            }else{
+                $gear= UTILclean($_POST["gear"], 3000, '');
+                $need_ride= UTILclean($_POST["need_ride"], 1, '');
+                $can_take= UTILclean($_POST["can_take"], 2, '');
+                $leaving_from= UTILclean($_POST["leaving_from"], 100, '');
+            }
+            $questions= UTILclean($_POST["questions"], 3000, '');
+
             if (isset($_POST["leave_time"]))
                 $leave_time= UTILclean($_POST["leave_time"], 100, '');
             else
