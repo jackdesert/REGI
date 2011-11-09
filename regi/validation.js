@@ -93,10 +93,15 @@ function checkUpdatedProfile() {
     if (document.forms.profile.experience.value == '')
         requiredFields += "   * Previous Hiking Experience\r\n";
 
-    if (requiredFields != '')
+    if (requiredFields != ''){
         alert("Please enter the following required fields:\n\r"+requiredFields);
-    else
+        return false;
+    }else if (email_not_valid(document.forms.profile.email.value)){
+        alert("Invalid email address.");
+        return false;
+    }else{
         return true;
+    }
 
     return false;
 }
@@ -192,3 +197,10 @@ function areyousure() {
         return true;
 }
 
+function email_not_valid(elementValue){
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (emailPattern.test(elementValue))
+        return false;
+    else
+        return true;
+}
