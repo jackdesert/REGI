@@ -33,6 +33,11 @@
 
     $_SESSION['Smessage'] = '';
 
+    $referer = $_SERVER['HTTP_REFERER'];
+    if (!isset($_POST['action'])){
+        UTILlog ("Referring page:  " . $referer);
+    }
+
     $action = $_POST['action'];
 
     //Allow end_date to be NULL
