@@ -444,6 +444,20 @@ function UTILreturn_single_row($query, $error_message){
         return $row;
     }
 }
+
+function UTILtattletale($input){
+    $_SESSION['Smessage'] = "An error has occurred.<br>Please log in again.<br>If this happens again, please contact REGI support.";
+    $err = "TattleTale thinks something fishy is going on. User will be logged out.\n";
+    $err .= "Message: " . $input . "\n";
+    $err .= print_r($_SESSION, true);
+    $err .= "\nReferring page: ";
+    $err .= $_SERVER['HTTP_REFERER'];
+    $err .= "All server details: \n";
+    $err .= print_r ($_SERVER, true);
+    UTILlog($err);
+    header("Location: ./logout");
+    exit();
+}
 /*Note there is purposefully no closing php tag here, because
 if you accidentally put extra characters (even line breaks)
 after a closing php tag, you will get a warning when this

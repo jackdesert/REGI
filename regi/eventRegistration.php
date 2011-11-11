@@ -33,7 +33,8 @@
 
     if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
         $my_user_id = $_SESSION['Suser_id'];
-        $user_type = $_SESSION['Suser_type'];
+        if (isset($_SESSION['Suser_type'])){$user_type = $_SESSION['Suser_type'];}
+        else{UTILtattletale("from eventRegi page, Suser_id no set");}
     } else {
         $_SESSION['Smessage'] = 'Please Log In';
         header("Location: ./login.php?event_id={$event_id}");
