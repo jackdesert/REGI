@@ -295,8 +295,9 @@
     // Send Email
     //  - Requires: SMTP mail server
 
-    function UTILsendEmail($to, $subject, $message) {
-
+    function UTIL_outdated_sendEmail($to, $subject, $message) {
+        // We now use SWIFTsend() instead
+        /*
         //define the headers we want passed. Note that they are separated with \r\n
 
         $headers = "Content-Type: text/plain; charset=\"utf-8\"\n";
@@ -312,6 +313,7 @@
 
         if (!$mail_sent)
             UTILlog("ERROR: email not sent. SUID: ($SUID) TO: ($to) SUBJECT: ($subject)");
+        */
     }
 
 
