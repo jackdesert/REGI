@@ -16,15 +16,15 @@ foreach ($statuses as $index => $reg_status){
     print $title . "\n\n";
     print $message;
     print "\n\n====================================================\n\n";
-    UTILsendEmail($to, $title, $message);
+    SWIFTsend($to, $title, $message);
 }
 
 // "You are now a leader" email
 $email_first_name = "Jack Be Nimble";
 $email_subject = "You are now a Leader in REGI";
 $email_body = new_leader_email($email_first_name, $approve = true);
-UTILsendEmail($to, $email_subject, $email_body);
+SWIFTsend($to, $email_subject, $email_body);
 $email_body = new_leader_email($email_first_name, $approve = false);
-UTILsendEmail($to, $email_subject, $email_body);
+SWIFTsend($to, $email_subject, $email_body);
 
 

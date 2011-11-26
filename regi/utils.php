@@ -25,6 +25,7 @@
     include 'security.php';
     include 'chunks.php';
     include 'emails.php';
+    include 'swift.php';
 
     //return date format
     function UTILdate($datestr) {

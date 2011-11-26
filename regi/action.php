@@ -215,7 +215,7 @@
 Please review their profile and update their registration status on the Roster page:
 http://hbbostonamc.org/regi/$event_id\n\nThank you!";
 
-                UTILsendEmail($leader_list, $title, $message);
+                SWIFTsend($leader_list, $title, $message);
             }
 
             header("Location: ./".$event_id."~confirm");
@@ -321,7 +321,7 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
                     $title="AMC REGI Status: $reg_status -- $event_name";
                     $message=reg_status_email($first_name, $reg_status, $event_name, $event_id);
 
-                    UTILsendEmail($email, $title, $message);
+                    SWIFTsend($email, $title, $message);
 
                 }
 
@@ -653,7 +653,7 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
 Please login at $link_to_admin_site to grant them LEADER status if they are indeed a leader.";
 
 
-                UTILsendEmail($SET_ADMIN_EMAIL, 'HB Leader Request', $leader_request_message);
+                SWIFTsend($SET_ADMIN_EMAIL, 'HB Leader Request', $leader_request_message);
                 $_SESSION['Smessage'] .= "<br>You have requested to be a LEADER on this site.<br>You will be notified by email when your LEADER status is active.";
             }
 
@@ -880,7 +880,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system login information.\n\n
             Your username is: $user_name\n\nThank you!";
 
-            UTILsendEmail($email, $title, $message);
+            SWIFTsend($email, $title, $message);
 
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
             $_SESSION['Smessage'] .= "<br>Sent to: " . $email;
@@ -951,7 +951,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $validation_url\n\n
             If you did not request to have your password changed, please disregard this message\n\nThank you!";
 
-            UTILsendEmail($email, $title, $message);
+            SWIFTsend($email, $title, $message);
 
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
             $_SESSION['Smessage'] .= "<br>Sent to: " . $email;
@@ -1006,7 +1006,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $email_body = new_leader_email($email_first_name, $approve = true);
             $email_subject = "You are now a Leader in REGI";
             $email_to = UTILgetEmail($leader_id);
-            UTILsendEmail($email_to, $email_subject, $email_body);
+            SWIFTsend($email_to, $email_subject, $email_body);
 
             $_SESSION['Smessage'] = "User number $leader_id is now a LEADER.<br>Email sent to $email_to";
 
@@ -1030,7 +1030,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $email_body = new_leader_email($email_first_name, $approve = false);
             $email_subject = "REGI Leader Status Declined";
             $email_to = UTILgetEmail($leader_id);
-            UTILsendEmail($email_to, $email_subject, $email_body);
+            SWIFTsend($email_to, $email_subject, $email_body);
             $_SESSION['Smessage'] = "User number $leader_id was not upgraded to a LEADER.<br>Email sent to $email_to";
 
             header("Location: ./admin");
