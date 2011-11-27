@@ -296,25 +296,23 @@
     // Send Email
     //  - Requires: SMTP mail server
 
-    function UTIL_outdated_sendEmail($to, $subject, $message) {
-        // We now use SWIFTsend() instead
-        /*
+    function UTIL_failover_sendEmail($to, $subject, $message) {
+        // We now use SWIFTsend() instead. However this is still in place
+        // as a failover mechanism
+
         //define the headers we want passed. Note that they are separated with \r\n
 
         $headers = "Content-Type: text/plain; charset=\"utf-8\"\n";
         $headers.= "From: AMC.Event.Registration\r\nReply-To: Do.Not.Reply";
 
-        $footer = "\n\n-----------------------------------------------------------------------\n";
-        $footer.= "REGI MAILER\nThank you for using the H/B Boston REGI. ";
-        $footer.= "For help, please visit our support page at http://hbbostonamc.org/regi/support.";
 
         //send the email
-        $mail_sent = mail($to, $subject, $message.$footer, $headers);
+        $mail_sent = mail($to, $subject, $message, $headers);
         //UTILlog("Mail probably sent TO: ($to) SUBJECT: ($subject) HEADERS: $headers ");
 
         if (!$mail_sent)
-            UTILlog("ERROR: email not sent. SUID: ($SUID) TO: ($to) SUBJECT: ($subject)");
-        */
+            UTILlog("ERROR: email not sent from UTIL_failover_sendEmail. TO: ($to) SUBJECT: ($subject) MESSAGE: ($message)");
+
     }
 
 

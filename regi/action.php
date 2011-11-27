@@ -33,9 +33,11 @@
 
     $_SESSION['Smessage'] = '';
 
-    $referer = $_SERVER['HTTP_REFERER'];
+    // If a bot tries to access action.php without setting the 'action',
     if (!isset($_POST['action'])){
-        UTILlog ("Referring page:  " . $referer);
+        $_SESSION['Smessage'] = "An error has occurred.<br>Please contact support.";
+        header( 'Location: ./');
+        exit();
     }
 
     $action = $_POST['action'];

@@ -1,0 +1,52 @@
+REGI
+
+Here's what you need to know to host regi:
+
+HOSTING REQUIREMENTS
+---------------------------------
+php
+mysql
+sendgrid
+pear packages: Swift and Spreadsheet_Excel_Writer
+
+EMAIL
+----------------------------------
+Email is being sent through Sendgrid
+You can log in at sendgrid.com to see how many emails have been sent out
+When you install for your particular chapter, you will need your own sendgrid account
+
+PEAR PACKAGES
+---------------------------------
+Two pear packages are required. 
+- Swift
+- Spreadsheet_Excel_Writer
+
+Once installed, make sure you update the lines that look like:
+set_include_path('/home/hbboston/pear/pear/php' . PATH_SEPARATOR . get_include_path());
+so that they use your include path (where your pear packages are installed)
+I suggest you test the email and the spreadsheet export before you launch :)
+
+eLyXer (Support Pages)
+---------------------------------
+
+The support documents are composed in a kick-ass editor named LyX. Google it. 
+eLyXer is installed as part of this git repository. Just update the .lyx documents, and eLyXer 
+will output the corresponding html
+
+UNIT TESTS
+-------------------------------
+There are unit tests in php/test/unit_tests that you should invoke using
+  'phpunit test_name.php'
+I suggest running these before each deploy. In particular, they check 
+the password hashing routine.
+
+SECURITY
+-------------------------------
+There is a document outlining the security used in REGI. It is located at
+php/docs/regi_security.lyx
+It is likely not a complete document, but it will give you a good idea of the 
+password hashing routine that is used
+
+SETTINGS
+--------------------------------
+To customize REGI for your particular instance, 
