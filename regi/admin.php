@@ -23,7 +23,7 @@
     UTILdbconnect();
 
 
-    if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
+    if (SECisUserLoggedIn($PASS_HMAC_SECRET_CODE)) {
         $my_user_id = $_SESSION['Suser_id'];
         $user_type = $_SESSION['Suser_type'];
     } else {

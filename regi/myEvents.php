@@ -26,7 +26,7 @@
     UTILdbconnect();
 
     // Notice the !!!!!!! in this next line
-    if (! SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
+    if (! SECisUserLoggedIn($PASS_HMAC_SECRET_CODE)) {
 
         // ERROR?
 

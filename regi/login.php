@@ -26,10 +26,10 @@
     else
         $event_id='';
 
-    if ($event_id <> '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
+    if ($event_id <> '' && SECisUserLoggedIn($PASS_HMAC_SECRET_CODE)) {
         header("Location: ./".$event_id);
         exit(0);
-    }elseif($event_id == '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
+    }elseif($event_id == '' && SECisUserLoggedIn($PASS_HMAC_SECRET_CODE)) {
         header("Location: ./");
         exit(0);
     }
@@ -39,7 +39,7 @@
     else
         $admin_event_id='';
 
-    if ($admin_event_id <> '' && SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
+    if ($admin_event_id <> '' && SECisUserLoggedIn($PASS_HMAC_SECRET_CODE)) {
         header("Location: ./".$admin_event_id."~admin");
         exit(0);
     }

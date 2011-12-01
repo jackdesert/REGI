@@ -84,9 +84,9 @@
 
     function UTILdbconnect() {
 
-        global $SET_DB_HOST, $PASS_DB_USER, $PASS_DB_PASSWORD, $PASS_DB_NAME;
+        global $PASS_DB_HOST, $PASS_DB_USER, $PASS_DB_PASSWORD, $PASS_DB_NAME;
 
-        $dbconn = mysql_pconnect("$SET_DB_HOST", "$PASS_DB_USER", "$PASS_DB_PASSWORD");
+        $dbconn = mysql_pconnect("$PASS_DB_HOST", "$PASS_DB_USER", "$PASS_DB_PASSWORD");
         if (!$dbconn) {
             UTILlog(mysql_error());
             header("Location: ./errorPage.php?errTitle=Database Error&errMsg=" . mysql_error());

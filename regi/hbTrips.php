@@ -24,7 +24,7 @@
     CHUNKgivehead();
     CHUNKstartbody();
     //Check cookie before building menu
-    SECisUserLoggedIn($SET_HMAC_SECRET_CODE);
+    SECisUserLoggedIn($PASS_HMAC_SECRET_CODE);
     UTILbuildmenu(0);
     CHUNKstylemessage($_SESSION);
     CHUNKstartcontent();

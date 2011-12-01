@@ -94,7 +94,7 @@
                     SECpushToSession($row);
                     //Set a cookie so they will stay logged in
                     if (isset($_POST['use_cookie']))
-                        SECwrapSetCookie($Pusername, $SET_HMAC_SECRET_CODE);
+                        SECwrapSetCookie($Pusername, $PASS_HMAC_SECRET_CODE);
                     // Update Last Login datetime
                     $query = "update users set last_login = now() where user_id = $row[user_id];";
                     $result = mysql_query($query);

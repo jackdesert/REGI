@@ -31,7 +31,7 @@
     }
 
 
-    if (SECisUserLoggedIn($SET_HMAC_SECRET_CODE)) {
+    if (SECisUserLoggedIn($PASS_HMAC_SECRET_CODE)) {
         $my_user_id = $_SESSION['Suser_id'];
         if (isset($_SESSION['Suser_type'])){$user_type = $_SESSION['Suser_type'];}
         else{UTILtattletale("from eventRegi page, Suser_id no set");}
