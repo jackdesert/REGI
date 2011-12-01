@@ -1,7 +1,9 @@
 regi/log/php_errors.log
 regi/log/errorlog.log
+regi/passwords/*
 jasmine/spec/javascripts/PlayerSpec.js
 jasmine/spec/javascripts/ex_spec.js
 test/results.txt
 docs/*~
 regi/guides/*~
+
