@@ -1,13 +1,45 @@
-REGI
+REGI, an Online Event Registration System
+==========================================
+REGI is currently being used by the Boston chapter Hiking and Backpacking
+committee to register participants for outdoors-type activities like
+hiking in the white mountains of New Hampshire, backpacking on the
+Appalachian trail, and learning to snowshoe. You can view the current
+manifestation of REGI at http://hbbostonamc.org/regi.
 
-Here's what you need to know to host regi:
+REGI offers the following features:
+
+ - Event leaders can post details about the event they are hosting,
+   including cost, meals, dates, speed and difficulty of hike/ski/bike/etc,
+   what the terrain will be like, and what type of gear is required
+   for the event.
+
+ - Participants can view all of the events being sponsored
+   by their AMC committee, and those that use REGI for registration
+   will have a direct link to the registration page.
+
+ - Participants can create a profile telling a bit about themselves,
+   including what their usual workout routine is, what kinds of
+   other outdoor experience they have, and any dietary/medicaly
+   restrictions they have
+
+ - With the help of these profiles, event leaders can screen participants,
+   making sure only those properly prepared and outfitted come along.
+
+ - Once a participant is approved for an event, he/she can see all
+   the other approved participants who are going, including contact
+   information, so they can all arrange their own carpooling.
+
 
 HOSTING REQUIREMENTS
----------------------------------
-php
-mysql
-sendgrid
-pear packages: Swift and Spreadsheet_Excel_Writer
+====================
+
+Here's what you need to know to host REGI on your own site:
+
+ - php
+ - apache with .htaccess enabled for mod_rewrite and a couple other features
+ - mysql
+ - a sendgrid account for sending mail (http://sendgrid.com)
+ - pear packages: Swift and Spreadsheet_Excel_Writer
 
 EMAIL
 ----------------------------------
@@ -17,7 +49,7 @@ When you install for your particular chapter, you will need your own sendgrid ac
 
 PEAR PACKAGES
 ---------------------------------
-Two pear packages are required. 
+Two pear packages are required.
 - Swift
 - Spreadsheet_Excel_Writer
 
@@ -29,24 +61,42 @@ I suggest you test the email and the spreadsheet export before you launch :)
 eLyXer (Support Pages)
 ---------------------------------
 
-The support documents are composed in a kick-ass editor named LyX. Google it. 
-eLyXer is installed as part of this git repository. Just update the .lyx documents, and eLyXer 
+The support documents are composed in a kick-ass editor named LyX. Google it.
+eLyXer is installed as part of this git repository. Just update the .lyx documents, and eLyXer
 will output the corresponding html
 
 UNIT TESTS
 -------------------------------
 There are unit tests in php/test/unit_tests that you should invoke using
   'phpunit test_name.php'
-I suggest running these before each deploy. In particular, they check 
+I suggest running these before each deploy. In particular, they check
 the password hashing routine.
 
 SECURITY
 -------------------------------
 There is a document outlining the security used in REGI. It is located at
 php/docs/regi_security.lyx
-It is likely not a complete document, but it will give you a good idea of the 
+It is likely not a complete document, but it will give you a good idea of the
 password hashing routine that is used
 
 SETTINGS
 --------------------------------
-To customize REGI for your particular instance, 
+To customize REGI for your particular instance, update php/regi/settings.php
+Also you will need a file php/regi/passwords/regi_passwords.php that
+contains the following:
+
+<?php
+
+    // Database
+    $PASS_DB_HOST        = "localhost";
+    $PASS_DB_NAME        = "your_db_name";
+    $PASS_DB_USER        = "your_db_user";
+    $PASS_DB_PASSWORD    = "your_db_password";
+
+    // Swift Mailer through SendGrid
+    $PASS_SWIFT_USER = 'your_sendgrid_user_name';
+    $PASS_SWIFT_PASSWORD = 'your_sendgrid_password';
+
+    // Secret code for HMAC generation (Changing this will de-authenticate all cookies associated with this site)
+    $PASS_HMAC_SECRET_CODE = "a_really_long_string_off&*&#^^%#%_characters_that_you_choose";
+
