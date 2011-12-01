@@ -84,15 +84,15 @@
 
     function UTILdbconnect() {
 
-        global $SET_DB_HOST, $SET_DB_USER, $SET_DB_PASSWORD, $SET_DB_NAME;
+        global $SET_DB_HOST, $PASS_DB_USER, $PASS_DB_PASSWORD, $PASS_DB_NAME;
 
-        $dbconn = mysql_pconnect("$SET_DB_HOST", "$SET_DB_USER", "$SET_DB_PASSWORD");
+        $dbconn = mysql_pconnect("$SET_DB_HOST", "$PASS_DB_USER", "$PASS_DB_PASSWORD");
         if (!$dbconn) {
             UTILlog(mysql_error());
             header("Location: ./errorPage.php?errTitle=Database Error&errMsg=" . mysql_error());
             exit();
         }
-        mysql_select_db("$SET_DB_NAME", $dbconn);
+        mysql_select_db("$PASS_DB_NAME", $dbconn);
         $query = "set sql_mode = 'traditional';";
         $result = mysql_query($query);
         //Complain about any errors that just happened.
