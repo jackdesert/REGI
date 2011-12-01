@@ -2,6 +2,10 @@
 set_include_path('/home/hbboston/pear/pear/php' . PATH_SEPARATOR . get_include_path());
 include_once "swift_required.php";
 function SWIFTsend($to, $subject, $plain){
+
+    global $PASS_SWIFT_USER;
+    global $PASS_SWIFT_PASSWORD;
+
     /*
      * Create the body of the message (a plain-text and an HTML version).
      * $plain is your plain-text email
