@@ -328,7 +328,7 @@ http://hbbostonamc.org/regi/$event_id\n\nThank you!";
                     $title="AMC REGI Status: $reg_status -- $event_name";
                     $message=reg_status_email($first_name, $reg_status, $event_name, $event_id);
 
-                    SWIFTsend($email, $title, $message);
+                    SWIFTsend(array($email => $first_name), $title, $message);
 
                 }
 
@@ -887,7 +887,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system login information.\n\n
             Your username is: $user_name\n\nThank you!";
 
-            SWIFTsend($email, $title, $message);
+            SWIFTsend(array($email => $first_name), $title, $message);
 
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
             $_SESSION['Smessage'] .= "<br>Sent to: " . $email;
@@ -958,8 +958,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $validation_url\n\n
             If you did not request to have your password changed, please disregard this message\n\nThank you!";
 
-            SWIFTsend($email, $title, $message);
-
+            SWIFTsend(array($email => $first_name), $title, $message);
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
             $_SESSION['Smessage'] .= "<br>Sent to: " . $email;
 
@@ -1013,7 +1012,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $email_body = new_leader_email($email_first_name, $approve = true);
             $email_subject = "You are now a Leader in REGI";
             $email_to = UTILgetEmail($leader_id);
-            SWIFTsend($email_to, $email_subject, $email_body);
+            SWIFTsend(array($email_to => $email_first_name), $email_subject, $email_body);
 
             $_SESSION['Smessage'] = "User number $leader_id is now a LEADER.<br>Email sent to $email_to";
 
@@ -1037,7 +1036,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $email_body = new_leader_email($email_first_name, $approve = false);
             $email_subject = "REGI Leader Status Declined";
             $email_to = UTILgetEmail($leader_id);
-            SWIFTsend($email_to, $email_subject, $email_body);
+            SWIFTsend(array($email_to => $email_first_name), $email_subject, $email_body);
             $_SESSION['Smessage'] = "User number $leader_id was not upgraded to a LEADER.<br>Email sent to $email_to";
 
             header("Location: ./admin");
