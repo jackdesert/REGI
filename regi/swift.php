@@ -73,7 +73,13 @@ function SWIFTsend($to, $subject, $plain){
         }
     }
     catch(Exception $e){
-        UTIL_failover_sendEmail($to, $subject, $plain);
+        $to_list = '';
+        foreach ($to as $single_email => $single_name){
+            $to_list .= '"' . $single_name . '"' . ' <' . $single_email . '>,';
+        }
+        $to_list = trim($to_list, ',');
+        UTIL_failover_sendEmail($to_list, $subject, $plain);
         UTILlog("Exception Caught: " . $e->getMessage() . "\nSending via sendmail instead");
+
     }
 }

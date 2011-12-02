@@ -207,8 +207,13 @@
                 }
                 else
                 {
-                    while($row = mysql_fetch_assoc($result))
+                    $leader_array = array();
+                    while($row = mysql_fetch_assoc($result)){
                         $leader_list=$leader_list."\"$row[first_name] $row[last_name]\" <$row[email]>, ";
+                        $real_name = $row['first_name'] . ' ' . $row['last_name'];
+                        $leader_array[$row['email']] = $real_name;
+                    }
+                    $leader_list = trim($leader_list, ',');
                 }
 
 
@@ -217,7 +222,7 @@
 Please review their profile and update their registration status on the Roster page:
 http://hbbostonamc.org/regi/$event_id\n\nThank you!";
 
-                SWIFTsend($leader_list, $title, $message);
+                SWIFTsend($leader_array, $title, $message);
             }
 
             header("Location: ./".$event_id."~confirm");
