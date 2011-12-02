@@ -882,7 +882,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $user_name=$row['user_name'];
             $first_name=$row['first_name'];
 
-            $title="AMC Boston Chapter Registration System";
+            $title="Username Reminder";
 
             $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system login information.\n\n
             Your username is: $user_name\n\nThank you!";
@@ -942,7 +942,7 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $result = mysql_query($query);
             if (!$result) UTILdberror($query);
 
-            $title="AMC Boston Chapter Registration System";
+            $title="Password Reset";
 
             //calculate path to come back to same directory
             $script_path = $_SERVER['SCRIPT_NAME'];
