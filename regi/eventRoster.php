@@ -151,7 +151,6 @@
 
 
 <h1 id='page_title'>Roster of Participants</h1>
-<i style="color: #096">Don't forget to hit 'Update Roster' at bottom to save changes.</i>
 <?php
 $table = "<form name='signup' action='action.php' method='post'>
 <table><tr class='table_header'>
@@ -303,6 +302,7 @@ $table = "<form name='signup' action='action.php' method='post'>
 $table .= "</tr></table><br>";
 $stats = "<h2>COUNT SUMMARY: Co/Leaders:$stat_count_leader  *  Submitted:$stat_count_submitted  *  Wait List:$stat_count_waitlist  *  Approved:$stat_count_approved</h2>";
     print $stats;
+    print "<p><i style='color: #096'>Don't forget to hit 'Update Roster' at bottom to save changes.</i></p>";
     print $table;
     print $stats;
 ?>
