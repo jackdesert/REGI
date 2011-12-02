@@ -24,11 +24,11 @@
     $SET_IMG_FILE_DIR       = "./image_files/";
 
     // The admin email gets notified when somebody creates an account and requests to be a leader
-    $SET_ADMIN_EMAIL = array("amcbostonhbs@gmail.com" => "REGI Admin", "jackdesert556@gmail.com" => "Jack Desert";
+    $SET_ADMIN_EMAIL = array("amcbostonhbs@gmail.com" => "REGI Admin", "jackdesert556@gmail.com" => "Jack Desert");
     //$SET_ADMIN_EMAIL = "<jackdesert556@gmail.com>";
 
     // The support email receives mail when people write to support.
-    $SET_SUPPORT_EMAIL = array("amcbostonhbs@gmail.com" => "REGI Support");
+    $SET_SUPPORT_MAILTO = "amcbostonhbs@gmail.com";
 
     $SET_OUTDOORS_LINK = "http://activities.outdoors.org/admin";
 /*Note there is purposefully no closing php tag here, because
