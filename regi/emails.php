@@ -33,9 +33,13 @@ function regi_link($event_id){
     return $link;
 }
 
-function regi_link_sentence($event_id){
+function regi_link_sentence($event_id, $approved = false){
     $link = regi_link($event_id);
-    $sentence = "You may view the REGI page for this event at $link. ";
+    if ($approved){
+        $sentence = "Please click the link below to view additional information about the event, including the meeting place, the meeting time, and the carpooling/contact information for all approved participants: $link. ";
+    }else{
+        $sentence = "You may view the REGI page for this event at $link. ";
+    }
     return $sentence;
 }
 
@@ -76,14 +80,14 @@ function reg_status_email($first_name, $reg_status, $event_name, $event_id){
             break;
         case "approved":
             $bit .= "Congratulations! You have been APPROVED to participate in the following event: $event_name. ";
-            $bit .= regi_link_sentence($event_id);
+            $bit .= regi_link_sentence($event_id, true);
             $bit .= "\n\nCARPOOL\n";
             $bit .= "Carpooling is good for the environment, and a great way to get to know people. ";
             $bit .= "We encourage you to contact other participants and find ways to share transportation. ";
             $bit .= "You can update your carpool information and view the carpool information for other ";
             $bit .= "participants by going to the REGI site for the event:  ";
             $bit .= regi_link($event_id);
-            $bit .= ".";
+            $bit .= ".\n\n";
             $bit .= contact_leader();
             break;
         case "enrolled":
