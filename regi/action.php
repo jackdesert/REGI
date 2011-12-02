@@ -884,8 +884,8 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
 
             $title="Username Reminder";
 
-            $message="Hello $first_name,\n\nThis email is being sent due to a recent request to view your AMC Boston Chapter registration system login information.\n\n
-            Your username is: $user_name\n\nThank you!";
+            $message="Hello $first_name,\n\nThis is an email to remind you of your REGI login information.\n
+username:  $user_name\n\nThank you!";
 
             SWIFTsend(array($email => $first_name), $title, $message);
 
@@ -952,11 +952,10 @@ Please login at $link_to_admin_site to grant them LEADER status if they are inde
             $validation_base = "http://" . $_SERVER['HTTP_HOST'] . $script_dir . 'enterNewPassword';
             //send validation_url
             $validation_url=$validation_base."?user_id=$user_id&pass_reset_code=$pass_reset_code";
-            $message="Hello $first_name,\n\nThis email is being sent due to a recent request to reset your AMC Boston Chapter registration system password.\n\n
-            Your username is: $user_name\n
-            Please click the following link or paste it into your browser to complete this request.\n\n
-            $validation_url\n\n
-            If you did not request to have your password changed, please disregard this message\n\nThank you!";
+            $message="Hello $first_name,\n\nYour REGI username is: $user_name\n
+To reset your REGI password, click the following link or paste it into your browser:\n\n
+$validation_url\n\n
+If you did not request to have your password changed, please disregard this message\n\nThank you!";
 
             SWIFTsend(array($email => $first_name), $title, $message);
             $_SESSION['Smessage'] = "An email has been sent and will arrive momentarily.";
