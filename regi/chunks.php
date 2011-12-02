@@ -171,7 +171,7 @@ function CHUNKdropdown($input, $selected_input){
         $selected = '';
         $new_value = $input;
     }
-    print "<option value='{$new_value}'{$selected}>{$input}";
+    return "<option value='{$new_value}'{$selected}>{$input}";
 
 }
 

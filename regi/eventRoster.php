@@ -152,11 +152,12 @@
 
 <h1 id='page_title'>Roster of Participants</h1>
 <i style="color: #096">Don't forget to hit 'Update Roster' at bottom to save changes.</i>
-<form name='signup' action='action.php' method='post'>
-<table><tr class='table_header'>
-<th></th><th>NAME / CONTACT</th><th>PROFILE & EVENT INFO</th><th>STATUS / ADMIN NOTES</th>
-
 <?php
+$table = "<form name='signup' action='action.php' method='post'>
+<table><tr class='table_header'>
+<th></th><th>NAME / CONTACT</th><th>PROFILE & EVENT INFO</th><th>STATUS / ADMIN NOTES</th>";
+
+
 
     // Display Sign-up Sheet to:
     //  - Administrators and event co/leaders, registrar
@@ -204,47 +205,47 @@
         $rowcount = 0;
         while($row = mysql_fetch_assoc($result)) {
             $even_or_odd = $rowcount % 2;
-            echo "</tr><tr class='row{$even_or_odd}'>";
+            $table .= "</tr><tr class='row{$even_or_odd}'>";
             $rowcount += 1; // can increment here because it's not referenced again later
-            echo "<td><input type='hidden' name='registration_id[]' value=$row[registration_id]>
+            $table .= "<td><input type='hidden' name='registration_id[]' value=$row[registration_id]>
 <input type='hidden' name='first_name[]' value=$row[first_name]>
 <input type='hidden' name='email[]' value=$row[email]>";
 
             if ($row['register_status']=='LEADER' || $row['register_status']=='CO-LEADER') {
-                echo 'L'.++$stat_count_leader;
+                $table .= 'L'.++$stat_count_leader;
                 $approved_email_list .= $row['email'] . ',';
             }
             else if ($row['register_status']=='SUBMITTED') {
-                echo 'S'.++$stat_count_submitted;
+                $table .= 'S'.++$stat_count_submitted;
             }
             else if ($row['register_status']=='WAIT LIST') {
-                echo 'W'.++$stat_count_waitlist;
+                $table .= 'W'.++$stat_count_waitlist;
             }
             else if ($row['register_status']=='APPROVED' || $row['register_status']=='ENROLLED') {
-                echo 'A'.++$stat_count_approved;
+                $table .= 'A'.++$stat_count_approved;
                 $approved_email_list .= $row['email'] . ',';
             }
-            echo "</td>";
+            $table .= "</td>";
 
-            echo "<td><b>$row[first_name] $row[last_name]</b>";
-            echo "<br><b>Registered:</b>".UTILtime($row['register_date'])."";
-            echo "<br><b>Member:</b> $row[member]";
-            echo "<br><b>Email:</b> $row[email]";
-            echo "<br><b>Evening:</b> $row[phone_evening]";
-            echo "<br><b>Day:</b> $row[phone_day]";
-            echo "<br><b>Cell:</b> $row[phone_cell]</td>";
+            $table .= "<td><b>$row[first_name] $row[last_name]</b>";
+            $table .= "<br><b>Registered:</b>".UTILtime($row['register_date'])."";
+            $table .= "<br><b>Member:</b> $row[member]";
+            $table .= "<br><b>Email:</b> $row[email]";
+            $table .= "<br><b>Evening:</b> $row[phone_evening]";
+            $table .= "<br><b>Day:</b> $row[phone_day]";
+            $table .= "<br><b>Cell:</b> $row[phone_cell]</td>";
 
-            echo "<td><b>Experience:</b> $row[experience]";
-            echo "<br><b>Exercise:</b> $row[exercise]";
-            echo "<br><b>Medical:</b> $row[medical]";
-            echo "<br><b>Diet:</b> $row[diet]";
-            echo "<br><b>Answer1:</b> $row[answer1]";
-            echo "<br><b>Answer2:</b> $row[answer2]";
-            echo "<br><b>Gear:</b> $row[gear]";
-            echo "<br><b>Questions:</b> $row[questions]</td>";
+            $table .= "<td><b>Experience:</b> $row[experience]";
+            $table .= "<br><b>Exercise:</b> $row[exercise]";
+            $table .= "<br><b>Medical:</b> $row[medical]";
+            $table .= "<br><b>Diet:</b> $row[diet]";
+            $table .= "<br><b>Answer1:</b> $row[answer1]";
+            $table .= "<br><b>Answer2:</b> $row[answer2]";
+            $table .= "<br><b>Gear:</b> $row[gear]";
+            $table .= "<br><b>Questions:</b> $row[questions]</td>";
 
             if ($event_is_program == 'Y')
-            echo "<td><b>PROGRAM STATUS:</b><br>
+            $table .= "<td><b>PROGRAM STATUS:</b><br>
                 <select name='set_reg_status[]'>
                 <option value='*'>$row[register_status]
                 <option disabled>-------------
@@ -257,24 +258,24 @@
                 <option value='CANCELED'>CANCELED
             </select>";
             else
-            echo "<td><b>REGISTRATION STATUS:</b><br>
+            $table .= "<td><b>REGISTRATION STATUS:</b><br>
                 <select name='set_reg_status[]'>";
             $selected_status = $row['register_status'];
-            CHUNKdropdown('LEADER', $selected_status);
-            CHUNKdropdown('CO-LEADER', $selected_status);
-            CHUNKdropdown('REGISTRAR', $selected_status);
-            print "<option disabled>-------------";
-            CHUNKdropdown('APPROVED', $selected_status);
-            CHUNKdropdown('WAIT LIST', $selected_status);
-            CHUNKdropdown('CANCELED', $selected_status);
-            CHUNKdropdown('SUBMITTED', $selected_status);
-            print "</select>";
+            $table .= CHUNKdropdown('LEADER', $selected_status);
+            $table .= CHUNKdropdown('CO-LEADER', $selected_status);
+            $table .= CHUNKdropdown('REGISTRAR', $selected_status);
+            $table .= "<option disabled>-------------";
+            $table .= CHUNKdropdown('APPROVED', $selected_status);
+            $table .= CHUNKdropdown('WAIT LIST', $selected_status);
+            $table .= CHUNKdropdown('CANCELED', $selected_status);
+            $table .= CHUNKdropdown('SUBMITTED', $selected_status);
+            $table .= "</select>";
 
-            echo "<br><b>NOTES:</b><br><textarea name='admin_notes[]' rows=5>$row[admin_notes]</textarea>";
+            $table .= "<br><b>NOTES:</b><br><textarea name='admin_notes[]' rows=5>$row[admin_notes]</textarea>";
 
             if ($program_id > 0)
             {
-                echo "<br><b>PROGRAM STATUS:</b><br> ";
+                $table .= "<br><b>PROGRAM STATUS:</b><br> ";
                 $pquery = "select register_status, payment_status
                         FROM user_events
                         WHERE event_id=$program_id
@@ -285,23 +286,26 @@
 
                 $pnumrows = mysql_num_rows($presult);
                 if ($pnumrows <> 1) {
-                    echo "NOT ENROLLED";
+                    $table .= "NOT ENROLLED";
                 } else {
                     $prow = mysql_fetch_assoc($presult);
-                    echo $prow['register_status'];
+                    $table .= $prow['register_status'];
                 }
             }
-            echo "</td>";
+            $table .= "</td>";
 
         } // end loop
 
 
     }
 
-?>
 
-</tr></table><br>
-<?php echo "<h2>COUNT SUMMARY: Co/Leaders:$stat_count_leader  *  Submitted:$stat_count_submitted  *  Wait List:$stat_count_waitlist  *  Approved:$stat_count_approved</h2>"; ?>
+$table .= "</tr></table><br>";
+$stats = "<h2>COUNT SUMMARY: Co/Leaders:$stat_count_leader  *  Submitted:$stat_count_submitted  *  Wait List:$stat_count_waitlist  *  Approved:$stat_count_approved</h2>";
+    print $stats;
+    print $table;
+    print $stats;
+?>
 <input type='hidden' name='event_id' value='<?php print $event_id; ?>'>
 <input type='hidden' name='event_name' value='<?php print $event_name; ?>'>
 <input type='submit' class='button' name='action' value='Update Roster' onclick=''>
