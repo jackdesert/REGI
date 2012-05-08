@@ -125,11 +125,17 @@ Kooji includes several enhancements over REGI, including:
     says "so and so signed up", that email goes to the user who signed up.
   - Code is much easier to maintain
 
-You can test out a live prototype of Kooji at http://evening-mountain-9380.heroku.com/
-Create a new user like normal, and if you want to turn them into a power user or admin, 
-then log in as "admin@sunni.ru" with password "pass", go to the Admin page, and make yourself
-an event creator or admin, as you wish.
 
+## Try it Out
+
+You can test out a live prototype of Kooji at http://evening-mountain-9380.heroku.com/ Once you create an account there, if you want additional privileges (like to be able to create events in the system) then you need to upgrade your account. To upgrade it, log out, then log back in with this admin account:
+
+    email: admin@sunni.ru
+    password: pass
+
+Then you will have an "Admin" tab at the top of your screen. Find the account you created for yourself, and click to make yourself either and "event creator" or a full blown "admin". 
+
+Happy viewing, and I'm always welcome to feedback.
     
 ## Contact Information
 
