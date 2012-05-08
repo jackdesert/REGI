@@ -139,9 +139,10 @@ Happy viewing, and I'm always welcome to feedback.
     
 ## Contact Information
 
-If you have questions about either hosting or contributing to either Kooji or REGI, please contact me. I'm:
+Have questions about either hosting REGI or Kooji for yourself? Do you want to take what I have and improve it? Let me know, I'd love to chat. Here's my contact information:
 
     Jack Desert
+    Entrepreneur, Hacker, Interaction Designer
     Lead Developer, REGI and Kooji
     jworky@gmail.com 
     (208) 366-6059
