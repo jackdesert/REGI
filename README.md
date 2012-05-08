@@ -1,40 +1,3 @@
-# Ruby on Rails Update: 
-
-Since I have recently become quite adept at working with Ruby on Rails, I decided
-to create a Rails implementation of REGI, named "Kooji". 
-See source code at http://github.com/jackdesert/kooji
-
-Kooji includes several enhancements over REGI, including: 
-
-  - More responsive (with fewer page loads) using AJAX for things like 
-    approving users
-  - News feed showing what your most recent activity is (like who you 
-    approved for a trip, what you signed up for, when you last updated
-    your profile, etc.)
-  - Photos of each user, displayable on the carpooling page, so you 
-    can get to know people better that you hiked with
-  - A leader blurb, or philosophy, displayed on each event that leader is 
-    associated with. By seeing the leader's name, photo, and philosophy blurb
-    before you even sign up, you have a better sense of whether his/her leadership
-    style will mesh with what you're looking to get out of the adventure
-  - An enhanced ADMIN page, where you can see all leaders in the system, and 
-    easily upgrade them to be admins if you like
-  - Carpooling page with entries grouped by whether they are offering or 
-    soliciting a ride
-  - Enhanced menus
-  - Clear delineation of who is the registrar for the event. This allows a user 
-    to respond to a system email, and it will go to the registrar for the 
-    event. Likewise, if a leader or registrar responds to the email that 
-    says "so and so signed up", that email goes to the user who signed up.
-  - Code is much easier to maintain
-  
-You can test out a live prototype of Kooji at http://evening-mountain-9380.heroku.com/
-Create a new user like normal, and if you want to turn them into a power user or admin, 
-then log in as "admin@sunni.ru" with password "pass", go to the Admin page, and make yourself
-an event creator or admin, as you wish. 
-
-And now, back to our regularly scheduled event:
-
 # REGI, an Online Event Registration System
 
 REGI is currently being used by the Boston chapter Hiking and Backpacking
@@ -131,6 +94,43 @@ contains the following:
     // Secret code for HMAC generation (Changing this will de-authenticate all cookies associated with this site)
     $PASS_HMAC_SECRET_CODE = "a_really_long_string_off#^^%#%_characters_that_you_choose";
 
+
+# Ruby on Rails Update: 
+
+Since I have recently become quite adept at working with Ruby on Rails, I decided
+to create a Rails implementation of REGI, named "Kooji". 
+See source code at http://github.com/jackdesert/kooji
+
+Kooji includes several enhancements over REGI, including: 
+
+  - More responsive (with fewer page loads) using AJAX for things like 
+    approving users
+  - News feed showing what your most recent activity is (like who you 
+    approved for a trip, what you signed up for, when you last updated
+    your profile, etc.)
+  - Photos of each user, displayable on the carpooling page, so you 
+    can get to know people better that you hiked with
+  - A leader blurb, or philosophy, displayed on each event that leader is 
+    associated with. By seeing the leader's name, photo, and philosophy blurb
+    before you even sign up, you have a better sense of whether his/her leadership
+    style will mesh with what you're looking to get out of the adventure
+  - An enhanced ADMIN page, where you can see all leaders in the system, and 
+    easily upgrade them to be admins if you like
+  - Carpooling page with entries grouped by whether they are offering or 
+    soliciting a ride
+  - Enhanced menus
+  - Clear delineation of who is the registrar for the event. This allows a user 
+    to respond to a system email, and it will go to the registrar for the 
+    event. Likewise, if a leader or registrar responds to the email that 
+    says "so and so signed up", that email goes to the user who signed up.
+  - Code is much easier to maintain
+
+You can test out a live prototype of Kooji at http://evening-mountain-9380.heroku.com/
+Create a new user like normal, and if you want to turn them into a power user or admin, 
+then log in as "admin@sunni.ru" with password "pass", go to the Admin page, and make yourself
+an event creator or admin, as you wish.
+
+    
 ## Contact Information
 
 If you have questions about either hosting or contributing to either Kooji or REGI, please contact me. I'm:
